@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html class="no-js core" data-next-app="tag-page">
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta http-equiv="Content-Language" content="zh-CN"/>
+<title>{story-headline} - FT中文网</title>
+<META name=keywords content="{story-tag}">
+<meta content="" name="description"/>
+<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<script>
+window.cutsTheMustard = (typeof Function.prototype.bind !== 'undefined');
+if (window.cutsTheMustard) {
+document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/, 'js').replace(/\bcore\b/, 'enhanced');
+}
+</script>
+<style>{{story-css}}</style>
+<link rel="icon" type="image/png" href="https://www.ft.com/__origami/service/image/v2/images/raw/http%3A%2F%2Fstatic.ftchinese.com%2Fimg%2Ffriend-share-icon.jpg?source=ftchinese&width=32&height=32" sizes="32x32">
+<link rel="icon" type="image/png" href="https://www.ft.com/__origami/service/image/v2/images/raw/http%3A%2F%2Fstatic.ftchinese.com%2Fimg%2Ffriend-share-icon.jpg?source=ftchinese&width=194&height=194" sizes="194x194">
+<link rel="apple-touch-icon" sizes="180x180" href="https://www.ft.com/__origami/service/image/v2/images/raw/http%3A%2F%2Fstatic.ftchinese.com%2Fimg%2Ffriend-share-icon.jpg?source=ftchinese&width=180&height=180" />
+<meta name="msapplication-TileColor" content="#fff1e0" />
+<meta name="msapplication-TileImage" content="https://www.ft.com/__origami/service/image/v2/images/raw/http%3A%2F%2Fstatic.ftchinese.com%2Fimg%2Ffriend-share-icon.jpg?source=ftchinese&width=144&height=144" />
+<script>var startTime = new Date().getTime();</script>
+<script>
+if ( screen.width<=480) {
+document.write('<meta content="FT中文网" name="application-name" /><meta content="app-id=443870811" name="apple-itunes-app" />');
+} else {
+document.write('<meta content="FT中文网" name="application-name" /><meta content="app-id=396124008" name="apple-itunes-app" />');
+}
+</script>
+
+<script>
+var gKeyTag = '{story-tag}';
+var gauthor="{story-author}".replace(/ and /g,",").replace(/([\s\_]+)[Bb]y /g,"$1").replace(/ in .*/g,"").replace(/,.*/g,"").replace(/\s+$/g,"").replace(/^\s+/g,"").replace(/\s+/g,"_");
+</script>
+<script>var ftcteam="Translation";</script>
+<script type="text/javascript">
+var gPageId = 'story';
+var storyGenre="{story-genre}";
+var storyArea="{story-area}";
+var storyIndustry="{story-industry}";
+var mainTopic="{story-main-topic}";
+var subTopic="{story-sub-topic}";
+</script>
+<script type="text/javascript">var FTadchannelID = '';</script>
+<script type="text/javascript">{{story-js-key}}</script>
+<!--[if lte IE 8]>
+<script>
+document.documentElement.className += ' is-ie-8';
+document.createElement('figure');
+document.createElement('header');
+document.createElement('nav');
+document.createElement('section');
+document.createElement('article');
+document.createElement('aside');
+document.createElement('footer');
+var wIE = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
+var cssId = 'ie-css';
+var cssFile = '';
+if (!document.getElementById(cssId)) {
+var head  = document.getElementsByTagName('head')[0];
+var link  = document.createElement('link');
+link.id   = cssId;
+link.rel  = 'stylesheet';
+link.type = 'text/css';
+cssFile = (wIE>=1200)?'XL':'L';
+link.href = 'http://static.ftchinese.com/n/main-ie-'+ cssFile +'.css?1498190477334';
+link.media = 'all';
+head.appendChild(link);
+}
+</script>
+<![endif]-->
+
+<script type="text/javascript">
+if(typeof startTime === "undefined"){
+var startTime=new Date().getTime();
+}
+var adchID = '1600';
+var adchIDNew = window.location.href.replace(/^.*adchannelID=([0-9]{4}).*$/g,'$1');
+if (/^[0-9]{4}$/.test(adchIDNew)) {
+adchID = adchIDNew;
+}
+var FTStoryid = '{story-id}';
+</script>
+<!-- MARK: Important: Need to add Google Analytics load events manually -->
+<script>
+{{analytics}}
+</script>
+<script>
+ga('create', 'UA-1608715-1', 'auto');
+ga('require', 'displayfeatures');
+if (window.gAutoStart === undefined) {
+try {
+trackerNew();
+}catch(err){
+ga('send', 'pageview');
+}
+}
+</script>
+<!-- End Google Analytics -->
+<!-- link click -->
+<script>
+function linkClickGa(e){
+ga('send','event','AdClick', $(e).attr("href"), "An");
+}
+</script>
+<!-- End link click -->
+<!-- FTC Analytics -->
+<script>
+fa('create', 'UA-XXXX-Y', { 'alwaysSendReferrer': true });   // Replace with your property ID.
+if (window.gAutoStart === undefined) {fa('send', 'pageview');}
+</script>
+<!-- End FTC Analytics -->
+<!-- Log Analytics -->
+<script>
+if (window.gAutoStart === undefined) {
+(function(d, s, u, j, x) {
+j = d.createElement(s),
+x = d.getElementsByTagName(s)[0];
+j.async = true;
+j.src = u;
+x.parentNode.insertBefore(j, x)
+})(document, 'script', 'http://static.ftchinese.com/js/log.js?v=7&20160318');
+}
+</script>
+<!-- End Log Analytics -->
+<!-- Baidu Analytics -->
+<script>
+var _hmt = _hmt || [];
+(function() {
+var hm = document.createElement("script");
+hm.src = "https://hm.baidu.com/hm.js?6f808c64c1308274ef22324b340e40af";
+var s = document.getElementsByTagName("script")[0]; 
+s.parentNode.insertBefore(hm, s);
+})();
+</script>
+<!-- End Baidu Analytics -->
+<script>
+var gIsCurrentAdchFinal = false;
+</script>
+<!--isCurrentAdchFinal: no--></head>
+<body class="">
+
+
+<div class="bn-ph">
+<div class="banner-container">
+<div class="banner-inner">
+<div class="banner-content">
+<script type="text/javascript">document.write (writeAd('banner'));</script>
+</div>
+</div>
+</div>
+</div>
+<div class="block-container has-side story-page"><div class="block-inner">
+<div class="content-container"><div class="content-inner">
+<div class="story-container">
+    <div class="story-theme"><a target="_blank" href="/tag/{story-tag}">{story-tag}</a></div>
+<h1 class="story-headline" id="story-headline-ios">{story-headline}</h1>
+<div class="story-lead">{story-lead}</div>
+{story-image}
+<div class="story-byline">
+    <span class="story-time">{story-time}</span>
+    <span class="story-author">{story-byline}</span>
+</div>
+
+<div class="story-body">
+
+
+
+
+
+
+<div id="ios-story-body">
+{story-body}
+</div>
+
+
+<div class="clearfloat"></div>
+</div>
+
+</div>
+<div class="clearfloat block-bottom"></div>
+</div></div>
+<div class="side-container"><div class="side-inner">
+<div class="mpu-container first-child">
+<script type="text/javascript">document.write (writeAd('storympu'));</script>
+</div>
+
+{related-stories}
+
+<div class="mpu-container">
+<script type="text/javascript">document.write (writeAd('storympu'));</script>
+</div>
+<div class="story-box last-child">
+<h2 class="box-title"><a>相关话题</a></h2>
+<ul class="top10">
+{related-topics}
+</ul>
+</div>
+</div></div><div class="clearfloat"></div>
+</div></div><div class="block-container no-side" id="story-recommend-container"><div class="block-inner">
+<div class="content-container"><div class="content-inner">
+<div class="list-container"><div class="list-inner">
+<h2 class="list-title"><a class="list-link" href="#">您可能感兴趣的文章</a></h2>
+<div class="items" id="story-recommend"></div>
+</div></div>
+</div></div>
+<div class="clearfloat block-bottom"></div>
+</div></div><div class="bn-ph">
+<div class="banner-container">
+<div class="banner-inner">
+<div class="banner-content">
+<script type="text/javascript">document.write (writeAd('banner'));</script>
+</div>
+</div>
+</div>
+</div>
+<div class="footer-container"><div class="footer-inner">
+<div>
+<a href="/m/corp/aboutus.html">关于我们</a>
+<a href="https://ft.wd3.myworkdayjobs.com/FT_Chinese_External_Careers" target="_blank">加入我们</a>
+<a href="/m/corp/faq.html">问题回馈</a>
+<a href="/m/corp/contact.html">联系方式</a>
+<a href="/m/corp/partner.html">合作伙伴</a>
+<a href="/m/corp/service.html">服务条款</a>
+<a href="/m/corp/sales.html">广告业务 </a>
+<a href="/m/corp/copyright.html">版权声明</a>
+<a href="/m/marketing/ftc.html">最新动态</a>
+</div>
+<p>
+<span class="copyright"><b>© The Financial Times Ltd 2017</b></span> 
+<span><acronym title="Financial Times">FT</acronym> and 'Financial Times' are trademarks of The Financial Times Ltd.</span>
+</p>
+</div></div>
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start': new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-KP4V3G');</script><div class="app-download-container">
+<a href="http://app.ftchinese.com/download.html?utm_source=marketing&utm_medium=campaign&utm_campaign=QRCODE02" target="_blank">
+<div>FT中文网客户端</div>
+<figure class="loading" data-url="http://s.ftimg.net/img/qr/qr90-2.png"></figure>
+<div>点击或扫描下载</div>
+</a>
+</div>
+<div class="app-download-container wechat">
+<a href="/m/corp/follow.html" target="_blank">
+<div>FT中文网微信</div>
+<figure class="loading" data-url="http://i.ftimg.net/picture/6/000060716_piclink.jpg"></figure>
+<div>扫描关注</div>
+</a>
+</div>
+<a class="app-download-bar-container" href="http://app.ftchinese.com/download.html?utm_source=marketing&utm_medium=campaign&utm_campaign=WECHAT01">
+<div class="app-download-bar-inner">
+<div class="app-download-bar-image">
+<figure class="loading" data-url="http://static.ftchinese.com/img/friend-share-icon.jpg"></figure>
+</div>
+<button class="app-download-bar-button">免费下载</button>
+<div class="app-download-bar-text"><b>FT中文网</b>全球财经精粹，中英对照</div>
+</div>
+</a><div class="overlay-container" id="font-setting">
+<div class="overlay-inner">
+<div class="overlay-bg" data-parentid="font-setting"></div>
+<div class="overlay-content-outer">
+<div class="overlay-content-inner">
+<div class="overlay-content">
+<div class="overlay-title">设置字号<i class="overlay-close" data-parentid="font-setting">×</i></div>
+<span class="font-options" id="font-options">
+<div class="smallest first-child" data-font="0.8">最小</div>
+<div class="smaller" data-font="0.9">较小</div>
+<div class="normal" data-font="1">默认</div>
+<div class="bigger" data-font="1.2">较大</div>
+<div class="biggest" data-font="1.6">最大</div>
+</span>
+</div>
+</div>
+</div>
+</div>
+</div><div class="overlay-container" id="share-legacy">
+<div class="overlay-inner">
+<div class="overlay-bg" data-parentid="share-legacy"></div>
+<div class="overlay-content-outer">
+<div class="overlay-content-inner">
+<div class="overlay-content">
+<div class="overlay-title">分享<i class="overlay-close" data-parentid="share-legacy">×</i></div>
+<span id="sharelinks"></span>
+</div>
+</div>
+</div>
+</div>
+</div></body>
+<script type="text/javascript">{{story-js-main}}</script>
+
+<script>
+    function updateHeadline(headline) {
+        var headlineEle = document.querySelector('.story-headline');
+        headlineEle.innerHTML = headline.replace("{singlequote}", "'");
+    }
+function updateBody(body) {
+    var bodyEle = document.getElementById('ios-story-body');
+    var bodyHTML = body.replace("{singlequote}", "'");
+    bodyEle.innerHTML = bodyHTML;
+    window.scrollTo(0, 0);
+}
+</script>
+</html>

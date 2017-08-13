@@ -1,0 +1,13 @@
+{
+  "name": "web-newftciphone",
+  "private": true,
+  "dependencies": {
+    "jquery": "~2.1.1"
+  },
+  "devDependencies": {
+    "chai": "^4.1.1",
+    "mocha": "^3.5.0",
+    "ftcnext": "https://github.com/FTChinese/NEXT.git",
+    "ftcwebapp": "https://github.com/FTChinese/webapp-v2.git"
+  }
+}
