@@ -154,7 +154,7 @@ var gIsCurrentAdchFinal = false;
 </div>
 <div class="block-container has-side story-page"><div class="block-inner">
 <div class="content-container"><div class="content-inner">
-<div class="story-container">
+<div class="story-container"{story-container-style}>
     <div class="story-theme"><a target="_blank" href="/tag/{story-tag}">{story-tag}</a></div>
 <h1 class="story-headline" id="story-headline-ios">{story-headline}</h1>
 <div class="story-lead">{story-lead}</div>
@@ -215,7 +215,7 @@ var gIsCurrentAdchFinal = false;
 </div>
 
 <script type="text/javascript">
-    loadcomment('{story-id}', 'allcomments', 'story');
+    loadcomment('{story-id}', 'allcomments', '{comments-order}');
     checkLogin();
     clickToSubmitComment();
 </script>
@@ -237,7 +237,7 @@ var gIsCurrentAdchFinal = false;
 <div class="mpu-container">
 <script type="text/javascript">document.write (writeAd('storympu'));</script>
 </div>
-<div class="story-box last-child">
+<div class="story-box last-child"{story-container-style}>
 <h2 class="box-title"><a>相关话题</a></h2>
 <ul class="top10">
 {related-topics}
