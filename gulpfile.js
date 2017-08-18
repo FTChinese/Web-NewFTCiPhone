@@ -183,7 +183,7 @@ gulp.task('default', () => {
 
 
 // MARK: Create the HTML files for iOS Native App
-gulp.task('ios', ['build'], function () {
+gulp.task('ios', ['grab', 'build'], function () {
   var replace = require('gulp-replace');
   var rename = require("gulp-rename");
   var thedatestamp = new Date().getTime();
@@ -199,6 +199,9 @@ gulp.task('ios', ['build'], function () {
 
   // var googleanalytics = fs.readFileSync('dist/log/ga.js', 'utf8');
   // var fa = fs.readFileSync('dist/log/analytics.js', 'utf8');
+
+  gulp.src(['app/templates/register.html'])
+    .pipe(gulp.dest('../NewFTCApp-iOS/Page/FTChinese/'));
 
   return gulp.src(['app/templates/story.html'])
     .pipe($.if('*.html', $.htmlmin({collapseWhitespace: true})))
@@ -224,9 +227,43 @@ gulp.task('ios', ['build'], function () {
     //.pipe(rename('androidappbig5.html'));
 });
 
+gulp.task('grab', function () {
+  getUrltoFile('http://app003.ftmailbox.com/index.php/users/register?i=4&webview=ftcapp', './app/templates/register.html');
+});
 
 
-
+// MARK: code created for this project specifically
+function getUrltoFile (urlSource, fileName) {
+  var http = require('http');
+  var url = require('url');
+  var options = {
+      host: url.parse(urlSource).hostname,
+      path: url.parse(urlSource).pathname + unescape(url.parse(urlSource).search || '')
+  }
+  console.log (options.path);
+  var request = http.request(options, function (res) {
+      var data = '';
+      res.on('data', function (chunk) {
+          data += chunk;
+      });
+      //console.log (data);
+      res.on('end', function () {
+        var fs = require('fs');
+        fs.writeFile(fileName, data, function(err) {
+            if(err) {
+                return console.log(err);
+            }
+            console.log(urlSource);
+            console.log('writen to');
+            console.log(fileName);
+        });
+      });
+  });
+  request.on('error', function (e) {
+      console.log(e.message);
+  });
+  request.end();
+}
 
 
 
