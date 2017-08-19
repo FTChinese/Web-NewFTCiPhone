@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html class="no-js core" data-next-app="front-page">
+ <head>
+ <meta charset="utf-8" />
+ <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+ <meta http-equiv="Content-Language" content="zh-CN"/>
+ <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+<style>
+    {{search-css}}
+</style>
+<!-- MARK: Important: Need to add Google Analytics load events manually -->
+<script>
+{{analytics}}
+</script>
+<script>
+ga('create', 'UA-1608715-1', 'auto');
+ga('require', 'displayfeatures');
+if (window.gAutoStart === undefined) {
+try {
+trackerNew();
+}catch(err){
+ga('send', 'pageview');
+}
+}
+</script>
+<!-- End Google Analytics -->
+<!-- link click -->
+<script>
+function linkClickGa(e){
+ga('send','event','AdClick', $(e).attr("href"), "An");
+}
+</script>
+<!-- End link click -->
+<!-- FTC Analytics -->
+<script>
+fa('create', 'UA-XXXX-Y', { 'alwaysSendReferrer': true });   // Replace with your property ID.
+if (window.gAutoStart === undefined) {fa('send', 'pageview');}
+</script>
+<!-- End FTC Analytics -->
+<!-- Log Analytics -->
+<script>
+if (window.gAutoStart === undefined) {
+(function(d, s, u, j, x) {
+j = d.createElement(s),
+x = d.getElementsByTagName(s)[0];
+j.async = true;
+j.src = u;
+x.parentNode.insertBefore(j, x)
+})(document, 'script', 'http://static.ftchinese.com/js/log.js?v=7&20160318');
+}
+</script>
+<!-- End Log Analytics -->
+<!-- Baidu Analytics -->
+<script>
+var _hmt = _hmt || [];
+(function() {
+var hm = document.createElement("script");
+hm.src = "https://hm.baidu.com/hm.js?6f808c64c1308274ef22324b340e40af";
+var s = document.getElementsByTagName("script")[0]; 
+s.parentNode.insertBefore(hm, s);
+})();
+</script>
+<!-- End Baidu Analytics -->
+ </head>
+
+ <body>
+
+ <div id="search-results"></div>
+
+<script>
+{{search-js}}
+</script>
+
+ </body>
+</html>

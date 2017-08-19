@@ -187,20 +187,25 @@ gulp.task('ios', ['grab', 'build'], function () {
   var replace = require('gulp-replace');
   var rename = require("gulp-rename");
   var thedatestamp = new Date().getTime();
-
-
-
-  
   var fs = require('fs');
   var storyCSS = fs.readFileSync('dist/styles/main-story.css', 'utf8');
   var storyMainJS = fs.readFileSync('dist/scripts/main-story.js', 'utf8');
   var storyKeyJS = fs.readFileSync('dist/scripts/key.js', 'utf8');
   var analyticsJS = fs.readFileSync('dist/scripts/analytics.js', 'utf8');
+  var searchCSS  = fs.readFileSync('dist/styles/main-search.css', 'utf8');
+  var searchJS = fs.readFileSync('dist/scripts/search.js', 'utf8');
 
   // var googleanalytics = fs.readFileSync('dist/log/ga.js', 'utf8');
   // var fa = fs.readFileSync('dist/log/analytics.js', 'utf8');
 
   gulp.src(['app/templates/register.html'])
+    .pipe(gulp.dest('../NewFTCApp-iOS/Page/FTChinese/'));
+
+  gulp.src(['app/templates/search.html'])
+    .pipe($.if('*.html', $.htmlmin({collapseWhitespace: true})))
+    .pipe(replace('{{search-css}}', searchCSS))
+    .pipe(replace('{{search-js}}', searchJS))
+    .pipe(replace('{{analytics}}', analyticsJS))
     .pipe(gulp.dest('../NewFTCApp-iOS/Page/FTChinese/'));
 
   return gulp.src(['app/templates/story.html'])
