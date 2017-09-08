@@ -1,0 +1,61 @@
+@import "ftcnext/app/styles/main-story";
+
+.ebook-container {
+	padding: $defaultPadding/2;
+	margin: auto;
+	max-width: 1024px;
+}
+.book-title-container {
+	display: none;
+	background-color: #f2dfce;
+	margin-bottom: $defaultPadding/2;
+}
+.book-tag {
+	text-align: center;
+	font-size: 0.8em;
+	font-weight: bold;
+	padding-top: 5px;
+	&:after {
+		content: '';
+		display: block;
+		margin: 5px auto;
+		width: 60px;
+		border-top: 4px solid #FF8833;
+	}
+}
+
+.book-title {
+	text-align: center;
+	font-weight: bold;
+	font-size: 1.2em;
+	padding: 5px 0 $defaultPadding/2 0;
+
+}
+
+@media only screen and (max-width: 490px) {
+	.ebook-image-container {
+		position: relative;
+		margin-bottom: 0;
+		padding-bottom: 0;
+		.ebook-image-inner {
+			padding: 0 30%;
+			position: relative;
+			&:before {
+				content: '';
+				background-color: #f2dfce;
+				display: block;
+	    		position: absolute;
+			    top: 50%;
+			    left: 0;
+			    right: 0;
+			    bottom: 0;
+			}
+		}
+	}
+	.book-title-container {
+		display: block;
+	}
+	.story-headline {
+		display: none;
+	}
+}

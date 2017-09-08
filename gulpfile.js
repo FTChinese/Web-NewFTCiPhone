@@ -195,6 +195,10 @@ gulp.task('ios', ['grab', 'build'], function () {
   var searchCSS  = fs.readFileSync('dist/styles/main-search.css', 'utf8');
   var searchJS = fs.readFileSync('dist/scripts/search.js', 'utf8');
 
+  var ebookCSS = fs.readFileSync('dist/styles/main-ebook.css', 'utf8');
+  var ebookMainJS = fs.readFileSync('dist/scripts/main-ebook.js', 'utf8');
+  var ebookKeyJS = fs.readFileSync('dist/scripts/key-ebook.js', 'utf8');
+
   // var googleanalytics = fs.readFileSync('dist/log/ga.js', 'utf8');
   // var fa = fs.readFileSync('dist/log/analytics.js', 'utf8');
 
@@ -208,7 +212,7 @@ gulp.task('ios', ['grab', 'build'], function () {
     .pipe(replace('{{analytics}}', analyticsJS))
     .pipe(gulp.dest('../NewFTCApp-iOS/Page/FTChinese/'));
 
-  return gulp.src(['app/templates/story.html'])
+  gulp.src(['app/templates/story.html'])
     .pipe($.if('*.html', $.htmlmin({collapseWhitespace: true})))
     .pipe(replace('{{story-css}}', storyCSS))
     .pipe(replace('{{story-js-main}}', storyMainJS))
@@ -216,6 +220,17 @@ gulp.task('ios', ['grab', 'build'], function () {
     .pipe(replace('{{analytics}}', analyticsJS))
     .pipe(rename('story.html'))
     .pipe(gulp.dest('../NewFTCApp-iOS/Page/FTChinese/'));
+
+
+  gulp.src(['app/templates/ebook.html'])
+    .pipe($.if('*.html', $.htmlmin({collapseWhitespace: true})))
+    .pipe(replace('{{story-css}}', ebookCSS))
+    .pipe(replace('{{story-js-main}}', ebookMainJS))
+    .pipe(replace('{{story-js-key}}', ebookKeyJS))
+    .pipe(replace('{{analytics}}', analyticsJS))
+    .pipe(rename('ebook.html'))
+    .pipe(gulp.dest('../NewFTCApp-iOS/Page/FTChinese/'));
+
     // .on('end', function() {
     //   var fs = require('fs');
     //   var chineseConv = require('chinese-conv');

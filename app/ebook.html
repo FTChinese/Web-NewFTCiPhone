@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html class="no-js core" data-next-app="front-page">
+ <head>
+ <meta charset="utf-8" />
+ <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+ <title>电子书</title>
+ <meta http-equiv="Content-Language" content="zh-CN"/>
+ <meta content="<%$p.meta.description%>" name="description"/>
+ <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+ <link rel="apple-touch-icon-precomposed" href="http://static.ftchinese.com/img/ipad_icon.png" />
+ <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+ <link rel="preconnect" href="http://static.ftchinese.com" />
+ <link rel="preconnect" href="http://i.ftimg.net" />
+ <script>
+ window.errorBuffer = window.errorBuffer || [];
+ function beaconCssError(e) {
+ window.errorBuffer.push({
+ error: e ? e : new Error('CSS failed to load.'),
+ context: {
+ isMobileNetork: document.cookie.replace(/(?:(?:^|.*;\s*)h2_isMobile\s*\=\s*([^;]*).*$)|^.*$/, "$1") === '' ? false : true
+ }
+ });
+ }
+ </script>
+
+<script>
+var gPageId = 'story';
+window.cutsTheMustard = (typeof Function.prototype.bind !== 'undefined');
+if (window.cutsTheMustard) {
+document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/, 'js').replace(/\bcore\b/, 'enhanced');
+}
+</script>
+
+<!--[if lte IE 8]>
+    <script>
+        document.documentElement.className += ' is-ie-8';
+        document.createElement('figure');
+        document.createElement('header');
+        document.createElement('nav');
+        document.createElement('section');
+        document.createElement('article');
+        document.createElement('aside');
+        document.createElement('footer');
+    </script>
+<![endif]-->
+
+
+<!-- build:css styles/main-ebook.css -->
+<link rel="stylesheet" href="styles/main-ebook.css">
+<!-- endbuild -->
+
+<script type="text/javascript">
+if(typeof startTime === "undefined"){
+var startTime=new Date().getTime();
+}
+var adchID = '1300';
+window.sponsorMobile = false;
+var dolRand = Math.round(Math.random()*1000000000);//定义slot随机数实现联动互斥功能
+</script>
+
+
+<!-- build:js scripts/key-ebook.js -->
+<script type="text/javascript" src="/bower_components/ftcnext/app/scripts/key.js"></script>
+<!-- endbuild -->
+
+ <link rel="icon" type="image/png" href="https://next-geebee.ft.com/assets/brand-alpha/icons/favicon-32x32.png" sizes="32x32">
+ <link rel="icon" type="image/png" href="https://next-geebee.ft.com/assets/brand-alpha/icons/favicon-194x194.png" sizes="194x194">
+ <link rel="apple-touch-icon" sizes="180x180" href="https://next-geebee.ft.com/assets/brand-alpha/icons/apple-touch-icon-180x180.png" />
+ <meta name="msapplication-TileColor" content="#fff1e0" />
+ <meta name="msapplication-TileImage" content="https://next-geebee.ft.com/assets/brand-alpha/icons/mstile-144x144.png" />
+ <script>
+ window.cutsTheMustard = (typeof Function.prototype.bind !== 'undefined');
+ if (window.cutsTheMustard) {
+ document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/, 'js').replace(/\bcore\b/, 'enhanced');
+ }
+ </script>
+ 
+ <!--[if lte IE 8]>
+ <link rel="stylesheet" href="https://next-geebee.ft.com/hashed-assets/front-page/35cf21f8/ie8.css" />
+ <![endif]-->
+ <script>var startTime = new Date().getTime();</script>
+ <script>
+ if ( screen.width<=480) {
+ document.write('<meta content="FT中文网" name="application-name" /><meta content="app-id=443870811" name="apple-itunes-app" />');
+ } else {
+ document.write('<meta content="FT中文网" name="application-name" /><meta content="app-id=396124008" name="apple-itunes-app" />');
+ }
+ var FTStoryid = '001068671';
+ </script>
+ <link rel="alternate" type="application/rss+xml" title="FT中文网 - 每日更新" href="/rss/feed" />
+ <link rel="alternate" type="application/rss+xml" title="FT中文网 - 双语阅读" href="/rss/diglossia" />
+ <link rel="alternate" type="application/rss+xml" title="FT中文网 - 今日焦点" href="/rss/news" />
+ <link rel="alternate" type="application/rss+xml" title="FT中文网 - 生活时尚" href="/rss/lifestyle" />
+ <link rel="alternate" type="application/rss+xml" title="FT中文网 - 一周十大热门文章" href="/rss/hotstoryby7day" />
+ <link rel="alternate" type="application/rss+xml" title="FT中文网 - 热门用户评论" href="/rss/hotusercomment" />
+ <link rel="search" type="application/opensearchdescription+xml" title="FT中文网财经搜索" href="/opensearch.xml">
+
+
+
+
+<!-- build:js scripts/analytics.js -->
+<script type="text/javascript" src="/bower_components/ftcwebapp/app/log/ga.js"></script>
+<script type="text/javascript" src="/bower_components/ftcwebapp/app/log/analytics.js"></script>
+<!-- endbuild -->
+
+
+    <!-- Google Analytics -->
+    <script>
+    ga('create', 'UA-1608715-1');
+    ga('require', 'displayfeatures');
+    try {
+    trackerNew();
+    trackAdClick();
+    }catch(err){
+    ga('send', 'pageview');
+    }
+    </script>
+    <!-- End Google Analytics -->
+
+    <!-- link click -->
+    <script>
+        function linkClickGa(e){
+            ga('send','event','AdClick', $(e).attr("href"), "An");
+        }
+    </script>
+    <!-- End link click -->
+
+    <!-- FTC Analytics -->
+    <script>
+        fa('create', 'UA-XXXX-Y', { 'alwaysSendReferrer': true }); 
+        if (window.gAutoStart === undefined) {fa('send', 'pageview');}
+    </script>
+    <!-- End FTC Analytics -->
+
+    <!-- Log Analytics -->
+    <script>
+        (function(d, s, u, j, x) {
+            j = d.createElement(s),
+            x = d.getElementsByTagName(s)[0];
+            j.async = true;
+            j.src = u;
+            x.parentNode.insertBefore(j, x)
+        })(document, 'script', 'http://static.ftchinese.com/js/log.js?v=7&20160318');
+    </script>
+    <!-- End Log Analytics -->
+
+    
+ </head>
+<body>
+
+<div class="ebook-container">
+<h1 class="story-headline" id="story-headline-ios">精选2016，展望2017</h1>
+<div class="leftPic image portrait-img ebook-image-container"><div class="ebook-image-inner">
+<figure data-url="http://i.ftimg.net/picture/9/000068669_piclink.jpg" class="loading"></figure>
+</div></div>
+
+<div class="book-title-container">
+    <div class="book-tag">电子书</div>
+    <div class="book-title">精选2016，展望2017</div>
+</div>
+
+<div class="story-body"><div id="ios-story-body"><p>2016年，国际政坛波诡云谲，黑天鹅事件频发；中国经济热点频现，争论不休；中国人最牵挂的楼市、股市、外汇市场，经历了怎样的波动？对家庭资产造成了怎样的影响；中国互联网和新兴科技行业，可以同时看到未来和过去的影子……是什么在扇动黑天鹅们的翅膀？2017年，我们熟悉的那个世界是否正在远去？中国又该如何应对？英国《金融时报》编辑精选中国经济、中国与世界、媒体与社交媒体、生活话题、公共政策、互联网与创新经济、国际话题、投资与财富管理，等领域的必读文章，进行深入解读，希望可以帮助读者预判未来走势。</p></div>
+</div>
+</body>
+
+
+
+<!-- build:js scripts/main-ebook.js -->
+<script type="text/javascript" src="/bower_components/ftcnext/app/scripts/dom-delegate.js"></script>
+<script type="text/javascript" src="/bower_components/ftcnext/app/scripts/main.js"></script>
+<script type="text/javascript" src="/bower_components/ftcnext/app/scripts/story.js"></script>
+<!-- endbuild -->
+
+
+</html>
