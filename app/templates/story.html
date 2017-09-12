@@ -294,16 +294,25 @@ var follows = {
 
 <script type="text/javascript">{{story-js-main}}</script>
 
+
 <script>
-    function updateHeadline(headline) {
-        var headlineEle = document.querySelector('.story-headline');
-        headlineEle.innerHTML = headline.replace("{singlequote}", "'");
-    }
+
+function updateHeadline(headline) {
+    var headlineEle = document.querySelector('.story-headline');
+    headlineEle.innerHTML = headline.replace("{singlequote}", "'");
+}
+
 function updateBody(body) {
     var bodyEle = document.getElementById('ios-story-body');
     var bodyHTML = body.replace("{singlequote}", "'");
     bodyEle.innerHTML = bodyHTML;
     window.scrollTo(0, 0);
 }
+// MARK: Make sure font size is checked every time
+setTimeout(function(){
+    checkFontSize();
+}, 100);
+
 </script>
+
 </html>
