@@ -205,6 +205,13 @@ gulp.task('ios', ['grab', 'build'], function () {
   gulp.src(['app/templates/register.html'])
     .pipe(gulp.dest('../NewFTCApp-iOS/Page/FTChinese/'));
 
+  gulp.src(['app/templates/account.html'])
+    .pipe(replace('{{story-css}}', storyCSS))
+    .pipe(replace('{{story-js-main}}', storyMainJS))
+    .pipe(replace('{{story-js-key}}', storyKeyJS))
+    .pipe(replace('{{analytics}}', analyticsJS))
+    .pipe(gulp.dest('../NewFTCApp-iOS/Page/FTChinese/'));
+
   gulp.src(['app/templates/search.html'])
     .pipe($.if('*.html', $.htmlmin({collapseWhitespace: true})))
     .pipe(replace('{{search-css}}', searchCSS))
