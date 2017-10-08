@@ -1,0 +1,65 @@
+   <!-- 如果您是制作新的HTML 5沉浸式报道，请直接跳到“所有内容开始” -->
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>特别报道</title>
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+<link rel="apple-touch-icon-precomposed" href="img/fticon.png" />
+<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+
+
+<style>{{html-book-css}}</style>
+
+<script>{{analytics}}</script>
+
+</head>
+
+<body>
+
+{html-book-content}
+
+</body>
+
+
+<script>
+function isIE() { return ((navigator.appName == 'Microsoft Internet Explorer') || ((navigator.appName == 'Netscape') && (new RegExp("Trident/.*rv:([0-9]{1,}[\.0-9]{0,})").exec(navigator.userAgent) != null)));}
+
+//如果是IE，不管是什么版本，都中止程序
+if (isIE() === true) {
+    document.body.innerHTML = '<h1>亲爱的用户，我们发现您使用了IE浏览器！这会给您带来严重的安全隐患！请改用Chrome或FireFox等现代浏览器来浏览FT中文网的精彩内容！</h1>';
+}
+</script>
+
+<script>document.getElementById("startbar").style.width="5%";</script>
+<script type="text/javascript">{{html-book-js}}</script>
+
+
+<script language=javascript>
+$(function(){
+    var firstImage = $('#allcontent .slide').eq(0).css('background-image') || '';
+    var img = new Image();
+    firstImage =firstImage.replace(/^url\(/g,'').replace(/\)$/g,'');
+    // if (firstImage !== '' && firstImage !== 'none') {
+    //     img.src = firstImage;
+    //     img.onload = function() { 
+    //         openbook();
+    //     };
+    // } else {
+    //     openbook();
+    // }
+    openbook();
+    new FastClick(document.body);
+});
+</script>
+
+<script language=javascript>
+<!--Animation函数-->
+
+function playFunction(thefunction) {
+  return;
+}
+</script>
+
+</html>
