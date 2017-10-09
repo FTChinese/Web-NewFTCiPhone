@@ -188,9 +188,15 @@ gulp.task('ios', ['grab', 'build'], function () {
   var rename = require("gulp-rename");
   var thedatestamp = new Date().getTime();
   var fs = require('fs');
+
   var storyCSS = fs.readFileSync('dist/styles/main-story.css', 'utf8');
   var storyMainJS = fs.readFileSync('dist/scripts/main-story.js', 'utf8');
   var storyKeyJS = fs.readFileSync('dist/scripts/key.js', 'utf8');
+
+  var listCSS = fs.readFileSync('dist/styles/main-list.css', 'utf8');
+  var listMainJS = fs.readFileSync('dist/scripts/main-list.js', 'utf8');
+  var listKeyJS = fs.readFileSync('dist/scripts/key-list.js', 'utf8');
+
   var analyticsJS = fs.readFileSync('dist/scripts/analytics.js', 'utf8');
   var searchCSS  = fs.readFileSync('dist/styles/main-search.css', 'utf8');
   var searchJS = fs.readFileSync('dist/scripts/search.js', 'utf8');
@@ -231,6 +237,14 @@ gulp.task('ios', ['grab', 'build'], function () {
     .pipe(rename('story.html'))
     .pipe(gulp.dest('../NewFTCApp-iOS/Page/FTChinese/'));
 
+
+  gulp.src(['app/templates/list.html'])
+    .pipe($.if('*.html', $.htmlmin({collapseWhitespace: true})))
+    .pipe(replace('{{list-css}}', listCSS))
+    .pipe(replace('{{list-js-main}}', listMainJS))
+    .pipe(replace('{{list-js-key}}', listKeyJS))
+    .pipe(replace('{{analytics}}', analyticsJS))
+    .pipe(gulp.dest('../NewFTCApp-iOS/Page/FTChinese/'));
 
   gulp.src(['app/templates/ebook.html'])
     .pipe($.if('*.html', $.htmlmin({collapseWhitespace: true})))
