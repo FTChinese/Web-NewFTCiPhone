@@ -1,1 +1,20 @@
 @import "ftcnext/app/styles/main";
+.myft-follow {
+	display:none;
+}
+body {
+	padding-top: 15px;
+}
+
+html {
+	-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+.item-headline {
+	a {
+	    &:hover, &:active {
+			color: $darkGrey;
+			border-bottom-color: transparent;
+		}
+	}
+}
