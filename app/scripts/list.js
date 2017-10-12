@@ -48,4 +48,11 @@ function removeLink(ele) {
 	}
 }
 
+function refreshAllAds() {
+	var adFrames = document.querySelectorAll('.banner-iframe');
+	for (var i=0; i<adFrames.length; i++) {
+		adFrames[i].contentDocument.location.reload(true);
+	}
+}
+
 getJSON();
