@@ -121,17 +121,33 @@ var gIsCurrentAdchFinal = false;
         <div class="content-container">
             <div class="content-inner">
                 <div class="story-container"{story-container-style}>
-                    {story-theme}
-                    <h1 class="story-headline" id="story-headline-ios">{story-headline}</h1>
-                    <div class="story-lead">{story-lead}</div>
-                    {story-image}
+                    <!-- {story-theme} -->
 
-                    <div class="story-byline">
-                        <span class="story-time">{story-time}</span>
-                        <span class="story-author">{story-byline}</span>
+                    <!-- <div class="story-lead">{story-lead}</div> -->
+                    
+                    <div class="img-section clear-float">
+                        <div class=" story-image image">
+                            {story-image}
+                            <!-- <figure data-url=http://i.ftimg.net/picture/9/000063189_piclink.jpg class="loading"></figure> -->
+                            <a  href=""><img src="http://static.ftchinese.com/images/png/playSound.png"></a>
+                        </div>
+                        <div class="tag-section">
+                            <div class="tag">科技</div>
+                            <div class="show-comment">
+                                <div ><img src="http://static.ftchinese.com/images/png/love.png"></div>
+                                <div>3</div>
+                                <div><img src="http://static.ftchinese.com/images/png/comment.png"></div>
+                                <div>23</div>
+                            </div>
+                        </div>
                     </div>
 
+                    <!-- <div class="story-byline">
+                        <span class="story-time">{story-time}</span>
+                        <span class="story-author">{story-byline}</span>
+                    </div> -->
                     <div class="story-body">
+                        <h1 class="clear-float" id="story-headline-ios">{story-headline}</h1>
                         <div id="ios-story-body">{story-body}</div>
                         <div class="clearfloat"></div>
                     </div>
@@ -177,7 +193,7 @@ var gIsCurrentAdchFinal = false;
                 </script>
             </div>
         </div>
-        <div class="side-container">
+   <!--      <div class="side-container">
             <div class="side-inner">
                 <div class="mpu-container first-child"></div>
                 {related-stories}
@@ -189,7 +205,7 @@ var gIsCurrentAdchFinal = false;
                 </ul>
                 </div>
             </div>
-        </div>
+        </div> -->
         <div class="clearfloat"></div>
     </div>
 </div>
