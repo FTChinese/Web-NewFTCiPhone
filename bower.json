@@ -2,7 +2,8 @@
   "name": "web-newftciphone",
   "private": true,
   "dependencies": {
-    "jquery": "~2.1.1"
+    "jquery": "~2.1.1",
+    "o-fonts": "^3.0.3"
   },
   "devDependencies": {
     "chai": "^4.1.1",
