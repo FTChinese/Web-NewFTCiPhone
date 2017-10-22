@@ -56,7 +56,7 @@ var adchIDNew = window.location.href.replace(/^.*adchannelID=([0-9]{4}).*$/g,'$1
 if (/^[0-9]{4}$/.test(adchIDNew)) {
 adchID = adchIDNew;
 }
-var FTStoryid = '{story-id}';
+var FTStoryid = '{comments-id}';
 </script>
 <!-- MARK: Important: Need to add Google Analytics load events manually -->
 <script>
@@ -172,7 +172,7 @@ var gIsCurrentAdchFinal = false;
                     </div>
                 </div>
                 <script type="text/javascript">
-                    loadcomment('{story-id}', 'allcomments', '{comments-order}');
+                    loadcomment('{comments-id}', 'allcomments', '{comments-order}');
                     checkLogin();
                     clickToSubmitComment();
                 </script>
