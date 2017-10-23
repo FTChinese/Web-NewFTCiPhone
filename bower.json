@@ -10,6 +10,6 @@
     "mocha": "^3.5.0",
     "ftcnext": "https://github.com/FTChinese/NEXT.git",
     "ftcwebapp": "https://github.com/FTChinese/webapp-v2.git",
-    "ftcebook": "https://github.com/FTChinese/ebook.git"
+    "ftcebook": "https://github.com/FTChinese/ebook-new.git"
   }
 }
