@@ -116,7 +116,22 @@ var gIsCurrentAdchFinal = false;
 </script>
 <!--isCurrentAdchFinal: no--></head>
 <body class="">
-{ad-banner}
+
+<script type="text/javascript">
+    document.write(writeAdNew({
+        devices: ['PC'],
+        pattern:'Leaderboard',
+        position:'Num1'
+   }));
+</script>
+<script type="text/javascript">
+    document.write(writeAdNew({
+        devices: ['iPhoneWeb','AndroidWeb'],
+        pattern:'Banner',
+        position:'Num1'
+   }));
+</script>
+
 <div class="block-container has-side story-page">
     <div class="block-inner">
         <div class="content-container">
@@ -180,9 +195,14 @@ var gIsCurrentAdchFinal = false;
         </div>
         <div class="side-container">
             <div class="side-inner">
-                <div class="mpu-container first-child"></div>
                 {related-stories}
-                {ad-mpu}
+                <script type="text/javascript">
+                    document.write (writeAdNew({
+                        devices: ['PC','PadWeb'],
+                        pattern:'MPU',
+                        position:'Right1'
+                    }));
+                </script>
                 <div class="story-box last-child"{story-container-style}>
                 <h2 class="box-title"><a>相关话题</a></h2>
                 <ul class="top10">
@@ -205,7 +225,24 @@ var gIsCurrentAdchFinal = false;
 </div></div>
 <div class="clearfloat block-bottom"></div>
 </div></div>
-{ad-banner}
+
+
+
+<script type="text/javascript">
+    document.write (writeAdNew({
+        devices: ['PC'],
+        pattern:'Banner',
+        position:'Num1'
+    }));
+</script>
+<script type="text/javascript">
+    document.write (writeAdNew({
+        devices: ['iPhoneWeb','AndroidWeb'],
+        pattern:'Banner',
+        position:'Num2'
+    }));
+</script>
+
 
 
 <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start': new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-KP4V3G');</script>
