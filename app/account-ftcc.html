@@ -7,11 +7,11 @@
  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
 
-<style>{{story-css}}</style>
+<style></style>
 
 <!-- MARK: Important: Need to add Google Analytics load events manually -->
 <script>
-{{analytics}}
+
 </script>
 <script>
 ga('create', 'UA-1608715-1', 'auto');
@@ -62,7 +62,7 @@ s.parentNode.insertBefore(hm, s);
 })();
 </script>
 <!-- End Baidu Analytics -->
-<script type="text/javascript">{{story-js-key}}</script>
+<!--<script type="text/javascript">{{story-js-key}}</script>-->
 
 <style>
 .account-container {
@@ -74,7 +74,7 @@ s.parentNode.insertBefore(hm, s);
 	margin-bottom: 1em;
 }
 </style>
-
+<link rel="stylesheet" href="styles/main-ftcc-person.css">
 </head>
 
 
@@ -83,7 +83,7 @@ s.parentNode.insertBefore(hm, s);
 
 <div class="account-container">
 
-<div id="logincomment" class="logincomment">
+<!--<div id="logincomment" class="logincomment">
 <form id="storyForm">
 <div class="comment-input-container">
 <div class=container>
@@ -94,24 +94,48 @@ s.parentNode.insertBefore(hm, s);
 <input type="text"  autocorrect="off" class="user_id textinput nick_name" name="NickName" id="nick_name" value=""/>
 </span>
 <div class="user-name-container">欢迎您，<span class="user_Name"></span></div>
-<input type="button" value="登出" class="comment_btn button ui-light-btn" onclick="javascript: logout();"/>
+<input type="button" value="登出" class="ui-login-btn" onclick="javascript: logout();"/>
 <input type="hidden" name="storyid"  id=cstoryid value=""/>
 <div class="logged"><div class="statusmsg"></div></div>
 </div>
 </div>
 </form>
-</div>
+</div>-->
 
-<div id="nologincomment" class="nologincomment">
+<!--<div id="nologincomment" class="nologincomment">
     <div class="container">
         <div class="username-label">用户名</div>
         <input type="text"  autocorrect="off" name="username" id="username1" class="user_id textinput user-name"/>
         <div class="password-label">密码</div>
         <input type="password" name="password"  class="user_id textinput password" id="password1"/>
-        <input type="submit" value="登录" class="comment_btn submitbutton button ui-light-btn" onclick="login(1)"/> 
+        <input type="submit" value="登录" class="comment_btn submitbutton button ui-login-btn" onclick="login(1)"/> 
         <div class="topmargin statusmsg"></div>
         <a class="social-login-wechat" href="ftcregister://www.ftchinese.com/"><div class="centerButton"><button class="ui-light-btn">免费注册</button></div></a>
         <a class="social-login-wechat" href="weixinlogin://www.ftchinese.com/"><div class="centerButton"><button class="ui-light-btn">微信登录</button></div></a>
+    </div>
+</div>-->
+<div  id="nologincomment" class="nologincomment">
+    <div class="container">
+        <div class = "comment-logo-section">LOGO</div>
+        <div class = "comment-input-section">
+            <label><img src="http://static.ftchinese.com/images/png/accountUser.png"/></label>
+            <input type="text" placeholder="请输入账户" autocorrect="off" name="username" id="username1" class=""/> 
+        </div>
+        <div class = "comment-input-section">
+            <label><img src="http://static.ftchinese.com/images/png/accountPassword.png"/></label>
+            <input type="text" placeholder="请输入密码" autocorrect="off" name="username" id="username1" class=""/>
+            <label class="password-eye"><img src="http://static.ftchinese.com/images/png/accountEye.png"/></label>
+        </div>
+        <input type="submit" value="登录" class="ui-login-btn" onclick="login(1)"/> 
+        <div  class = "comment-register-section">
+            <label>注册新用户</label>
+            <label>|</label>
+            <label>忘记密码？</label>
+        </div>
+        <div  class = "comment-register-section">
+            <a class="" href="weixinlogin://www.ftchinese.com/"><img src="http://static.ftchinese.com/images/png/accountWeiXin.png"></a><br>
+            <label>微信账户登录</label>
+        </div>
     </div>
 </div>
 

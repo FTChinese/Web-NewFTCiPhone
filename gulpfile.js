@@ -305,11 +305,12 @@ gulp.task('ios', ['grab', 'build'], function () {
       convert2Big5('../NewFTCApp-iOS/Page/FTCC/register.html')
     });
 
-  gulp.src(['app/templates/account.html'])
+  gulp.src(['app/templates/account-ftcc.html'])
     .pipe(replace('{{story-css}}', storyCSS))
     .pipe(replace('{{story-js-main}}', storyMainJS))
     .pipe(replace('{{story-js-key}}', storyKeyJS))
     .pipe(replace('{{analytics}}', analyticsJS))
+    .pipe(rename('account.html'))
     .pipe(gulp.dest('../NewFTCApp-iOS/Page/FTCC/'))
     .on('end', function() {
       convert2Big5('../NewFTCApp-iOS/Page/FTCC/account.html')
