@@ -311,6 +311,7 @@ gulp.task('ios', ['grab', 'build'], function () {
     .pipe(replace('{{person-css}}', ftccPersonCSS))
     .pipe(replace('{{story-js-main}}', storyMainJS))
     .pipe(replace('{{story-js-key}}', storyKeyJS))
+    
     .pipe(replace('{{analytics}}', analyticsJS))
     .pipe(rename('account.html'))
     .pipe(gulp.dest('../NewFTCApp-iOS/Page/FTCC/'))
@@ -378,7 +379,7 @@ gulp.task('ios', ['grab', 'build'], function () {
  gulp.src(['app/templates/person-information.html'])
     .pipe($.if('*.html', $.htmlmin({collapseWhitespace: true})))
     .pipe(replace('{{person-css}}', ftccPersonCSS))
-    // .pipe(replace('{{story-js-key}}', ebookKeyJS))
+    .pipe(replace('{{person-js}}', ftccPersonJS)) 
     // .pipe(replace('{{analytics}}', analyticsJS))
     
     .pipe(gulp.dest('../NewFTCApp-iOS/Page/FTCC/'))
