@@ -7,12 +7,12 @@
  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
 
-<!--<style>{{person-css}}</style>-->
+<style></style>
 
 <!-- MARK: Important: Need to add Google Analytics load events manually -->
-<!--<script>
-{{analytics}}
-</script>-->
+<script>
+
+</script>
 <script>
 ga('create', 'UA-1608715-1', 'auto');
 ga('require', 'displayfeatures');
@@ -62,7 +62,7 @@ s.parentNode.insertBefore(hm, s);
 })();
 </script>
 <!-- End Baidu Analytics -->
-<script type="text/javascript">{{story-js-key}}</script>
+<!--<script type="text/javascript">{{story-js-key}}</script>-->
 
 <style>
 .account-container {
@@ -73,9 +73,11 @@ s.parentNode.insertBefore(hm, s);
 	font-size: 1.2em;
 	margin-bottom: 1em;
 }
-.comment-logo-section{font-size:2em;width:100%;text-align:center;margin-bottom:50px}.comment-input-section{padding:15px 0;border-bottom:1px solid gray}.comment-input-section *{vertical-align:middle}.comment-input-section img{width:20px}.comment-input-section input{border:none;font-size:1em;margin-left:20px}.comment-input-section .password-eye{float:right}.ui-login-btn{background:#12a5b3;color:#fff;font-weight:100;border:1px solid #a7a59b;text-shadow:0 1px 0 #fff;width:100%;font-size:19px;line-height:140%;height:auto;padding:5px 9px;border-radius:3px;margin:15px 0}.comment-register-section{text-align:center}.comment-register-section>label:nth-child(2){margin:0 25px}.comment-register-section a>img{margin:50px 0 10px;width:80px}
-
 </style>
+<!-- build:css styles/main-ftcc-person.css -->
+<link rel="stylesheet" href="styles/main-ftcc-person.css">
+<!-- endbuild -->
+
 </head>
 
 
@@ -95,12 +97,25 @@ s.parentNode.insertBefore(hm, s);
 <input type="text"  autocorrect="off" class="user_id textinput nick_name" name="NickName" id="nick_name" value=""/>
 </span>
 <div class="user-name-container">欢迎您，<span class="user_Name"></span></div>
-<input type="button" value="登出" class="comment_btn button ui-light-btn" onclick="javascript: logout();"/>
+<input type="button" value="登出" class="ui-login-btn" onclick="javascript: logout();"/>
 <input type="hidden" name="storyid"  id=cstoryid value=""/>
 <div class="logged"><div class="statusmsg"></div></div>
 </div>
 </div>
 </form>
+</div>-->
+
+<!--<div id="nologincomment" class="nologincomment">
+    <div class="container">
+        <div class="username-label">用户名</div>
+        <input type="text"  autocorrect="off" name="username" id="username1" class="user_id textinput user-name"/>
+        <div class="password-label">密码</div>
+        <input type="password" name="password"  class="user_id textinput password" id="password1"/>
+        <input type="submit" value="登录" class="comment_btn submitbutton button ui-login-btn" onclick="login(1)"/> 
+        <div class="topmargin statusmsg"></div>
+        <a class="social-login-wechat" href="ftcregister://www.ftchinese.com/"><div class="centerButton"><button class="ui-light-btn">免费注册</button></div></a>
+        <a class="social-login-wechat" href="weixinlogin://www.ftchinese.com/"><div class="centerButton"><button class="ui-light-btn">微信登录</button></div></a>
+    </div>
 </div>-->
 <div  id="nologincomment" class="nologincomment">
     <div class="container">
@@ -132,6 +147,6 @@ s.parentNode.insertBefore(hm, s);
 
 </body>
 <script type="text/javascript">
-    // checkLogin();
+    checkLogin();
 </script>
 </html>

@@ -297,7 +297,7 @@ gulp.task('ios', ['grab', 'build'], function () {
   var ftccStoryCSS = fs.readFileSync('dist/styles/main-ftcc.css', 'utf8');
   var ftccStoryMainJS = fs.readFileSync('dist/scripts/main-ftcc-story.js', 'utf8');
   var ftccStoryKeyJS = fs.readFileSync('dist/scripts/key-ftcc.js', 'utf8');
-
+  var ftccPersonJS = fs.readFileSync('dist/scripts/person-information.js', 'utf8');
 
   gulp.src(['app/templates/register.html'])
     .pipe(gulp.dest('../NewFTCApp-iOS/Page/FTCC/'))
@@ -373,16 +373,26 @@ gulp.task('ios', ['grab', 'build'], function () {
       convert2Big5('../NewFTCApp-iOS/Page/FTCC/html-book.html')
     });
 
-//  gulp.src(['app/templates/person-information.html'])
-//     .pipe($.if('*.html', $.htmlmin({collapseWhitespace: true})))
-//     .pipe(replace('{{person-css}}', ftccPersonCSS))
-//     .pipe(replace('{{story-js-key}}', ebookKeyJS))
-//     .pipe(replace('{{analytics}}', analyticsJS))
+ gulp.src(['app/templates/person-information.html'])
+    .pipe($.if('*.html', $.htmlmin({collapseWhitespace: true})))
+    .pipe(replace('{{person-css}}', ftccPersonCSS))
+    // .pipe(replace('{{story-js-key}}', ebookKeyJS))
+    // .pipe(replace('{{analytics}}', analyticsJS))
     
-//     .pipe(gulp.dest('../NewFTCApp-iOS/Page/FTCC/'))
-//     .on('end', function() {
-//       convert2Big5('../NewFTCApp-iOS/Page/FTCC/ebook.html')
-//     });
+    .pipe(gulp.dest('../NewFTCApp-iOS/Page/FTCC/'))
+    .on('end', function() {
+      convert2Big5('../NewFTCApp-iOS/Page/FTCC/person-information.html')
+    });
+
+  gulp.src(['app/templates/my-love-ftcc.html'])
+    .pipe($.if('*.html', $.htmlmin({collapseWhitespace: true})))
+    .pipe(replace('{{person-css}}', ftccPersonCSS))
+    .pipe(replace('{{person-js}}', ftccPersonJS)) 
+    .pipe(rename('my-love.html')) 
+    .pipe(gulp.dest('../NewFTCApp-iOS/Page/FTCC/'))
+    .on('end', function() {
+      convert2Big5('../NewFTCApp-iOS/Page/FTCC/my-love.html')
+    });
 
 
 
