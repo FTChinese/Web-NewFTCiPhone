@@ -299,7 +299,9 @@ gulp.task('ios', ['grab', 'build'], function () {
   var ftccStoryKeyJS = fs.readFileSync('dist/scripts/key-ftcc.js', 'utf8');
   var ftccPersonJS = fs.readFileSync('dist/scripts/person-information.js', 'utf8');
 
-  gulp.src(['app/templates/register.html'])
+  gulp.src(['app/templates/register-ftcc.html'])
+    .pipe(replace('{{person-css}}', ftccPersonCSS))
+    .pipe(rename('register.html'))
     .pipe(gulp.dest('../NewFTCApp-iOS/Page/FTCC/'))
     .on('end', function() {
       convert2Big5('../NewFTCApp-iOS/Page/FTCC/register.html')
@@ -386,6 +388,7 @@ gulp.task('ios', ['grab', 'build'], function () {
 
   gulp.src(['app/templates/my-love-ftcc.html'])
     .pipe($.if('*.html', $.htmlmin({collapseWhitespace: true})))
+    .pipe(replace('{{story-css}}', ftccStoryCSS))
     .pipe(replace('{{person-css}}', ftccPersonCSS))
     .pipe(replace('{{person-js}}', ftccPersonJS)) 
     .pipe(rename('my-love.html')) 

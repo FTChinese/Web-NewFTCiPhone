@@ -4,6 +4,15 @@
 // body {
 // 	padding-top: $defaultPadding/2;
 // }
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+a{
+    text-decoration:none;
+}
+
 // person-information.html  css
 #person-info-body{
     background-color: white;
@@ -22,7 +31,7 @@
 }
 .person-portrait-section{
     // background-color:red;
-    text-decoration:none;
+
     display: block;
     *{ vertical-align:middle; }
     >label:first-child img{
@@ -40,7 +49,7 @@
 .person-case-section{
     margin: 50px 0px;
     display: block;
-    text-decoration:none;
+    
     *{ vertical-align:middle; }
     // div{
     //     float: left
@@ -85,6 +94,10 @@
 }
 
 // account-ftcc.html  css
+.account-container {
+	margin: 14px 35px;
+	max-width: 414px;
+}
 .comment-logo-section{
     font-size: 2em;
     width:100%;
@@ -94,7 +107,7 @@
 .comment-input-section{
     *{ vertical-align:middle; }
     padding: 15px 0px;
-    border-bottom: solid 1px gray;
+    border-bottom: solid 0.3px gray;
     img{
         width: 20px;
     }
@@ -102,6 +115,7 @@
         border:none;
         font-size: 1.0em;
         margin-left:20px;
+        font-weight: 200;
         // width: 80%; 
     }
     .password-eye{
@@ -109,21 +123,28 @@
     }
 }
 .ui-login-btn{
+ text-align: center;
   background: #12a5b3; 
   color: white;
-  font-weight: 100;
+  font-weight: 400;
     border: 1px solid #A7A59B;
-    text-shadow: 0 1px 0 #fff;
     width: 100%;
     font-size: 19px;
     line-height: 140%;
     height: auto;
-    padding: 5px 9px;
-    border-radius: 3px;
-    margin: 15px 0px;
+    padding: 10px 0px;
+    margin: 25px 0px;
+}
+.register-btn{
+    margin-top: 55px;
 }
 .comment-register-section{
     text-align: center;
+    color: black;
+    label{
+        font-weight: 100;
+        color: black;
+    }
     >label:nth-child(2){
         margin: 0 25px;
     }
@@ -131,6 +152,16 @@
         margin: 50px 0px 10px;
         width: 80px;
     }
+}
+.register-instruction{
+    font-size: 16px;
+    margin: 20px 0px;
+    font-weight: 100;
+}
+.agree-instruction{
+    // margin-top: 150px;
+    position: absolute;
+    bottom: 15%;
 }
 
 // my-love-ftcc.html  css
@@ -164,7 +195,7 @@
         clear: both;
     }
     .isSelected-button{
-        width: 10%;
+        // width: 10%;
         position: relative;
         height: 100%;
         // top: 30%;
@@ -176,19 +207,20 @@
             top: 30%;
         }
     }
-    #isSelected-image{
+    .isSelected-image{
         // width: 40%;
         // background-color: blue;
         height: 100%;
         position: relative;
         // top: 5%;
         width: 40%;
+        padding: 5px;
         img{
             padding: 5%;
             height: 100%;
         }
     }
-    #isSelected-text{
+    .isSelected-text{
         height: 100%;
         position: relative;
         // top: 15%;
@@ -201,7 +233,7 @@
             // display: inline-block;
             // height: 100%;
             letter-spacing: 3px;
-            font-size: 0.9em;
+            font-size: 1.1em;
             font-weight: normal;
             // font-family: serif;
             text-overflow: ellipsis;
@@ -232,7 +264,7 @@
     width: 100%;
     height: 8%;
     // height: 50px;
-    border-top: solid 1px red;
+    border-top: solid 1px black;
     .love-control-section{
         // width: 100%;
         text-align: center;
@@ -249,7 +281,7 @@
         }
         #allSelect{
             
-            border-right: solid 1px red;
+            border-right: solid 1px black;
         }
         #delete{
             // font-size: 20px;
