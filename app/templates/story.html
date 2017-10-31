@@ -51,7 +51,7 @@ var subTopic="{story-sub-topic}";
 if(typeof startTime === "undefined"){
 var startTime=new Date().getTime();
 }
-var adchID = '1600';
+var adchID = '{adchID}';
 var adchIDNew = window.location.href.replace(/^.*adchannelID=([0-9]{4}).*$/g,'$1');
 if (/^[0-9]{4}$/.test(adchIDNew)) {
 adchID = adchIDNew;
@@ -126,7 +126,7 @@ var gIsCurrentAdchFinal = false;
 </script>
 <script type="text/javascript">
     document.write(writeAdNew({
-        devices: ['iPhoneWeb','AndroidWeb'],
+        devices: ['iPhoneWeb','AndroidWeb','iPhoneApp','AndroidApp'],
         pattern:'Banner',
         position:'Num1'
    }));
@@ -153,6 +153,17 @@ var gIsCurrentAdchFinal = false;
                     </div>
                     <div class="clearfloat block-bottom"></div>
                 </div>
+
+
+
+                <script type="text/javascript">
+                    document.write (writeAdNew({
+                        devices: ['iPhoneWeb','AndroidWeb', 'iPhoneApp','AndroidApp'],
+                        pattern:'Banner',
+                        position:'Num2'
+                    }));
+                </script>
+
                 <h2 class="list-title"><a class="list-link" href="#">读者评论</a></h2>
                 <div id="allcomments" class="allcomments container"></div>
                 <div id="logincomment" class="logincomment">
@@ -198,7 +209,7 @@ var gIsCurrentAdchFinal = false;
                 {related-stories}
                 <script type="text/javascript">
                     document.write (writeAdNew({
-                        devices: ['PC','PadWeb'],
+                        devices: ['PC','PadWeb', 'PadApp'],
                         pattern:'MPU',
                         position:'Right1'
                     }));
@@ -235,13 +246,7 @@ var gIsCurrentAdchFinal = false;
         position:'Num1'
     }));
 </script>
-<script type="text/javascript">
-    document.write (writeAdNew({
-        devices: ['iPhoneWeb','AndroidWeb'],
-        pattern:'Banner',
-        position:'Num2'
-    }));
-</script>
+
 
 
 
