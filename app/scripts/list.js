@@ -1,6 +1,11 @@
 function getJSON() {
+	if (window.location.href.indexOf('keeplinks=yes')>0) {
+		console.log ('should keep links');
+		return;
+	}
 	var items = document.querySelectorAll('.item-container-app');
-	var data = {'meta':{'title':'List','description':'','theme':'default','adid':'1000'},'sections':[{'type':'block','title':'','name':'','side':'none','sideAlign':'right','lists':[{'name':'New List','title':'','url':'','description':'','language':'','float':'none','showTag':'no','showTimeStamp':'no','preferLead':'longlead','sponsorAdId':'','sponsorLogoUrl':'','sponsorLink':'','sponsorNote':'','feedStart':'0','feedItems':'0','feedTag':'','feedType':'all','feedImage':'optional','moreLink':'','items':[]}]}]};
+	var adId = window.adchID || '1000';
+	var data = {'meta':{'title':'List','description':'','theme':'default','adid':adId},'sections':[{'type':'block','title':'','name':'','side':'none','sideAlign':'right','lists':[{'name':'New List','title':'','url':'','description':'','language':'','float':'none','showTag':'no','showTimeStamp':'no','preferLead':'longlead','sponsorAdId':'','sponsorLogoUrl':'','sponsorLink':'','sponsorNote':'','feedStart':'0','feedItems':'0','feedTag':'','feedType':'all','feedImage':'optional','moreLink':'','items':[]}]}]};
 	var itemsArray = [];
 	for (var i=0; i<items.length; i++) {
 		var item = {};
