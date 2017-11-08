@@ -196,6 +196,7 @@ gulp.task('ios', ['grab', 'build'], function () {
   var listCSS = fs.readFileSync('dist/styles/main-list.css', 'utf8');
   var listMainJS = fs.readFileSync('dist/scripts/main-list.js', 'utf8');
   var listKeyJS = fs.readFileSync('dist/scripts/key-list.js', 'utf8');
+  var myftCSS = fs.readFileSync('dist/styles/main-myft.css', 'utf8');
 
   var analyticsJS = fs.readFileSync('dist/scripts/analytics.js', 'utf8');
   var searchCSS  = fs.readFileSync('dist/styles/main-search.css', 'utf8');
@@ -273,6 +274,19 @@ gulp.task('ios', ['grab', 'build'], function () {
     .pipe(gulp.dest('../NewFTCApp-iOS/Page/FTChinese/'))
     .on('end', function() {
       convert2Big5('../NewFTCApp-iOS/Page/FTChinese/list.html')
+    });
+
+
+  gulp.src(['app/templates/list.html'])
+    .pipe($.if('*.html', $.htmlmin({collapseWhitespace: true})))
+    .pipe(replace('{{list-css}}', myftCSS))
+    .pipe(replace('{{list-js-main}}', listMainJS))
+    .pipe(replace('{{list-js-key}}', listKeyJS))
+    .pipe(replace('{{analytics}}', analyticsJS))
+    .pipe(rename('myft.html'))
+    .pipe(gulp.dest('../NewFTCApp-iOS/Page/FTChinese/'))
+    .on('end', function() {
+      convert2Big5('../NewFTCApp-iOS/Page/FTChinese/myft.html')
     });
 
   gulp.src(['app/templates/ebook.html'])
