@@ -64,13 +64,7 @@ s.parentNode.insertBefore(hm, s);
 <!-- End Baidu Analytics -->
 <!--<script type="text/javascript">{{story-js-key}}</script>-->
 
-<style>
-
-/*.user-name-container {
-	font-size: 1.2em;
-	margin-bottom: 1em;
-}*/
-</style>
+<script src="../bower_components/jquery/dist/jquery.min.js"></script>
 <!-- build:css styles/main-ftcc-person.css -->
 <link rel="stylesheet" href="styles/main-ftcc-person.css">
 <!-- endbuild -->
@@ -83,26 +77,30 @@ s.parentNode.insertBefore(hm, s);
 
 <div class="account-container">
 
-
+<!-- action="/index.php/users/registeruser/ajax"  -->
 <div  id="nologincomment" class="nologincomment">
+    <!-- <form method="post" action="/index.php/users/registeruser/ajax"> -->
     <div class="container">
         <div class = "comment-logo-section">LOGO</div>
         <div class = "comment-input-section">
             <label><img src="http://static.ftchinese.com/images/png/enrolEmail.png"/></label>
-            <input type="text" placeholder="请输入账户" autocorrect="off" name="username" id="username1" class=""/> 
+            <input type="email" placeholder="请输入邮箱" autocorrect="off" name="userName" id="userName" class=""/> 
         </div>
+        <div class="register-hint"  id = "user-hint">该邮箱已登录，请直接登录</div>
         <div class="register-instruction">用于登录ftcc，40字符以内</div>
         <div class = "comment-input-section">
             <label><img src="http://static.ftchinese.com/images/png/accountPassword.png"/></label>
-            <input type="text" placeholder="请输入密码" autocorrect="off" name="username" id="username1" class=""/>
-            <label class="password-eye"><img src="http://static.ftchinese.com/images/png/accountEye.png"/></label>
+            <input type="text" placeholder="请输入密码" autocorrect="off" name="userPassword" id="userPassword" class=""/>
+            <label class="password-eye" id = "accountEye"><img src="http://static.ftchinese.com/images/png/accountEye.png"/></label>
         </div>
+        <div class="register-hint" id = "password-hint">请输入正确密码</div>
         <div class="register-instruction">6-20位英文字母和数字组合</div>
-        <!--<input type="submit" value="注册" class="ui-login-btn register-btn" onclick="login(1)"/> -->
-        <div class="ui-login-btn register-btn">注册</div>
+        <!--<input type="submit" value="注册" class="ui-light-btn register-btn" onclick="login(1)"/> -->
+        <button class="ui-light-btn register-btn" type="submit" onclick="verifyEmailOrPassword()">注册</button>
         <div class="register-instruction agree-instruction">点击“注册”按钮，即代表您同意FTCC用户注册协议</div>
 
     </div>
+     <!-- </form> -->
 </div>
 
 
@@ -110,6 +108,61 @@ s.parentNode.insertBefore(hm, s);
 
 </body>
 <script type="text/javascript">
-    // checkLogin();
+    var isShowPassword=false
+    $('body').on('click', '#accountEye', function () {
+        if (isShowPassword===false){
+            $('#userPassword').attr('type', 'password')
+            isShowPassword=true
+        }else{
+             $('#userPassword').attr('type', 'text')
+             isShowPassword=false
+        }
+        
+    });
+    function isEmail(str){ 
+        var reg = /^([a-zA-Z0-9_-])+@([a-zA-Z0-9_-])+(.[a-zA-Z0-9_-])+/; 
+        return reg.test(str); 
+    } 
+    $("input").focus(function(){
+      
+    });
+    $('input').change(function(){
+        // if (isEmail(userName)){
+        //     console.log("邮箱正确")
+        // }else{
+        //     console.log("请输入正确邮箱")
+        // }
+        // console.log(userName)
+    });
+    function verifyEmailOrPassword(){
+        var userName = $('#userName').val();
+        // $.ajax({
+        //     type: 'get',
+        //     url: '/index.php/users//checkemailexists?e='+userName+'',
+        //     success: function(data) {
+        //         if (data === 'yes') {
+        //             return;
+        //         }else{
+        //             $('#user-hint').css('display', 'block');
+        //         }
+        //     },
+        //     error: function() {
+        //         // presentAlert('登录失败', '亲爱的用户，由于FTCC的服务器未能正确响应，所以您未能成功登录。请稍后再试，或尝试其他登录方式。'); 
+        //         return;
+        //     }
+        // });
+
+        var userPassword = $('#userPassword').val();
+        var reg = /^[A-Za-z0-9]{6, 20}$/; 
+        var isTrue =  reg.test(userPassword);
+        console.log("密码"+ isTrue + userPassword)
+        if (isTrue === true){
+            return;
+        }else{
+             // console.log("eeeee111rrr"+ isTrue)
+            $('#password-hint').css('display', 'block');
+        }
+        
+    }
 </script>
 </html>

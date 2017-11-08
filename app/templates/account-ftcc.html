@@ -76,38 +76,40 @@ s.parentNode.insertBefore(hm, s);
 
 <div class="account-container">
 
-<!--<div id="logincomment" class="logincomment">
-<form id="storyForm">
-<div class="comment-input-container">
-<div class=container>
-<span style="display:none">
-<input name="use_nickname" type="hidden" id="name" onclick="unuseit(this);"/>
-<label for="name" style="display:none">匿名</label>
-<input name="use_nickname" type="radio" id="userid" value="0" onclick="useit(this);" checked/>
-<input type="text"  autocorrect="off" class="user_id textinput nick_name" name="NickName" id="nick_name" value=""/>
-</span>
-<div class="user-name-container">欢迎您，<span class="user_Name"></span></div>
-<input type="button" value="登出" class="comment_btn button ui-light-btn" onclick="javascript: logout();"/>
-<input type="hidden" name="storyid"  id=cstoryid value=""/>
-<div class="logged"><div class="statusmsg"></div></div>
+<div id="logincomment" class="logincomment">
+    <form id="storyForm">
+        <div class="comment-input-container">
+            <div class=container>
+                <span style="display:none">
+                    <input name="use_nickname" type="hidden" id="name" onclick="unuseit(this);"/>
+                    <label for="name" style="display:none">匿名</label>
+                    <input name="use_nickname" type="radio" id="userid" value="0" onclick="useit(this);" checked/>
+                    <input type="text"  autocorrect="off" class="user_id textinput nick_name" name="NickName" id="nick_name" value=""/>
+                </span>
+                <div class="user-name-container">欢迎您，<span class="user_Name"></span></div>
+                <button type="button" value="" class="comment_btn button ui-light-btn" onclick="javascript: logout();">登出</button>
+                <input type="hidden" name="storyid"  id=cstoryid value=""/>
+                <div class="logged"><div class="statusmsg"></div></div>
+            </div>
+        </div>
+    </form>
 </div>
-</div>
-</form>
-</div>-->
+
 <div  id="nologincomment" class="nologincomment">
     <div class="container">
         <div class = "comment-logo-section">LOGO</div>
         <div class = "comment-input-section">
             <label><img src="http://static.ftchinese.com/images/png/accountUser.png"/></label>
-            <input type="text" placeholder="请输入账户" autocorrect="off" name="username" id="username1" class=""/> 
+            <input type="text" placeholder="请输入账户" autocorrect="off" name="username" id="username1" class="user_id textinput user-name"/> 
         </div>
         <div class = "comment-input-section">
             <label><img src="http://static.ftchinese.com/images/png/accountPassword.png"/></label>
-            <input type="text" placeholder="请输入密码" autocorrect="off" name="username" id="username1" class=""/>
+            <input type="text" placeholder="请输入密码" autocorrect="off" name="username" id="username1" class="user_id textinput password"/>
             <label class="password-eye"><img src="http://static.ftchinese.com/images/png/accountEye.png"/></label>
         </div>
-        <!--<input type="submit" value="登录" class="ui-login-btn" onclick="login(1)"/> -->
-        <div class="ui-login-btn">登录</div>
+        <!--<input type="submit" value="登录" class="ui-light-btn" onclick="login(1)"/> -->
+        <button type="submit" value=""  onclick="login(1)" class="ui-light-btn" >登录</button>
+        
         <div  class = "comment-register-section">
             <a href="fileinbundle://register/注册"><label>注册新用户</label></a>
             <label>|</label>
@@ -125,6 +127,6 @@ s.parentNode.insertBefore(hm, s);
 
 </body>
 <script type="text/javascript">
-    // checkLogin();
+    checkLogin();
 </script>
 </html>
