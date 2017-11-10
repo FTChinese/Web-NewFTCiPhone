@@ -328,6 +328,7 @@ gulp.task('ios', ['grab', 'build'], function () {
 
   gulp.src(['app/templates/register-ftcc.html'])
     .pipe(replace('{{person-css}}', ftccPersonCSS))
+    .pipe(replace('{{person-js}}', ftccPersonJS)) 
     .pipe(rename('register.html'))
     .pipe(gulp.dest('../NewFTCApp-iOS/Page/FTCC/'))
     .on('end', function() {
@@ -336,6 +337,7 @@ gulp.task('ios', ['grab', 'build'], function () {
 
   gulp.src(['app/templates/account-ftcc.html'])
     .pipe(replace('{{person-css}}', ftccPersonCSS))
+    .pipe(replace('{{person-js}}', ftccPersonJS))
     .pipe(replace('{{story-js-main}}', storyMainJS))
     .pipe(replace('{{story-js-key}}', storyKeyJS))
     

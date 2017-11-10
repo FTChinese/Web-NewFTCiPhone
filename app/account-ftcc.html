@@ -75,7 +75,7 @@ s.parentNode.insertBefore(hm, s);
 <!-- build:css styles/main-ftcc-person.css -->
 <link rel="stylesheet" href="styles/main-ftcc-person.css">
 <!-- endbuild -->
-
+<script src="../bower_components/jquery/dist/jquery.min.js"></script>
 </head>
 
 
@@ -121,12 +121,12 @@ s.parentNode.insertBefore(hm, s);
         <div class = "comment-logo-section">LOGO</div>
         <div class = "comment-input-section">
             <label><img src="http://static.ftchinese.com/images/png/accountUser.png"/></label>
-            <input type="text" placeholder="请输入账户" autocorrect="off" name="username" id="username1" class="user_id textinput user-name"/> 
+            <input type="text" placeholder="请输入账户" autocorrect="off" autocapitalize="off"name="username" id="username1" class="user_id textinput user-name"/> 
         </div>
         <div class = "comment-input-section">
             <label><img src="http://static.ftchinese.com/images/png/accountPassword.png"/></label>
-            <input type="text" placeholder="请输入密码" autocorrect="off" name="username" id="username1" class="user_id textinput password"/>
-            <label class="password-eye"><img src="http://static.ftchinese.com/images/png/accountEye.png"/></label>
+            <input type="password" placeholder="请输入密码" autocorrect="off" autocapitalize="off" name="password" id="password1" class="user_id textinput password"/>
+            <label class="password-eye" id = "accountEye"><img src="http://static.ftchinese.com/images/png/accountEye.png"/></label>
         </div>
         <button type="submit" value=""  onclick="login(1)" class="ui-light-btn" >登录</button> 
         <!-- <input type="submit" value="登录" class="ui-light-btn" onclick="login(1)"/>  -->
@@ -147,7 +147,20 @@ s.parentNode.insertBefore(hm, s);
 </div>
 
 </body>
+
 <script type="text/javascript">
+    
+    var isShowPassword=false
+    $('body').on('click', '#accountEye', function () {
+        if (isShowPassword===false){
+            $('#password1').attr('type', 'text')
+            isShowPassword=true
+        }else{
+             $('#password1').attr('type', 'password')
+             isShowPassword=false
+        }
+        console.log(isShowPassword)
+    });
     checkLogin();
 </script>
 </html>
