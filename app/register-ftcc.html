@@ -120,6 +120,7 @@ s.parentNode.insertBefore(hm, s);
         }
         
     });
+    var isLegalUser = true;
     $('body').on('blur', '#userName', function () {
         checkUserName();
         checkEmailRegistration()
@@ -160,27 +161,51 @@ s.parentNode.insertBefore(hm, s);
     }
     function checkEmailRegistration(){
         var userName = $('#userName').val();
-        $.ajax({
-            type: 'get',
-            url: '/index.php/users//checkemailexists?e='+userName+'',
-            success: function(data) {
-                if (data === 'yes') {
-                    $('#user-hint').css('display', 'block');
+        if(userName != '') {
+            $.ajax({
+                type: 'get',
+                url: '/index.php/users//checkemailexists?e='+userName+'',
+                success: function(data) {
+                    if (data === 'yes') {
+                        $('#user-hint').css('display', 'block');
+                        $('#userPassword').css('background-color', 'green');
+                        return;
+                    }else{
+                        $('#user-hint').css('display', 'none');
+                        // $('#user-hint').html('用户名可用');
+                    }
+                },
+                error: function() {
+                    // presentAlert('登录失败', '亲爱的用户，由于FTCC的服务器未能正确响应，所以您未能成功登录。请稍后再试，或尝试其他登录方式。'); 
                     return;
-                }else{
-                    $('#user-hint').css('display', 'none');
                 }
-            },
-            error: function() {
-                // presentAlert('登录失败', '亲爱的用户，由于FTCC的服务器未能正确响应，所以您未能成功登录。请稍后再试，或尝试其他登录方式。'); 
-                return;
-            }
-        });
+            });
+        }
     }
+    
     function verifyEmailOrPassword(){
         var userName = $('#userName').val();
         var userPassword = $('#userPassword').val();
-        console.log("密码"+ userPassword);
+        $.ajax({
+            type: 'post',
+            url: '/index.php/users/registeruser/ajax',
+            dataType: 'json',
+            data: {
+                   email:userName,
+                   id:"signupForm",
+                   password:userPassword
+               },
+            success: function(data) {
+                 $('#userPassword').text(data);
+                 $('#userPassword').css('background-color', 'red')
+            },
+            error: function() {
+                presentAlert('注册失败', '请重新注册。');
+                return;
+            }
+        });
+
+        // console.log("密码"+ userPassword);
         if (userName === ''){
             $('#user-correct-check').css('display', 'block');
         }else{
