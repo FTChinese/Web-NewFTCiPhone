@@ -218,6 +218,12 @@ gulp.task('ios', ['grab', 'build'], function () {
       convert2Big5('../NewFTCApp-iOS/Page/FTChinese/register.html')
     });
 
+  gulp.src(['app/templates/localbackup.html'])
+    .pipe(gulp.dest('../NewFTCApp-iOS/Page/FTChinese/'))
+    .on('end', function() {
+      convert2Big5('../NewFTCApp-iOS/Page/FTChinese/localbackup.html')
+  });
+
   gulp.src(['app/templates/account.html'])
     .pipe(replace('{{story-css}}', storyCSS))
     .pipe(replace('{{story-js-main}}', storyMainJS))
@@ -436,7 +442,6 @@ gulp.task('ios', ['grab', 'build'], function () {
 
 
 
-
     // .on('end', function() {
     //   var fs = require('fs');
     //   var chineseConv = require('chinese-conv');
@@ -455,6 +460,8 @@ gulp.task('ios', ['grab', 'build'], function () {
 
 gulp.task('grab', function () {
   getUrltoFile('http://app003.ftmailbox.com/index.php/users/register?i=4&webview=ftcapp', './app/templates/register.html');
+  getUrltoFile('https://d1budb999l6vta.cloudfront.net/channel/weekly.html?webview=ftcapp&bodyonly=yes&newad=yes', './app/templates/localbackup.html');
+
 });
 
 
