@@ -4,7 +4,7 @@
 <meta charset="utf-8" />
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta http-equiv="Content-Language" content="zh-CN"/>
-<title>{story-headline} - FT中文网</title>
+<title>帮助与反馈 - FT中文网</title>
 <META name=keywords content="{story-tag}">
 <meta content="" name="description"/>
 <meta name="apple-mobile-web-app-status-bar-style" content="black" />
@@ -137,18 +137,40 @@ var gIsCurrentAdchFinal = false;
         <div class="content-container">
             <div class="content-inner">
                 <div class="story-container"{story-container-style}>
-                    {story-theme}
-                    <h1 class="story-headline" id="story-headline-ios">{story-headline}</h1>
-                    <div class="story-lead">{story-lead}</div>
-                    {story-image}
+                    <h1 class="story-headline" id="story-headline-ios">帮助与反馈</h1>
+                    <div class="story-lead">感谢您对FT中文网的支持，您的反馈和建议会帮我们做得更好。</div>
 
                     <div class="story-byline">
-                        <span class="story-time">{story-time}</span>
-                        <span class="story-author">{story-byline}</span>
                     </div>
 
                     <div class="story-body">
-                        <div id="ios-story-body">{story-body}</div>
+                        <div id="ios-story-body">
+						    <p><b>亲爱的读者，</b></p>
+
+						    <p>感谢您对FT中文网的支持，您的反馈和建议会帮我们做得更好。</p>
+
+						    <p><b>无法访问服务器？</b><br>近期我们收到很多中国大陆读者的反映手机应用无法访问服务器的问题，这是因为受到不可控因素的影响。我们的服务器和所有程序都是正常的。目前，受到影响的读者可以使用FT中文网的手机站(m.ftchinese.com)和PC端的网站(www.ftchinese.com)阅读最新的文章。让我们共同期望中国的互联网环境会改善！
+						    </p>
+
+						    <p><b>烦人的推送</b><br> 近期我们收到很多读者的反映安卓应用通知推送的问题，主要是推送过于频繁，而且总是推送昨天的内容。我们深深体会到这个功能的不便，并责成相关人员尽快进行修改，一是降低推送的频率，二是只推送新的内容。另外，最新版的安卓应用可以关闭推送功能，只需要点击程序右下角的设置按钮进行设置即可。我们将来会在iPhone应用上开启通知推送的功能，只推送用户在“我的FT”中订阅的内容。
+						    </p>
+
+						    <p><b>这个应用在我的手机上为什么不流畅？</b><br>
+						    不同设备运行HTML 5的性能相差非常大。针对iPhone，我们进行了比较完善的测试，在iPhone 4S及以上的设备运行流畅；在安卓手机上，我们牺牲了一些体验，以保证程序能在多数机型上正常运行；如果您是使用安卓2的旧机型，流畅度会差很多，功能按钮也无法固定在屏幕底部；在黑莓10上，这个应用可以比较流畅地运行；我们还没有针对Windows手机进行测试和优化，如果你手头正好有微软(诺基亚)的新款手机，可以给我们提提意见。
+						    </p>
+
+						    <p><b>如何订阅和查找我想看的文章？</b><br>
+						    您可以点击页面底部的 <button onclick="myFT()">我的FT</button> 来订阅你感兴趣的内容或专栏；如果你是想查看具体的某一篇文章，可以点击页面底部的查找按钮 <button onclick="openSearch()" class="ft-icon ft-icon-search"></button> ；如果你是对某一类文章感兴趣，可以通过页面顶部或底部的导航栏 <button class="ft-icon ft-icon-sections" onclick="switchNavOverlay()"></button> 进入频道页；如果你对某一个专栏作家感兴趣，可以通过导航栏找到 <button url="/index.php/ft/channel/phonetemplate.html?channel=column" class="channel"><span class="ft-icon ft-icon-blogs"></span>专栏</button> ，去该作家的专栏。</p>
+
+						    <p><b>哪些内容可以离线阅读？</b><br>
+						    程序在线时，会把最新出版日的所有文章保存在手机的本地存储中。这样，你可以在有wifi或3G连接的地方刷新内容，然后在离线的时候重新打开程序阅读。</p>
+
+						    <p><b>我可以同时阅读中英文吗？</b><br>
+						    我们提供了三种阅读模式供您选择：中文、英文和中英对照。程序会记住你对阅读模式的偏好。</p>
+
+
+
+                        </div>
                         <div class="clearfloat"></div>
                     </div>
                     <div class="clearfloat block-bottom"></div>
@@ -206,7 +228,7 @@ var gIsCurrentAdchFinal = false;
         </div>
         <div class="side-container">
             <div class="side-inner">
-                {related-stories}
+
                 <script type="text/javascript">
                     document.write (writeAdNew({
                         devices: ['PC','PadWeb', 'PadApp'],
@@ -214,12 +236,6 @@ var gIsCurrentAdchFinal = false;
                         position:'Right1'
                     }));
                 </script>
-                <div class="story-box last-child"{story-container-style}>
-                <h2 class="box-title"><a>相关话题</a></h2>
-                <ul class="top10">
-                {related-topics}
-                </ul>
-                </div>
             </div>
         </div>
         <div class="clearfloat"></div>

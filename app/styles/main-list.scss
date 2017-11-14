@@ -1,5 +1,7 @@
 @import "ftcnext/app/styles/main";
 @import "ftcnext/app/styles/pagination";
+@import "ftcnext/app/styles/tag-right-rail.scss";
+@import "ftcnext/app/styles/main-calendar.scss";
 @import "image-ios";
 .myft-follow {
 	display:none;
@@ -18,5 +20,38 @@ html {
 			color: $darkGrey;
 			border-bottom-color: transparent;
 		}
+	}
+}
+
+.ebook-inner {
+	padding-bottom: $defaultPadding/2;
+}
+
+.side-container {
+	.ebook-inner {
+		.item-inner {
+			padding: $defaultPadding/2;
+			margin: 0;
+		}
+		.item-headline {
+			padding-left: 0;
+			padding: 0;
+			font-size: 1.2em;
+			font-weight: bold;
+		}
+		.item-lead {
+			padding-top: $defaultPadding/4;
+		}
+		.image {
+			padding: 0 0 0 $defaultPadding/2;
+			width: 100px;
+		}
+		.first-child {
+			.item-inner {
+				border-width: 0;
+				padding-top: 0;
+			}
+		}
+
 	}
 }

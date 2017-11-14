@@ -8,7 +8,7 @@
 
 
 <style>{{person-css}}</style>
-<script type="text/javascript">{{person-js}}</script>
+
 <script>
 ga('create', 'UA-1608715-1', 'auto');
 ga('require', 'displayfeatures');
@@ -58,8 +58,7 @@ s.parentNode.insertBefore(hm, s);
 })();
 </script>
 <!-- End Baidu Analytics -->
-<script type="text/javascript">{{story-js-key}}</script>
-
+<script type="text/javascript">{{person-js}}</script>
 <style>
 
 
@@ -74,24 +73,32 @@ s.parentNode.insertBefore(hm, s);
 
 
 <div  id="nologincomment" class="nologincomment">
+    <div  id="signupForm"> 
+    <!-- <form method="post" action="" id="signupForm">  -->
     <div class="container">
         <div class = "comment-logo-section">LOGO</div>
         <div class = "comment-input-section">
             <label><img src="http://static.ftchinese.com/images/png/enrolEmail.png"/></label>
-            <input type="text" placeholder="请输入账户" autocorrect="off" name="username" id="username1" class=""/> 
+            <input type="email" placeholder="请输入邮箱" autocorrect="off" autocapitalize="off" autocapitalize="off" name="userName" id="userName" class=""/> 
         </div>
+        <!-- <div class="register-hint"  id = "user-hint">该邮箱已登录，请直接登录</div> -->
+        <div class="register-hint"  id = "user-hint"></div>
+        <div class="register-hint"  id = "user-correct-check">请输入有效的邮箱</div>
         <div class="register-instruction">用于登录ftcc，40字符以内</div>
         <div class = "comment-input-section">
             <label><img src="http://static.ftchinese.com/images/png/accountPassword.png"/></label>
-            <input type="text" placeholder="请输入密码" autocorrect="off" name="username" id="username1" class=""/>
-            <label class="password-eye"><img src="http://static.ftchinese.com/images/png/accountEye.png"/></label>
+            <input type="password" placeholder="请输入密码" autocorrect="off" autocapitalize="off" autocapitalize="off" name="userPassword" id="userPassword" class=""/>
+            <label class="password-eye" id = "accountEye"><img src="http://static.ftchinese.com/images/png/accountEye.png"/></label>
         </div>
+        <div class="register-hint" id = "password-hint">请输入正确密码</div>
         <div class="register-instruction">6-20位英文字母和数字组合</div>
-        <!--<input type="submit" value="注册" class="ui-login-btn register-btn" onclick=""/> -->
-        <div class="ui-login-btn register-btn">注册</div>
+        <!--<input type="submit" value="注册" class="ui-light-btn register-btn" onclick="login(1)"/> -->
+        <button class="ui-light-btn register-btn" type="submit" onclick="verifyEmailOrPassword()" id="registerBtn">注册</button>
         <div class="register-instruction agree-instruction">点击“注册”按钮，即代表您同意FTCC用户注册协议</div>
 
     </div>
+    </div>
+      <!-- </form>  -->
 </div>
 
 
@@ -99,6 +106,185 @@ s.parentNode.insertBefore(hm, s);
 
 </body>
 <script type="text/javascript">
-    // checkLogin();
+    var isShowPassword=false
+    $('body').on('click', '#accountEye', function () {
+        if (isShowPassword===false){
+            $('#userPassword').attr('type', 'text')
+            isShowPassword=true
+        }else{
+             $('#userPassword').attr('type', 'password')
+             isShowPassword=false
+        }
+        
+    });
+    // 1.检查邮箱是否都注册； 2.检查密码是否输入正确；3.当邮箱没注册过时，注册邮箱；4.密码是否隐藏
+    // 当邮箱没有输入时，提示请输入邮箱；当邮箱和密码都没输入时，同时提示输入邮箱和密码；当邮箱已经存在时，提示直接登录
+    var isLegalUser = true;
+    $('body').on('blur', '#userName', function () {
+        // checkUserName();
+        // checkEmailRegistration()
+         var userName = $('#userName').val();
+        var isTrue = isEmail(userName)
+        if (userName != ''){
+             $('#user-hint').css('display', 'block');
+            if (isTrue === false){
+                $('#user-hint').html('注册用户名不合法');
+                isLegalUser = false;
+                return;
+            }
+            $.ajax({
+                type: 'get',
+                url: '/index.php/users//checkemailexists?e='+userName+'',
+                success: function(data) {
+                    if (data === 'yes') {
+                        $('#user-hint').html(''+userName+' 用户名已被注册');
+                        isLegalUser = false;
+                        $('#userPassword').css('background-color', 'green');
+                        return;
+                    }else{
+                        $('#user-hint').html('用户名可用');
+                        isLegalUser = true;
+                    }
+                },
+                error: function() {
+                    $('#user-hint').html('服务器未能正确响应');
+                    isLegalUser = false;
+                    // presentAlert('登录失败', '服务器未能正确响应.。); 
+                    return;
+                }
+            });
+        }
+    });
+    $('body').on('blur', '#userPassword', function () {
+        checkPassword();
+    });
+    function isEmail(str){ 
+        var reg = /^([a-zA-Z0-9_-])+@([a-zA-Z0-9_-])+(.[a-zA-Z0-9_-])+/; 
+        return reg.test(str); 
+    }
+    function checkUserName(){
+        var userName = $('#userName').val();
+        var isTrue = isEmail(userName)
+        if (userName != ''){
+            // console.log("账户值"+ isTrue + userName)
+            if (isTrue === true){
+                $('#user-hint').css('display', 'none');
+                $('#user-correct-check').css('display', 'none');
+                return;
+            }else{
+                $('#user-correct-check').css('display', 'block');
+            }
+        }
+    } 
+    function checkPassword(){
+        var userPassword = $('#userPassword').val();
+        var reg = /^[A-Za-z0-9]{6,20}$/; 
+        var isTrue =  reg.test(userPassword);
+        if (userPassword != ''){
+            if (isTrue === true){
+                $('#password-hint').css('display', 'none');
+                return;
+            }else{
+                $('#password-hint').css('display', 'block');
+                $('#userPassword').focus();
+            }
+        }
+    }
+    function checkEmailRegistration(){
+        var userName = $('#userName').val();
+        if(userName != '') {
+            $.ajax({
+                type: 'get',
+                url: '/index.php/users//checkemailexists?e='+userName+'',
+                success: function(data) {
+                    if (data === 'yes') {
+                        $('#user-hint').css('display', 'block');
+                        // $('#userPassword').css('background-color', 'green');
+                        return;
+                    }else{
+                        $('#user-hint').css('display', 'none');
+                    }
+                },
+                error: function() {
+                    // presentAlert('登录失败', '亲爱的用户，由于FTCC的服务器未能正确响应，所以您未能成功登录。请稍后再试，或尝试其他登录方式。'); 
+                    return;
+                }
+            });
+        }
+    }
+    
+    function verifyEmailOrPassword(){
+        var userName = $('#userName').val();
+        var userPassword = $('#userPassword').val();
+
+        
+        if((isLegalUser === false)&&(isEmail(userName)===true)){
+            $('#userName').focus();
+            $('#user-hint').html('用户名已被注册，请更换');
+            return false;   
+        }
+        if (userName === ''){
+            $('#user-hint').html('请输入用户名');
+            $('#userName').focus();
+        }
+        // if (isLegalUser===true) {
+        //     $('#user-hint').css('display', 'none');
+        // }
+        if (userPassword === ''){
+            $('#password-hint').css('display', 'block');
+            $('#userPassword').focus();
+        }else{
+            checkPassword();
+        }
+
+        
+        if ((isLegalUser===true)&&(userPassword != '') &&(userName != '')){
+             $('#user-hint').css('display', 'none');
+            $("#registerBtn").html("正在提交...");
+            $.ajax({
+                type: 'post',
+                url: '/index.php/users/registeruser/ajax',
+                // dataType: 'text',
+                data: 
+                    {
+                       email:userName,
+                       id:"signupForm",
+                       password:userPassword
+                   },
+                   // $("#signupForm").serialize(),
+                success: function(data) {
+                     // if (data){
+                        $("#registerBtn").html("欢迎您！"+userName).unbind();
+                     // }
+                     // window.location.assign("http://www.w3school.com.cn")
+                     
+                },
+                error: function() {
+                     $("#registerBtn").html("注册失败，请再次提交！");
+                     // window.location.assign("http://blog.csdn.net/bzty_lzy/article/details/48315955")
+                    // presentAlert('注册失败', '请重新注册。');
+                    return;
+                }
+            });
+        }
+            // {
+            //        email:userName,
+            //        id:"signupForm",
+            //        password:userPassword
+            //    },
+
+        // if (userName === ''){
+        //     $('#user-correct-check').css('display', 'block');
+        // }else{
+        //     checkUserName();
+        // }
+        // if (userPassword === ''){
+        //     $('#password-hint').css('display', 'block');
+        // }else{
+        //     checkPassword();
+        // }
+
+        
+    }
 </script>
 </html>
