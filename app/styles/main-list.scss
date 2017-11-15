@@ -55,3 +55,9 @@ html {
 
 	}
 }
+
+div[data-type="TryBook"] {
+	.item-headline-link {
+		color: $lightFontColor;
+	}
+}
