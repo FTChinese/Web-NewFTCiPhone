@@ -28,20 +28,20 @@
 		background:#000!important;
 		color:#AAA!important;
 	}
-	.side-container, .box-title a, table th, table tr{
+	.side-container, .box-title a, table th, table tr, .oneStory{
 		background:transparent!important;
 		color:#AAA!important;
 	}
-	.side-container .list-title, .box-title, table caption, table tr.row-odd, table tbody tr:nth-child(2n) {
+	.side-container .list-title, .box-title, table caption, table tr.row-odd, table tbody tr:nth-child(2n), .image figure, .banner-content, #allcomments .commentcontainer, .commentcontainer, .ebook-image-container .ebook-image-inner:before, .book-title-container {
 		background: #333!important;
 	}
 	.item-lead {
 		color:#999!important;
 	}
-	a, .item-tag a, .item-headline a, .relative-container a, .item-time.highlight, .item-time, .block-container a {
+	a, .item-tag a, .item-headline a, .relative-container a, .item-time.highlight, .item-time, .block-container a{
 		color:#BBB!important;
 	}
-	.side-container .list-title a, button, .story-body {
+	.side-container .list-title a, button, .story-body, #allcomments .commentcontainer, .commentcontainer  {
 		color: #AAA!important;
 	}
 
