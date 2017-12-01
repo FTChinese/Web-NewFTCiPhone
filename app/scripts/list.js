@@ -21,6 +21,14 @@ function getJSON() {
 		if (audioUrl !== '') {
 			item.shortlead = items[i].getAttribute('data-audio');
 		}
+		var caudioUrl = items[i].getAttribute('data-caudio') || '';
+		if (caudioUrl !== '') {
+			item.caudio = caudioUrl;
+		}
+		var eaudioUrl = items[i].getAttribute('data-eaudio') || '';
+		if (eaudioUrl !== '') {
+			item.eaudio = eaudioUrl;
+		}
 		data.sections[0].lists[0].items.push(item);
 		items[i].setAttribute('data-row', i);
 		removeLink(itemHeadlineEle);
