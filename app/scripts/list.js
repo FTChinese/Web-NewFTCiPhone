@@ -3,6 +3,10 @@ function getJSON() {
 		console.log ('should keep links');
 		return;
 	}
+
+	
+
+
 	var items = document.querySelectorAll('.item-container-app');
 	var adId = window.adchID || '1000';
 	var data = {'meta':{'title':'List','description':'','theme':'default','adid':adId},'sections':[{'type':'block','title':'','name':'','side':'none','sideAlign':'right','lists':[{'name':'New List','title':'','url':'','description':'','language':'','float':'none','showTag':'no','showTimeStamp':'no','preferLead':'longlead','sponsorAdId':'','sponsorLogoUrl':'','sponsorLink':'','sponsorNote':'','feedStart':'0','feedItems':'0','feedTag':'','feedType':'all','feedImage':'optional','moreLink':'','items':[]}]}]};
@@ -42,12 +46,17 @@ function getJSON() {
 	} catch (ignore) {
 
 	}
+	specialReportsData();
+	
 }
 
 function tapOnEle(event, ele) {
 	var target = event.target;
-	if (target.tagName === 'A' && target.getAttribute('href')) {
-		//console.log ('this is a link, return now! ');
+	// if (target.tagName === 'A' && target.getAttribute('href')) {
+	// 	//console.log ('this is a link, return now! ');
+	// 	return;
+	// }
+	if (isInLink(target)) {
 		return;
 	}
 	var row = ele.getAttribute('data-row');
@@ -55,9 +64,27 @@ function tapOnEle(event, ele) {
 	webkit.messageHandlers.selectItem.postMessage(row);
 }
 
+function isInLink(ele) {
+	var eleParent = ele;
+	for (var i=0; i<5; i++) {
+		if (!eleParent) {
+			return false;
+		}
+		if (eleParent.tagName === 'A' && eleParent.getAttribute('href')) {
+			//console.log ('this is a link, return now! ');
+			return true;
+		}
+		eleParent = eleParent.parentNode;
+	}
+	return false;
+}
+
 function removeLink(ele) {
 	if (ele && ele.getAttribute('href')) {
+		var sponsorLink = ele.getAttribute('data-sponsor-link') || '';
+		if (sponsorLink !== 'yes') {
 		ele.removeAttribute('href');
+		}
 	}
 }
 
@@ -65,6 +92,24 @@ function refreshAllAds() {
 	var adFrames = document.querySelectorAll('.banner-iframe');
 	for (var i=0; i<adFrames.length; i++) {
 		adFrames[i].contentDocument.location.reload(true);
+	}
+}
+
+function specialReportsData() {
+	var specialAnchors = document.querySelectorAll('.specialanchor');
+	var specialAnchorsData = [];
+	for (var i=0; i<specialAnchors.length; i++) {
+		var item = {};
+		item.tag = specialAnchors[i].getAttribute('tag') || '';
+		item.title = specialAnchors[i].getAttribute('title') || '';
+		item.adid = specialAnchors[i].getAttribute('adid') || '';
+		item.channel = specialAnchors[i].getAttribute('channel') || '';
+		specialAnchorsData.push(item);
+	}
+	try {
+		webkit.messageHandlers.sponsors.postMessage(specialAnchorsData);
+	} catch (ignore) {
+
 	}
 }
 
