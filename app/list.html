@@ -70,7 +70,8 @@ adchID = adchIDNew;
 <!-- build:js scripts/key-list.js -->
 <script type="text/javascript" src="/bower_components/ftcnext/app/scripts/key.js"></script>
 <script type="text/javascript" src="/bower_components/ftcnext/app/scripts/adChannel.js"></script>
-<script type="text/javascript" src="/bower_components/ftcnext/app/scripts/adPattern.js"></script>
+<script type="text/javascript" src="/bower_components/ftcnext/app/scripts/adPatternsPhone.js"></script>
+<script type="text/javascript" src="/bower_components/ftcnext/app/scripts/adPatternsPad.js"></script>
 <script type="text/javascript" src="/bower_components/ftcnext/app/scripts/adDevice.js"></script>
 <script type="text/javascript" src="/bower_components/ftcnext/app/scripts/ad.js"></script>
 <script type="text/javascript" src="/bower_components/ftcnext/app/scripts/ad-third-party.js"></script>
@@ -167,6 +168,10 @@ position:'Num1'
 </script>
 </div>
 
+
+
+
+
 <div class=" MT PT"></div>
 <div class="item-container XL4 XL-right XL-no-tag L4 L-right L-half L-no-tag M12 M-half S6 P12 P-half item-container-app has-image" data-id="001075108" data-type="story"><div class="item-inner">
 <h2 class="item-headline"><div class=item-tag><a href="/tag/中国央行">中国央行</a><button class="myft-follow plus" data-tag="中国央行" data-type="tag">关注</button></div><a target="_blank" href="/story/001075108" class="item-headline-link">中国央行向金融体系注入3100亿元人民币</a></h2>
@@ -180,6 +185,9 @@ position:'Num1'
 <a class="image" target="_blank" href="/story/001075080"><figure class="loading" data-url="http://i.ftimg.net/picture/6/000069006_piclink.jpg"></figure></a><div class="item-lead">安德森：我们即将面临巨大的全球养老金储蓄缺口。若想弥补这个缺口，我们势必要对自身的生活、消费和投资方式做出重大改变。</div><div class="item-time highlight">4小时前</div>
 <div class="item-bottom"></div>
 </div></div>
+
+
+<div id="iap-highlight"></div>
 
 <div class="XLT LT MT PT"></div>
 <div class="item-container XL4 L4 M12 M-half S6 P12 P-half item-container-app has-image" data-id="001075105" data-type="story"><div class="item-inner">
@@ -663,7 +671,11 @@ position:'Num3'
 
 
 <script type="text/javascript">
-updateProductsHTML('iap-ebooks', [{id:"com.ft.ftchinese.mobile.book.OutlookoftheFutureof2017",image:"http://i.ftimg.net/picture/9/000068669_piclink.jpg",headline:"精选2016，展望2017",lead:" 2017年，我们熟悉的那个世界是否正在远去？",type:"ebook",tag:"ebook",isDownloaded:false,expireDateString:"",periodString:"",productPrice:"CN¥18.00"},{id:"com.ft.ftchinese.mobile.book.lunch1",image:"http://i.ftimg.net/picture/2/000068702_piclink.jpg",headline:"与FT共进午餐（一）",lead:"英国《金融时报》最受欢迎的栏目",type:"ebook",tag:"ebook",isDownloaded:false,expireDateString:"",periodString:"",productPrice:"CN¥12.00"},{id:"com.ft.ftchinese.mobile.book.lunch2",image:"http://i.ftimg.net/picture/3/000068703_piclink.jpg",headline:"与FT共进午餐（二）",lead:"英国《金融时报》最受欢迎的栏目",type:"ebook",tag:"ebook",isDownloaded:false,expireDateString:"",periodString:"",productPrice:"CN¥12.00"},{id:"com.ft.ftchinese.mobile.book.magazine",image:"http://i.ftimg.net/picture/4/000073894_piclink.jpg",headline:"生活时尚·旅行特刊",lead:"探寻世界的尽头",type:"ebook",tag:"ebook",isDownloaded:false,expireDateString:"",periodString:"",productPrice:"CN¥6.00"},{id:"com.ft.ftchinese.mobile.book.magazine2",image:"http://i.ftimg.net/picture/7/000073887_piclink.jpg",headline:"如何在“人工智能”时代生存？——创新经济特刊",lead:"终身学习，是我们在人工智能时代的宿命",type:"ebook",tag:"ebook",isDownloaded:false,expireDateString:"",periodString:"",productPrice:"CN¥6.00"},{id:"com.ft.ftchinese.mobile.book.career",image:"http://i.ftimg.net/picture/7/000073927_piclink.jpg",headline:"管理·性别与职场",lead:"职场女性生存指南",type:"ebook",tag:"ebook",isDownloaded:false,expireDateString:"",periodString:"",productPrice:"CN¥6.00"},{id:"com.ft.ftchinese.mobile.book.economy1",image:"http://i.ftimg.net/picture/3/000073933_piclink.jpg",headline:"10年，金融危机为我们留下了什么？",lead:"世界经济·第1辑",type:"ebook",tag:"ebook",isDownloaded:false,expireDateString:"",periodString:"",productPrice:"CN¥6.00"},{id:"com.ft.ftchinese.mobile.book.economy2",image:"http://i.ftimg.net/picture/9/000073929_piclink.jpg",headline:"2018，掘金中国股市？",lead:"中国经济·第1辑",type:"ebook",tag:"ebook",isDownloaded:false,expireDateString:"",periodString:"",productPrice:"CN¥6.00"}]);
+updateProductsHTML('iap-highlight', [{id:"com.ft.ftchinese.mobile.book.OutlookoftheFutureof2017",image:"http://i.ftimg.net/picture/9/000068669_piclink.jpg",headline:"精选2016，展望2017",lead:" 2017年，我们熟悉的那个世界是否正在远去？",type:"ebook",tag:"ebook",isDownloaded:false,expireDateString:"",periodString:"",productPrice:"CN¥18.00"}], 'center');
+</script>
+
+<script type="text/javascript">
+updateProductsHTML('iap-ebooks', [{id:"com.ft.ftchinese.mobile.book.OutlookoftheFutureof2017",image:"http://i.ftimg.net/picture/9/000068669_piclink.jpg",headline:"精选2016，展望2017",lead:" 2017年，我们熟悉的那个世界是否正在远去？",type:"ebook",tag:"ebook",isDownloaded:false,expireDateString:"",periodString:"",productPrice:"CN¥18.00"},{id:"com.ft.ftchinese.mobile.book.lunch1",image:"http://i.ftimg.net/picture/2/000068702_piclink.jpg",headline:"与FT共进午餐（一）",lead:"英国《金融时报》最受欢迎的栏目",type:"ebook",tag:"ebook",isDownloaded:false,expireDateString:"",periodString:"",productPrice:"CN¥12.00"},{id:"com.ft.ftchinese.mobile.book.lunch2",image:"http://i.ftimg.net/picture/3/000068703_piclink.jpg",headline:"与FT共进午餐（二）",lead:"英国《金融时报》最受欢迎的栏目",type:"ebook",tag:"ebook",isDownloaded:false,expireDateString:"",periodString:"",productPrice:"CN¥12.00"},{id:"com.ft.ftchinese.mobile.book.magazine",image:"http://i.ftimg.net/picture/4/000073894_piclink.jpg",headline:"生活时尚·旅行特刊",lead:"探寻世界的尽头",type:"ebook",tag:"ebook",isDownloaded:false,expireDateString:"",periodString:"",productPrice:"CN¥6.00"},{id:"com.ft.ftchinese.mobile.book.magazine2",image:"http://i.ftimg.net/picture/7/000073887_piclink.jpg",headline:"如何在“人工智能”时代生存？——创新经济特刊",lead:"终身学习，是我们在人工智能时代的宿命",type:"ebook",tag:"ebook",isDownloaded:false,expireDateString:"",periodString:"",productPrice:"CN¥6.00"},{id:"com.ft.ftchinese.mobile.book.career",image:"http://i.ftimg.net/picture/7/000073927_piclink.jpg",headline:"管理·性别与职场",lead:"职场女性生存指南",type:"ebook",tag:"ebook",isDownloaded:false,expireDateString:"",periodString:"",productPrice:"CN¥6.00"},{id:"com.ft.ftchinese.mobile.book.economy1",image:"http://i.ftimg.net/picture/3/000073933_piclink.jpg",headline:"10年，金融危机为我们留下了什么？",lead:"世界经济·第1辑",type:"ebook",tag:"ebook",isDownloaded:false,expireDateString:"",periodString:"",productPrice:"CN¥6.00"},{id:"com.ft.ftchinese.mobile.book.economy2",image:"http://i.ftimg.net/picture/9/000073929_piclink.jpg",headline:"2018，掘金中国股市？",lead:"中国经济·第1辑",type:"ebook",tag:"ebook",isDownloaded:false,expireDateString:"",periodString:"",productPrice:"CN¥6.00"}], '');
 </script>
 
 </html>
