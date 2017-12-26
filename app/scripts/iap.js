@@ -18,3 +18,34 @@ function updateProductsHTML(id, json, position) {
 	document.getElementById(id).innerHTML = htmlCode;
 	loadImages();
 }
+
+// MARK: Update the locks at the end of premium content headlines
+function updateHeadlineLocks() {
+	var privileges = window.gPrivileges || [];
+
+	// MARK: Premium content for standard and premium subscribers
+	var headlines = document.querySelectorAll('[data-type=premium] .item-headline-link');
+	for (var i=0; i<headlines.length; i++) {
+		var headlineClass = headlines[i].className.replace(/unlocked/g, '').replace(/locked/g, '').replace(/ +/, ' ');
+		if (privileges.indexOf('premium') >= 0) {
+			headlines[i].className = headlineClass + ' unlocked';
+		} else {
+			headlines[i].className = headlineClass + ' locked';
+		}
+	}
+
+	// MARK: Premium content for premium subscribers such as EditorChoice
+	if (window.location.href.indexOf('pageid=EditorChoice-')>=0) {
+		var headlines2 = document.querySelectorAll('.item-headline-link');
+		for (var j=0; j<headlines2.length; j++) {
+			var headlineClass = headlines2[j].className.replace(/unlocked/g, '').replace(/locked/g, '').replace(/ +/, ' ');
+			if (privileges.indexOf('EditorChoice') >= 0) {
+				headlines2[j].className = headlineClass + ' unlocked';
+			} else {
+				headlines2[j].className = headlineClass + ' locked';
+			}
+		}
+	}
+}
+
+updateHeadlineLocks();
