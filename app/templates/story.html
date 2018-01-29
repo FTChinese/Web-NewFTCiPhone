@@ -151,11 +151,13 @@ var gIsCurrentAdchFinal = false;
 
 
                 <script type="text/javascript">
+                if (window.adChannelId != '5048') {
                     document.write (writeAdNew({
                         devices: ['iPhoneWeb','AndroidWeb', 'iPhoneApp','AndroidApp'],
                         pattern:'Banner',
                         position:'Num2'
                     }));
+                }
                 </script>
 
                 <h2 class="list-title"><a class="list-link" href="#">读者评论</a></h2>
