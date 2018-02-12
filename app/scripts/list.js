@@ -99,6 +99,9 @@ function specialReportsData() {
 		item.title = specialAnchors[i].getAttribute('title') || '';
 		item.adid = specialAnchors[i].getAttribute('adid') || '';
 		item.channel = specialAnchors[i].getAttribute('channel') || '';
+		if (specialAnchors[i].getAttribute('hideAd')) {
+			item.hideAd = specialAnchors[i].getAttribute('hideAd');
+		}
 		specialAnchorsData.push(item);
 	}
 	try {
