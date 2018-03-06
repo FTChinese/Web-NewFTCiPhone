@@ -7,67 +7,14 @@
  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
 
-<style>{{story-css}}</style>
+<link rel="stylesheet" href="styles/main-story.css">
 
-<!-- MARK: Important: Need to add Google Analytics load events manually -->
-<script>
-{{analytics}}
-</script>
-<script>
-ga('create', 'UA-1608715-1', 'auto');
-ga('require', 'displayfeatures');
-if (window.gAutoStart === undefined) {
-try {
-trackerNew();
-}catch(err){
-ga('send', 'pageview');
-}
-}
-</script>
-<!-- End Google Analytics -->
-<!-- link click -->
-<script>
-function linkClickGa(e){
-ga('send','event','AdClick', $(e).attr("href"), "An");
-}
-</script>
-<!-- End link click -->
-<!-- FTC Analytics -->
-<script>
-fa('create', 'UA-XXXX-Y', { 'alwaysSendReferrer': true });   // Replace with your property ID.
-if (window.gAutoStart === undefined) {fa('send', 'pageview');}
-</script>
-<!-- End FTC Analytics -->
-<!-- Log Analytics -->
-<script>
-if (window.gAutoStart === undefined) {
-(function(d, s, u, j, x) {
-j = d.createElement(s),
-x = d.getElementsByTagName(s)[0];
-j.async = true;
-j.src = u;
-x.parentNode.insertBefore(j, x)
-})(document, 'script', 'http://static.ftchinese.com/js/log.js?v=7&20160318');
-}
-</script>
-<!-- End Log Analytics -->
-<!-- Baidu Analytics -->
-<script>
-var _hmt = _hmt || [];
-(function() {
-var hm = document.createElement("script");
-hm.src = "https://hm.baidu.com/hm.js?6f808c64c1308274ef22324b340e40af";
-var s = document.getElementsByTagName("script")[0]; 
-s.parentNode.insertBefore(hm, s);
-})();
-</script>
-<!-- End Baidu Analytics -->
-<script type="text/javascript">{{story-js-key}}</script>
 
 <style>
 body {
     padding-top: 44px;
 }
+
 ::placeholder { 
     color: #a7a59c;
     opacity: 1;
@@ -75,12 +22,12 @@ body {
     font-weight: normal;
 }
 .account-container {
-    margin: 14px auto;
-    max-width: 414px;
+	margin: 14px auto;
+	max-width: 414px;
 }
 .user-name-container {
-    font-size: 1.2em;
-    margin-bottom: 1em;
+	font-size: 1.2em;
+	margin-bottom: 1em;
 }
 .social-login-wechat {
     display: none;
@@ -180,7 +127,7 @@ button, a.button, input.button {
             <a class="left" href="ftcregister://www.ftchinese.com/">注册账号</a>
             <a class="right" href="http://www.ftchinese.com/users/findpassword">找回密码</a>
         </div>
-        <a id="social-login-wechat" class="social-login-wechat" href="weixinlogin://www.ftchinese.com/"><div class="centerButton"><button class="ui-light-btn">微信登录</button></div></a>
+        <a id="social-login-wechat" class="social-login-wechat" href="weixinlogin://www.ftchinese.com/" style="display: block;"><div class="centerButton"><button class="ui-light-btn">微信登录</button></div></a>
     </div>
 </div>
 
@@ -188,7 +135,6 @@ button, a.button, input.button {
 </div>
 
 </body>
-
 <script type="text/javascript">
     checkLogin();
 </script>
