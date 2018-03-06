@@ -46,6 +46,15 @@ function updateHeadlineLocks() {
 			}
 		}
 	}
+
+	promptUserLogin();
+}
+
+function promptUserLogin() {
+	var promptDiv = document.getElementById('membership-login-prompt');
+	if (!username && promptDiv) {
+		promptDiv.className = promptDiv.className.replace(/ hide/g, '');
+	}
 }
 
 updateHeadlineLocks();
