@@ -460,7 +460,7 @@ gulp.task('ios', ['grab', 'build'], function () {
 
 gulp.task('grab', function () {
   getUrltoFile('http://app003.ftmailbox.com/index.php/users/register?i=4&webview=ftcapp', './app/templates/register.html');
-  getUrltoFile('https://d1budb999l6vta.cloudfront.net/channel/weekly.html?webview=ftcapp&bodyonly=yes&newad=yes', './app/templates/localbackup.html');
+  getUrltoFile('https://www.ftchinese.com/channel/exclusive.html?webview=ftcapp&bodyonly=yes&newad=yes', './app/templates/localbackup.html');
 
 });
 
