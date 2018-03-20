@@ -1,11 +1,18 @@
 function passLoginToNative() {
+	var message = {};
+	var uniqueId = GetCookie('uniqueVisitorId') || guid();
 	if (!!username) {
-		var message = {
+		message = {
         	'username': username,
-        	'userId': userId
+        	'userId': userId,
+        	'uniqueVisitorId': uniqueId
     	};
-    	webkit.messageHandlers.user.postMessage(message);
+	} else {
+		message = {
+			'uniqueVisitorId': uniqueId
+		}
 	}
+	webkit.messageHandlers.user.postMessage(message);
 }
 
 passLoginToNative();
