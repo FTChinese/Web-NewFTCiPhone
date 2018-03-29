@@ -7,6 +7,15 @@ function passLoginToNative() {
         	'userId': userId,
         	'uniqueVisitorId': uniqueId
     	};
+    	// MARK: Get subscription: standard/premium
+    	var paywall = GetCookie('paywall') || '';
+    	var paywallExpire = GetCookie('paywall_expire') || '';
+    	if (paywall !== '') {
+    		message.paywall = paywall;
+    	}
+    	if (paywallExpire !== '') {
+    		message.paywallExpire = paywallExpire;
+    	}
 	} else {
 		message = {
 			'uniqueVisitorId': uniqueId
