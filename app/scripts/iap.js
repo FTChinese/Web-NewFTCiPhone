@@ -21,6 +21,10 @@ function updateProductsHTML(id, json, position) {
 
 // MARK: Update the locks at the end of premium content headlines
 function updateHeadlineLocks() {
+	// MARK: If a reader opens the link in an HTML Book, No need to display locks
+	if (window.location.href.indexOf('htmlbook') > 0) {
+		return;
+	}
 	var privileges = window.gPrivileges || [];
 	
 	// MARK: Story Archive
