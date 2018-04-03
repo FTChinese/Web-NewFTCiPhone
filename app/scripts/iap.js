@@ -57,7 +57,7 @@ function updateHeadlineLocks() {
 	}
 
 	// MARK: Premium content for premium subscribers such as EditorChoice
-	if (window.location.href.indexOf('pageid=EditorChoice-')>=0) {
+	if (window.location.href.indexOf('pageid=EditorChoice-')>=0 || window.location.href.indexOf('editorchoice-issue')>=0) {
 		var headlines2 = document.querySelectorAll('.item-headline-link');
 		for (var j=0; j<headlines2.length; j++) {
 			var headlineClass = headlines2[j].className.replace(/unlocked/g, '').replace(/locked/g, '').replace(/ +/, ' ');
