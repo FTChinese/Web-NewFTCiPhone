@@ -29,6 +29,14 @@ function getJSON() {
 		if (eaudioUrl !== '') {
 			item.eaudio = eaudioUrl;
 		}
+		var subType = items[i].getAttribute('data-sub-type') || '';
+		if (subType != '') {
+			item.subType = subType;
+		}
+		var pubDate = items[i].getAttribute('data-date') || '';
+		if (pubDate != '') {
+			item.timeStamp = pubDate;
+		}
 		data.sections[0].lists[0].items.push(item);
 		items[i].setAttribute('data-row', i);
 		removeLink(itemHeadlineEle);

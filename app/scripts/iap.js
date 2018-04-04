@@ -21,10 +21,36 @@ function updateProductsHTML(id, json, position) {
 
 // MARK: Update the locks at the end of premium content headlines
 function updateHeadlineLocks() {
+	// MARK: If a reader opens the link in an HTML Book, No need to display locks
+	if (window.location.href.indexOf('htmlbook') > 0) {
+		return;
+	}
 	var privileges = window.gPrivileges || [];
+	
+	// MARK: Story Archive
+	var archiveInSeconds = 7 * 24 * 60 * 60;
+	var storyItems = document.querySelectorAll('[data-type=story][data-date]');
+	for (var k=0; k<storyItems.length; k++) {
+		var storyPubDate = storyItems[k].getAttribute('data-date');
+		if (/[0-9]{4}-[0-9]{2}-[0-9]{2}/i.test(storyPubDate)){
+			storyPubDate = new Date(storyPubDate).getTime() / 1000
+		} else {
+			storyPubDate = parseInt(storyPubDate, 10);
+		}
+		var currentTimeStamp = Math.round(new Date().getTime()/1000);
+		var storyHeadline = storyItems[k].querySelector('.item-headline-link');
+		if (currentTimeStamp - storyPubDate >= archiveInSeconds) {
+			var headlineClass = storyHeadline.className.replace(/unlocked/g, '').replace(/locked/g, '').replace(/ +/, ' ');
+			if (privileges.indexOf('premium') >= 0) {
+				storyHeadline.className = headlineClass + ' unlocked';
+			} else {
+				storyHeadline.className = headlineClass + ' locked';
+			}
+		}
+	}
 
 	// MARK: Premium content for standard and premium subscribers
-	var headlines = document.querySelectorAll('[data-type=premium] .item-headline-link');
+	var headlines = document.querySelectorAll('[data-type=premium] .item-headline-link, [data-sub-type=radio] .item-headline-link, [data-sub-type=speedreading] .item-headline-link');
 	for (var i=0; i<headlines.length; i++) {
 		var headlineClass = headlines[i].className.replace(/unlocked/g, '').replace(/locked/g, '').replace(/ +/, ' ');
 		if (privileges.indexOf('premium') >= 0) {
@@ -35,7 +61,7 @@ function updateHeadlineLocks() {
 	}
 
 	// MARK: Premium content for premium subscribers such as EditorChoice
-	if (window.location.href.indexOf('pageid=EditorChoice-')>=0) {
+	if (window.location.href.indexOf('pageid=EditorChoice-')>=0 || window.location.href.indexOf('editorchoice-issue')>=0) {
 		var headlines2 = document.querySelectorAll('.item-headline-link');
 		for (var j=0; j<headlines2.length; j++) {
 			var headlineClass = headlines2[j].className.replace(/unlocked/g, '').replace(/locked/g, '').replace(/ +/, ' ');

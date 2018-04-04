@@ -1,5 +1,10 @@
-function search (keys) {
+function search (keys, page) {
+	// console.log (keys);
+	// console.log (typeof page);
 	var url = '/index.php/ft/search/?keys='+ keys + '&type=default&i=4';
+	if (typeof page === 'string') {
+		url += '&page=' + page;
+	}
 	if (window.location.hostname === 'localhost') {
 		url = '/api/search.json';
 	}
@@ -9,7 +14,23 @@ function search (keys) {
 	    if (this.readyState === 4) {
 	        if (this.status === 200) {
 	            var data = this.responseText;
-	            document.getElementById('search-results').innerHTML = data;
+	            var searchResults = document.getElementById('search-results')
+	            searchResults.innerHTML = data;
+	            updateHeadlineLocks();
+	            var paginationEle = document.querySelector('.pagination');
+	            if (paginationEle !== null) {
+	            	var paginationEleHTML = '<div class="pagination-inner">' + paginationEle.innerHTML + '</div>';
+	            	paginationEle.innerHTML = paginationEleHTML;
+	            	paginationEle.className = 'pagination-container';
+	            }
+	            var pageLinks = searchResults.querySelectorAll('.pagination-inner a');
+	            for (var i=0; i<pageLinks.length; i++) {
+	            	pageLinks[i].onclick = function() {
+	            		var page = this.href.replace(/^.*page=([0-9]+).*$/g, '$1');
+	            		search(keys, page);
+	            		return false;
+	            	}
+	            }
 	        } else {
 
 	        }
