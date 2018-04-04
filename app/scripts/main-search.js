@@ -16,6 +16,7 @@ function search (keys, page) {
 	            var data = this.responseText;
 	            var searchResults = document.getElementById('search-results')
 	            searchResults.innerHTML = data;
+	            updateHeadlineLocks();
 	            var paginationEle = document.querySelector('.pagination');
 	            if (paginationEle !== null) {
 	            	var paginationEleHTML = '<div class="pagination-inner">' + paginationEle.innerHTML + '</div>';

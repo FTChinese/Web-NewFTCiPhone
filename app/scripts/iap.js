@@ -32,7 +32,11 @@ function updateHeadlineLocks() {
 	var storyItems = document.querySelectorAll('[data-type=story][data-date]');
 	for (var k=0; k<storyItems.length; k++) {
 		var storyPubDate = storyItems[k].getAttribute('data-date');
-		storyPubDate = parseInt(storyPubDate, 10);
+		if (/[0-9]{4}-[0-9]{2}-[0-9]{2}/i.test(storyPubDate)){
+			storyPubDate = new Date(storyPubDate).getTime() / 1000
+		} else {
+			storyPubDate = parseInt(storyPubDate, 10);
+		}
 		var currentTimeStamp = Math.round(new Date().getTime()/1000);
 		var storyHeadline = storyItems[k].querySelector('.item-headline-link');
 		if (currentTimeStamp - storyPubDate >= archiveInSeconds) {
