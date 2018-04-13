@@ -150,6 +150,151 @@ var dolRand = Math.round(Math.random()*1000000000);//定义slot随机数实现�
     <!-- End Log Analytics -->
 
     
+
+
+
+
+
+
+
+
+    <!-- DB Ad -->
+<!-- Prepare for device and channel-->
+<script>
+var deviceType = getDeviceType();
+var deviceId = adDevices[deviceType].id;
+var adChannelId = getAdChannelId();
+function getDeviceType() {
+/**
+* @dependGlob uaString
+* @dependGlob searchVars
+* @dest: determin device type
+*/
+var deviceType = 'PC';
+if (/iPad/i.test(uaString)) {
+deviceType = 'PadWeb';
+if(searchVars.webview && searchVars.webview === 'ftcapp') {
+deviceType = 'PadApp';
+}
+} else if (/OS [0-9]+\_/i.test(uaString) && (/iPhone/i.test(uaString) || /iPod/i.test(uaString))) {
+deviceType = 'iPhoneWeb';
+if(searchVars.webview && searchVars.webview === 'ftcapp') {
+deviceType = 'iPhoneApp';
+}
+} else if (/Android|micromessenger/i.test(uaString) || w1 <= 490) {
+deviceType = 'AndroidWeb';
+}
+return deviceType;
+}
+function getAdChannelId() {
+/**
+* @dependGlob adchID
+* @dependGlob FTadchannelID
+* @dependGlob deviceType
+*/
+var adch = adchID; //TODO:集中channel号码的获取方式，不要head.html等等都有
+var adchURL = window.location.href.replace(/^.*adchannelID=([0-9]{4}).*$/g,'$1');
+if (/^[0-9]{4}$/.test(adchURL)) { //MARK:如果是从url可以得到4位频道号
+adch = adchURL;
+} else if (typeof(window.FTadchannelID)!=='undefined' && window.FTadchannelID ) { //MARK:否则看一下全局变量FTadchannelID是否存在
+console.log(window.FTadchannelID);
+adch = window.FTadchannelID;
+} 
+//MARK:Mobile情况下的频道要抹去二级频道（一级频道为50的除外）
+//MARK：1902的移动端卖了广告，所以1902也要除去————移动端子频道分开卖广告是趋势
+var mobileDeviceTypeArr = ['iPhoneApp','iPhoneWeb','AndroidApp','AndroidWeb','PadApp','PadWeb'];
+if (adch && mobileDeviceTypeArr.indexOf(deviceType) >= 0 && adch.substring(0,2)!== '50' && adch.substring(2,4)!=='00' && adch !== '1902') {
+adch = adch.substring(0,2) + '00';
+}
+var adChannelId = adch||'1000';
+return adChannelId;
+}
+function displayDBAd(obj) {
+/**
+* @param obj
+* @param obj.devices: TYPE Array, the devices are allowed to show this ad, Eg:['PC','PadWeb','iPhoneWeb','AndroidWeb']
+* @param obj.adName: 'Leaderboard-Num1'
+* @param obj.container: TYPE String, the container specified for the ad position in a certain page. It could be 'banner','mpu','mpuInStory'
+* 
+* @dependglob deviceType: string , one of 'PC','iPhoneApp','iPhoneWeb','AndroidApp','AndroidWeb','PadApp','PadWeb', the current real deviceType
+* @dependglob deviceId
+* @dependglob adChannelId
+*/
+// MARK: If device does not fit, return immediately
+
+if (obj.devices.indexOf(deviceType) < 0) {
+    return '';
+}
+var adName = obj.adName;
+var adClass = 'db-ad';
+if(adName === 'Mobile-Banner-Num1' || adName === 'Mobile-Banner-Num2') {
+adClass += ' db-mobile-banner';
+} else if(adName === 'Mobile-Information-Num1' || adName === 'Mobile-Information-Num2') {
+adClass += ' db-mobile-information';
+}
+var adCode = ' <div id="'+ adName +'" class ="' + adClass + '"style="padding-top:0;"><scr'+'ipt>googletag.cmd.push(function() { googletag.display("'+ adName +'")})</scr'+'ipt></div>';
+if (adName === 'Mobile-MPU-Num2') {
+
+}
+console.log ('adCode');
+var container = obj.container;
+if (container === 'mpu') {
+adCode = '<div class="mpu-container">' + adCode + '</div>';
+} else if (container === 'mpuInStroy') {
+adCode = '<div class="mpu-container-instory">' + adCode + '</div>';
+} else if(container === 'banner') {
+adCode = '<div class="bn-ph"><div class="banner-container"><div class="banner-inner"><div class="banner-content">' + adCode + '</div></div></div></div>';
+}
+return adCode;
+}
+</script><script async='async' src='https://www.googletagservices.com/tag/js/gpt.js'></script>
+<script>
+var googletag = googletag || {};
+googletag.cmd = googletag.cmd || [];
+</script>
+<script>
+googletag.cmd.push(function() {
+var gptadslots = [];
+gptadslots.push(
+googletag.defineSlot('/80682004/iPhoneApp-2000/' + '2000' + adChannelId +'0301', [[320,80],[375, 94],[414, 104]], 'Mobile-Banner-Num1'). addService(googletag.pubads())
+);
+gptadslots.push(
+googletag.defineSlot('/80682004/iPhoneApp-2000/' + '2000' + adChannelId +'0302', [[320,80],[375, 94],[414, 104]], 'Mobile-Banner-Num2').addService(googletag.pubads())
+);
+gptadslots.push(
+googletag.defineSlot('/80682004/iPhoneApp-2000/' + '2000' + adChannelId +'0401', [300, 250], 'Mobile-MPU-Num1').addService(googletag.pubads())
+);
+gptadslots.push(
+googletag.defineSlot('/80682004/iPhoneApp-2000/' + '2000' + adChannelId +'0402', [300, 250], 'Mobile-MPU-Num2').addService(googletag.pubads())
+);
+googletag.pubads().enableSingleRequest();
+googletag.pubads().disableInitialLoad();
+googletag.enableServices();
+googletag.pubads().refresh(gptadslots);
+});
+</script>
+<!-- End Doubleclick Head -->
+
+
+
+
+<script>
+    var testDB = 'no';
+    function displayAd(adOptions) {
+        if (window.testDB === 'yes') {
+            document.write(displayDBAd(adOptions.db));
+        } else {
+            document.write(writeAdNew(adOptions.dp));
+        }
+    }
+</script>
+
+
+
+
+
+
+
  </head>
  <body>
 
@@ -399,11 +544,20 @@ var dolRand = Math.round(Math.random()*1000000000);//定义slot随机数实现�
    }));
 </script>
 <script type="text/javascript">
-    document.write(writeAdNew({
-        devices: ['iPhoneWeb','AndroidWeb'],
-        pattern:'Banner',
-        position:'Num1'
-   }));
+    displayAd(
+        {
+            db: {
+                devices: ['iPhoneWeb','AndroidWeb','iPhoneApp','AndroidApp'],
+                adName:'Mobile-Banner-Num1',
+                container:'banner'
+            }, 
+            dp: {
+                devices: ['iPhoneWeb', 'AndroidWeb','iPhoneApp','AndroidApp'],
+                pattern:'Banner',
+                position:'Num1'
+            }
+        }
+    );
 </script>
 
 
@@ -444,13 +598,28 @@ var dolRand = Math.round(Math.random()*1000000000);//定义slot随机数实现�
 <p>香港再度成为全球外派成本最高的城市，尽管这块中国领地的经济正面临越来越大的阻力、而且企业还削减了曾经很丰厚的外派津贴。</p>
 
 <script type="text/javascript">
-    document.write (writeAdNew({
-        devices: ['PC','iPhoneWeb','AndroidWeb'],
-        pattern:'MPU',
-        position:'Middle1',
-        container:'mpuInStroy'
-    }));
+    // document.write (writeAdNew({
+    //     devices: ['PC','iPhoneWeb','AndroidWeb'],
+    //     pattern:'MPU',
+    //     position:'Middle1',
+    //     container:'mpuInStroy'
+    // }));
+
+    displayAd ({
+    db: {
+        devices: ['iPhoneWeb','AndroidWeb','iPhoneApp','AndroidApp'],
+        adName: 'Mobile-MPU-Num1',
+        container: 'mpu'
+    },
+    dp: {
+        devices: ['iPhoneWeb','AndroidWeb','iPhoneApp','AndroidApp'],
+        pattern: 'MPU',
+        position: 'Middle1',
+        container: 'mpuInStory'
+    }
+    });
 </script>
+
 
 
 <p>香港拥有全球最难以负担的居住成本，高昂的房租帮助这座金融中心在咨询公司美世(Mercer)最新发布的生活成本年度排行榜上回到榜首位置。</p>
@@ -459,12 +628,25 @@ var dolRand = Math.round(Math.random()*1000000000);//定义slot随机数实现�
 
 
 <script type="text/javascript">
-    document.write (writeAdNew({
-        devices: ['PC','iPhoneWeb','AndroidWeb'],
-        pattern:'MPU',
-        position:'Middle2',
-        container:'mpuInStroy'
-    }));
+    // document.write (writeAdNew({
+    //     devices: ['PC','iPhoneWeb','AndroidWeb'],
+    //     pattern:'MPU',
+    //     position:'Middle2',
+    //     container:'mpuInStroy'
+    // }));
+    displayAd ({
+    db: {
+        devices: ['iPhoneWeb','AndroidWeb','iPhoneApp','AndroidApp'],
+        adName: 'Mobile-MPU-Num2',
+        container: 'mpu'
+    },
+    dp: {
+        devices: ['iPhoneWeb','AndroidWeb','iPhoneApp','AndroidApp'],
+        pattern: 'MPU',
+        position: 'Middle2',
+        container: 'mpuInStory'
+    }
+    });
 </script>
 
 
@@ -562,11 +744,20 @@ var dolRand = Math.round(Math.random()*1000000000);//定义slot随机数实现�
     }));
 </script>
 <script type="text/javascript">
-    document.write (writeAdNew({
-        devices: ['iPhoneWeb','AndroidWeb'],
-        pattern:'Banner',
-        position:'Num2'
-    }));
+    displayAd (
+        {
+            db: {
+                devices: ['iPhoneWeb','AndroidWeb','iPhoneApp','AndroidApp'],
+                adName:'Mobile-Banner-Num2',
+                container:'banner'
+            }, 
+            dp: {
+                devices: ['iPhoneWeb', 'AndroidWeb','iPhoneApp','AndroidApp'],
+                pattern:'Banner',
+                position:'Num2'
+            }
+        }
+    );
 </script>
 
 

@@ -209,12 +209,15 @@ var gptadslots = [];
 gptadslots.push(
 googletag.defineSlot('/80682004/iPhoneApp-2000/' + '2000' + adChannelId +'0301', [[320,80],[375, 94],[414, 104]], 'Mobile-Banner-Num1'). addService(googletag.pubads())
 );
-// gptadslots.push(
-// googletag.defineSlot('/80682004/iPhoneApp-2000/' + '2000' + adChannelId +'0302', [[320,80],[375, 94],[414, 104]], 'Mobile-Banner-Num2').addService(googletag.pubads())
-// );
-// gptadslots.push(
-// googletag.defineSlot('/80682004/iPhoneApp-2000/' + '2000' + adChannelId +'0401', [300, 250], 'Mobile-MPU-Num1').addService(googletag.pubads())
-// );
+gptadslots.push(
+googletag.defineSlot('/80682004/iPhoneApp-2000/' + '2000' + adChannelId +'0302', [[320,80],[375, 94],[414, 104]], 'Mobile-Banner-Num2').addService(googletag.pubads())
+);
+gptadslots.push(
+googletag.defineSlot('/80682004/iPhoneApp-2000/' + '2000' + adChannelId +'0401', [300, 250], 'Mobile-MPU-Num1').addService(googletag.pubads())
+);
+gptadslots.push(
+googletag.defineSlot('/80682004/iPhoneApp-2000/' + '2000' + adChannelId +'0402', [300, 250], 'Mobile-MPU-Num2').addService(googletag.pubads())
+);
 googletag.pubads().enableSingleRequest();
 googletag.pubads().disableInitialLoad();
 googletag.enableServices();
@@ -226,7 +229,16 @@ googletag.pubads().refresh(gptadslots);
 
 
 
-
+<script>
+    var testDB = '{testDB}';
+    function displayAd(adOptions) {
+        if (window.testDB === 'yes') {
+            document.write(displayDBAd(adOptions.db));
+        } else {
+            document.write(writeAdNew(adOptions.dp));
+        }
+    }
+</script>
 
 
 
@@ -238,47 +250,22 @@ googletag.pubads().refresh(gptadslots);
 
 
 
-
-
 <script>
-var bannerCount = '0';
-var testDB = 'yes';
-var nowDB = '';
-if(bannerCount == 0) {
-if (testDB == 'yes') {
-document.write(displayDBAd({
-devices: ['iPhoneWeb','AndroidWeb','iPhoneApp','AndroidApp'],
-adName:'Mobile-Banner-Num1',
-container:'banner'
-}));
-} else {
-document.write(writeAdNew({
-devices: ['iPhoneWeb', 'AndroidWeb','iPhoneApp','AndroidApp'],
-pattern:'Banner',
-position:'Num1'
-}));
-}
-} else if (bannerCount == 1) {
-if (testDB == 'yes') {
-if (adChannelId!= '5048') {
-document.write(displayDBAd({
-devices:['iPhoneWeb','AndroidWeb','iPhoneApp','AndroidApp'],
-adName:'Mobile-Banner-Num2',
-container:'banner'
-}));
-}
-} else {
-if (adChannelId!= '5048') {
-document.write(writeAdNew({
-devices: ['iPhoneWeb','AndroidWeb','iPhoneApp','AndroidApp'],
-pattern:'Banner',
-position:'Num2'
-}));
-}
-}
-}
+displayAd(
+    {
+        db: {
+            devices: ['iPhoneWeb','AndroidWeb','iPhoneApp','AndroidApp'],
+            adName:'Mobile-Banner-Num1',
+            container:'banner'
+        }, 
+        dp: {
+            devices: ['iPhoneWeb', 'AndroidWeb','iPhoneApp','AndroidApp'],
+            pattern:'Banner',
+            position:'Num1'
+        }
+    }
+);
 </script>
-
 
 
 
@@ -306,16 +293,23 @@ position:'Num2'
                 </div>
 
 
-
                 <script type="text/javascript">
-                if (window.adChannelId != '5048') {
-                    document.write (writeAdNew({
-                        devices: ['iPhoneWeb','AndroidWeb', 'iPhoneApp','AndroidApp'],
-                        pattern:'Banner',
-                        position:'Num2'
-                    }));
-                }
+                    displayAd(
+                        {
+                            db: {
+                                devices: ['iPhoneWeb','AndroidWeb','iPhoneApp','AndroidApp'],
+                                adName:'Mobile-Banner-Num2',
+                                container:'banner'
+                            }, 
+                            dp: {
+                                devices: ['iPhoneWeb', 'AndroidWeb','iPhoneApp','AndroidApp'],
+                                pattern:'Banner',
+                                position:'Num2'
+                            }
+                        }
+                    );
                 </script>
+
 
                 <h2 class="list-title"><a class="list-link" href="#">读者评论</a></h2>
                 <div id="allcomments" class="allcomments container"></div>
@@ -391,14 +385,6 @@ position:'Num2'
 </div></div>
 
 
-
-<script type="text/javascript">
-    document.write (writeAdNew({
-        devices: ['PC'],
-        pattern:'Banner',
-        position:'Num1'
-    }));
-</script>
 
 
 

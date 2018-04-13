@@ -216,7 +216,15 @@ googletag.pubads().refresh(gptadslots);
 
 
 
-
+<script>
+    function displayAd(adOptions) {
+        if (window.testDB === 'yes') {
+            document.write(displayDBAd(adOptions.db));
+        } else {
+            document.write(writeAdNew(adOptions.dp));
+        }
+    }
+</script>
 
 
 
