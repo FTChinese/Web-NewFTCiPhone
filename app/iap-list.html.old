@@ -15,7 +15,7 @@
 
 <!-- build:js scripts/iap.js -->
 <script src="/bower_components/ftcwebapp/app/scripts/iap.js"></script>
-<script type="text/javascript" src="scripts/user.js"></script>
+<script type="text/javascript" src="/bower_components/ftcnext/app/scripts/user-login-native.js"></script>
 <!-- endbuild -->
 
 <script>
