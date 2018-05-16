@@ -119,4 +119,12 @@ function specialReportsData() {
 	}
 }
 
+function sharePageFromApp(linkObj) {
+	try {
+		webkit.messageHandlers.sharePageFromApp.postMessage(linkObj);
+	} catch (ignore) {
+
+	}
+}
+
 getJSON();
