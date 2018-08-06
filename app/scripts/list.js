@@ -5,7 +5,16 @@ function getJSON() {
 	}
 	var items = document.querySelectorAll('.item-container-app');
 	var adId = window.adchID || '1000';
-	var data = {'meta':{'title':document.title,'description':'','theme':'default','adid':adId},'sections':[{'type':'block','title':'','name':'','side':'none','sideAlign':'right','lists':[{'name':'New List','title':'','url':'','description':'','language':'','float':'none','showTag':'no','showTimeStamp':'no','preferLead':'longlead','sponsorAdId':'','sponsorLogoUrl':'','sponsorLink':'','sponsorNote':'','feedStart':'0','feedItems':'0','feedTag':'','feedType':'all','feedImage':'optional','moreLink':'','items':[]}]}]};
+	var adZone = 'home';
+	try {
+		var results = {};
+		var jsonScripts = Array.from(document.querySelectorAll('script[data-o-ads-config]'));
+		for (var k=0; k<jsonScripts.length; k++) {
+			results = JSON.parse(jsonScripts[k].innerHTML);
+			adZone = results.gpt.zone;
+		}
+	} catch (ignore) {}
+	var data = {'meta':{'title':document.title,'description':'','theme':'default','adid':adId, 'adZone': adZone},'sections':[{'type':'block','title':'','name':'','side':'none','sideAlign':'right','lists':[{'name':'New List','title':'','url':'','description':'','language':'','float':'none','showTag':'no','showTimeStamp':'no','preferLead':'longlead','sponsorAdId':'','sponsorLogoUrl':'','sponsorLink':'','sponsorNote':'','feedStart':'0','feedItems':'0','feedTag':'','feedType':'all','feedImage':'optional','moreLink':'','items':[]}]}]};
 	var itemsArray = [];
 	for (var i=0; i<items.length; i++) {
 		var item = {};
@@ -47,9 +56,7 @@ function getJSON() {
 	}
 	try {
 		webkit.messageHandlers.items.postMessage(data);
-	} catch (ignore) {
-
-	}
+	} catch (ignore) {}
 	specialReportsData();
 	sendPageInfoToApp();
 }
@@ -107,6 +114,7 @@ function specialReportsData() {
 		item.tag = specialAnchors[i].getAttribute('tag') || '';
 		item.title = specialAnchors[i].getAttribute('title') || '';
 		item.adid = specialAnchors[i].getAttribute('adid') || '';
+		item.zone = specialAnchors[i].getAttribute('zone') || '';
 		item.channel = specialAnchors[i].getAttribute('channel') || '';
 		if (specialAnchors[i].getAttribute('hideAd')) {
 			item.hideAd = specialAnchors[i].getAttribute('hideAd');
@@ -115,9 +123,7 @@ function specialReportsData() {
 	}
 	try {
 		webkit.messageHandlers.sponsors.postMessage(specialAnchorsData);
-	} catch (ignore) {
-
-	}
+	} catch (ignore) {}
 }
 
 function sharePageFromApp(linkObj) {
