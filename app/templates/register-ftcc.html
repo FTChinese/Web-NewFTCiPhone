@@ -10,7 +10,12 @@
 <style>{{person-css}}</style>
 
 <script>
-ga('create', 'UA-1608715-1', 'auto');
+var userIdForGA = GetCookie('USER_ID');
+if (userIdForGA !== null) {
+    ga('create', 'UA-1608715-1', 'auto', {userId: userIdForGA}); 
+} else {
+    ga('create', 'UA-1608715-1', 'auto'); 
+}
 ga('require', 'displayfeatures');ga('require', 'ec');
 if (window.gAutoStart === undefined) {
 try {

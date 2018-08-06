@@ -51,6 +51,7 @@ function getJSON() {
 
 	}
 	specialReportsData();
+	sendPageInfoToApp();
 }
 
 function tapOnEle(event, ele) {
@@ -124,6 +125,14 @@ function sharePageFromApp(linkObj) {
 		webkit.messageHandlers.sharePageFromApp.postMessage(linkObj);
 	} catch (ignore) {
 
+	}
+}
+
+function sendPageInfoToApp() {
+	if (typeof window.linksForShare === 'object') {
+		try {
+			webkit.messageHandlers.sendPageInfoToApp.postMessage(window.linksForShare);
+		} catch (ignore) {}
 	}
 }
 
