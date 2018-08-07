@@ -211,6 +211,9 @@ gulp.task('ios', ['grab', 'build'], function () {
   var htmlBookCSS = fs.readFileSync('dist/styles/main-html-book.css', 'utf8');
   var htmlBookJS = fs.readFileSync('dist/scripts/main-html-book.js', 'utf8');
 
+  const oAdsJS = fs.readFileSync('app/templates/o-ads.js', 'utf8');
+  const gptJS = fs.readFileSync('app/templates/gpt.js', 'utf8');
+
   // var googleanalytics = fs.readFileSync('dist/log/ga.js', 'utf8');
   // var fa = fs.readFileSync('dist/log/analytics.js', 'utf8');
 
@@ -260,6 +263,8 @@ gulp.task('ios', ['grab', 'build'], function () {
     .pipe(replace('{{story-js-main}}', storyMainJS))
     .pipe(replace('{{story-js-key}}', storyKeyJS))
     .pipe(replace('{{analytics}}', analyticsJS))
+    .pipe(replace('{{o-ads-js}}', oAdsJS))
+    .pipe(replace('{{gpt-js}}', gptJS))
     .pipe(rename('story.html'))
     .pipe(gulp.dest('../NewFTCApp-iOS/Page/FTChinese/'))
     .on('end', function() {
@@ -286,6 +291,8 @@ gulp.task('ios', ['grab', 'build'], function () {
     .pipe(replace('{{list-js-main}}', listMainJS))
     .pipe(replace('{{list-js-key}}', listKeyJS))
     .pipe(replace('{{analytics}}', analyticsJS))
+    .pipe(replace('{{o-ads-js}}', oAdsJS))
+    .pipe(replace('{{gpt-js}}', gptJS))
     .pipe(gulp.dest('../NewFTCApp-iOS/Page/FTChinese/'))
     .on('end', function() {
       convert2Big5('../NewFTCApp-iOS/Page/FTChinese/list.html')
@@ -298,6 +305,8 @@ gulp.task('ios', ['grab', 'build'], function () {
     .pipe(replace('{{list-js-main}}', listMainJS))
     .pipe(replace('{{list-js-key}}', listKeyJS))
     .pipe(replace('{{analytics}}', analyticsJS))
+    .pipe(replace('{{o-ads-js}}', oAdsJS))
+    .pipe(replace('{{gpt-js}}', gptJS))
     .pipe(rename('myft.html'))
     .pipe(gulp.dest('../NewFTCApp-iOS/Page/FTChinese/'))
     .on('end', function() {
@@ -335,6 +344,7 @@ gulp.task('ios', ['grab', 'build'], function () {
 
 
   // MARK: FTCC Files
+  /*
   var ftccPersonCSS = fs.readFileSync('dist/styles/main-ftcc-person.css', 'utf8');
   var ftccStoryCSS = fs.readFileSync('dist/styles/main-ftcc.css', 'utf8');
   var ftccStoryMainJS = fs.readFileSync('dist/scripts/main-ftcc-story.js', 'utf8');
@@ -443,7 +453,7 @@ gulp.task('ios', ['grab', 'build'], function () {
     });
 
 
-
+*/
 
 
 
@@ -471,7 +481,8 @@ gulp.task('grab', function () {
   getUrltoFile('http://app003.ftmailbox.com/index.php/users/register?i=4&webview=ftcapp', './app/templates/register.html');
   getUrltoFile('https://www.ftchinese.com/channel/exclusive.html?webview=ftcapp&bodyonly=yes&newad=yes', './app/templates/localbackup.html');
   getUrltoFile('http://www.ftchinese.com/m/corp/preview.html?pageid=service&webview=ftcapp&002', './app/templates/service.html');
-
+  getUrltoFile('https://www.ft.com/__origami/service/build/v2/bundles/js?modules=o-ads@8.3.0', './app/templates/o-ads.js');
+  getUrltoFile('https://www.googletagservices.com/tag/js/gpt.js', './app/templates/gpt.js');
 });
 
 
