@@ -142,4 +142,9 @@ function sendPageInfoToApp() {
 	}
 }
 
+function highlightFollowedContent(obj) {
+	//{tag:['伊朗','石油'],topic:['markets','people'],area:['us','china'],industry:['auto','agriculture','consumer']}
+	document.body.style.backgroundColor = 'blue';
+}
+
 getJSON();
