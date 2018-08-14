@@ -143,8 +143,34 @@ function sendPageInfoToApp() {
 }
 
 function highlightFollowedContent(obj) {
-	//{tag:['伊朗','石油'],topic:['markets','people'],area:['us','china'],industry:['auto','agriculture','consumer']}
-	document.body.style.backgroundColor = 'blue';
+	function anyMatchInArray(target, toMatch) {
+	    var found, targetMap, i, j, cur;
+	    found = false;
+	    targetMap = {};
+	    for (i = 0, j = target.length; i < j; i++) {
+	        cur = target[i];
+	        targetMap[cur] = true;
+	    }
+	    for (i = 0, j = toMatch.length; !found && (i < j); i++) {
+	        cur = toMatch[i];
+	        found = !!targetMap[cur];
+	    }
+	    return found;
+	}
+
+	//var obj = {tag:['伊朗','石油'],topic:['markets','people'],area:['us','china'],industry:['auto','agriculture','consumer']}
+	for (var prop in obj) {
+	    if (obj.hasOwnProperty(prop)) {
+	        console.log (prop);
+	        console.log (obj[prop]);
+	    }
+	}
+	var newItem = document.createElement('div');
+	newItem.innerHTML = JSON.stringify(obj);
+	var firstBlock = document.querySelector('.block-container');
+	if (firstBlock) {
+		document.body.insertBefore(newItem, firstBlock);
+	}
 }
 
 getJSON();
