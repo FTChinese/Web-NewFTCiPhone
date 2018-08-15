@@ -157,23 +157,88 @@ function highlightFollowedContent(obj) {
 	    }
 	    return found;
 	}
-	if (typeof obj !== 'object') {
+	// MARK: Don't do anything if not on mobile
+	if (typeof obj !== 'object' || w > 450) {
 		return;
 	}
-	//var obj = {tag:['伊朗','石油'],topic:['markets','people'],area:['us','china'],industry:['auto','agriculture','consumer']}
+	var keyWords = [];
 	for (var prop in obj) {
 	    if (obj.hasOwnProperty(prop)) {
-	        console.log (prop);
-	        console.log (obj[prop]);
+	    	for (var i=0; i<obj[prop].length; i++) {
+	    		keyWords.push(obj[prop][i]);
+	    	}
 	    }
 	}
+	var items = document.querySelectorAll('[data-keywords]');
+	var myFTFollowHTML = '';
+	for (var j=0; j<items.length; j++) {
+		var currentKeyWords = items[j].getAttribute('data-keywords').split(',');
+		if (anyMatchInArray(currentKeyWords, keyWords)) {
+			var lead = items[j].querySelector('.item-lead');
+			if (lead) {
+				var topLine = (j===0) ? '' : '<div class="PT"></div>';
+				if (j > 0 && items[j].className && items[j].className.indexOf('P-half')<0) {
+					items[j].className += ' P-half';
+				}
+				myFTFollowHTML += topLine + items[j].outerHTML;
+				var topLineEle = items[j].previousElementSibling;
+				//if ()(topLineEle.className);
+				if (topLineEle && topLineEle.className && topLineEle.className.indexOf('PT') >= 0) {
+					topLineEle.outerHTML = '';
+				}
+				items[j].outerHTML = '';
+			}
+		}
+	}
+	if (myFTFollowHTML === '') {
+		return;
+	}
 	var newItem = document.createElement('div');
-	newItem.innerHTML = JSON.stringify(obj);
+	newItem.innerHTML = '<div class="block-container no-side"><div class="block-inner"><div class="content-inner"><div class="list-container"><div class="list-inner"><h2 class="list-title"><a class="list-link" href="#">我的FT</a></h2><div class="items">'+ myFTFollowHTML +'</div></div></div><div class="clearfloat block-bottom"></div></div></div><div class="clearfloat"></div></div></div>';
 	var firstBlock = document.querySelector('.block-container');
 	if (firstBlock) {
-		document.body.insertBefore(newItem, firstBlock);
+		var listTitleEle = firstBlock.querySelector('.list-title');
+		var listItems = firstBlock.querySelector('.items');
+		if (!listTitleEle && listItems) {
+			listTitleEle = document.createElement('h2');
+			listTitleEle.className = 'list-title';
+			listTitleEle.innerHTML = '<a class="list-link" href="#">今日焦点</a>';
+			listItems.parentNode.insertBefore(listTitleEle, listItems);
+		}
+		firstBlock.parentNode.insertBefore(newItem, firstBlock);
+		var inforAd1 = document.querySelector('[data-o-ads-name="infoflow1"],.hide-iframe');
+		if (inforAd1) {
+			firstBlock.parentNode.insertBefore(inforAd1, firstBlock);
+		}
+
+		var iapHighlight = document.querySelector('#iap-highlight');
+		var itemsWithIAPHighlight = iapHighlight.parentNode.querySelectorAll('.PT');
+		var iapHighlightPos = 8;
+		if (itemsWithIAPHighlight.length > iapHighlightPos) {
+			for (var l=0; l<itemsWithIAPHighlight.length; l++) {
+				iapHighlight.parentNode.insertBefore(iapHighlight, itemsWithIAPHighlight[iapHighlightPos]);
+			}
+		} else {
+			iapHighlight.outerHTML = '';
+		}
+	}
+	var listEles = document.querySelectorAll('.items');
+	for (var k=0; k<listEles.length; k++) {
+		var allItems = listEles[k].querySelectorAll('.item-container');
+		for (var m=0; m<allItems.length; m++) {
+			if (m === 0) {
+				var firstItemTopLine = allItems[m].previousElementSibling;
+				if (firstItemTopLine && firstItemTopLine.className && firstItemTopLine.className.indexOf('PT') >= 0) {
+					firstItemTopLine.outerHTML = '';
+				}
+				allItems[m].className = allItems[m].className.replace(/P-half/g, '');
+			} else {
+				allItems[m].className += ' P-half';
+			}
+		}
 	}
 }
-
+try {
+	highlightFollowedContent(window.myFollow);
+} catch (ignore) {}
 getJSON();
-highlightFollowedContent(window.myFollow);
