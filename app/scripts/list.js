@@ -157,7 +157,9 @@ function highlightFollowedContent(obj) {
 	    }
 	    return found;
 	}
-
+	if (typeof obj !== 'object') {
+		return;
+	}
 	//var obj = {tag:['伊朗','石油'],topic:['markets','people'],area:['us','china'],industry:['auto','agriculture','consumer']}
 	for (var prop in obj) {
 	    if (obj.hasOwnProperty(prop)) {
@@ -174,3 +176,4 @@ function highlightFollowedContent(obj) {
 }
 
 getJSON();
+highlightFollowedContent(window.myFollow);
