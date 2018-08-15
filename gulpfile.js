@@ -263,8 +263,8 @@ gulp.task('ios', ['grab', 'build'], function () {
     .pipe(replace('{{story-js-main}}', storyMainJS))
     .pipe(replace('{{story-js-key}}', storyKeyJS))
     .pipe(replace('{{analytics}}', analyticsJS))
-    .pipe(replace('{{o-ads-js}}', oAdsJS))
-    .pipe(replace('{{gpt-js}}', gptJS))
+    // .pipe(replace('{{o-ads-js}}', oAdsJS))
+    // .pipe(replace('{{gpt-js}}', gptJS))
     .pipe(rename('story.html'))
     .pipe(gulp.dest('../NewFTCApp-iOS/Page/FTChinese/'))
     .on('end', function() {
@@ -291,8 +291,8 @@ gulp.task('ios', ['grab', 'build'], function () {
     .pipe(replace('{{list-js-main}}', listMainJS))
     .pipe(replace('{{list-js-key}}', listKeyJS))
     .pipe(replace('{{analytics}}', analyticsJS))
-    .pipe(replace('{{o-ads-js}}', oAdsJS))
-    .pipe(replace('{{gpt-js}}', gptJS))
+    // .pipe(replace('{{o-ads-js}}', oAdsJS))
+    // .pipe(replace('{{gpt-js}}', gptJS))
     .pipe(gulp.dest('../NewFTCApp-iOS/Page/FTChinese/'))
     .on('end', function() {
       convert2Big5('../NewFTCApp-iOS/Page/FTChinese/list.html')
