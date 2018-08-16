@@ -182,7 +182,6 @@ function highlightFollowedContent(obj) {
 				}
 				myFTFollowHTML += topLine + items[j].outerHTML;
 				var topLineEle = items[j].previousElementSibling;
-				//if ()(topLineEle.className);
 				if (topLineEle && topLineEle.className && topLineEle.className.indexOf('PT') >= 0) {
 					topLineEle.outerHTML = '';
 				}
@@ -206,11 +205,18 @@ function highlightFollowedContent(obj) {
 			listItems.parentNode.insertBefore(listTitleEle, listItems);
 		}
 		firstBlock.parentNode.insertBefore(newItem, firstBlock);
-		var inforAd1 = document.querySelector('[data-o-ads-name="infoflow1"],.hide-iframe');
-		if (inforAd1) {
-			firstBlock.parentNode.insertBefore(inforAd1, firstBlock);
+		var newFirstBlock = document.querySelector('.block-container');
+		if (newFirstBlock) {
+			var inforAd1 = document.querySelector('[data-o-ads-name="infoflow1"],.hide-iframe');
+			var newFirstBlockItems = newFirstBlock.querySelectorAll('.item-container');
+			if (inforAd1 && newFirstBlockItems.length > 1) {
+				var lastItemIndex = Math.min(newFirstBlockItems.length - 1, 6); 
+				var lastItemTop = newFirstBlockItems[lastItemIndex].previousElementSibling;
+				if (lastItemTop && lastItemTop.className.indexOf('PT') >= 0) {
+					newFirstBlockItems[0].parentNode.insertBefore(inforAd1, lastItemTop);
+				}
+			}
 		}
-
 		var iapHighlight = document.querySelector('#iap-highlight');
 		var itemsWithIAPHighlight = iapHighlight.parentNode.querySelectorAll('.PT');
 		var iapHighlightPos = 8;
@@ -240,5 +246,7 @@ function highlightFollowedContent(obj) {
 }
 try {
 	highlightFollowedContent(window.myFollow);
-} catch (ignore) {}
+} catch (error) {
+	console.log (error);
+}
 getJSON();
