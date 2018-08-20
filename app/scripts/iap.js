@@ -10,12 +10,14 @@ function updateProductsHTML(id, json, position) {
 		} else {
 			htmlCode += '<a href="buyproduct://' + json[i].id + '"><div class="item-container XL12 L12 M12 S12 P12 item-container-app has-image is-book' + firstChildClass + '"><div class="item-inner"><div class="image portrait-img" target="_blank"><figure class="loading" data-url="' + json[i].image + '"></figure></div><h2 class="item-headline"><div target="_blank">' + json[i].headline + '</div></h2><div class="item-lead">' + json[i].lead + '</div><div class="item-bottom"></div></div></div></a>';
 		}
-		
 	}
 	if (htmlCode !== '' && position !== 'center') {
 		htmlCode = '<h2 class="list-title"><a href="screen://homepage/ebook">FT电子书</a></h2><div class="ebook-inner">' + htmlCode + '<div class="clearfloat"></div></div>';
 	}
-	document.getElementById(id).innerHTML = htmlCode;
+	var iapEle = document.getElementById(id);
+	if (iapEle) {
+		iapEle.innerHTML = htmlCode;
+	}
 	loadImages();
 }
 
@@ -26,7 +28,6 @@ function updateHeadlineLocks() {
 		return;
 	}
 	var privileges = window.gPrivileges || [];
-	
 	// MARK: Story Archive
 	var archiveInSeconds = 7 * 24 * 60 * 60;
 	var storyItems = document.querySelectorAll('[data-type=story][data-date]');
@@ -48,7 +49,6 @@ function updateHeadlineLocks() {
 			}
 		}
 	}
-
 	// MARK: Premium content for standard and premium subscribers
 	var headlines = document.querySelectorAll('[data-type=premium] .item-headline-link, [data-sub-type=radio] .item-headline-link, [data-sub-type=speedreading] .item-headline-link');
 	for (var i=0; i<headlines.length; i++) {
@@ -59,7 +59,6 @@ function updateHeadlineLocks() {
 			headlines[i].className = headlineClass + ' locked';
 		}
 	}
-
 	// MARK: Premium content for premium subscribers such as EditorChoice
 	if (window.location.href.indexOf('pageid=EditorChoice-')>=0 || window.location.href.indexOf('editorchoice-issue')>=0) {
 		var headlines2 = document.querySelectorAll('.item-headline-link');
@@ -72,7 +71,6 @@ function updateHeadlineLocks() {
 			}
 		}
 	}
-
 }
 
 function promptUserLogin() {
