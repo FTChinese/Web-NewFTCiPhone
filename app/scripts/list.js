@@ -243,6 +243,7 @@ function highlightFollowedContent(obj) {
 			}
 		}
 	}
+	ga('send','event','MyFT', 'Show', window.location.href, {'nonInteraction':1});
 }
 try {
 	highlightFollowedContent(window.myFollow);
