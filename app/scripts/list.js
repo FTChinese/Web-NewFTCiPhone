@@ -59,6 +59,7 @@ function getJSON() {
 	} catch (ignore) {}
 	specialReportsData();
 	sendPageInfoToApp();
+	newAdSwitchData();
 }
 
 function tapOnEle(event, ele) {
@@ -124,6 +125,14 @@ function specialReportsData() {
 	try {
 		webkit.messageHandlers.sponsors.postMessage(specialAnchorsData);
 	} catch (ignore) {}
+}
+
+function newAdSwitchData() {
+	if (window.newAdData) {
+		try {
+			webkit.messageHandlers.newAdData.postMessage(window.newAdData);
+		} catch (ignore) {}
+	}
 }
 
 function sharePageFromApp(linkObj) {

@@ -112,51 +112,6 @@ var gIsCurrentAdchFinal = false;
 
 {{googletagservices-js}}
 
-<!--
-<script data-o-ads-config="" type="application/json">
-{
-    "gpt": {
-        "network": 5887,
-        "site": "FtChinese",
-        "zone": "{ad-zone}"
-    },
-    "formats": {
-        "FtcLeaderboard" : {
-            "sizes":[[1200, 120], [1200, 400], [1200, 250], [969, 90], [969, 400], [969, 250]]
-        },
-        "FtcBanner": {
-            "sizes":[[1200, 120], [969, 90]]
-        },
-        "FtcMobileBanner": {
-            "sizes": [[414, 104]]
-        },
-        "FtcMpu":{
-            "sizes":[[300, 250], [300, 600]]
-        },
-        "FtcInfoFlow":{
-            "sizes":[[400, 300]]
-        },
-        "FtcMobileFullscreen": {
-            "sizes":[[414, 736]]
-        },
-        "FtcPcFullscreen":{
-            "sizes":[[700, 520]]
-        },
-        "FtcPaidpost":{
-            "sizes":[[280, 350]]
-        },
-        "FtcRibbon":{
-            "sizes":[[300, 60]]
-        },
-        "FtcMembertext":{
-            "sizes":[[300, 47]]
-        }
-    }
-}
-</script>
--->
-
-
 <script>
     var userKv = GetCookie('USER_KV');
     var dfpTargetingStr = '';
@@ -169,7 +124,7 @@ var gIsCurrentAdchFinal = false;
         gpt: {
             "network": 5887,
             "site": "FtChinese",
-            "zone": '<%$zone%>'
+            "zone": '{ad-zone}'
         },
         dfp_targeting: dfpTargetingStr,
         formats: {
