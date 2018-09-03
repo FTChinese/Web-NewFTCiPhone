@@ -194,6 +194,7 @@ gulp.task('ios', ['grab', 'build'], function () {
   var storyCSS = fs.readFileSync('dist/styles/main-story.css', 'utf8');
   var storyMainJS = fs.readFileSync('dist/scripts/main-story.js', 'utf8');
   var storyKeyJS = fs.readFileSync('dist/scripts/key.js', 'utf8');
+  var dbZoneHelperJS = fs.readFileSync('dist/scripts/main-db-zone-helper.js', 'utf8');
 
   var listCSS = fs.readFileSync('dist/styles/main-list.css', 'utf8');
   var listMainJS = fs.readFileSync('dist/scripts/main-list.js', 'utf8');
@@ -263,6 +264,7 @@ gulp.task('ios', ['grab', 'build'], function () {
     .pipe(replace('{{story-js-main}}', storyMainJS))
     .pipe(replace('{{story-js-key}}', storyKeyJS))
     .pipe(replace('{{analytics}}', analyticsJS))
+    .pipe(replace('{{db-zone-helper-js}}', dbZoneHelperJS))
     // .pipe(replace('{{o-ads-js}}', oAdsJS))
     // .pipe(replace('{{gpt-js}}', gptJS))
     .pipe(rename('story.html'))
