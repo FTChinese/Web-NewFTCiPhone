@@ -218,11 +218,15 @@ gulp.task('ios', ['grab', 'build'], function () {
   // var googleanalytics = fs.readFileSync('dist/log/ga.js', 'utf8');
   // var fa = fs.readFileSync('dist/log/analytics.js', 'utf8');
 
+
+  gulp.src(['app/templates/schedule.json'])
+    .pipe(gulp.dest('../NewFTCApp-iOS/Page/Ad/'));
+
   gulp.src(['app/templates/register.html'])
     .pipe(gulp.dest('../NewFTCApp-iOS/Page/FTChinese/'))
     .on('end', function() {
       convert2Big5('../NewFTCApp-iOS/Page/FTChinese/register.html')
-    });
+  });
 
   gulp.src(['app/templates/localbackup.html'])
     .pipe(gulp.dest('../NewFTCApp-iOS/Page/FTChinese/'))
@@ -485,6 +489,7 @@ gulp.task('grab', function () {
   getUrltoFile('http://www.ftchinese.com/m/corp/preview.html?pageid=service&webview=ftcapp&002', './app/templates/service.html');
   getUrltoFile('https://www.ft.com/__origami/service/build/v2/bundles/js?modules=o-ads@8.3.0', './app/templates/o-ads.js');
   getUrltoFile('https://www.googletagservices.com/tag/js/gpt.js', './app/templates/gpt.js');
+  getUrltoFile('https://api003.ftmailbox.com/index.php/jsapi/applaunchschedule', './app/templates/schedule.json');
 });
 
 
