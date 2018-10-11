@@ -48,6 +48,15 @@ function getJSON() {
 		}
 		data.sections[0].lists[0].items.push(item);
 		items[i].setAttribute('data-row', i);
+		try {
+			var shouldCheckReadItems = window.readItems && window.readItems != '' && items[i].className && items[i].className.indexOf(' visited') < 0;
+			if (shouldCheckReadItems) {
+				var itemIsRead = window.readItems.indexOf(item.id) >= 0;
+				if (itemIsRead) {
+					items[i].className += ' visited';
+				}
+			}
+		} catch(ignore) {}
 		removeLink(itemHeadlineEle);
 		removeLink(items[i].querySelector('.image'));
 		items[i].onclick = function(e) {
@@ -72,6 +81,9 @@ function tapOnEle(event, ele) {
 		return;
 	}
 	var row = ele.getAttribute('data-row');
+	if (ele.className && ele.className.indexOf(' visited') < 0) {
+		ele.className += ' visited';
+	}
 	//console.log (row);
 	webkit.messageHandlers.selectItem.postMessage(row);
 }
@@ -182,6 +194,12 @@ function highlightFollowedContent(obj) {
 	var myFTFollowHTML = '';
 	for (var j=0; j<items.length; j++) {
 		var currentKeyWords = items[j].getAttribute('data-keywords').split(',');
+		try {
+			var itemId = items[j].getAttribute('data-id') || '';
+			if (window.readItems && window.readItems.length > 0 && window.readItems.indexOf(itemId) >= 0) {
+				continue;
+			}
+		} catch (ignore) {}
 		if (anyMatchInArray(currentKeyWords, keyWords)) {
 			var lead = items[j].querySelector('.item-lead');
 			if (lead) {
