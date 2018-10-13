@@ -94,9 +94,9 @@ function tapOnEle(event, ele) {
 		return;
 	}
 	var row = ele.getAttribute('data-row');
-	if (ele.className && ele.className.indexOf(' visited') < 0) {
-		ele.className += ' visited';
-	}
+	// if (ele.className && ele.className.indexOf(' visited') < 0) {
+	// 	ele.className += ' visited';
+	// }
 	//console.log (row);
 	webkit.messageHandlers.selectItem.postMessage(row);
 }
