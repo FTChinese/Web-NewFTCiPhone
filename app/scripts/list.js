@@ -48,15 +48,7 @@ function getJSON() {
 		}
 		data.sections[0].lists[0].items.push(item);
 		items[i].setAttribute('data-row', i);
-		try {
-			var shouldCheckReadItems = window.readItems && window.readItems != '' && items[i].className && items[i].className.indexOf(' visited') < 0;
-			if (shouldCheckReadItems) {
-				var itemIsRead = window.readItems.indexOf(item.id) >= 0;
-				if (itemIsRead) {
-					items[i].className += ' visited';
-				}
-			}
-		} catch(ignore) {}
+		checkReadItem(item[i], item.id);
 		removeLink(itemHeadlineEle);
 		removeLink(items[i].querySelector('.image'));
 		items[i].onclick = function(e) {
@@ -69,6 +61,26 @@ function getJSON() {
 	specialReportsData();
 	sendPageInfoToApp();
 	newAdSwitchData();
+}
+
+function checkReadItem(ele, id) {
+	try {
+		var shouldCheckReadItems = window.readItems && window.readItems != '' && ele.className && ele.className.indexOf(' visited') < 0;
+		if (shouldCheckReadItems) {
+			var itemIsRead = window.readItems.indexOf(id) >= 0;
+			if (itemIsRead) {
+				ele.className += ' visited';
+			}
+		}
+	} catch(ignore) {}
+}
+
+function checkReadItems() {
+	var items = document.querySelectorAll('.item-container-app');
+	for (var i=0; i<items.length; i++) {
+		var itemId = items[i].getAttribute('data-id') || '';
+		checkReadItem(items[i], itemId);
+	}
 }
 
 function tapOnEle(event, ele) {
