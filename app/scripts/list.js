@@ -48,7 +48,7 @@ function getJSON() {
 		}
 		data.sections[0].lists[0].items.push(item);
 		items[i].setAttribute('data-row', i);
-		checkReadItem(item[i], item.id);
+		checkReadItem(items[i], item.id);
 		removeLink(itemHeadlineEle);
 		removeLink(items[i].querySelector('.image'));
 		items[i].onclick = function(e) {
@@ -72,11 +72,12 @@ function checkReadItem(ele, id) {
 				ele.className += ' visited';
 			}
 		}
-	} catch(ignore) {}
+	} catch(ignore) {console.log(ignore);}
 }
 
 function checkReadItems() {
 	var items = document.querySelectorAll('.item-container-app');
+	console.log(items);
 	for (var i=0; i<items.length; i++) {
 		var itemId = items[i].getAttribute('data-id') || '';
 		checkReadItem(items[i], itemId);
