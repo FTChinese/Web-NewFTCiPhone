@@ -119,7 +119,9 @@ var gIsCurrentAdchFinal = false;
       var userKvObj = parseUserkv(userKv);
       dfpTargetingStr = getDfpTargetingStr(userKvObj);
     } 
-    
+    if (gUserType && gUserType !== '') {
+        dfpTargetingStr = 'cnuser=' + gUserType + ';' + dfpTargetingStr;
+    }
     var configJson = JSON.stringify({
         gpt: {
             "network": 5887,
