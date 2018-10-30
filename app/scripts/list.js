@@ -56,7 +56,11 @@ function getJSON() {
 		};
 	}
 	try {
-		webkit.messageHandlers.items.postMessage(data);
+		if (Android) {
+			Android.onPageLoaded(JSON.stringify(data));
+		} else if (webkit) {
+			webkit.messageHandlers.items.postMessage(data);
+		}
 	} catch (ignore) {}
 	specialReportsData();
 	sendPageInfoToApp();
@@ -98,7 +102,12 @@ function tapOnEle(event, ele) {
 	// 	ele.className += ' visited';
 	// }
 	//console.log (row);
-	webkit.messageHandlers.selectItem.postMessage(row);
+	if (Android) {
+		Android.onSelectItem(row);
+	} else if (webkit) {
+		webkit.messageHandlers.selectItem.postMessage(row);
+	}
+
 }
 
 function isInLink(ele) {
@@ -148,21 +157,33 @@ function specialReportsData() {
 		specialAnchorsData.push(item);
 	}
 	try {
-		webkit.messageHandlers.sponsors.postMessage(specialAnchorsData);
+		if (Android) {
+			Android.onLoadedSponsors(JSON.stringify(specialAnchorsData));
+		} else if (webkit) {
+			webkit.messageHandlers.sponsors.postMessage(specialAnchorsData);
+		}
 	} catch (ignore) {}
 }
 
 function newAdSwitchData() {
 	if (window.newAdData) {
 		try {
-			webkit.messageHandlers.newAdData.postMessage(window.newAdData);
+			if (Android) {
+				Android.onNewAdSwitchData(JSON.stringify(window.newAdData));
+			} else if (webkit) {
+				webkit.messageHandlers.newAdData.postMessage(window.newAdData);
+			}
 		} catch (ignore) {}
 	}
 }
 
 function sharePageFromApp(linkObj) {
 	try {
-		webkit.messageHandlers.sharePageFromApp.postMessage(linkObj);
+		if (Android) {
+			Android.onSharePageFromApp(JSON.stringify(linkObj));
+		} else if (webkit) {
+			webkit.messageHandlers.sharePageFromApp.postMessage(linkObj);
+		}
 	} catch (ignore) {
 
 	}
@@ -171,7 +192,12 @@ function sharePageFromApp(linkObj) {
 function sendPageInfoToApp() {
 	if (typeof window.linksForShare === 'object') {
 		try {
-			webkit.messageHandlers.sendPageInfoToApp.postMessage(window.linksForShare);
+			if (Android) {
+				Android.onSendPageInfoToApp(JSON.stringify(window.linksForShare));
+			} else if (webkit) {
+				webkit.messageHandlers.sendPageInfoToApp.postMessage(window.linksForShare);
+			}
+			
 		} catch (ignore) {}
 	}
 }
