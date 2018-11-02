@@ -16,7 +16,12 @@ try {
             this.className = this.className.replace(' tick', ' plus');
             message.action = 'unfollow';
         }
-        webkit.messageHandlers.follow.postMessage(message);
+        if (Android) {
+            Android.follow(JSON.stringify(message));
+        } else if (webkit) {
+            webkit.messageHandlers.follow.postMessage(message);
+        }
+        
     });
 } catch (ignore) {
 
