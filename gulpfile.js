@@ -484,7 +484,7 @@ gulp.task('ios', ['grab', 'build'], function () {
 });
 
 gulp.task('grab', function () {
-  getUrltoFile('http://app003.ftmailbox.com/index.php/users/register?i=4&webview=ftcapp', './app/templates/register.html');
+  getUrltoFile('http://app003.ftmailbox.com/index.php/users/register?i=4&webview=ftcapp&v=1', './app/templates/register.html');
   getUrltoFile('https://www.ftchinese.com/channel/exclusive.html?webview=ftcapp&bodyonly=yes&newad=yes', './app/templates/localbackup.html');
   getUrltoFile('http://www.ftchinese.com/m/corp/preview.html?pageid=service&webview=ftcapp&002', './app/templates/service.html');
   getUrltoFile('https://www.ft.com/__origami/service/build/v2/bundles/js?modules=o-ads@8.3.0', './app/templates/o-ads.js');

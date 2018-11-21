@@ -1,4 +1,14 @@
 function search (keys, page) {
+    function reportSearchResultToNative(term) {
+        var data = {action: 'search', term: term};
+        try {
+            if (webkit) {
+                webkit.messageHandlers.searchResults.postMessage(data);
+            } else if (Android) {
+                Android.onPageLoaded(JSON.stringify(data));
+            }
+        } catch (ignore) {}
+    }
 	// console.log (keys);
 	// console.log (typeof page);
 	var url = '/index.php/ft/search/?keys='+ keys + '&type=default&i=4';
@@ -14,7 +24,8 @@ function search (keys, page) {
 	    if (this.readyState === 4) {
 	        if (this.status === 200) {
 	            var data = this.responseText;
-	            var searchResults = document.getElementById('search-results')
+	            var searchResults = document.getElementById('search-results');
+	            reportSearchResultToNative(keys);
 	            searchResults.innerHTML = data;
 	            updateHeadlineLocks();
 	            var paginationEle = document.querySelector('.pagination');

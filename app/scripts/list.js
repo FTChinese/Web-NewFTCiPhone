@@ -56,10 +56,10 @@ function getJSON() {
 		};
 	}
 	try {
-		if (Android) {
-			Android.onPageLoaded(JSON.stringify(data));
-		} else if (webkit) {
+		if (webkit) {
 			webkit.messageHandlers.items.postMessage(data);
+		} else if (Android) {
+			Android.onPageLoaded(JSON.stringify(data));
 		}
 	} catch (ignore) {}
 	specialReportsData();
@@ -102,12 +102,11 @@ function tapOnEle(event, ele) {
 	// 	ele.className += ' visited';
 	// }
 	//console.log (row);
-	if (Android) {
-		Android.onSelectItem(row);
-	} else if (webkit) {
+	if (webkit) {
 		webkit.messageHandlers.selectItem.postMessage(row);
+	} else if (Android) {
+		Android.onSelectItem(row);
 	}
-
 }
 
 function isInLink(ele) {
@@ -157,10 +156,10 @@ function specialReportsData() {
 		specialAnchorsData.push(item);
 	}
 	try {
-		if (Android) {
-			Android.onLoadedSponsors(JSON.stringify(specialAnchorsData));
-		} else if (webkit) {
+		if (webkit) {
 			webkit.messageHandlers.sponsors.postMessage(specialAnchorsData);
+		} else if (Android) {
+			Android.onLoadedSponsors(JSON.stringify(specialAnchorsData));
 		}
 	} catch (ignore) {}
 }
@@ -168,10 +167,10 @@ function specialReportsData() {
 function newAdSwitchData() {
 	if (window.newAdData) {
 		try {
-			if (Android) {
-				Android.onNewAdSwitchData(JSON.stringify(window.newAdData));
-			} else if (webkit) {
+			if (webkit) {
 				webkit.messageHandlers.newAdData.postMessage(window.newAdData);
+			} else if (Android) {
+				Android.onNewAdSwitchData(JSON.stringify(window.newAdData));
 			}
 		} catch (ignore) {}
 	}
@@ -179,10 +178,10 @@ function newAdSwitchData() {
 
 function sharePageFromApp(linkObj) {
 	try {
-		if (Android) {
-			Android.onSharePageFromApp(JSON.stringify(linkObj));
-		} else if (webkit) {
+		if (webkit) {
 			webkit.messageHandlers.sharePageFromApp.postMessage(linkObj);
+		} else if (Android) {
+			Android.onSharePageFromApp(JSON.stringify(linkObj));
 		}
 	} catch (ignore) {
 
@@ -192,12 +191,11 @@ function sharePageFromApp(linkObj) {
 function sendPageInfoToApp() {
 	if (typeof window.linksForShare === 'object') {
 		try {
-			if (Android) {
-				Android.onSendPageInfoToApp(JSON.stringify(window.linksForShare));
-			} else if (webkit) {
+			if (webkit) {
 				webkit.messageHandlers.sendPageInfoToApp.postMessage(window.linksForShare);
+			} else if (Android) {
+				Android.onSendPageInfoToApp(JSON.stringify(window.linksForShare));
 			}
-			
 		} catch (ignore) {}
 	}
 }

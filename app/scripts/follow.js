@@ -16,10 +16,10 @@ try {
             this.className = this.className.replace(' tick', ' plus');
             message.action = 'unfollow';
         }
-        if (Android) {
-            Android.follow(JSON.stringify(message));
-        } else if (webkit) {
+        if (webkit) {
             webkit.messageHandlers.follow.postMessage(message);
+        } else if (Android) {
+            Android.follow(JSON.stringify(message));
         }
         
     });
