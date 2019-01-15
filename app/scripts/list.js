@@ -56,7 +56,11 @@ function getJSON() {
 		};
 	}
 	try {
-		webkit.messageHandlers.items.postMessage(data);
+		if (webkit) {
+			webkit.messageHandlers.items.postMessage(data);
+		} else if (Android) {
+			Android.onPageLoaded(JSON.stringify(data));
+		}
 	} catch (ignore) {}
 	specialReportsData();
 	sendPageInfoToApp();
@@ -98,7 +102,11 @@ function tapOnEle(event, ele) {
 	// 	ele.className += ' visited';
 	// }
 	//console.log (row);
-	webkit.messageHandlers.selectItem.postMessage(row);
+	if (webkit) {
+		webkit.messageHandlers.selectItem.postMessage(row);
+	} else if (Android) {
+		Android.onSelectItem(row);
+	}
 }
 
 function isInLink(ele) {
@@ -148,21 +156,33 @@ function specialReportsData() {
 		specialAnchorsData.push(item);
 	}
 	try {
-		webkit.messageHandlers.sponsors.postMessage(specialAnchorsData);
+		if (webkit) {
+			webkit.messageHandlers.sponsors.postMessage(specialAnchorsData);
+		} else if (Android) {
+			Android.onLoadedSponsors(JSON.stringify(specialAnchorsData));
+		}
 	} catch (ignore) {}
 }
 
 function newAdSwitchData() {
 	if (window.newAdData) {
 		try {
-			webkit.messageHandlers.newAdData.postMessage(window.newAdData);
+			if (webkit) {
+				webkit.messageHandlers.newAdData.postMessage(window.newAdData);
+			} else if (Android) {
+				Android.onNewAdSwitchData(JSON.stringify(window.newAdData));
+			}
 		} catch (ignore) {}
 	}
 }
 
 function sharePageFromApp(linkObj) {
 	try {
-		webkit.messageHandlers.sharePageFromApp.postMessage(linkObj);
+		if (webkit) {
+			webkit.messageHandlers.sharePageFromApp.postMessage(linkObj);
+		} else if (Android) {
+			Android.onSharePageFromApp(JSON.stringify(linkObj));
+		}
 	} catch (ignore) {
 
 	}
@@ -171,7 +191,11 @@ function sharePageFromApp(linkObj) {
 function sendPageInfoToApp() {
 	if (typeof window.linksForShare === 'object') {
 		try {
-			webkit.messageHandlers.sendPageInfoToApp.postMessage(window.linksForShare);
+			if (webkit) {
+				webkit.messageHandlers.sendPageInfoToApp.postMessage(window.linksForShare);
+			} else if (Android) {
+				Android.onSendPageInfoToApp(JSON.stringify(window.linksForShare));
+			}
 		} catch (ignore) {}
 	}
 }
