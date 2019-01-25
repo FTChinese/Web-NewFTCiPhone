@@ -46,6 +46,11 @@ function getJSON() {
 		if (pubDate != '') {
 			item.timeStamp = pubDate;
 		}
+		// MARK: - Send the keywords to native app
+		var tag = items[i].getAttribute('data-keywords') || '';
+		if (tag !== '') {
+			item.tag = tag;
+		}
 		data.sections[0].lists[0].items.push(item);
 		items[i].setAttribute('data-row', i);
 		checkReadItem(items[i], item.id);
@@ -54,6 +59,7 @@ function getJSON() {
 		items[i].onclick = function(e) {
 			tapOnEle(e, this);
 		};
+		//console.log (item);
 	}
 	try {
 		if (webkit) {
