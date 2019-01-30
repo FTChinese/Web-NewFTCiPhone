@@ -28,6 +28,12 @@ function updateHeadlineLocks() {
 		return;
 	}
 	var privileges = window.gPrivileges || [];
+	var userPrivilegeLevel = 0;
+	if (privileges.indexOf('EditorChoice') >= 0) {
+		userPrivilegeLevel = 2;
+	} else if (privileges.indexOf('premium') >= 0) {
+		userPrivilegeLevel = 1; 
+	}
 	// MARK: Story Archive
 	var archiveInSeconds = 7 * 24 * 60 * 60;
 	var storyItems = document.querySelectorAll('[data-type=story][data-date]');
@@ -49,7 +55,7 @@ function updateHeadlineLocks() {
 			}
 		}
 	}
-	// MARK: Premium content for standard and premium subscribers
+	// MARK: Paid content for standard and premium subscribers
 	var headlines = document.querySelectorAll('[data-type=premium] .item-headline-link, [data-sub-type=radio] .item-headline-link, [data-sub-type=speedreading] .item-headline-link');
 	for (var i=0; i<headlines.length; i++) {
 		var headlineClass = headlines[i].className.replace(/unlocked/g, '').replace(/locked/g, '').replace(/ +/, ' ');
@@ -59,7 +65,7 @@ function updateHeadlineLocks() {
 			headlines[i].className = headlineClass + ' locked';
 		}
 	}
-	// MARK: Premium content for premium subscribers such as EditorChoice
+	// MARK: Paid content for premium subscribers such as EditorChoice
 	if (window.location.href.indexOf('pageid=EditorChoice-')>=0 || window.location.href.indexOf('editorchoice-issue')>=0) {
 		var headlines2 = document.querySelectorAll('.item-headline-link');
 		for (var j=0; j<headlines2.length; j++) {
@@ -68,6 +74,28 @@ function updateHeadlineLocks() {
 				headlines2[j].className = headlineClass + ' unlocked';
 			} else {
 				headlines2[j].className = headlineClass + ' locked';
+			}
+		}
+	}
+	// MARK: Support "会员专享" and "高端专享" 
+	var interactives = document.querySelectorAll('[data-type=interactive][data-keywords]');
+	for (var m=0; m<interactives.length; m++) {
+		var keyWords = interactives[m].getAttribute('data-keywords');
+		var contentPrivilegeLevel = 0;
+		if (keyWords.indexOf('高端专享')>=0) {
+			contentPrivilegeLevel = 2;
+		} else if (keyWords.indexOf('会员专享')>=0) {
+			contentPrivilegeLevel = 1;
+		}
+		if (contentPrivilegeLevel>0) {
+			var currentHeadline = interactives[m].querySelector('.item-headline-link');
+			if (currentHeadline) {
+				var headlineClass = currentHeadline.className.replace(/unlocked/g, '').replace(/locked/g, '').replace(/ +/, ' ');
+				if (userPrivilegeLevel >= contentPrivilegeLevel) {
+					currentHeadline.className = headlineClass + ' unlocked';
+				} else {
+					currentHeadline.className = headlineClass + ' locked';
+				}
 			}
 		}
 	}

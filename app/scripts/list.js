@@ -70,7 +70,6 @@ function getJSON() {
 	} catch (ignore) {}
 	specialReportsData();
 	sendPageInfoToApp();
-	newAdSwitchData();
 }
 
 function checkReadItem(ele, id) {
@@ -170,17 +169,6 @@ function specialReportsData() {
 	} catch (ignore) {}
 }
 
-function newAdSwitchData() {
-	if (window.newAdData) {
-		try {
-			if (webkit) {
-				webkit.messageHandlers.newAdData.postMessage(window.newAdData);
-			} else if (Android) {
-				Android.onNewAdSwitchData(JSON.stringify(window.newAdData));
-			}
-		} catch (ignore) {}
-	}
-}
 
 function sharePageFromApp(linkObj) {
 	try {
