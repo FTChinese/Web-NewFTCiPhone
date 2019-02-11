@@ -34,6 +34,11 @@ function updateHeadlineLocks() {
 	} else if (privileges.indexOf('premium') >= 0) {
 		userPrivilegeLevel = 1; 
 	}
+	// MARK: Remove all existing lock classes
+	var lockedItems = document.querySelectorAll('.item-headline-link.locked, .item-headline-link.unlocked');
+	for (var r=0; r<lockedItems.length; r++) {
+		lockedItems[r].className = lockedItems[r].className.replace(/unlocked/g, '').replace(/locked/g, '').replace(/ +/, ' ');
+	}
 	// MARK: Story Archive
 	var archiveInSeconds = 7 * 24 * 60 * 60;
 	var storyItems = document.querySelectorAll('[data-type=story][data-date]');
