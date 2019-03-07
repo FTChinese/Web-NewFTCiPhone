@@ -24,8 +24,12 @@ dfpTargetingStr = getDfpTargetingStr(userKvObj);
 if (gUserType && gUserType !== '') {
 dfpTargetingStr = 'cnuser=' + gUserType + ';' + dfpTargetingStr;
 }
+window.uaString = navigator.userAgent || navigator.vendor || '';
+window.isWeChat = (/micromessenger/i.test(window.uaString));
 if (window.location.href.indexOf('webview=ftcapp') >= 0) {
 dfpTargetingStr = 'cnplatform=app;' + dfpTargetingStr;
+} else if (window.isWeChat) {
+dfpTargetingStr = 'cnplatform=wechat;' + dfpTargetingStr;
 } else {
 dfpTargetingStr = 'cnplatform=web;' + dfpTargetingStr;
 }
@@ -158,12 +162,12 @@ window.gSubscriptionEventLabel = 'Page/exclusive';
 
  
 
-<div class="item-container XL3 L3 S4 M6 P12     item-container-app has-image" data-id="001081455" data-type="premium" data-keywords="汽车,关税,贸易战,美欧关系"><div class="item-inner">
-<h2 class="item-headline"><a target="_blank" href="/premium/001081455?adchannelID=1100" class="item-headline-link locked">分析人士：特朗普不大可能立即加征汽车关税</a></h2>
-<a class="image" target="_blank" href="/premium/001081455?adchannelID=1100" >
-<figure class="loading" data-url="http://i.ftimg.net/picture/3/000083613_piclink.jpg"></figure>
+<div class="item-container XL3 L3 S4 M6 P12     item-container-app has-image" data-id="001081765" data-type="premium" data-keywords="中国经济,GDP,两会"><div class="item-inner">
+<h2 class="item-headline"><a target="_blank" href="/premium/001081765?adchannelID=1100" class="item-headline-link locked">布鲁金斯学会：中国GDP被高估约12%</a></h2>
+<a class="image" target="_blank" href="/premium/001081765?adchannelID=1100" >
+<figure class="loading" data-url="http://i.ftimg.net/picture/3/000060253_piclink.jpg"></figure>
 </a>
-<div class="item-lead">美国商务部本周将提交调查进口汽车及零部件之国家安全风险的报告，收到报告后特朗普有90天时间决定是否加征汽车关税。</div><div class="item-time highlight">2小时前</div>
+<div class="item-lead">这家华盛顿智库的研究称，近年来中国的年度GDP增长率被夸大约2个百分点，这表明中国的放缓程度比官方宣布的更为严重。</div><div class="item-time highlight">19分钟前</div>
 <div class="item-bottom"></div>
 </div></div>
 <div 
@@ -180,79 +184,79 @@ data-o-ads-targeting="cnpos=info1;"
  
  
 <div class=" PT"></div>
-<div class="item-container XL3 L3 S4 M6 P12     item-container-app has-image" data-id="001081454" data-type="premium" data-keywords="加密货币,比特币"><div class="item-inner">
-<h2 class="item-headline"><a target="_blank" href="/premium/001081454?adchannelID=1100" class="item-headline-link locked">加密货币不适合投资</a></h2>
-<a class="image" target="_blank" href="/premium/001081454?adchannelID=1100" >
-<figure class="loading" data-url="http://i.ftimg.net/picture/4/000083614_piclink.jpg"></figure>
+<div class="item-container XL3 L3 S4 M6 P12     item-container-app has-image" data-id="001081764" data-type="premium" data-keywords="创新经济,国企,科技公司,滴滴,P2P"><div class="item-inner">
+<h2 class="item-headline"><a target="_blank" href="/premium/001081764?adchannelID=1100" class="item-headline-link locked">国企背景公司强力向中国科技创新行业进军</a></h2>
+<a class="image" target="_blank" href="/premium/001081764?adchannelID=1100" >
+<figure class="loading" data-url="http://i.ftimg.net/picture/6/000062686_piclink.jpg"></figure>
 </a>
-<div class="item-lead">文焯彦：加密货币是没有内在价值的，如果看到眼下加密货币价格跌了很多就大手笔买入，就有可能严重地跌入“价值陷阱”。</div><div class="item-time highlight">2小时前</div>
+<div class="item-lead">由于叫车和P2P两个火热创新行业违规事件频发，中国政府主导有国企背景的公司强力向这两个行业进军。</div><div class="item-time highlight">2小时前</div>
 <div class="item-bottom"></div>
 </div></div>
  
  
 <div class=" MT PT"></div>
-<div class="item-container XL3 L3 S4 M6 P12     item-container-app has-image" data-id="001081451" data-type="premium" data-keywords="华为,中美贸易战,孟晚舟,徐直军,蓬佩奥"><div class="item-inner">
-<h2 class="item-headline"><a target="_blank" href="/premium/001081451?adchannelID=1100" class="item-headline-link locked">华为指责美国对其“政治”打击</a></h2>
-<a class="image" target="_blank" href="/premium/001081451?adchannelID=1100" >
-<figure class="loading" data-url="http://i.ftimg.net/picture/2/000083612_piclink.jpg"></figure>
+<div class="item-container XL3 L3 S4 M6 P12     item-container-app has-image" data-id="001081755" data-type="premium" data-keywords="FT大视野,卡夫亨氏,联合利华,公司业绩,品牌,营销,收购,利润率,整合,食品业,食品公司,卡夫,亨氏"><div class="item-inner">
+<h2 class="item-headline"><a target="_blank" href="/premium/001081755?adchannelID=1100" class="item-headline-link locked">卡夫亨氏：削减成本之后渴望增长</a></h2>
+<a class="image" target="_blank" href="/premium/001081755?adchannelID=1100" >
+<figure class="loading" data-url="http://i.ftimg.net/picture/0/000084060_piclink.jpg"></figure>
 </a>
-<div class="item-lead">华为轮值主席徐直军表示，美国国务卿蓬佩奥就使用华为设备向东欧国家发出的警告，是美国动用政府机器对付该公司的最新例证。</div><div class="item-time">8小时前</div>
+<div class="item-lead">卡夫亨氏合并后进行了大幅成本削减，但现在正转向增加投资，尝试利用产品创新、电子商务和数据驱动的营销，重新面向未来定位品牌。</div><div class="item-time">8小时前</div>
 <div class="item-bottom"></div>
 </div></div>
 <div id="iap-highlight"></div>
  
  
 <div class=" ST PT"></div>
-<div class="item-container XL3 L3 S4 M6 P12     item-container-app has-image" data-id="001081448" data-type="premium" data-keywords="FT大视野,电动汽车,锂,澳大利亚"><div class="item-inner">
-<h2 class="item-headline"><a target="_blank" href="/premium/001081448?adchannelID=1100" class="item-headline-link locked">澳大利亚押注锂需求起飞</a></h2>
-<a class="image" target="_blank" href="/premium/001081448?adchannelID=1100" >
-<figure class="loading" data-url="http://i.ftimg.net/picture/7/000083607_piclink.jpg"></figure>
+<div class="item-container XL3 L3 S4 M6 P12     item-container-app has-image" data-id="001081754" data-type="premium" data-keywords="反洗钱,洗钱,洗钱调查,政治,金融犯罪,制裁,禁运"><div class="item-inner">
+<h2 class="item-headline"><a target="_blank" href="/premium/001081754?adchannelID=1100" class="item-headline-link locked">政治因素影响全球反洗钱斗争</a></h2>
+<a class="image" target="_blank" href="/premium/001081754?adchannelID=1100" >
+<figure class="loading" data-url="http://i.ftimg.net/picture/8/000079778_piclink.jpg"></figure>
 </a>
-<div class="item-lead">以出口煤炭和铁矿石闻名的澳大利亚，如今置身于一场绿色能源革命的前沿。但随着锂价下跌，它会不会错失电动汽车繁荣带来的机遇？</div><div class="item-time">8小时前</div>
+<div class="item-lead">基廷：国际标准的破坏影响到了向来以专业技术性为特点的反洗钱领域，使其愈有政治色彩。</div><div class="item-time">8小时前</div>
 <div class="item-bottom"></div>
 </div></div>
  
  
 <div class=" XLT LT MT PT"></div>
-<div class="item-container XL3 L3 S4 M6 P12     item-container-app has-image" data-id="001081447" data-type="premium" data-keywords="亚洲,员工,劳动者,职场,健康,生活平衡"><div class="item-inner">
-<h2 class="item-headline"><a target="_blank" href="/premium/001081447?adchannelID=1100" class="item-headline-link locked">亚洲劳动者健康堪忧</a></h2>
-<a class="image" target="_blank" href="/premium/001081447?adchannelID=1100" >
-<figure class="loading" data-url="http://i.ftimg.net/picture/6/000083606_piclink.jpg"></figure>
+<div class="item-container XL3 L3 S4 M6 P12     item-container-app has-image" data-id="001081753" data-type="premium" data-keywords="全球经济,金融化,实体经济,金融资产"><div class="item-inner">
+<h2 class="item-headline"><a target="_blank" href="/premium/001081753?adchannelID=1100" class="item-headline-link locked">经济金融化已逼近顶点</a></h2>
+<a class="image" target="_blank" href="/premium/001081753?adchannelID=1100" >
+<figure class="loading" data-url="http://i.ftimg.net/picture/1/000084061_piclink.jpg"></figure>
 </a>
-<div class="item-lead">兰德欧洲的调查显示，长时间工作、不良饮食习惯和久坐不动的生活方式可能使亚洲员工的健康比西方同行更差。</div><div class="item-time">8小时前</div>
+<div class="item-lead">福鲁哈尔：几十年来，金融化一直是全球经济的主要推动力。如今金融资产总规模是实体经济的三倍多，调整的时机已近成熟。</div><div class="item-time">8小时前</div>
 <div class="item-bottom"></div>
 </div></div>
  
  
 <div class=" PT"></div>
-<div class="item-container XL3 L3 S4 M6 P12     item-container-app has-image" data-id="001081445" data-type="premium" data-keywords="新兴市场,投资,投资者,固定资产"><div class="item-inner">
-<h2 class="item-headline"><a target="_blank" href="/premium/001081445?adchannelID=1100" class="item-headline-link locked">投资者重新涌入新兴市场资产</a></h2>
-<a class="image" target="_blank" href="/premium/001081445?adchannelID=1100" >
-<figure class="loading" data-url="http://i.ftimg.net/picture/4/000083604_piclink.jpg"></figure>
+<div class="item-container XL3 L3 S4 M6 P12     item-container-app has-image" data-id="001081752" data-type="premium" data-keywords="中美博弈,华为,大国博弈,中美关系,中国崛起,中美贸易战"><div class="item-inner">
+<h2 class="item-headline"><a target="_blank" href="/premium/001081752?adchannelID=1100" class="item-headline-link locked">美国单边行动阻挡不了华为崛起</a></h2>
+<a class="image" target="_blank" href="/premium/001081752?adchannelID=1100" >
+<figure class="loading" data-url="http://i.ftimg.net/picture/6/000083726_piclink.jpg"></figure>
 </a>
-<div class="item-lead">根据美银美林的一项调查，本月最拥挤的交易是“做多”新兴市场，标志着市场从做空新兴市场发生“重大逆转”。</div><div class="item-time">8小时前</div>
+<div class="item-lead">马凯硕：美国阻止华为以及中国崛起的努力太微不足道，而且也太迟了。唯一可行的多边主义策略却被特朗普政府深恶痛绝。</div><div class="item-time">8小时前</div>
 <div class="item-bottom"></div>
 </div></div>
  
  
 <div class=" ST MT PT"></div>
-<div class="item-container XL3 L3 S4 M6 P12     item-container-app has-image" data-id="001081437" data-type="premium" data-keywords="MSCI,股指,双重股权"><div class="item-inner">
-<h2 class="item-headline"><a target="_blank" href="/premium/001081437?adchannelID=1100" class="item-headline-link locked">MSCI将双重股权结构公司纳入其指数</a></h2>
-<a class="image" target="_blank" href="/premium/001081437?adchannelID=1100" >
-<figure class="loading" data-url="http://i.ftimg.net/picture/2/000083582_piclink.jpg"></figure>
+<div class="item-container XL3 L3 S4 M6 P12     item-container-app has-image" data-id="001081747" data-type="premium" data-keywords="一带一路,意大利,中意关系"><div class="item-inner">
+<h2 class="item-headline"><a target="_blank" href="/premium/001081747?adchannelID=1100" class="item-headline-link locked">意大利将正式支持中国“一带一路”倡议</a></h2>
+<a class="image" target="_blank" href="/premium/001081747?adchannelID=1100" >
+<figure class="loading" data-url="http://i.ftimg.net/picture/2/000084052_piclink.jpg"></figure>
 </a>
-<div class="item-lead">MSCI决定采取异于同行的做法，把双重股权结构公司纳入其指数。智能手机制造商小米以及腾讯音乐将成为首批被纳入的此类公司。</div><div class="item-time">1天前</div>
+<div class="item-lead">意大利此举已引起美国的批评，称意支持一带一路无法给其带来持续的经济利益，还会极大损害意的国际形象。</div><div class="item-time">22小时前</div>
 <div class="item-bottom"></div>
 </div></div>
  
  
 <div class=" PT"></div>
-<div class="item-container XL3 L3 S4 M6 P12     item-container-app has-image" data-id="001081436" data-type="premium" data-keywords="网络安全,华为,中美贸易战,5G"><div class="item-inner">
-<h2 class="item-headline"><a target="_blank" href="/premium/001081436?adchannelID=1100" class="item-headline-link locked">全面封杀中国科技企业毫无意义</a></h2>
-<a class="image" target="_blank" href="/premium/001081436?adchannelID=1100" >
-<figure class="loading" data-url="http://i.ftimg.net/picture/0/000083580_piclink.jpg"></figure>
+<div class="item-container XL3 L3 S4 M6 P12     item-container-app has-image" data-id="001081743" data-type="premium" data-keywords="TikTok,抖音,字节跳动,社交媒体,数据安全"><div class="item-inner">
+<h2 class="item-headline"><a target="_blank" href="/premium/001081743?adchannelID=1100" class="item-headline-link locked">FT社评：TikTok崛起考验社交媒体监管</a></h2>
+<a class="image" target="_blank" href="/premium/001081743?adchannelID=1100" >
+<figure class="loading" data-url="http://i.ftimg.net/picture/7/000084047_piclink.jpg"></figure>
 </a>
-<div class="item-lead">汉尼根：英国国家网络安全中心从未发现有证据显示，中国政府通过华为进行恶意网络活动。一项基于企业国别的全面安全禁令毫无意义。</div><div class="item-time">1天前</div>
+<div class="item-lead">中国社交媒体应用在全球走红表明，对社交媒体和技术平台的监管不能只盯着硅谷巨头，不成体系的全球监管难以担此重任。</div><div class="item-time">1天前</div>
 <div class="item-bottom"></div>
 </div></div>
 <div 
@@ -270,56 +274,56 @@ data-cy='[{"devices":["iPhoneWeb","AndroidWeb","iPhoneApp"],"pattern":"MPU","pos
  
  
 <div class=" XLT LT MT PT"></div>
-<div class="item-container XL3 L3 S4 M6 P12     item-container-app has-image" data-id="001081435" data-type="premium" data-keywords="朝核问题,美朝关系,朝鲜"><div class="item-inner">
-<h2 class="item-headline"><a target="_blank" href="/premium/001081435?adchannelID=1100" class="item-headline-link locked">FT社评：“特金会”关键在落实承诺</a></h2>
-<a class="image" target="_blank" href="/premium/001081435?adchannelID=1100" >
-<figure class="loading" data-url="http://i.ftimg.net/picture/1/000083581_piclink.jpg"></figure>
+<div class="item-container XL3 L3 S4 M6 P12     item-container-app has-image" data-id="001081736" data-type="premium" data-keywords="全球贸易,美国,中美贸易战,贸易战,关税,特朗普,莱特希泽"><div class="item-inner">
+<h2 class="item-headline"><a target="_blank" href="/premium/001081736?adchannelID=1100" class="item-headline-link locked">美国抛弃多边模式有损全球法治</a></h2>
+<a class="image" target="_blank" href="/premium/001081736?adchannelID=1100" >
+<figure class="loading" data-url="http://i.ftimg.net/picture/7/000066137_piclink.jpg"></figure>
 </a>
-<div class="item-lead">对金正恩意图的真正考验是，他是否准备好提供一份详细、透明的朝鲜核资产账目，以换取制裁的放松和最终解除。</div><div class="item-time">1天前</div>
+<div class="item-lead">贝蒂：美国抛开WTO争端解决机制去寻求双边解决办法，这可能带来短暂和平，但会侵蚀全球贸易体系的法治基石。</div><div class="item-time">1天前</div>
 <div class="item-bottom"></div>
 </div></div>
  
  
 <div class=" ST PT"></div>
-<div class="item-container XL3 L3 S4 M6 P12     item-container-app has-image" data-id="001081427" data-type="premium" data-keywords="中美贸易战,贸易战,产业政策,特朗普,习近平"><div class="item-inner">
-<h2 class="item-headline"><a target="_blank" href="/premium/001081427?adchannelID=1100" class="item-headline-link locked">美中贸易战中几个重要矛盾</a></h2>
-<a class="image" target="_blank" href="/premium/001081427?adchannelID=1100" >
-<figure class="loading" data-url="http://i.ftimg.net/picture/9/000080289_piclink.jpg"></figure>
+<div class="item-container XL3 L3 S4 M6 P12     item-container-app has-image" data-id="001081731" data-type="premium" data-keywords="中德关系,欧盟,德国,中国经济,汽车业"><div class="item-inner">
+<h2 class="item-headline"><a target="_blank" href="/premium/001081731?adchannelID=1100" class="item-headline-link locked">中国在中德关系中占据优势地位</a></h2>
+<a class="image" target="_blank" href="/premium/001081731?adchannelID=1100" >
+<figure class="loading" data-url="http://i.ftimg.net/picture/5/000079375_piclink.jpg"></figure>
 </a>
-<div class="item-lead">最大的矛盾或许是，如果特朗普在美中谈判中得到他想要的一切，便有可能鼓励美国企业与中国开展更多业务，而不是更少。</div><div class="item-time">1天前</div>
+<div class="item-lead">明肖：葡萄牙前欧洲事务部长玛萨艾斯在《一带一路》中指出，中德关系已经发生了深刻改变，中国正在变成占据优势的一方。</div><div class="item-time">1天前</div>
 <div class="item-bottom"></div>
 </div></div>
  
  
 <div class=" MT PT"></div>
-<div class="item-container XL3 L3 S4 M6 P12     item-container-app has-image" data-id="001081426" data-type="premium" data-keywords="科技,大数据,算法,人工智能"><div class="item-inner">
-<h2 class="item-headline"><a target="_blank" href="/premium/001081426?adchannelID=1100" class="item-headline-link locked">训练算法需要每个人的努力</a></h2>
-<a class="image" target="_blank" href="/premium/001081426?adchannelID=1100" >
-<figure class="loading" data-url="http://i.ftimg.net/picture/0/000075350_piclink.jpg"></figure>
+<div class="item-container XL3 L3 S4 M6 P12     item-container-app has-image" data-id="001081730" data-type="premium" data-keywords="全球政治,中国,印度,美国,西方"><div class="item-inner">
+<h2 class="item-headline"><a target="_blank" href="/premium/001081730?adchannelID=1100" class="item-headline-link locked">文明型国家正在崛起</a></h2>
+<a class="image" target="_blank" href="/premium/001081730?adchannelID=1100" >
+<figure class="loading" data-url="http://i.ftimg.net/picture/6/000084046_piclink.jpg"></figure>
 </a>
-<div class="item-lead">桑希尔：我们应该转向那些从设计入手保护隐私的服务，删除那些依赖过度监控的应用程序。</div><div class="item-time">1天前</div>
+<div class="item-lead">拉赫曼：西方思想的传播使民族国家成为政治组织的国际规范，而中印等国崛起可能创造新的模式，即文明型国家。</div><div class="item-time">1天前</div>
 <div class="item-bottom"></div>
 </div></div>
  
  
 <div class=" PT"></div>
-<div class="item-container XL3 L3 S4 M6 P12     item-container-app has-image" data-id="001081422" data-type="premium" data-keywords="中国社会,中国经济,大学生,就业"><div class="item-inner">
-<h2 class="item-headline"><a target="_blank" href="/premium/001081422?adchannelID=1100" class="item-headline-link locked">经济放缓 中国大学毕业生找工作难</a></h2>
-<a class="image" target="_blank" href="/premium/001081422?adchannelID=1100" >
-<figure class="loading" data-url="http://i.ftimg.net/picture/9/000079159_piclink.jpg"></figure>
+<div class="item-container XL3 L3 S4 M6 P12     item-container-app has-image" data-id="001081729" data-type="premium" data-keywords="中国股市,A股,外国投资"><div class="item-inner">
+<h2 class="item-headline"><a target="_blank" href="/premium/001081729?adchannelID=1100" class="item-headline-link locked">外国长线投资者缘何做多中国A股？</a></h2>
+<a class="image" target="_blank" href="/premium/001081729?adchannelID=1100" >
+<figure class="loading" data-url="http://i.ftimg.net/picture/4/000054824_piclink.jpg"></figure>
 </a>
-<div class="item-lead">中国经济放缓以及中美贸易紧张正在影响大学毕业生就业，尤其是科技和金融领域就业。</div><div class="item-time">1天前</div>
+<div class="item-lead">费代利：外国投资者不是在真空中看待中国，而是从相对角度看待中国。前段时间中国股市表现不佳为他们提供了良好缓冲。</div><div class="item-time">1天前</div>
 <div class="item-bottom"></div>
 </div></div>
  
  
 <div class=" XLT LT ST MT PT"></div>
-<div class="item-container XL3 L3 S4 M6 P12     item-container-app has-image" data-id="001081417" data-type="premium" data-keywords="风电,台湾经济,台湾,新能源"><div class="item-inner">
-<h2 class="item-headline"><a target="_blank" href="/premium/001081417?adchannelID=1100" class="item-headline-link locked">台湾下调海上风电价格或吓退国际投资者</a></h2>
-<a class="image" target="_blank" href="/premium/001081417?adchannelID=1100" >
-<figure class="loading" data-url="http://i.ftimg.net/picture/2/000083562_piclink.jpg"></figure>
+<div class="item-container XL3 L3 S4 M6 P12     item-container-app has-image" data-id="001081720" data-type="premium" data-keywords="百度,短视频,娱乐"><div class="item-inner">
+<h2 class="item-headline"><a target="_blank" href="/premium/001081720?adchannelID=1100" class="item-headline-link locked">Lex专栏：百度押注短视频市场</a></h2>
+<a class="image" target="_blank" href="/premium/001081720?adchannelID=1100" >
+<figure class="loading" data-url="http://i.ftimg.net/picture/9/000084019_piclink.jpg"></figure>
 </a>
-<div class="item-lead">业内专家表示，趸购费率下调意味着台湾的风电价格正处于盈亏平衡的边缘，使得外国风电企业难以对台湾做出重大投资决定。</div><div class="item-time">2天前</div>
+<div class="item-lead">中国最大的搜索引擎百度投入重金，希望在短视频市场上分一杯羹。但最近的结果显示，支出已经开始侵蚀其利润。</div><div class="item-time">2天前</div>
 <div class="item-bottom"></div>
 </div></div>
 <div 
@@ -336,56 +340,56 @@ data-o-ads-targeting="cnpos=info2;"
  
  
 <div class=" PT"></div>
-<div class="item-container XL3 L3 S4 M6 P12     item-container-app has-image" data-id="001081412" data-type="premium" data-keywords="汽车业,梅赛德斯-奔驰"><div class="item-inner">
-<h2 class="item-headline"><a target="_blank" href="/premium/001081412?adchannelID=1100" class="item-headline-link locked">梅赛德斯-奔驰一月份销量下滑</a></h2>
-<a class="image" target="_blank" href="/premium/001081412?adchannelID=1100" >
-<figure class="loading" data-url="http://i.ftimg.net/picture/3/000046753_piclink.jpg"></figure>
+<div class="item-container XL3 L3 S4 M6 P12     item-container-app has-image" data-id="001081719" data-type="premium" data-keywords="初创企业,科技,滴滴,京东,字节跳动,裁员"><div class="item-inner">
+<h2 class="item-headline"><a target="_blank" href="/premium/001081719?adchannelID=1100" class="item-headline-link locked">从烧钱到紧缩：中国科技行业出现裁员潮</a></h2>
+<a class="image" target="_blank" href="/premium/001081719?adchannelID=1100" >
+<figure class="loading" data-url="http://i.ftimg.net/picture/8/000084018_piclink.jpg"></figure>
 </a>
-<div class="item-lead">这个全球最畅销的豪华汽车品牌表示，其1月份的新车交付量下降了6.7%，亚洲、欧洲和美国市场均出现不同程度的下滑。</div><div class="item-time">2天前</div>
+<div class="item-lead">中国科技初创企业正在削减成本，包括滴滴、字节跳动、网易、京东在内，许多公司或裁员、或削减了员工福利。</div><div class="item-time">2天前</div>
 <div class="item-bottom"></div>
 </div></div>
  
  
 <div class=" MT PT"></div>
-<div class="item-container XL3 L3 S4 M6 P12     item-container-app has-image" data-id="001081406" data-type="premium" data-keywords="金融新闻,新闻业,金融市场"><div class="item-inner">
-<h2 class="item-headline"><a target="_blank" href="/premium/001081406?adchannelID=1100" class="item-headline-link locked">太重要而不能倒：金融新闻的未来</a></h2>
-<a class="image" target="_blank" href="/premium/001081406?adchannelID=1100" >
-<figure class="loading" data-url="http://i.ftimg.net/picture/7/000083547_piclink.jpg"></figure>
+<div class="item-container XL3 L3 S4 M6 P12     item-container-app has-image" data-id="001081715" data-type="premium" data-keywords="中美贸易战,关税"><div class="item-inner">
+<h2 class="item-headline"><a target="_blank" href="/premium/001081715?adchannelID=1100" class="item-headline-link locked">高盛：美中贸易协议可能是“带关税”的协议</a></h2>
+<a class="image" target="_blank" href="/premium/001081715?adchannelID=1100" >
+<figure class="loading" data-url="http://i.ftimg.net/picture/7/000084017_piclink.jpg"></figure>
 </a>
-<div class="item-lead">本文是英国《金融时报》主编莱昂内尔•巴伯2018年11月22日在年度詹姆斯•卡梅隆纪念讲座上发表的演讲全文。</div><div class="item-time">2天前</div>
+<div class="item-lead">高盛认为，即使达成贸易协议，美国对中国商品加征的部分关税也将持续到2020年，美方可能会在中方兑现各项承诺后才会完全取消。</div><div class="item-time">2天前</div>
 <div class="item-bottom"></div>
 </div></div>
  
  
 <div class=" ST PT"></div>
-<div class="item-container XL3 L3 S4 M6 P12     item-container-app has-image" data-id="001081402" data-type="premium" data-keywords="中美贸易战,全球化,产业政策,国家冠军企业"><div class="item-inner">
-<h2 class="item-headline"><a target="_blank" href="/premium/001081402?adchannelID=1100" class="item-headline-link locked">美中冲突似曾相识</a></h2>
-<a class="image" target="_blank" href="/premium/001081402?adchannelID=1100" >
-<figure class="loading" data-url="http://i.ftimg.net/picture/0/000083540_piclink.jpg"></figure>
+<div class="item-container XL3 L3 S4 M6 P12     item-container-app has-image" data-id="001081713" data-type="premium" data-keywords="中国股市,中国经济,中国两会,股市,沪深股市"><div class="item-inner">
+<h2 class="item-headline"><a target="_blank" href="/premium/001081713?adchannelID=1100" class="item-headline-link locked">两会开幕之际中国股市上涨</a></h2>
+<a class="image" target="_blank" href="/premium/001081713?adchannelID=1100" >
+<figure class="loading" data-url="http://i.ftimg.net/picture/7/000083807_piclink.jpg"></figure>
 </a>
-<div class="item-lead">福鲁哈尔：美中冲突与上一轮全球化浪潮中的英德冲突很相似，后者不仅引发了战争，还导致全球贸易和金融资产的长年衰退。</div><div class="item-time">2天前</div>
+<div class="item-lead">沪深300指数周一收盘上涨1.2%，盘中曾涨至9个多月高点。投资者预计政府将出台更多措施来应对经济增长放缓。</div><div class="item-time">2天前</div>
 <div class="item-bottom"></div>
 </div></div>
  
  
 <div class=" XLT LT MT PT"></div>
-<div class="item-container XL3 L3 S4 M6 P12     item-container-app has-image" data-id="001081401" data-type="premium" data-keywords="人工智能,科技,教育,学生"><div class="item-inner">
-<h2 class="item-headline"><a target="_blank" href="/premium/001081401?adchannelID=1100" class="item-headline-link locked">为人工智能时代培养学生</a></h2>
-<a class="image" target="_blank" href="/premium/001081401?adchannelID=1100" >
-<figure class="loading" data-url="http://i.ftimg.net/picture/4/000065214_piclink.jpg"></figure>
+<div class="item-container XL3 L3 S4 M6 P12     item-container-app has-image" data-id="001081710" data-type="premium" data-keywords="华为,美国,通信,中美贸易战"><div class="item-inner">
+<h2 class="item-headline"><a target="_blank" href="/premium/001081710?adchannelID=1100" class="item-headline-link locked">华为将起诉美国政府</a></h2>
+<a class="image" target="_blank" href="/premium/001081710?adchannelID=1100" >
+<figure class="loading" data-url="http://i.ftimg.net/picture/3/000083813_piclink.jpg"></figure>
 </a>
-<div class="item-lead">赖夫：那些已经采取行动帮助塑造人工智能未来的国家和机构，将帮助塑造全人类的未来。</div><div class="item-time">2天前</div>
+<div class="item-lead">这家中国电信设备制造商准备以违宪为由，起诉美国政府禁止该国政府机构采购其设备的做法。</div><div class="item-time">2天前</div>
 <div class="item-bottom"></div>
 </div></div>
  
  
 <div class=" PT"></div>
-<div class="item-container XL3 L3 S4 M6 P12     item-container-app has-image" data-id="001081400" data-type="premium" data-keywords="中国,中国经济,民企,国企,贷款,金融"><div class="item-inner">
-<h2 class="item-headline"><a target="_blank" href="/premium/001081400?adchannelID=1100" class="item-headline-link locked">中国民营企业贷款变得更容易了吗？</a></h2>
-<a class="image" target="_blank" href="/premium/001081400?adchannelID=1100" >
-<figure class="loading" data-url="http://i.ftimg.net/picture/1/000083541_piclink.jpg"></figure>
+<div class="item-container XL3 L3 S4 M6 P12     item-container-app has-image" data-id="001081706" data-type="premium" data-keywords="FT大视野,科技,硅谷,创业,加拿大"><div class="item-inner">
+<h2 class="item-headline"><a target="_blank" href="/premium/001081706?adchannelID=1100" class="item-headline-link locked">多伦多：低调崛起的北美科技中心</a></h2>
+<a class="image" target="_blank" href="/premium/001081706?adchannelID=1100" >
+<figure class="loading" data-url="http://i.ftimg.net/picture/6/000084006_piclink.jpg"></figure>
 </a>
-<div class="item-lead">对36家中小企业的调查发现，45%的受访者表示很容易获得银行抵押贷款。但是抵押要求和贷款审查都更为严格。</div><div class="item-time">2天前</div>
+<div class="item-lead">过去5年多伦多创造的科技职位多于其他任何北美城市，包括旧金山，这在一定程度上得益于加拿大和美国在移民政策上的分化。</div><div class="item-time">2天前</div>
 <div class="item-bottom"></div>
 </div></div>
 <div 
@@ -403,34 +407,34 @@ data-cy='[{"devices":["iPhoneWeb","AndroidWeb","iPhoneApp","AndroidApp"],"patter
  
  
 <div class=" ST MT PT"></div>
-<div class="item-container XL3 L3 S4 M6 P12     item-container-app has-image" data-id="001081383" data-type="premium" data-keywords="领导力,管理,职场,修行"><div class="item-inner">
-<h2 class="item-headline"><a target="_blank" href="/premium/001081383?adchannelID=1100" class="item-headline-link locked">一边上班一边修行？</a></h2>
-<a class="image" target="_blank" href="/premium/001081383?adchannelID=1100" >
-<figure class="loading" data-url="http://i.ftimg.net/picture/3/000030353_piclink_0_0.jpg"></figure>
+<div class="item-container XL3 L3 S4 M6 P12     item-container-app has-image" data-id="001081705" data-type="premium" data-keywords="华为,孟晚舟,中美关系"><div class="item-inner">
+<h2 class="item-headline"><a target="_blank" href="/premium/001081705?adchannelID=1100" class="item-headline-link locked">孟晚舟：外交风暴中等待引渡听证</a></h2>
+<a class="image" target="_blank" href="/premium/001081705?adchannelID=1100" >
+<figure class="loading" data-url="http://i.ftimg.net/picture/9/000082479_piclink.jpg"></figure>
 </a>
-<div class="item-lead">电动货车制造商Chanje让员工把20%的时间用于个人发展，包括定期冥想。创始人自称公司生产率因此提高。</div><div class="item-time">3天前</div>
+<div class="item-lead">加拿大司法部就美方引渡孟晚舟的要求签发了“授权进行令”，此案震动当地华人社区，也动摇了中加关系。</div><div class="item-time">2天前</div>
 <div class="item-bottom"></div>
 </div></div>
  
  
 <div class=" PT"></div>
-<div class="item-container XL3 L3 S4 M6 P12     item-container-app has-image" data-id="001081379" data-type="premium" data-keywords="科技,创新,领导力,管理,技术"><div class="item-inner">
-<h2 class="item-headline"><a target="_blank" href="/premium/001081379?adchannelID=1100" class="item-headline-link locked">应为技术变局做充足准备</a></h2>
-<a class="image" target="_blank" href="/premium/001081379?adchannelID=1100" >
-<figure class="loading" data-url="http://i.ftimg.net/picture/6/000080956_piclink.jpg"></figure>
+<div class="item-container XL3 L3 S4 M6 P12     item-container-app has-image" data-id="001081696" data-type="premium" data-keywords="两会,中国政治,中国经济"><div class="item-inner">
+<h2 class="item-headline"><a target="_blank" href="/premium/001081696?adchannelID=1100" class="item-headline-link locked">中国地方政府在“两会”前制定减支计划</a></h2>
+<a class="image" target="_blank" href="/premium/001081696?adchannelID=1100" >
+<figure class="loading" data-url="http://i.ftimg.net/picture/6/000083986_piclink.jpg"></figure>
 </a>
-<div class="item-lead">桑希尔：战斗打响后，战场局势不会按作战计划发展，但这不意味着规划是浪费时间。在考虑技术导致失业的可能性时，这个道理值得参考。</div><div class="item-time">3天前</div>
+<div class="item-lead">在“两会”之前，中国地方政府根据财政部要求制定了削减支出的计划，并几乎全都下调了财政收入增长预期。</div><div class="item-time">3天前</div>
 <div class="item-bottom"></div>
 </div></div>
  
  
 <div class=" XLT LT MT PT"></div>
-<div class="item-container XL3 L3 S4 M6 P12     item-container-app has-image" data-id="001081378" data-type="premium" data-keywords="中国,中国企业,矿业,收购"><div class="item-inner">
-<h2 class="item-headline"><a target="_blank" href="/premium/001081378?adchannelID=1100" class="item-headline-link locked">中国仍是全球矿业并购主力军</a></h2>
-<a class="image" target="_blank" href="/premium/001081378?adchannelID=1100" >
-<figure class="loading" data-url="http://i.ftimg.net/picture/1/000083521_piclink.jpg"></figure>
+<div class="item-container XL3 L3 S4 M6 P12     item-container-app has-image" data-id="001081689" data-type="premium" data-keywords="FT大视野,金融市场,杠杆贷款,资本市场,金融危机"><div class="item-inner">
+<h2 class="item-headline"><a target="_blank" href="/premium/001081689?adchannelID=1100" class="item-headline-link locked">杠杆贷款正在积聚风险</a></h2>
+<a class="image" target="_blank" href="/premium/001081689?adchannelID=1100" >
+<figure class="loading" data-url="http://i.ftimg.net/picture/5/000083975_piclink.jpg"></figure>
 </a>
-<div class="item-lead">中国企业日益瞄准电动汽车电池和清洁能源技术所需的矿产，相继收购刚果民主共和国、塞尔维亚等国的铜、钴和锂资产。</div><div class="item-time">3天前</div>
+<div class="item-lead">自金融危机以来，杠杆贷款市场呈爆发式增长，信贷规模直追垃圾债券市场。但贷款标准的恶化引发风险警报。</div><div class="item-time">3天前</div>
 <div class="item-bottom"></div>
 </div></div>
 <div 
@@ -447,34 +451,34 @@ data-o-ads-targeting="cnpos=info3;"
  
  
 <div class=" ST PT"></div>
-<div class="item-container XL3 L3 S4 M6 P12     item-container-app has-image" data-id="001081377" data-type="premium" data-keywords="FT大视野,谷歌,汽车业,汽车,制造商,无人驾驶"><div class="item-inner">
-<h2 class="item-headline"><a target="_blank" href="/premium/001081377?adchannelID=1100" class="item-headline-link locked">谷歌能否在无人驾驶领域继续一家独大？</a></h2>
-<a class="image" target="_blank" href="/premium/001081377?adchannelID=1100" >
-<figure class="loading" data-url="http://i.ftimg.net/picture/3/000083523_piclink.jpg"></figure>
+<div class="item-container XL3 L3 S4 M6 P12     item-container-app has-image" data-id="001081688" data-type="premium" data-keywords="智能手机,折叠屏幕,三星,华为"><div class="item-inner">
+<h2 class="item-headline"><a target="_blank" href="/premium/001081688?adchannelID=1100" class="item-headline-link locked">折叠屏手机不只是噱头？</a></h2>
+<a class="image" target="_blank" href="/premium/001081688?adchannelID=1100" >
+<figure class="loading" data-url="http://i.ftimg.net/picture/4/000083974_piclink.jpg"></figure>
 </a>
-<div class="item-lead">Waymo在无人驾驶技术领域遥遥领先，但大批相关技术初创企业的诞生，使得其他汽车制造商能够借机赶上。</div><div class="item-time">3天前</div>
+<div class="item-lead">分析师称，三星和华为近日发布的天价折叠屏手机未必达到可观销量，但它们至少会给两家公司的其他手机产品带来光环效应。</div><div class="item-time">3天前</div>
 <div class="item-bottom"></div>
 </div></div>
  
  
 <div class=" MT PT"></div>
-<div class="item-container XL3 L3 S4 M6 P12     item-container-app has-image" data-id="001081221" data-type="premium" data-keywords="英语,语言"><div class="item-inner">
-<h2 class="item-headline"><a target="_blank" href="/premium/001081221?adchannelID=1100" class="item-headline-link locked">英式英语中最大的美国舶来品——“Advocating for”</a></h2>
-<a class="image" target="_blank" href="/premium/001081221?adchannelID=1100" >
-<figure class="loading" data-url="http://i.ftimg.net/picture/1/000083261_piclink.jpg"></figure>
+<div class="item-container XL3 L3 S4 M6 P12     item-container-app has-image" data-id="001081686" data-type="premium" data-keywords="美国经济,特朗普,GDP,美国大选,美国政治"><div class="item-inner">
+<h2 class="item-headline"><a target="_blank" href="/premium/001081686?adchannelID=1100" class="item-headline-link locked">特朗普的高增长承诺正在落空</a></h2>
+<a class="image" target="_blank" href="/premium/001081686?adchannelID=1100" >
+<figure class="loading" data-url="http://i.ftimg.net/picture/0/000081710_piclink.jpg"></figure>
 </a>
-<div class="item-lead">斯卡平克：我们从什么时候开始在“Advocating”后面加上” for”？这个词组如何漂洋过海，并频频出现在主流媒体中？</div><div class="item-time">6天前</div>
+<div class="item-lead">邰蒂：特朗普曾宣称他领导的政府将实现“4%、5%，甚至6%”的增长率。然而最新数据显示，这是一种奢望。</div><div class="item-time">3天前</div>
 <div class="item-bottom"></div>
 </div></div>
  
  
 <div class=" PT"></div>
-<div class="item-container XL3 L3 S4 M6 P12     item-container-app has-image" data-id="001081220" data-type="premium" data-keywords="美国政治,阶级"><div class="item-inner">
-<h2 class="item-headline"><a target="_blank" href="/premium/001081220?adchannelID=1100" class="item-headline-link locked">阶级政治有利于美国</a></h2>
-<a class="image" target="_blank" href="/premium/001081220?adchannelID=1100" >
-<figure class="loading" data-url="http://i.ftimg.net/picture/9/000083259_piclink.jpg"></figure>
+<div class="item-container XL3 L3 S4 M6 P12     item-container-app has-image" data-id="001081687" data-type="premium" data-keywords="能源,新能源,环境"><div class="item-inner">
+<h2 class="item-headline"><a target="_blank" href="/premium/001081687?adchannelID=1100" class="item-headline-link locked">能源行业需要思考转型策略</a></h2>
+<a class="image" target="_blank" href="/premium/001081687?adchannelID=1100" >
+<figure class="loading" data-url="http://i.ftimg.net/picture/9/000078909_piclink.jpg"></figure>
 </a>
-<div class="item-lead">一个国家总会分裂，阶级政治会让美国分裂为“1%”和“其他99%”，但这比会让美国彻底碎片化的身份认同政治好得多。</div><div class="item-time">2019年2月7日</div>
+<div class="item-lead">巴特勒：未来二三十年，能源行业将迎来一场工业革命。制定一项转型战略应成为所有能源行业从业者的优先任务。</div><div class="item-time">3天前</div>
 <div class="item-bottom"></div>
 </div></div>
 <div 
@@ -492,34 +496,34 @@ data-cy='[{"devices":["iPhoneWeb","AndroidWeb","iPhoneApp","AndroidApp"],"patter
  
  
 <div class=" XLT LT ST MT PT"></div>
-<div class="item-container XL3 L3 S4 M6 P12     item-container-app has-image" data-id="001081359" data-type="premium" data-keywords="创新,创意,创意产业,创意经济,组织,企业管理,企业文化"><div class="item-inner">
-<h2 class="item-headline"><a target="_blank" href="/premium/001081359?adchannelID=1100" class="item-headline-link locked">把握好“组织裕度”的分寸</a></h2>
-<a class="image" target="_blank" href="/premium/001081359?adchannelID=1100" >
-<figure class="loading" data-url="http://i.ftimg.net/picture/8/000083498_piclink.jpg"></figure>
+<div class="item-container XL3 L3 S4 M6 P12     item-container-app has-image" data-id="001081694" data-type="premium" data-keywords="腾讯,电子游戏,手机游戏,娱乐"><div class="item-inner">
+<h2 class="item-headline"><a target="_blank" href="/premium/001081694?adchannelID=1100" class="item-headline-link locked">腾讯将加大对电竞赛事业务的投资</a></h2>
+<a class="image" target="_blank" href="/premium/001081694?adchannelID=1100" >
+<figure class="loading" data-url="http://i.ftimg.net/picture/7/000083987_piclink.jpg"></figure>
 </a>
-<div class="item-lead">希尔：自由度太少可能对创意萌发有不利影响，但自由度太多也不好。成功创新要求企业安排一定的“组织裕度”。</div><div class="item-time">2019年2月3日</div>
+<div class="item-lead">与游戏销售收入相比，电竞收入目前还微不足道，但腾讯将电竞视为推广其游戏、延长其游戏寿命的手段。</div><div class="item-time">3天前</div>
 <div class="item-bottom"></div>
 </div></div>
  
  
 <div class=" PT"></div>
-<div class="item-container XL3 L3 S4 M6 P12     item-container-app has-image" data-id="001081358" data-type="premium" data-keywords="科技巨头,科技公司,科技企业,人类学家,亚马逊,贝索斯"><div class="item-inner">
-<h2 class="item-headline"><a target="_blank" href="/premium/001081358?adchannelID=1100" class="item-headline-link locked">人类学家能给科技巨头上什么课？</a></h2>
-<a class="image" target="_blank" href="/premium/001081358?adchannelID=1100" >
-<figure class="loading" data-url="http://i.ftimg.net/picture/5/000083485_piclink.jpg"></figure>
+<div class="item-container XL3 L3 S4 M6 P12     item-container-app has-image" data-id="001081682" data-type="premium" data-keywords="朝鲜,特朗普,金正恩"><div class="item-inner">
+<h2 class="item-headline"><a target="_blank" href="/premium/001081682?adchannelID=1100" class="item-headline-link locked">朝鲜积极评价“特金二会”</a></h2>
+<a class="image" target="_blank" href="/premium/001081682?adchannelID=1100" >
+<figure class="loading" data-url="http://i.ftimg.net/picture/3/000083903_piclink.jpg"></figure>
 </a>
-<div class="item-lead">邰蒂：即使科技界人士准备聘请人类学家来研究消费者，他们是否准备理解自己行业的偏见和怪癖也仍是个未知数。</div><div class="item-time">2019年2月3日</div>
+<div class="item-lead">尽管因在解除制裁一事上存在分歧，“特金二会”在未能达成协议的情况下意外提前结束，但朝中社对这次峰会作出了积极的评价。</div><div class="item-time">6天前</div>
 <div class="item-bottom"></div>
 </div></div>
  
  
 <div class=" MT PT"></div>
-<div class="item-container XL3 L3 S4 M6 P12     item-container-app has-image" data-id="001081357" data-type="premium" data-keywords="儿童教育,儿童,教育,孩子"><div class="item-inner">
-<h2 class="item-headline"><a target="_blank" href="/premium/001081357?adchannelID=1100" class="item-headline-link locked">想培养完美孩子？别管孩子</a></h2>
-<a class="image" target="_blank" href="/premium/001081357?adchannelID=1100" >
-<figure class="loading" data-url="http://i.ftimg.net/picture/6/000083496_piclink.jpg"></figure>
+<div class="item-container XL3 L3 S4 M6 P12     item-container-app has-image" data-id="001081681" data-type="premium" data-keywords="中国股市,MSCI"><div class="item-inner">
+<h2 class="item-headline"><a target="_blank" href="/premium/001081681?adchannelID=1100" class="item-headline-link locked">MSCI提高A股在其指数中的权重</a></h2>
+<a class="image" target="_blank" href="/premium/001081681?adchannelID=1100" >
+<figure class="loading" data-url="http://i.ftimg.net/picture/6/000081256_piclink.jpg"></figure>
 </a>
-<div class="item-lead">埃利森：多年前，我曾请一个爱尔兰女子照顾我的女儿。她把我的要求完全抛在脑后，但最终我感激她付出的一切。</div><div class="item-time">2019年2月3日</div>
+<div class="item-lead">MSCI宣布，将在今年11月把中国A股占其旗舰新兴市场指数的权重从0.71%上调至3.3%。此举可能吸引大量资金流入。</div><div class="item-time">6天前</div>
 <div class="item-bottom"></div>
 </div></div>
 <div 
@@ -536,23 +540,23 @@ data-o-ads-targeting="cnpos=info4;"
  
  
 <div class=" ST PT"></div>
-<div class="item-container XL3 L3 S4 M6 P12     item-container-app has-image" data-id="001081216" data-type="premium" data-keywords="经济学,行为经济学,诺贝尔经济学奖,亚当·斯密,让·梯若尔,学术"><div class="item-inner">
-<h2 class="item-headline"><a target="_blank" href="/premium/001081216?adchannelID=1100" class="item-headline-link locked">经济学受益于其他学科</a></h2>
-<a class="image" target="_blank" href="/premium/001081216?adchannelID=1100" >
-<figure class="loading" data-url="http://i.ftimg.net/picture/0/000083260_piclink.jpg"></figure>
+<div class="item-container XL3 L3 S4 M6 P12     item-container-app has-image" data-id="001081672" data-type="premium" data-keywords="FT大视野,基因编辑,转基因,DNA,食物科技,食物银行,转基因粮食,农业科技,农业"><div class="item-inner">
+<h2 class="item-headline"><a target="_blank" href="/premium/001081672?adchannelID=1100" class="item-headline-link locked">基因编辑将如何改变我们的食物？</a></h2>
+<a class="image" target="_blank" href="/premium/001081672?adchannelID=1100" >
+<figure class="loading" data-url="http://i.ftimg.net/picture/7/000083947_piclink.jpg"></figure>
 </a>
-<div class="item-lead">梯若尔：“理性经济人”概念被证明非常有用，但也有其局限性。其他社会科学促使经济学家考虑心理、进化和历史背景对我们行为的影响。</div><div class="item-time">2019年2月3日</div>
+<div class="item-lead">基因编辑支持者希望，它可以避免阻碍转基因推广的批评和监管审查，因为它使用已有基因而不是向这种植物植入外源DNA。</div><div class="item-time">6天前</div>
 <div class="item-bottom"></div>
 </div></div>
  
  
 <div class=" XLT LT MT PT"></div>
-<div class="item-container XL3 L3 S4 M6 P12     item-container-app has-image" data-id="001081354" data-type="premium" data-keywords="中国电影,科幻,航天"><div class="item-inner">
-<h2 class="item-headline"><a target="_blank" href="/premium/001081354?adchannelID=1100" class="item-headline-link locked">中国科幻题材电影缘何兴起？</a></h2>
-<a class="image" target="_blank" href="/premium/001081354?adchannelID=1100" >
-<figure class="loading" data-url="http://i.ftimg.net/picture/3/000083483_piclink.jpg"></figure>
+<div class="item-container XL3 L3 S4 M6 P12     item-container-app has-image" data-id="001081670" data-type="premium" data-keywords="加密货币,比特币,富人,富豪,投资"><div class="item-inner">
+<h2 class="item-headline"><a target="_blank" href="/premium/001081670?adchannelID=1100" class="item-headline-link locked">富人对加密货币兴趣不减</a></h2>
+<a class="image" target="_blank" href="/premium/001081670?adchannelID=1100" >
+<figure class="loading" data-url="http://i.ftimg.net/picture/5/000078235_piclink.jpg"></figure>
 </a>
-<div class="item-lead">科幻电影在中国的发展，跟1970年代美国国家航空航天局(NASA)执行太空任务后，科幻电影在美国受到欢迎很相似。</div><div class="item-time">2019年2月2日</div>
+<div class="item-lead">尽管加密货币价格大跌，但调查显示这类数字资产对富人的吸引力经久不衰，一些人为了投资加密货币甚至绕开理财经理。</div><div class="item-time">6天前</div>
 <div class="item-bottom"></div>
 </div></div>
 <div 
@@ -570,78 +574,78 @@ data-cy='[{"devices":["iPhoneWeb","AndroidWeb","iPhoneApp","AndroidApp"],"patter
  
  
 <div class=" PT"></div>
-<div class="item-container XL3 L3 S4 M6 P12     item-container-app has-image" data-id="001081353" data-type="premium" data-keywords="富士康,特朗普"><div class="item-inner">
-<h2 class="item-headline"><a target="_blank" href="/premium/001081353?adchannelID=1100" class="item-headline-link locked">富士康宣布将推进在美国设厂计划</a></h2>
-<a class="image" target="_blank" href="/premium/001081353?adchannelID=1100" >
-<figure class="loading" data-url="http://i.ftimg.net/picture/6/000067956_piclink.jpg"></figure>
+<div class="item-container XL3 L3 S4 M6 P12     item-container-app has-image" data-id="001081668" data-type="premium" data-keywords="巴菲特,投资,股神,卡夫亨氏"><div class="item-inner">
+<h2 class="item-headline"><a target="_blank" href="/premium/001081668?adchannelID=1100" class="item-headline-link locked">巴菲特缘何折戟卡夫亨氏？</a></h2>
+<a class="image" target="_blank" href="/premium/001081668?adchannelID=1100" >
+<figure class="loading" data-url="http://i.ftimg.net/picture/8/000083948_piclink.jpg"></figure>
 </a>
-<div class="item-lead">这家台湾电子代工集团称，在特朗普与郭台铭进行“私人谈话”后，公司决定推进在威斯康辛州建LCD工厂的计划。</div><div class="item-time">2019年2月2日</div>
+<div class="item-lead">加普：吉百利、奥利奥等品牌被拆入亿滋国际后，卡夫就只剩下历史了。然而如今广告营销加上一点历史感已经不够了。</div><div class="item-time">6天前</div>
 <div class="item-bottom"></div>
 </div></div>
  
  
 <div class=" ST MT PT"></div>
-<div class="item-container XL3 L3 S4 M6 P12     item-container-app has-image" data-id="001081348" data-type="premium" data-keywords="贷款抵押债券,CLO,收益率,证券化,华尔街,债券,债务"><div class="item-inner">
-<h2 class="item-headline"><a target="_blank" href="/premium/001081348?adchannelID=1100" class="item-headline-link locked">贷款抵押债券提供诱人收益率</a></h2>
-<a class="image" target="_blank" href="/premium/001081348?adchannelID=1100" >
-<figure class="loading" data-url="http://i.ftimg.net/picture/7/000083467_piclink.jpg"></figure>
+<div class="item-container XL3 L3 S4 M6 P12     item-container-app has-image" data-id="001081667" data-type="premium" data-keywords="华为,任正非,摩托罗拉,收购"><div class="item-inner">
+<h2 class="item-headline"><a target="_blank" href="/premium/001081667?adchannelID=1100" class="item-headline-link locked">摩托罗拉是如何错失华为的？</a></h2>
+<a class="image" target="_blank" href="/premium/001081667?adchannelID=1100" >
+<figure class="loading" data-url="http://i.ftimg.net/picture/9/000083949_piclink.jpg"></figure>
 </a>
-<div class="item-lead">随着1.2万亿美元的杠杆贷款市场受到更密切的审视，人们的焦点转向该市场的主要支持来源：贷款抵押债券(CLO)。</div><div class="item-time">2019年2月2日</div>
+<div class="item-lead">2003年，摩托罗拉同意以75亿美元收购华为，意向书都签署了。假如那笔交易没有流产，电信业的发展历史就得改写了。</div><div class="item-time">6天前</div>
 <div class="item-bottom"></div>
 </div></div>
  
  
 <div class=" PT"></div>
-<div class="item-container XL3 L3 S4 M6 P12     item-container-app has-image" data-id="001081347" data-type="premium" data-keywords="征税,超级富豪,富豪,富豪税,税收,税制"><div class="item-inner">
-<h2 class="item-headline"><a target="_blank" href="/premium/001081347?adchannelID=1100" class="item-headline-link locked">对超级富豪征高税只是看上去很美</a></h2>
-<a class="image" target="_blank" href="/premium/001081347?adchannelID=1100" >
-<figure class="loading" data-url="http://i.ftimg.net/picture/0/000083470_piclink.jpg"></figure>
+<div class="item-container XL3 L3 S4 M6 P12     item-container-app has-image" data-id="001081662" data-type="premium" data-keywords="美联储,美国经济"><div class="item-inner">
+<h2 class="item-headline"><a target="_blank" href="/premium/001081662?adchannelID=1100" class="item-headline-link locked">鲍威尔：美联储将很快公布结束缩表计划</a></h2>
+<a class="image" target="_blank" href="/premium/001081662?adchannelID=1100" >
+<figure class="loading" data-url="http://i.ftimg.net/picture/2/000073792_piclink.jpg"></figure>
 </a>
-<div class="item-lead">无论收入还是财富，其绝大部分都不在亿万富翁手中，而是在普通的富裕阶层手中。提高财政收入，不应止步于对“富人”征税。</div><div class="item-time">2019年2月2日</div>
+<div class="item-lead">美联储主席预计很快公布结束缩表计划的表态，将让市场更为关注3月19日至20日召开的美联储货币政策会议。</div><div class="item-time">2019年2月28日</div>
 <div class="item-bottom"></div>
 </div></div>
  
  
 <div class=" XLT LT MT PT"></div>
-<div class="item-container XL3 L3 S4 M6 P12     item-container-app has-image" data-id="001081345" data-type="premium" data-keywords="Facebook,整合,应用,Instagram,WhatsApp"><div class="item-inner">
-<h2 class="item-headline"><a target="_blank" href="/premium/001081345?adchannelID=1100" class="item-headline-link locked">Facebook寻求整合三大应用</a></h2>
-<a class="image" target="_blank" href="/premium/001081345?adchannelID=1100" >
-<figure class="loading" data-url="http://i.ftimg.net/picture/2/000083472_piclink.jpg"></figure>
+<div class="item-container XL3 L3 S4 M6 P12     item-container-app has-image" data-id="001081660" data-type="premium" data-keywords="中国股市,A股,MSCI"><div class="item-inner">
+<h2 class="item-headline"><a target="_blank" href="/premium/001081660?adchannelID=1100" class="item-headline-link locked">中国股市在大涨中等候MSCI扩容</a></h2>
+<a class="image" target="_blank" href="/premium/001081660?adchannelID=1100" >
+<figure class="loading" data-url="http://i.ftimg.net/picture/7/000083807_piclink.jpg"></figure>
 </a>
-<div class="item-lead">Facebook寻求将旗下Instagram及WhatsApp与自身更紧密地结合到一起，共享更多技术和资源，此举将带来明显的机会，但也引起新的担忧。</div><div class="item-time">2019年2月2日</div>
+<div class="item-lead">MSCI可能扩大其新兴市场指数中A股的权重，加上中国开放市场的举措，有望在今年吸引上千亿美元外资流入A股。</div><div class="item-time">2019年2月28日</div>
 <div class="item-bottom"></div>
 </div></div>
  
  
 <div class=" ST PT"></div>
-<div class="item-container XL3 L3 S4 M6 P12     item-container-app has-image" data-id="001081338" data-type="premium" data-keywords="中美贸易战,中国经济,中国出口,数据新闻"><div class="item-inner">
-<h2 class="item-headline"><a target="_blank" href="/premium/001081338?adchannelID=1100" class="item-headline-link locked">调研：中国出口商表示今年开局不佳</a></h2>
-<a class="image" target="_blank" href="/premium/001081338?adchannelID=1100" >
-<figure class="loading" data-url="http://i.ftimg.net/picture/9/000081429_piclink.jpg"></figure>
+<div class="item-container XL3 L3 S4 M6 P12     item-container-app has-image" data-id="001081657" data-type="premium" data-keywords="中美贸易,中美贸易战,贸易谈判,中美关系,莱特希泽"><div class="item-inner">
+<h2 class="item-headline"><a target="_blank" href="/premium/001081657?adchannelID=1100" class="item-headline-link locked">美中商定贸易协议执行程序</a></h2>
+<a class="image" target="_blank" href="/premium/001081657?adchannelID=1100" >
+<figure class="loading" data-url="http://i.ftimg.net/picture/5/000083905_piclink.jpg"></figure>
 </a>
-<div class="item-lead">FT《投资参考》的最新调研显示，由于出口行业失去增长动力，中国出口商的订单和利润从12月份开始放缓。</div><div class="item-time">2019年2月2日</div>
+<div class="item-lead">美国贸易代表莱特希泽在向国会作证时表示，美中已达成执行两国间贸易协议的程序，为谈判结束彼此间贸易战清除了一个关键障碍。</div><div class="item-time">2019年2月28日</div>
 <div class="item-bottom"></div>
 </div></div>
  
  
 <div class=" MT PT"></div>
-<div class="item-container XL3 L3 S4 M6 P12     item-container-app has-image" data-id="001081333" data-type="premium" data-keywords="美国股市,美国经济,美联储,标准普尔"><div class="item-inner">
-<h2 class="item-headline"><a target="_blank" href="/premium/001081333?adchannelID=1100" class="item-headline-link locked">标普500指数创1987年以来最大1月涨幅</a></h2>
-<a class="image" target="_blank" href="/premium/001081333?adchannelID=1100" >
-<figure class="loading" data-url="http://i.ftimg.net/picture/3/000070653_piclink.jpg"></figure>
+<div class="item-container XL3 L3 S4 M6 P12     item-container-app has-image" data-id="001081647" data-type="premium" data-keywords="FT大视野,德国经济,德国出口,德国企业"><div class="item-inner">
+<h2 class="item-headline"><a target="_blank" href="/premium/001081647?adchannelID=1100" class="item-headline-link locked">德国出口业准备迎接全球冲击</a></h2>
+<a class="image" target="_blank" href="/premium/001081647?adchannelID=1100" >
+<figure class="loading" data-url="http://i.ftimg.net/picture/9/000063559_piclink.jpg"></figure>
 </a>
-<div class="item-lead">标普500指数从去年12月9.2%的下跌中强劲反弹，1月份上涨7.9%，但并没有回到去年11月份2760.17点的收盘水平。</div><div class="item-time">2019年2月1日</div>
+<div class="item-lead">出口相当于德国GDP的50%，因此美中贸易战、美国优先保护主义以及中国等大型市场的增长疲软对德国的冲击尤其严重。</div><div class="item-time">2019年2月28日</div>
 <div class="item-bottom"></div>
 </div></div>
  
  
 <div class=" PT"></div>
-<div class="item-container XL3 L3 S4 M6 P12     item-container-app has-image" data-id="001081329" data-type="premium" data-keywords="美联储,鲍威尔,美联储主席,美国经济,美国利率"><div class="item-inner">
-<h2 class="item-headline"><a target="_blank" href="/premium/001081329?adchannelID=1100" class="item-headline-link locked">分析：美联储立场大变令人困惑</a></h2>
-<a class="image" target="_blank" href="/premium/001081329?adchannelID=1100" >
-<figure class="loading" data-url="http://i.ftimg.net/picture/0/000081180_piclink.jpg"></figure>
+<div class="item-container XL3 L3 S4 M6 P12     item-container-app has-image" data-id="001081645" data-type="premium" data-keywords="欧美关系,美欧关系,美欧联盟,欧美"><div class="item-inner">
+<h2 class="item-headline"><a target="_blank" href="/premium/001081645?adchannelID=1100" class="item-headline-link locked">欧美同盟关系何去何从？</a></h2>
+<a class="image" target="_blank" href="/premium/001081645?adchannelID=1100" >
+<figure class="loading" data-url="http://i.ftimg.net/picture/8/000083898_piclink.jpg"></figure>
 </a>
-<div class="item-lead">美国央行最新指引意味着下一次利率调整既可能提高，也可能降低，这与其在12月的预测非常不同。这一点令人困惑和担忧。</div><div class="item-time">2019年2月1日</div>
+<div class="item-lead">斯蒂芬斯：慕尼黑安全会议上，德国总理默克尔猛烈抨击美国特朗普政府，为欧美同盟关系蒙上了阴影，俄罗斯和中国成为了赢家。</div><div class="item-time">2019年2月28日</div>
 <div class="item-bottom"></div>
 </div></div>
    <div class="clearfloat"></div>
@@ -711,7 +715,6 @@ data-o-ads-targeting="cnpos=paidpost;"
 <img src='http://beacon.krxd.net/event.gif?event_id=KWA6DGT9&event_type=rtg' width=0 height=0 /><div style="display: none;" class="specialanchor" tag="女性创业家" title="凯歌香槟·HER POWER" adid="" channel="" hideAd="no" zone="entrepreneurs"></div>
 <div style="display: none;" class="specialanchor" tag="" title="中美贸易战" adid="" channel="/channel/tradewar.html" hideAd="no" zone="tradewar"></div>
 <div style="display: none;" class="specialanchor" tag="创新经济" title="创新经济" adid="2100" channel="http://www.ftchinese.com/channel/innovation.html" hideAd="" zone=""></div>
-<div style="display: none;" class="specialanchor" tag="高端物业" title="高端物业" adid="1504" channel="" hideAd="no" zone="property"></div>
 <div style="display: none;" class="specialanchor" tag="" title="恐怖袭击" adid="5048" channel="" hideAd="no" zone="disaster"></div>
 <div style="display: none;" class="specialanchor" tag="灾难" title="灾难" adid="5048" channel="" hideAd="no" zone="disaster"></div>
 <div style="display: none;" class="specialanchor" tag="空难" title="空难" adid="5048" channel="" hideAd="no" zone="disaster"></div>

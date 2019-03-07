@@ -1,6 +1,6 @@
 function search (keys, page) {
-    function reportSearchResultToNative(term) {
-        var data = {action: 'search', term: term};
+    function reportSearchResultToNative(term, status) {
+        var data = {action: 'search', term: term, status: status};
         try {
             if (webkit) {
                 webkit.messageHandlers.searchResults.postMessage(data);
@@ -25,25 +25,30 @@ function search (keys, page) {
 	        if (this.status === 200) {
 	            var data = this.responseText;
 	            var searchResults = document.getElementById('search-results');
-	            reportSearchResultToNative(keys);
-	            searchResults.innerHTML = data;
-	            updateHeadlineLocks();
-	            var paginationEle = document.querySelector('.pagination');
-	            if (paginationEle !== null) {
-	            	var paginationEleHTML = '<div class="pagination-inner">' + paginationEle.innerHTML + '</div>';
-	            	paginationEle.innerHTML = paginationEleHTML;
-	            	paginationEle.className = 'pagination-container';
-	            }
-	            var pageLinks = searchResults.querySelectorAll('.pagination-inner a');
-	            for (var i=0; i<pageLinks.length; i++) {
-	            	pageLinks[i].onclick = function() {
-	            		var page = this.href.replace(/^.*page=([0-9]+).*$/g, '$1');
-	            		search(keys, page);
-	            		return false;
-	            	}
+	            
+	            if (data.indexOf('search-server-down')>=0) {
+	            	reportSearchResultToNative(keys, 'fail');
+	            } else {
+	            	reportSearchResultToNative(keys, 'success');
+		            searchResults.innerHTML = data;
+		            updateHeadlineLocks();
+		            var paginationEle = document.querySelector('.pagination');
+		            if (paginationEle !== null) {
+		            	var paginationEleHTML = '<div class="pagination-inner">' + paginationEle.innerHTML + '</div>';
+		            	paginationEle.innerHTML = paginationEleHTML;
+		            	paginationEle.className = 'pagination-container';
+		            }
+		            var pageLinks = searchResults.querySelectorAll('.pagination-inner a');
+		            for (var i=0; i<pageLinks.length; i++) {
+		            	pageLinks[i].onclick = function() {
+		            		var page = this.href.replace(/^.*page=([0-9]+).*$/g, '$1');
+		            		search(keys, page);
+		            		return false;
+		            	}
+		            }
 	            }
 	        } else {
-
+	        	reportSearchResultToNative(keys, 'fail');
 	        }
 	    }
 	};
