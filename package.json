@@ -45,5 +45,8 @@
         "single"
       ]
     }
+  },
+  "dependencies": {
+    "gulp-util": "^3.0.8"
   }
 }
