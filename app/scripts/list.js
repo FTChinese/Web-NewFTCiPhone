@@ -64,10 +64,15 @@ function getJSON() {
 	try {
 		if (webkit) {
 			webkit.messageHandlers.items.postMessage(data);
-		} else if (Android) {
+		}
+	} catch (ignore) {}
+
+	try {
+		if (Android) {
 			Android.onPageLoaded(JSON.stringify(data));
 		}
 	} catch (ignore) {}
+
 	specialReportsData();
 	sendPageInfoToApp();
 }
@@ -95,23 +100,23 @@ function checkReadItems() {
 
 function tapOnEle(event, ele) {
 	var target = event.target;
-	// if (target.tagName === 'A' && target.getAttribute('href')) {
-	// 	//console.log ('this is a link, return now! ');
-	// 	return;
-	// }
 	if (isInLink(target)) {
 		return;
 	}
 	var row = ele.getAttribute('data-row');
-	// if (ele.className && ele.className.indexOf(' visited') < 0) {
-	// 	ele.className += ' visited';
-	// }
-	//console.log (row);
-	if (webkit) {
-		webkit.messageHandlers.selectItem.postMessage(row);
-	} else if (Android) {
-		Android.onSelectItem(row);
-	}
+	try {
+		if (webkit) {
+			webkit.messageHandlers.selectItem.postMessage(row);
+		}
+	} catch (ignore) {}
+
+	try {
+		if (Android) {
+			Android.onSelectItem(row);
+		}
+	} catch (ignore) {}
+
+
 }
 
 function isInLink(ele) {
@@ -163,7 +168,8 @@ function specialReportsData() {
 	try {
 		if (webkit) {
 			webkit.messageHandlers.sponsors.postMessage(specialAnchorsData);
-		} else if (Android) {
+		}
+		if (Android) {
 			Android.onLoadedSponsors(JSON.stringify(specialAnchorsData));
 		}
 	} catch (ignore) {}
@@ -174,7 +180,8 @@ function sharePageFromApp(linkObj) {
 	try {
 		if (webkit) {
 			webkit.messageHandlers.sharePageFromApp.postMessage(linkObj);
-		} else if (Android) {
+		}
+		if (Android) {
 			Android.onSharePageFromApp(JSON.stringify(linkObj));
 		}
 	} catch (ignore) {
@@ -187,7 +194,8 @@ function sendPageInfoToApp() {
 		try {
 			if (webkit) {
 				webkit.messageHandlers.sendPageInfoToApp.postMessage(window.linksForShare);
-			} else if (Android) {
+			}
+			if (Android) {
 				Android.onSendPageInfoToApp(JSON.stringify(window.linksForShare));
 			}
 		} catch (ignore) {}

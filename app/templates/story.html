@@ -167,7 +167,7 @@ var gIsCurrentAdchFinal = false;
 
 
 </head>
-<body class="">
+<body class="{story-language-class}">
 
 
 
@@ -363,6 +363,13 @@ function updateBody(body) {
     var bodyHTML = body.replace("{singlequote}", "'");
     bodyEle.innerHTML = bodyHTML;
     window.scrollTo(0, 0);
+}
+
+function updateBodyClass(newClass) {
+    var bodyClass = document.body.className;
+    bodyClass = bodyClass.replace(/ ce/, '').replace(/ en/, '');
+    bodyClass += newClass;
+    document.body.className = bodyClass;
 }
 // MARK: Make sure font size is checked every time
 // setTimeout(function(){
