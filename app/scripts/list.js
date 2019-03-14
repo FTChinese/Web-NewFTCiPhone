@@ -169,10 +169,14 @@ function specialReportsData() {
 		if (webkit) {
 			webkit.messageHandlers.sponsors.postMessage(specialAnchorsData);
 		}
+	} catch (ignore) {}
+
+	try {
 		if (Android) {
 			Android.onLoadedSponsors(JSON.stringify(specialAnchorsData));
 		}
 	} catch (ignore) {}
+
 }
 
 
@@ -181,12 +185,12 @@ function sharePageFromApp(linkObj) {
 		if (webkit) {
 			webkit.messageHandlers.sharePageFromApp.postMessage(linkObj);
 		}
+	} catch (ignore) {}
+	try {
 		if (Android) {
 			Android.onSharePageFromApp(JSON.stringify(linkObj));
 		}
-	} catch (ignore) {
-
-	}
+	} catch (ignore) {}
 }
 
 function sendPageInfoToApp() {
@@ -195,6 +199,8 @@ function sendPageInfoToApp() {
 			if (webkit) {
 				webkit.messageHandlers.sendPageInfoToApp.postMessage(window.linksForShare);
 			}
+		} catch (ignore) {}
+		try {
 			if (Android) {
 				Android.onSendPageInfoToApp(JSON.stringify(window.linksForShare));
 			}
