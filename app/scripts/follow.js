@@ -18,7 +18,8 @@ try {
         }
         if (webkit) {
             webkit.messageHandlers.follow.postMessage(message);
-        } else if (Android) {
+        }
+        if (Android) {
             Android.follow(JSON.stringify(message));
         }
         
