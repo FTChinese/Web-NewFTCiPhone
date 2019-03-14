@@ -98,7 +98,8 @@ var gIsCurrentAdchFinal = false;
 </script>
 <!--isCurrentAdchFinal: no-->
 
-{{googletagservices-js}}
+<script type="text/javascript">{{ad-pollyfill-js}}</script>
+<script async src="https://www.googletagservices.com/tag/js/gpt.js"></script>
 <script type="text/javascript">{{db-zone-helper-js}}</script>
 <script>
     var userKv = GetCookie('USER_KV');

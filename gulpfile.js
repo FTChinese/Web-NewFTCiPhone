@@ -215,6 +215,8 @@ gulp.task('ios', ['grab', 'build'], function () {
   const oAdsJS = fs.readFileSync('app/templates/o-ads.js', 'utf8');
   const gptJS = fs.readFileSync('app/templates/gpt.js', 'utf8');
 
+  const adPolyfillJS = fs.readFileSync('dist/scripts/ad-polyfill.js', 'utf8');
+
   // var googleanalytics = fs.readFileSync('dist/log/ga.js', 'utf8');
   // var fa = fs.readFileSync('dist/log/analytics.js', 'utf8');
 
@@ -269,6 +271,7 @@ gulp.task('ios', ['grab', 'build'], function () {
     .pipe(replace('{{story-js-key}}', storyKeyJS))
     .pipe(replace('{{analytics}}', analyticsJS))
     .pipe(replace('{{db-zone-helper-js}}', dbZoneHelperJS))
+    .pipe(replace('{{ad-pollyfill-js}}', adPolyfillJS))
     // .pipe(replace('{{o-ads-js}}', oAdsJS))
     // .pipe(replace('{{gpt-js}}', gptJS))
     .pipe(rename('story.html'))
@@ -297,6 +300,7 @@ gulp.task('ios', ['grab', 'build'], function () {
     .pipe(replace('{{list-js-main}}', listMainJS))
     .pipe(replace('{{list-js-key}}', listKeyJS))
     .pipe(replace('{{analytics}}', analyticsJS))
+    .pipe(replace('{{ad-pollyfill-js}}', adPolyfillJS))
     // .pipe(replace('{{o-ads-js}}', oAdsJS))
     // .pipe(replace('{{gpt-js}}', gptJS))
     .pipe(gulp.dest('../NewFTCApp-iOS/Page/FTChinese/'))
