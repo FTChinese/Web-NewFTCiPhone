@@ -299,8 +299,6 @@ gulp.task('ios', ['grab', 'build'], function () {
     .pipe(replace('{{list-js-key}}', listKeyJS))
     .pipe(replace('{{analytics}}', analyticsJS))
     .pipe(replace('{{ad-pollyfill-js}}', adPolyfillJS))
-    // .pipe(replace('{{o-ads-js}}', oAdsJS))
-    // .pipe(replace('{{gpt-js}}', gptJS))
     .pipe(gulp.dest('../NewFTCApp-iOS/Page/FTChinese/'))
     .on('end', function() {
       convert2Big5('../NewFTCApp-iOS/Page/FTChinese/list.html')
