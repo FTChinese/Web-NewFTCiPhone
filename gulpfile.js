@@ -272,8 +272,6 @@ gulp.task('ios', ['grab', 'build'], function () {
     .pipe(replace('{{analytics}}', analyticsJS))
     .pipe(replace('{{db-zone-helper-js}}', dbZoneHelperJS))
     .pipe(replace('{{ad-pollyfill-js}}', adPolyfillJS))
-    // .pipe(replace('{{o-ads-js}}', oAdsJS))
-    // .pipe(replace('{{gpt-js}}', gptJS))
     .pipe(rename('story.html'))
     .pipe(gulp.dest('../NewFTCApp-iOS/Page/FTChinese/'))
     .on('end', function() {
@@ -317,6 +315,7 @@ gulp.task('ios', ['grab', 'build'], function () {
     .pipe(replace('{{analytics}}', analyticsJS))
     .pipe(replace('{{o-ads-js}}', oAdsJS))
     .pipe(replace('{{gpt-js}}', gptJS))
+    .pipe(replace('{{ad-pollyfill-js}}', adPolyfillJS))
     .pipe(rename('myft.html'))
     .pipe(gulp.dest('../NewFTCApp-iOS/Page/FTChinese/'))
     .on('end', function() {
