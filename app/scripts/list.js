@@ -160,6 +160,7 @@ function specialReportsData() {
 		item.adid = specialAnchors[i].getAttribute('adid') || '';
 		item.zone = specialAnchors[i].getAttribute('zone') || '';
 		item.channel = specialAnchors[i].getAttribute('channel') || '';
+		item.storyKeyWords = specialAnchors[i].getAttribute('storyKeyWords') || '';
 		if (specialAnchors[i].getAttribute('hideAd')) {
 			item.hideAd = specialAnchors[i].getAttribute('hideAd');
 		}
