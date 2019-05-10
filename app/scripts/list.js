@@ -161,6 +161,7 @@ function specialReportsData() {
 		item.zone = specialAnchors[i].getAttribute('zone') || '';
 		item.channel = specialAnchors[i].getAttribute('channel') || '';
 		item.storyKeyWords = specialAnchors[i].getAttribute('storyKeyWords') || '';
+		item.cntopic = specialAnchors[i].getAttribute('cntopic') || '';
 		if (specialAnchors[i].getAttribute('hideAd')) {
 			item.hideAd = specialAnchors[i].getAttribute('hideAd');
 		}

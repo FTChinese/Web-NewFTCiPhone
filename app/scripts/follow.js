@@ -35,14 +35,7 @@ function contains(a, obj) {
     if (a && a.length>0 && obj && obj.value && obj.tag) {
         for (var i = 0; i < a.length; i++) {
             if (a[i].value === obj.value && a[i].tag === obj.tag) {
-                // console.log ('yes:');
-                // console.log (a[i]);
-                // console.log (obj);
                 return true;
-            } else {
-                // console.log ('no:');
-                // console.log (a[i]);
-                // console.log (obj);
             }
         }
     }

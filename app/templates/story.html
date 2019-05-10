@@ -101,6 +101,7 @@ var gIsCurrentAdchFinal = false;
 <script type="text/javascript">{{ad-pollyfill-js}}</script>
 <script async src="https://www.googletagservices.com/tag/js/gpt.js"></script>
 <script type="text/javascript">{{db-zone-helper-js}}</script>
+<script type="text/javascript"><!--{{cntopic}}--></script>
 <script>
     var userKv = GetCookie('USER_KV');
     var dfpTargetingStr = '';
@@ -115,6 +116,9 @@ var gIsCurrentAdchFinal = false;
         dfpTargetingStr = 'cnplatform=app;' + dfpTargetingStr;
     } else {
         dfpTargetingStr = 'cnplatform=web;' + dfpTargetingStr;
+    }
+    if (window.cntopic && window.cntopic !== '') {
+        dfpTargetingStr = 'cntopic=' + window.cntopic + ';' + dfpTargetingStr;
     }
     var configJson = JSON.stringify({
         gpt: {
