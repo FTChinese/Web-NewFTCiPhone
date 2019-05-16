@@ -23,8 +23,23 @@ function updateProductsHTML(id, json, position) {
 
 // MARK: Update the locks at the end of premium content headlines
 function updateHeadlineLocks() {
-	// MARK: If a reader opens the link in an HTML Book, No need to display locks
+	// MARK: If a reader opens the link in an HTML Book, No need to display locks. But if an item is marked as 'TryBook', display the lock. 
 	if (window.location.href.indexOf('htmlbook') > 0) {
+		var itemContainers = document.querySelectorAll('.item-container');
+		for (var s=0; s<itemContainers.length; s++) {
+			var itemHeadline = itemContainers[s].querySelector('.item-headline-link');
+			if (itemHeadline) {
+				var itemHeadlineClass = itemHeadline.className;
+				var itemHeadlineNewClass = itemHeadlineClass.replace(/unlocked/g, '').replace(/locked/g, '').replace(/ +/, ' ');
+				var itemDataType = itemContainers[s].getAttribute('data-type');
+				if (itemDataType && itemDataType === 'TryBook') {
+					itemHeadlineNewClass += ' locked';
+				}
+				if (itemHeadlineClass !== itemHeadlineNewClass) {
+					itemHeadline.className = itemHeadlineNewClass;
+				}
+			}
+		}
 		return;
 	}
 	var privileges = window.gPrivileges || [];
