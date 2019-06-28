@@ -1,41 +1,16 @@
-/*night reading--*/
-// html.night, .night body, .night .headline,  .night #fullbody, .night #storyview, .night #channelview,.night #adview,.night div.fullbody{background:#000;color:#AAA;}
-// .night .title,.night .oneStory.more,.night .cbody p:first-child:first-letter,.night .cbody b p:first-child:first-letter,.night .cbody p b:first-child:first-letter,.night .cbody i p:first-child:first-letter,.night .cbody p i:first-child:first-letter, .night #calendar,.night .highlight, .night a.highlight, .night a.highlight.section, .night .highlight.section,.night #calendar .floatleft, .night #calendar .floatright,.night .channeltitle,.night a:link, .night a:visited, .night a:active, .night a.unvisited:link, .night a.unvisited:visited, .night .unvisited:link, .night .unvisited:visited, .night #ft-login-slign-in-link {
-// 	color:#BBB;
-// }
-// .night .cbody {color:#AAA;}
-// .night .oneStory,.night .story_info,.night i,.night .cbody i ,.night .grey,.night .oneTag:after,.night .dateStamp,.night .cmt_oldauther,.night .cmt_oldcmt {color:#AAA;}
-// .night a:hover, .night a:active, .night .section a:link, .night .section a:visited, .night #bodytext a:link, .night #bodytext a.story,.night .rank,.night .yx_hl {color:#BBB;}
-// .logoNight,.night .logoDay,.hideVideo #videoContainer,.hideVideo .channel.vd{display:none;}
-// .night .logoNight{display:inline-block;}
-// .night #head {/*border-color:#AAA;*/}
-// .night .loadingStory,.night .channelTip,.night .oneStory,.night .story_info {border-color:#333;}
-// .night .loadingStory,.night .channelTip,.night #allcomments .commentcontainer, .night .commentcontainer  {background-color:#333;color:#BBB;}
-// .night .cmt_quote {background-color:#666;color:DEDEDE;}
-// .night a.light-btn.button, .night button.light-btn{background:#E0CDAC;}
-// .night .section,.night a.section{background:#666;border-color:#333;color:#AAA;text-shadow: none;}
-// .night .ui-light-btn, .night a.button.ui-light-btn, .night .button.ui-light-btn{background:#B6A67F;border-color:#423E3A;color:#000;text-shadow: none;}
-// .night .leftimage,.pink {/*background:#FFF1E0;*/}
-// html.night .pink, .night body .pink, .night .pink .headline,  .night #fullbody .pink, .night #storyview .pink, .night #channelview .pink,.night #adview .pink,.night div.fullbody .pink{background:#FFF1E0;color:#000;}
-// .night #fullbodycontainer .pink .channelTip{color:#333;}
-// .night .user_id,.night #fullbodycontainer .user_id,.night #fullbodycontainer textarea, .night #fullbodycontainer input.textinput {background:#AAA;}
-// .night #Talk,.night .commentTextArea {border-color:#333;}
-/*night reading end--*/
-
-
 .night {
-	body {
+	body, #mbagym-container, .bottom-part{
 		background:#000!important;
 		color:#AAA!important;
 	}
-	.side-container, .box-title a, table th, table tr, .oneStory{
+	.side-container, .box-title a, table th, table tr, .oneStory, #mbagym-container ul.quizlist li, #gymslides .slide{
 		background:transparent!important;
 		color:#AAA!important;
 	}
-	.side-container .list-title, .box-title, table caption, table tr.row-odd, table tbody tr:nth-child(2n), .image figure, .banner-content, #allcomments .commentcontainer, .commentcontainer, .ebook-image-container .ebook-image-inner:before, .book-title-container {
+	.side-container .list-title, .box-title, table caption, table tr.row-odd, table tbody tr:nth-child(2n), .image figure, .banner-content, #allcomments .commentcontainer, .commentcontainer, .ebook-image-container .ebook-image-inner:before, .book-title-container, #mbagym-container[theme="defau"] .quizlist li.selected, #mbagym-container .rightanswer {
 		background: #333!important;
 	}
-	.item-lead {
+	.item-lead,  {
 		color:#999!important;
 	}
 	a, .item-tag a, .item-headline a, .relative-container a, .item-time.highlight, .item-time, .block-container a{
@@ -44,7 +19,4 @@
 	.side-container .list-title a, button, .story-body, #allcomments .commentcontainer, .commentcontainer  {
 		color: #AAA!important;
 	}
-
-
-
 }

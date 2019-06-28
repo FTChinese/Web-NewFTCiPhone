@@ -345,8 +345,6 @@ gulp.task('ios', ['grab', 'build'], function () {
       convert2Big5('../NewFTCApp-iOS/Page/FTChinese/html-book.html')
     });
 
-
-
   const oTableCSS = fs.readFileSync('bower_components/ftcnext/app/origami/o-table.css', 'utf8');
   const oTableJS = fs.readFileSync('bower_components/ftcnext/app/origami/o-table.js', 'utf8');
   const oTableHTML = '<style>' + oTableCSS + '</style><script>' + oTableJS + '</script>';
@@ -358,6 +356,15 @@ gulp.task('ios', ['grab', 'build'], function () {
       console.log('otable writen to' + oTablePath);
   });
 
+  const nightCSS = fs.readFileSync('dist/styles/main-night.css', 'utf8');
+  const nightHTML = '<style>' + nightCSS + '</style>';
+  const nightPath = '../NewFTCApp-iOS/Page/FTChinese/o-night.html';
+  fs.writeFile(nightPath, nightHTML, function(err) {
+      if(err) {
+          return console.log(err);
+      }
+      console.log('night html writen to' + nightPath);
+  });
 
 });
 
