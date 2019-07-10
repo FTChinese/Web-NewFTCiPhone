@@ -100,7 +100,7 @@ function checkReadItems() {
 
 function tapOnEle(event, ele) {
 	var target = event.target;
-	if (isInLink(target)) {
+	if (shouldStopPropagation(target)) {
 		return;
 	}
 	var row = ele.getAttribute('data-row');
@@ -119,14 +119,19 @@ function tapOnEle(event, ele) {
 
 }
 
-function isInLink(ele) {
+function shouldStopPropagation(ele) {
 	var eleParent = ele;
+	// MARK: - go up 5 levels
 	for (var i=0; i<5; i++) {
 		if (!eleParent) {
 			return false;
 		}
 		if (eleParent.tagName === 'A' && eleParent.getAttribute('href')) {
 			//console.log ('this is a link, return now! ');
+			return true;
+		}
+		// MARK: - check if the user is clicking on an my ft follow link
+		if (eleParent.className.indexOf('myft-follow') >= 0) {
 			return true;
 		}
 		eleParent = eleParent.parentNode;

@@ -47,6 +47,10 @@ function checkFollow() {
     for (var i=0; i < followButtons.length; i++) {
         var type = followButtons[i].getAttribute('data-type');
         var value = followButtons[i].getAttribute('data-tag');
+        if (value.indexOf('%')>=0) {
+            value = decodeURIComponent(value);
+            followButtons[i].setAttribute('data-tag', value);
+        }
         if (window.follows[type].indexOf(value) >= 0) {
             followButtons[i].innerHTML = '已关注';
             followButtons[i].className = followButtons[i].className.replace(/ plus/g, ' tick');

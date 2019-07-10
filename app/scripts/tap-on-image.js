@@ -1,11 +1,15 @@
 (function () {
-	function isInLink(ele) {
+	function shouldStopPropagation(ele) {
 		var eleParent = ele;
 		for (var i=0; i<5; i++) {
 			if (!eleParent) {
 				return false;
 			}
 			if (eleParent.tagName === 'A' && eleParent.getAttribute('href')) {
+				return true;
+			}
+			// MARK: - check if the user is clicking on an my ft follow link
+			if (eleParent.className.indexOf('myft-follow') >= 0) {
 				return true;
 			}
 			eleParent = eleParent.parentNode;
@@ -22,7 +26,7 @@
 	for (var i=0; i<images.length; i++) {
 		var image = images[i];
 		var imageUrl = image.src || image.getAttribute('data-url') || '';
-		if (isInLink(image) === false && imageUrl !== '') {
+		if (shouldStopPropagation(image) === false && imageUrl !== '') {
 			var linkWrapper = document.createElement('a');
 			linkWrapper.href = imageUrl;
 			linkWrapper.target = '_blank';
