@@ -36,6 +36,9 @@ dfpTargetingStr = 'cnplatform=web;' + dfpTargetingStr;
 if (window.cntopic && window.cntopic !== '') {
 dfpTargetingStr = 'cntopic=' + window.cntopic + ';' + dfpTargetingStr;
 }
+if (window.languagePreference && window.languagePreference >= 0) {
+dfpTargetingStr = 'cnlp=' + window.languagePreference + ';' + dfpTargetingStr;
+}
 //console.log ('Getting user type for google ad manager: ' + window.gUserType);
 var configJson = JSON.stringify({
 gpt: {
@@ -168,12 +171,12 @@ window.gSubscriptionEventLabel = 'Page/exclusive';
 
  
 
-<div class="item-container XL3 L3 S4 M6 P12     item-container-app has-image" data-id="001083564" data-type="premium" data-keywords="华为,中美贸易战"><div class="item-inner">
-<h2 class="item-headline"><a target="_blank" href="/premium/001083564" class="item-headline-link locked">美国宣布大幅放松华为禁令</a></h2>
-<a class="image" target="_blank" href="/premium/001083564" >
-<figure class="loading" data-url="http://i.ftimg.net/picture/9/000087699_piclink.jpg"></figure>
+<div class="item-container XL3 L3 S4 M6 P12     item-container-app has-image" data-id="001083579" data-type="premium" data-keywords="美联储,货币政策,鲍威尔,美国经济"><div class="item-inner">
+<h2 class="item-headline"><a target="_blank" href="/premium/001083579" class="item-headline-link locked">美联储主席鸽派言论为降息做铺垫</a></h2>
+<a class="image" target="_blank" href="/premium/001083579" >
+<figure class="loading" data-url="http://i.ftimg.net/picture/0/000087730_piclink.jpg"></figure>
 </a>
-<div class="item-lead">此举标志着一直在大力游说、希望继续向华为出售产品的美国科技公司取得了重大胜利。但此次禁令放松能持续多久还是未知数。</div><div class="item-time highlight">38分钟前</div>
+<div class="item-lead">鲍威尔发表国会证词时称，美国经济前景面临的风险不断加大。这进一步夯实了降息的理由。</div><div class="item-time">9小时前</div>
 <div class="item-bottom"></div>
 </div></div>
 <div 
@@ -191,24 +194,24 @@ data-o-ads-targeting="cnpos=info1;"
 
  
 <div class=" PT"></div>
-<div class="item-container XL3 L3 S4 M6 P12     item-container-app has-image" data-id="001083562" data-type="premium" data-keywords="巴斯夫,化工"><div class="item-inner">
-<h2 class="item-headline"><a target="_blank" href="/premium/001083562" class="item-headline-link locked">Lex专栏：巴斯夫盈利预警意味着什么？</a></h2>
-<a class="image" target="_blank" href="/premium/001083562" >
-<figure class="loading" data-url="http://i.ftimg.net/picture/6/000087696_piclink.jpg"></figure>
+<div class="item-container XL3 L3 S4 M6 P12     item-container-app has-image" data-id="001083577" data-type="premium" data-keywords="汽车业,汽车销售,中国经济"><div class="item-inner">
+<h2 class="item-headline"><a target="_blank" href="/premium/001083577" class="item-headline-link locked">中国汽车销量可能连续第二年下滑</a></h2>
+<a class="image" target="_blank" href="/premium/001083577" >
+<figure class="loading" data-url="http://i.ftimg.net/picture/8/000087728_piclink.jpg"></figure>
 </a>
-<div class="item-lead">全球最大化工企业巴斯夫发布盈利预警，表明更广泛的经济遭遇困境。中国业务以及作为巴斯夫主要客户的汽车行业将决定其命运。</div><div class="item-time highlight">1小时前</div>
+<div class="item-lead">中国汽车工业协会表示，2019年前6个月，包括商用车在内的整体市场销量同比下降12.4%。但分析师称，下滑趋势或已触底。</div><div class="item-time">9小时前</div>
 <div class="item-bottom"></div>
 </div></div>
  <!--premium: : -->
 
  
 <div class=" MT PT"></div>
-<div class="item-container XL3 L3 S4 M6 P12     item-container-app has-image" data-id="001083558" data-type="premium" data-keywords="英国退欧,英镑,汇率"><div class="item-inner">
-<h2 class="item-headline"><a target="_blank" href="/premium/001083558" class="item-headline-link locked">无协议退欧前景重挫英镑</a></h2>
-<a class="image" target="_blank" href="/premium/001083558" >
-<figure class="loading" data-url="http://i.ftimg.net/picture/3/000087693_piclink.jpg"></figure>
+<div class="item-container XL3 L3 S4 M6 P12     item-container-app has-image" data-id="001083580" data-type="premium" data-keywords="吉利,汽车,汽车业"><div class="item-inner">
+<h2 class="item-headline"><a target="_blank" href="/premium/001083580" class="item-headline-link locked">Lex专栏：吉利的困境</a></h2>
+<a class="image" target="_blank" href="/premium/001083580" >
+<figure class="loading" data-url="http://i.ftimg.net/picture/7/000076107_piclink.jpg"></figure>
 </a>
-<div class="item-lead">有望出任首相的约翰逊宣称，英国“不管发生什么”都应该在10月31日与欧盟分手。另一位角逐者也被迫采取类似的强硬策略。</div><div class="item-time">7小时前</div>
+<div class="item-lead">中国部分地区本月提前实施“国六”排放新标准，这加剧了汽车业的低迷。以汽柴油SUV为强项的吉利所处形势不利。</div><div class="item-time highlight">3小时前</div>
 <div class="item-bottom"></div>
 </div></div>
 <div id="iap-highlight"></div>
@@ -216,60 +219,60 @@ data-o-ads-targeting="cnpos=info1;"
 
  
 <div class=" ST PT"></div>
-<div class="item-container XL3 L3 S4 M6 P12     item-container-app has-image" data-id="001083557" data-type="premium" data-keywords="吉利,汽车业,汽车制造"><div class="item-inner">
-<h2 class="item-headline"><a target="_blank" href="/premium/001083557" class="item-headline-link locked">分析：吉利发布盈利预警</a></h2>
-<a class="image" target="_blank" href="/premium/001083557" >
-<figure class="loading" data-url="http://i.ftimg.net/picture/2/000087692_piclink.jpg"></figure>
+<div class="item-container XL3 L3 S4 M6 P12     item-container-app has-image" data-id="001083575" data-type="premium" data-keywords="人工智能,中国经济,科技"><div class="item-inner">
+<h2 class="item-headline"><a target="_blank" href="/premium/001083575" class="item-headline-link locked">中国人工智能行业光环渐褪</a></h2>
+<a class="image" target="_blank" href="/premium/001083575" >
+<figure class="loading" data-url="http://i.ftimg.net/picture/6/000087726_piclink.jpg"></figure>
 </a>
-<div class="item-lead">吉利周一向香港交易所提交盈利预警，称上半年净利润将从去年同期的67亿元人民币下降40%。</div><div class="item-time">7小时前</div>
+<div class="item-lead">在经历一波资本热潮之后，中国人工智能行业如今吸引到的投资大幅减少，人才短缺问题也日益严峻。</div><div class="item-time">12小时前</div>
 <div class="item-bottom"></div>
 </div></div>
  <!--premium: : -->
 
  
 <div class=" XLT LT MT PT"></div>
-<div class="item-container XL3 L3 S4 M6 P12     item-container-app has-image" data-id="001083556" data-type="premium" data-keywords="投资,ESG,可持续金融,绿色债券"><div class="item-inner">
-<h2 class="item-headline"><a target="_blank" href="/premium/001083556" class="item-headline-link locked">道德投资已达临界点</a></h2>
-<a class="image" target="_blank" href="/premium/001083556" >
-<figure class="loading" data-url="http://i.ftimg.net/picture/1/000087691_piclink.jpg"></figure>
+<div class="item-container XL3 L3 S4 M6 P12     item-container-app has-image" data-id="001083574" data-type="premium" data-keywords="地产,对外投资,纽约"><div class="item-inner">
+<h2 class="item-headline"><a target="_blank" href="/premium/001083574" class="item-headline-link locked">纽约的中国地产买家纷纷退场</a></h2>
+<a class="image" target="_blank" href="/premium/001083574" >
+<figure class="loading" data-url="http://i.ftimg.net/picture/5/000087725_piclink.jpg"></figure>
 </a>
-<div class="item-lead">邰蒂：Verizon绿色债券大受欢迎说明，2019年将是环境、社会和治理考量变成市场主流的一年。</div><div class="item-time">10小时前</div>
+<div class="item-lead">中国投资者曾大举投资美国的金融之都，购入炫耀性地产。但在中国政府出手遏制对外投资后，这些买家开始淡出市场。</div><div class="item-time">12小时前</div>
 <div class="item-bottom"></div>
 </div></div>
  <!--premium: : -->
 
  
 <div class=" PT"></div>
-<div class="item-container XL3 L3 S4 M6 P12     item-container-app has-image" data-id="001083555" data-type="premium" data-keywords="新加坡,新交所,香港,港交所"><div class="item-inner">
-<h2 class="item-headline"><a target="_blank" href="/premium/001083555" class="item-headline-link locked">新交所努力应对港交所竞争</a></h2>
-<a class="image" target="_blank" href="/premium/001083555" >
-<figure class="loading" data-url="http://i.ftimg.net/picture/0/000087690_piclink.jpg"></figure>
+<div class="item-container XL3 L3 S4 M6 P12     item-container-app has-image" data-id="001083573" data-type="premium" data-keywords="美国经济,特朗普,财政政策"><div class="item-inner">
+<h2 class="item-headline"><a target="_blank" href="/premium/001083573" class="item-headline-link locked">赞颂“特朗普经济学”为时尚早</a></h2>
+<a class="image" target="_blank" href="/premium/001083573" >
+<figure class="loading" data-url="http://i.ftimg.net/picture/8/000087718_piclink.jpg"></figure>
 </a>
-<div class="item-lead">港交所拟推出追踪MSCI新兴市场指数中全部421只中国A股的股指期货，新加坡交易所的霸主地位受到挑战。</div><div class="item-time">10小时前</div>
+<div class="item-lead">沃尔夫：美国总统的财政刺激政策表明共和党人放弃了财政责任。这种政策对增长的长期提振作用很小，却使长期财政状况变得脆弱。</div><div class="item-time">12小时前</div>
 <div class="item-bottom"></div>
 </div></div>
  <!--premium: : -->
 
  
 <div class=" ST MT PT"></div>
-<div class="item-container XL3 L3 S4 M6 P12     item-container-app has-image" data-id="001083553" data-type="premium" data-keywords="美国,独立日,特朗普"><div class="item-inner">
-<h2 class="item-headline"><a target="_blank" href="/premium/001083553" class="item-headline-link locked">特朗普的“红场”幻梦</a></h2>
-<a class="image" target="_blank" href="/premium/001083553" >
-<figure class="loading" data-url="http://i.ftimg.net/picture/8/000087688_piclink.jpg"></figure>
+<div class="item-container XL3 L3 S4 M6 P12     item-container-app has-image" data-id="001083569" data-type="premium" data-keywords="英国脱欧,英国,苏格兰"><div class="item-inner">
+<h2 class="item-headline"><a target="_blank" href="/premium/001083569" class="item-headline-link locked">英内阁官员：无协议脱欧有导致英国分裂的“切实风险”</a></h2>
+<a class="image" target="_blank" href="/premium/001083569" >
+<figure class="loading" data-url="http://i.ftimg.net/picture/8/000087698_piclink.jpg"></figure>
 </a>
-<div class="item-lead">卢斯：特朗普希望从一场军事化的独立日庆典中得到什么？答案可能很简单。这样的展示可以激发他对权力的想象。</div><div class="item-time">10小时前</div>
+<div class="item-lead">英国首相特里萨•梅事实上的副手利丁顿警告内阁同僚称，若发生无协议脱欧，联合王国的四个构成国将各奔前程。</div><div class="item-time">22小时前</div>
 <div class="item-bottom"></div>
 </div></div>
  <!--premium: : -->
 
  
 <div class=" PT"></div>
-<div class="item-container XL3 L3 S4 M6 P12     item-container-app has-image" data-id="001083550" data-type="premium" data-keywords="短视频,快手,抖音,腾讯"><div class="item-inner">
-<h2 class="item-headline"><a target="_blank" href="/premium/001083550" class="item-headline-link locked">快手不甘于被抖音反超，决心打一场硬仗</a></h2>
-<a class="image" target="_blank" href="/premium/001083550" >
-<figure class="loading" data-url="http://i.ftimg.net/picture/1/000087661_piclink.jpg"></figure>
+<div class="item-container XL3 L3 S4 M6 P12     item-container-app has-image" data-id="001083564" data-type="premium" data-keywords="华为,中美贸易战"><div class="item-inner">
+<h2 class="item-headline"><a target="_blank" href="/premium/001083564" class="item-headline-link locked">美国宣布大幅放松华为禁令</a></h2>
+<a class="image" target="_blank" href="/premium/001083564" >
+<figure class="loading" data-url="http://i.ftimg.net/picture/9/000087699_piclink.jpg"></figure>
 </a>
-<div class="item-lead">在被迅速崛起的抖音打个措手不及后，曾经的短视频市场王者快手准备打一场硬仗。快手CEO宿华表示，平庸的公司没有未来。</div><div class="item-time">20小时前</div>
+<div class="item-lead">此举标志着一直在大力游说、希望继续向华为出售产品的美国科技公司取得了重大胜利。但此次禁令放松能持续多久还是未知数。</div><div class="item-time">1天前</div>
 <div class="item-bottom"></div>
 </div></div>
 <div 
@@ -288,60 +291,60 @@ data-cy='[{"devices":["iPhoneWeb","AndroidWeb","iPhoneApp"],"pattern":"MPU","pos
 
  
 <div class=" XLT LT MT PT"></div>
-<div class="item-container XL3 L3 S4 M6 P12     item-container-app has-image" data-id="001083544" data-type="premium" data-keywords="风险投资,生物科技,制药"><div class="item-inner">
-<h2 class="item-headline"><a target="_blank" href="/premium/001083544" class="item-headline-link locked">美方审查导致中国风投缩减对美国生物科技的投资</a></h2>
-<a class="image" target="_blank" href="/premium/001083544" >
-<figure class="loading" data-url="http://i.ftimg.net/picture/6/000087656_piclink.jpg"></figure>
+<div class="item-container XL3 L3 S4 M6 P12     item-container-app has-image" data-id="001083562" data-type="premium" data-keywords="巴斯夫,化工"><div class="item-inner">
+<h2 class="item-headline"><a target="_blank" href="/premium/001083562" class="item-headline-link locked">Lex专栏：巴斯夫盈利预警意味着什么？</a></h2>
+<a class="image" target="_blank" href="/premium/001083562" >
+<figure class="loading" data-url="http://i.ftimg.net/picture/6/000087696_piclink.jpg"></figure>
 </a>
-<div class="item-lead">由于美国政府收紧对海外资金的审查，今年上半年中国风险资本对美国生物科技公司的投资同比下降近60%。</div><div class="item-time">1天前</div>
+<div class="item-lead">全球最大化工企业巴斯夫发布盈利预警，表明更广泛的经济遭遇困境。中国业务以及作为巴斯夫主要客户的汽车行业将决定其命运。</div><div class="item-time">1天前</div>
 <div class="item-bottom"></div>
 </div></div>
  <!--premium: : -->
 
  
 <div class=" ST PT"></div>
-<div class="item-container XL3 L3 S4 M6 P12     item-container-app has-image" data-id="001083543" data-type="premium" data-keywords="汇率,货币战争,贸易"><div class="item-inner">
-<h2 class="item-headline"><a target="_blank" href="/premium/001083543" class="item-headline-link locked">FT社评：美国必须避免挑起汇率战</a></h2>
-<a class="image" target="_blank" href="/premium/001083543" >
-<figure class="loading" data-url="http://i.ftimg.net/picture/8/000087658_piclink.jpg"></figure>
+<div class="item-container XL3 L3 S4 M6 P12     item-container-app has-image" data-id="001083558" data-type="premium" data-keywords="英国退欧,英镑,汇率"><div class="item-inner">
+<h2 class="item-headline"><a target="_blank" href="/premium/001083558" class="item-headline-link locked">无协议退欧前景重挫英镑</a></h2>
+<a class="image" target="_blank" href="/premium/001083558" >
+<figure class="loading" data-url="http://i.ftimg.net/picture/3/000087693_piclink.jpg"></figure>
 </a>
-<div class="item-lead">美国日益关注别国是否操纵汇率。将美元作为提振贸易的武器，会导致贸易政策进一步政治化，并可能引发越来越激烈的报复。</div><div class="item-time">1天前</div>
+<div class="item-lead">有望出任首相的约翰逊宣称，英国“不管发生什么”都应该在10月31日与欧盟分手。另一位角逐者也被迫采取类似的强硬策略。</div><div class="item-time">1天前</div>
 <div class="item-bottom"></div>
 </div></div>
  <!--premium: : -->
 
  
 <div class=" MT PT"></div>
-<div class="item-container XL3 L3 S4 M6 P12     item-container-app has-image" data-id="001083536" data-type="premium" data-keywords="职场,求职"><div class="item-inner">
-<h2 class="item-headline"><a target="_blank" href="/premium/001083536" class="item-headline-link locked">金融与科技双技能人才受追捧</a></h2>
-<a class="image" target="_blank" href="/premium/001083536" >
-<figure class="loading" data-url="http://i.ftimg.net/picture/7/000087107_piclink.jpg"></figure>
+<div class="item-container XL3 L3 S4 M6 P12     item-container-app has-image" data-id="001083557" data-type="premium" data-keywords="吉利,汽车业,汽车制造"><div class="item-inner">
+<h2 class="item-headline"><a target="_blank" href="/premium/001083557" class="item-headline-link locked">分析：吉利发布盈利预警</a></h2>
+<a class="image" target="_blank" href="/premium/001083557" >
+<figure class="loading" data-url="http://i.ftimg.net/picture/2/000087692_piclink.jpg"></figure>
 </a>
-<div class="item-lead">科技和人工智能可能会使资本市场中的一些岗位消失，但兼具技术和金融专长的人才依然供不应求。</div><div class="item-time">1天前</div>
+<div class="item-lead">吉利周一向香港交易所提交盈利预警，称上半年净利润将从去年同期的67亿元人民币下降40%。</div><div class="item-time">1天前</div>
 <div class="item-bottom"></div>
 </div></div>
  <!--premium: : -->
 
  
 <div class=" PT"></div>
-<div class="item-container XL3 L3 S4 M6 P12     item-container-app has-image" data-id="001083542" data-type="premium" data-keywords="香港股市,娱乐"><div class="item-inner">
-<h2 class="item-headline"><a target="_blank" href="/premium/001083542" class="item-headline-link locked">Lex专栏：中国企业的关键人物风险</a></h2>
-<a class="image" target="_blank" href="/premium/001083542" >
-<figure class="loading" data-url="http://i.ftimg.net/picture/5/000087655_piclink.jpg"></figure>
+<div class="item-container XL3 L3 S4 M6 P12     item-container-app has-image" data-id="001083556" data-type="premium" data-keywords="投资,ESG,可持续金融,绿色债券"><div class="item-inner">
+<h2 class="item-headline"><a target="_blank" href="/premium/001083556" class="item-headline-link locked">道德投资已达临界点</a></h2>
+<a class="image" target="_blank" href="/premium/001083556" >
+<figure class="loading" data-url="http://i.ftimg.net/picture/1/000087691_piclink.jpg"></figure>
 </a>
-<div class="item-lead">从四年前的复星董事长郭广昌，到如今的承兴国际控股主席罗静，中国企业的关键人物风险并没有发生多大变化。</div><div class="item-time">1天前</div>
+<div class="item-lead">邰蒂：Verizon绿色债券大受欢迎说明，2019年将是环境、社会和治理考量变成市场主流的一年。</div><div class="item-time">1天前</div>
 <div class="item-bottom"></div>
 </div></div>
  <!--premium: : -->
 
  
 <div class=" XLT LT ST MT PT"></div>
-<div class="item-container XL3 L3 S4 M6 P12     item-container-app has-image" data-id="001083535" data-type="premium" data-keywords="全球经济,商业领袖,中美关系,重商主义"><div class="item-inner">
-<h2 class="item-headline"><a target="_blank" href="/premium/001083535" class="item-headline-link locked">全球首席执行官们在忙什么？</a></h2>
-<a class="image" target="_blank" href="/premium/001083535" >
-<figure class="loading" data-url="http://i.ftimg.net/picture/7/000087647_piclink.jpg"></figure>
+<div class="item-container XL3 L3 S4 M6 P12     item-container-app has-image" data-id="001083555" data-type="premium" data-keywords="新加坡,新交所,香港,港交所"><div class="item-inner">
+<h2 class="item-headline"><a target="_blank" href="/premium/001083555" class="item-headline-link locked">新交所努力应对港交所竞争</a></h2>
+<a class="image" target="_blank" href="/premium/001083555" >
+<figure class="loading" data-url="http://i.ftimg.net/picture/0/000087690_piclink.jpg"></figure>
 </a>
-<div class="item-lead">福鲁哈尔：他们正忙于准备应对三种制度之间的竞争，除了美国和中国分别代表的制度外，还有科技巨头主导的网络自由意志主义。</div><div class="item-time">1天前</div>
+<div class="item-lead">港交所拟推出追踪MSCI新兴市场指数中全部421只中国A股的股指期货，新加坡交易所的霸主地位受到挑战。</div><div class="item-time">1天前</div>
 <div class="item-bottom"></div>
 </div></div>
 <div 
@@ -359,60 +362,60 @@ data-o-ads-targeting="cnpos=info2;"
 
  
 <div class=" PT"></div>
-<div class="item-container XL3 L3 S4 M6 P12     item-container-app has-image" data-id="001083534" data-type="premium" data-keywords="中非关系,非洲,中美关系"><div class="item-inner">
-<h2 class="item-headline"><a target="_blank" href="/premium/001083534" class="item-headline-link locked">美国正在丢掉非洲数字市场</a></h2>
-<a class="image" target="_blank" href="/premium/001083534" >
-<figure class="loading" data-url="http://i.ftimg.net/picture/8/000087648_piclink.jpg"></figure>
+<div class="item-container XL3 L3 S4 M6 P12     item-container-app has-image" data-id="001083553" data-type="premium" data-keywords="美国,独立日,特朗普"><div class="item-inner">
+<h2 class="item-headline"><a target="_blank" href="/premium/001083553" class="item-headline-link locked">特朗普的“红场”幻梦</a></h2>
+<a class="image" target="_blank" href="/premium/001083553" >
+<figure class="loading" data-url="http://i.ftimg.net/picture/8/000087688_piclink.jpg"></figure>
 </a>
-<div class="item-lead">乔治：未来10年非洲电子商务行业将急剧扩张。在争夺即将开始之际，华盛顿方面却在阻碍美国科技巨头参与其中。</div><div class="item-time">1天前</div>
+<div class="item-lead">卢斯：特朗普希望从一场军事化的独立日庆典中得到什么？答案可能很简单。这样的展示可以激发他对权力的想象。</div><div class="item-time">1天前</div>
 <div class="item-bottom"></div>
 </div></div>
  <!--premium: : -->
 
  
 <div class=" MT PT"></div>
-<div class="item-container XL3 L3 S4 M6 P12     item-container-app has-image" data-id="001083533" data-type="premium" data-keywords="美国经济,资本主义,美国,社会制度"><div class="item-inner">
-<h2 class="item-headline"><a target="_blank" href="/premium/001083533" class="item-headline-link locked">美国资本主义并未失灵</a></h2>
-<a class="image" target="_blank" href="/premium/001083533" >
-<figure class="loading" data-url="http://i.ftimg.net/picture/6/000087646_piclink.jpg"></figure>
+<div class="item-container XL3 L3 S4 M6 P12     item-container-app has-image" data-id="001083550" data-type="premium" data-keywords="短视频,快手,抖音,腾讯"><div class="item-inner">
+<h2 class="item-headline"><a target="_blank" href="/premium/001083550" class="item-headline-link locked">快手不甘于被抖音反超，决心打一场硬仗</a></h2>
+<a class="image" target="_blank" href="/premium/001083550" >
+<figure class="loading" data-url="http://i.ftimg.net/picture/1/000087661_piclink.jpg"></figure>
 </a>
-<div class="item-lead">克莱因：过去50年，美国实际家庭收入中值增长50%。人口普查数据受到一些无关因素干扰，显示的结果并不准确。</div><div class="item-time">1天前</div>
+<div class="item-lead">在被迅速崛起的抖音打个措手不及后，曾经的短视频市场王者快手准备打一场硬仗。快手CEO宿华表示，平庸的公司没有未来。</div><div class="item-time">1天前</div>
 <div class="item-bottom"></div>
 </div></div>
  <!--premium: : -->
 
  
 <div class=" ST PT"></div>
-<div class="item-container XL3 L3 S4 M6 P12     item-container-app has-image" data-id="001083532" data-type="premium" data-keywords="Facebook,Libra,数字货币"><div class="item-inner">
-<h2 class="item-headline"><a target="_blank" href="/premium/001083532" class="item-headline-link locked">Facebook的数字货币是穷人福音？</a></h2>
-<a class="image" target="_blank" href="/premium/001083532" >
-<figure class="loading" data-url="http://i.ftimg.net/picture/5/000087645_piclink.jpg"></figure>
+<div class="item-container XL3 L3 S4 M6 P12     item-container-app has-image" data-id="001083544" data-type="premium" data-keywords="风险投资,生物科技,制药"><div class="item-inner">
+<h2 class="item-headline"><a target="_blank" href="/premium/001083544" class="item-headline-link locked">美方审查导致中国风投缩减对美国生物科技的投资</a></h2>
+<a class="image" target="_blank" href="/premium/001083544" >
+<figure class="loading" data-url="http://i.ftimg.net/picture/6/000087656_piclink.jpg"></figure>
 </a>
-<div class="item-lead">老牌金融服务公司的确存在收费严重过高的问题，但Facebook就是一个值得信赖且无害的革新者吗？</div><div class="item-time">1天前</div>
+<div class="item-lead">由于美国政府收紧对海外资金的审查，今年上半年中国风险资本对美国生物科技公司的投资同比下降近60%。</div><div class="item-time">2天前</div>
 <div class="item-bottom"></div>
 </div></div>
  <!--premium: : -->
 
  
 <div class=" XLT LT MT PT"></div>
-<div class="item-container XL3 L3 S4 M6 P12     item-container-app has-image" data-id="001083525" data-type="premium" data-keywords="IMF"><div class="item-inner">
-<h2 class="item-headline"><a target="_blank" href="/premium/001083525" class="item-headline-link locked">FT社评：我们需要什么样的IMF总裁？</a></h2>
-<a class="image" target="_blank" href="/premium/001083525" >
-<figure class="loading" data-url="http://i.ftimg.net/picture/1/000087611_piclink.jpg"></figure>
+<div class="item-container XL3 L3 S4 M6 P12     item-container-app has-image" data-id="001083543" data-type="premium" data-keywords="汇率,货币战争,贸易"><div class="item-inner">
+<h2 class="item-headline"><a target="_blank" href="/premium/001083543" class="item-headline-link locked">FT社评：美国必须避免挑起汇率战</a></h2>
+<a class="image" target="_blank" href="/premium/001083543" >
+<figure class="loading" data-url="http://i.ftimg.net/picture/8/000087658_piclink.jpg"></figure>
 </a>
-<div class="item-lead">在拉加德被提名为欧洲央行下任行长之后，围绕IMF新总裁的角逐已经开始。考虑到IMF面临的艰巨任务，我们应该选个能干的。</div><div class="item-time">2天前</div>
+<div class="item-lead">美国日益关注别国是否操纵汇率。将美元作为提振贸易的武器，会导致贸易政策进一步政治化，并可能引发越来越激烈的报复。</div><div class="item-time">2天前</div>
 <div class="item-bottom"></div>
 </div></div>
  <!--premium: : -->
 
  
 <div class=" PT"></div>
-<div class="item-container XL3 L3 S4 M6 P12     item-container-app has-image" data-id="001083514" data-type="premium" data-keywords="数字货币,Libra,英国,英国经济"><div class="item-inner">
-<h2 class="item-headline"><a target="_blank" href="/premium/001083514" class="item-headline-link locked">FT社评：英国央行新政开启数字未来</a></h2>
-<a class="image" target="_blank" href="/premium/001083514" >
-<figure class="loading" data-url="http://i.ftimg.net/picture/3/000087593_piclink.jpg"></figure>
+<div class="item-container XL3 L3 S4 M6 P12     item-container-app has-image" data-id="001083536" data-type="premium" data-keywords="职场,求职"><div class="item-inner">
+<h2 class="item-headline"><a target="_blank" href="/premium/001083536" class="item-headline-link locked">金融与科技双技能人才受追捧</a></h2>
+<a class="image" target="_blank" href="/premium/001083536" >
+<figure class="loading" data-url="http://i.ftimg.net/picture/7/000087107_piclink.jpg"></figure>
 </a>
-<div class="item-lead">英国央行宣布计划向科技公司开放隔夜存款账户，这为数字银行业务走进货币体系铺平了道路。</div><div class="item-time">2天前</div>
+<div class="item-lead">科技和人工智能可能会使资本市场中的一些岗位消失，但兼具技术和金融专长的人才依然供不应求。</div><div class="item-time">2天前</div>
 <div class="item-bottom"></div>
 </div></div>
 <div 
@@ -431,36 +434,36 @@ data-cy='[{"devices":["iPhoneWeb","AndroidWeb","iPhoneApp","AndroidApp"],"patter
 
  
 <div class=" ST MT PT"></div>
-<div class="item-container XL3 L3 S4 M6 P12     item-container-app has-image" data-id="001083513" data-type="premium" data-keywords="全球政治,英美关系,英国,美国,特朗普"><div class="item-inner">
-<h2 class="item-headline"><a target="_blank" href="/premium/001083513" class="item-headline-link locked">英美为何产生“问题领导人”？</a></h2>
-<a class="image" target="_blank" href="/premium/001083513" >
-<figure class="loading" data-url="http://i.ftimg.net/picture/1/000087601_piclink.jpg"></figure>
+<div class="item-container XL3 L3 S4 M6 P12     item-container-app has-image" data-id="001083542" data-type="premium" data-keywords="香港股市,娱乐"><div class="item-inner">
+<h2 class="item-headline"><a target="_blank" href="/premium/001083542" class="item-headline-link locked">Lex专栏：中国企业的关键人物风险</a></h2>
+<a class="image" target="_blank" href="/premium/001083542" >
+<figure class="loading" data-url="http://i.ftimg.net/picture/5/000087655_piclink.jpg"></figure>
 </a>
-<div class="item-lead">沃尔夫：曾在20世纪挽救过自由民主体制的英美，如今已失去道德罗盘。很多公民似乎不再关心他们的领导人是不是无赖。</div><div class="item-time">2天前</div>
+<div class="item-lead">从四年前的复星董事长郭广昌，到如今的承兴国际控股主席罗静，中国企业的关键人物风险并没有发生多大变化。</div><div class="item-time">2天前</div>
 <div class="item-bottom"></div>
 </div></div>
  <!--premium: : -->
 
  
 <div class=" PT"></div>
-<div class="item-container XL3 L3 S4 M6 P12     item-container-app has-image" data-id="001083512" data-type="premium" data-keywords="货币政策,房价,房地产,降息"><div class="item-inner">
-<h2 class="item-headline"><a target="_blank" href="/premium/001083512" class="item-headline-link locked">降息不会遏制房价暴涨暴跌</a></h2>
-<a class="image" target="_blank" href="/premium/001083512" >
-<figure class="loading" data-url="http://i.ftimg.net/picture/5/000087595_piclink.jpg"></figure>
+<div class="item-container XL3 L3 S4 M6 P12     item-container-app has-image" data-id="001083535" data-type="premium" data-keywords="全球经济,商业领袖,中美关系,重商主义"><div class="item-inner">
+<h2 class="item-headline"><a target="_blank" href="/premium/001083535" class="item-headline-link locked">全球首席执行官们在忙什么？</a></h2>
+<a class="image" target="_blank" href="/premium/001083535" >
+<figure class="loading" data-url="http://i.ftimg.net/picture/7/000087647_piclink.jpg"></figure>
 </a>
-<div class="item-lead">邰蒂：喜欢干预货币政策的政客应该考虑两个教训：一是降息通常不能阻止房价下跌，二是最好利用审慎政策抑制房价过度上行。</div><div class="item-time">2天前</div>
+<div class="item-lead">福鲁哈尔：他们正忙于准备应对三种制度之间的竞争，除了美国和中国分别代表的制度外，还有科技巨头主导的网络自由意志主义。</div><div class="item-time">2天前</div>
 <div class="item-bottom"></div>
 </div></div>
  <!--premium: : -->
 
  
 <div class=" XLT LT MT PT"></div>
-<div class="item-container XL3 L3 S4 M6 P12     item-container-app has-image" data-id="001083511" data-type="premium" data-keywords="素食,植物蛋白,肉类消费"><div class="item-inner">
-<h2 class="item-headline"><a target="_blank" href="/premium/001083511" class="item-headline-link locked">植物肉兴起推动豌豆需求激增</a></h2>
-<a class="image" target="_blank" href="/premium/001083511" >
-<figure class="loading" data-url="http://i.ftimg.net/picture/6/000087596_piclink.jpg"></figure>
+<div class="item-container XL3 L3 S4 M6 P12     item-container-app has-image" data-id="001083534" data-type="premium" data-keywords="中非关系,非洲,中美关系"><div class="item-inner">
+<h2 class="item-headline"><a target="_blank" href="/premium/001083534" class="item-headline-link locked">美国正在丢掉非洲数字市场</a></h2>
+<a class="image" target="_blank" href="/premium/001083534" >
+<figure class="loading" data-url="http://i.ftimg.net/picture/8/000087648_piclink.jpg"></figure>
 </a>
-<div class="item-lead">尽管大豆是最丰富且最廉价的植物蛋白质来源，但它容易致敏。黄豌豆正逐渐成为食品公司的首选蛋白质来源。</div><div class="item-time">2天前</div>
+<div class="item-lead">乔治：未来10年非洲电子商务行业将急剧扩张。在争夺即将开始之际，华盛顿方面却在阻碍美国科技巨头参与其中。</div><div class="item-time">2天前</div>
 <div class="item-bottom"></div>
 </div></div>
 <div 
@@ -478,36 +481,36 @@ data-o-ads-targeting="cnpos=info3;"
 
  
 <div class=" ST PT"></div>
-<div class="item-container XL3 L3 S4 M6 P12     item-container-app has-image" data-id="001083508" data-type="premium" data-keywords="李泽楷,保险,李嘉诚,香港"><div class="item-inner">
-<h2 class="item-headline"><a target="_blank" href="/premium/001083508" class="item-headline-link locked">李泽楷的保险帝国雄心</a></h2>
-<a class="image" target="_blank" href="/premium/001083508" >
-<figure class="loading" data-url="http://i.ftimg.net/picture/8/000087488_piclink.jpg"></figure>
+<div class="item-container XL3 L3 S4 M6 P12     item-container-app has-image" data-id="001083533" data-type="premium" data-keywords="美国经济,资本主义,美国,社会制度"><div class="item-inner">
+<h2 class="item-headline"><a target="_blank" href="/premium/001083533" class="item-headline-link locked">美国资本主义并未失灵</a></h2>
+<a class="image" target="_blank" href="/premium/001083533" >
+<figure class="loading" data-url="http://i.ftimg.net/picture/6/000087646_piclink.jpg"></figure>
 </a>
-<div class="item-lead">李泽楷近期收购了泰国和香港的保险业务，还在新加坡低调建立线上保险业务，他能否挑战两大巨头友邦和保诚？</div><div class="item-time">4天前</div>
+<div class="item-lead">克莱因：过去50年，美国实际家庭收入中值增长50%。人口普查数据受到一些无关因素干扰，显示的结果并不准确。</div><div class="item-time">2天前</div>
 <div class="item-bottom"></div>
 </div></div>
  <!--premium: : -->
 
  
 <div class=" MT PT"></div>
-<div class="item-container XL3 L3 S4 M6 P12     item-container-app has-image" data-id="001083505" data-type="premium" data-keywords="房地产,私人股本,投资"><div class="item-inner">
-<h2 class="item-headline"><a target="_blank" href="/premium/001083505" class="item-headline-link locked">私人股本基金筹资迎接房地产暴跌</a></h2>
-<a class="image" target="_blank" href="/premium/001083505" >
-<figure class="loading" data-url="http://i.ftimg.net/picture/4/000087564_piclink.jpg"></figure>
+<div class="item-container XL3 L3 S4 M6 P12     item-container-app has-image" data-id="001083532" data-type="premium" data-keywords="Facebook,Libra,数字货币"><div class="item-inner">
+<h2 class="item-headline"><a target="_blank" href="/premium/001083532" class="item-headline-link locked">Facebook的数字货币是穷人福音？</a></h2>
+<a class="image" target="_blank" href="/premium/001083532" >
+<figure class="loading" data-url="http://i.ftimg.net/picture/5/000087645_piclink.jpg"></figure>
 </a>
-<div class="item-lead">以困境房地产为目标的私人股本基金今年融资规模已超过前两年总和。业内人士称，2021年底前许多房地产市场难免出现周期性转折。</div><div class="item-time">5天前</div>
+<div class="item-lead">老牌金融服务公司的确存在收费严重过高的问题，但Facebook就是一个值得信赖且无害的革新者吗？</div><div class="item-time">2天前</div>
 <div class="item-bottom"></div>
 </div></div>
  <!--premium: : -->
 
  
 <div class=" PT"></div>
-<div class="item-container XL3 L3 S4 M6 P12     item-container-app has-image" data-id="001083504" data-type="premium" data-keywords="中国央行,流动性,短期借款,银行房贷"><div class="item-inner">
-<h2 class="item-headline"><a target="_blank" href="/premium/001083504" class="item-headline-link locked">中国短期借款成本降至10年最低点</a></h2>
-<a class="image" target="_blank" href="/premium/001083504" >
-<figure class="loading" data-url="http://i.ftimg.net/picture/8/000086528_piclink.jpg"></figure>
+<div class="item-container XL3 L3 S4 M6 P12     item-container-app has-image" data-id="001083525" data-type="premium" data-keywords="IMF"><div class="item-inner">
+<h2 class="item-headline"><a target="_blank" href="/premium/001083525" class="item-headline-link locked">FT社评：我们需要什么样的IMF总裁？</a></h2>
+<a class="image" target="_blank" href="/premium/001083525" >
+<figure class="loading" data-url="http://i.ftimg.net/picture/1/000087611_piclink.jpg"></figure>
 </a>
-<div class="item-lead">中国央行近期向金融体系注入流动性，以支持向较小城市和农村地区的银行放贷，这些银行在包商银行5月被接管后陷入资金困境。</div><div class="item-time">5天前</div>
+<div class="item-lead">在拉加德被提名为欧洲央行下任行长之后，围绕IMF新总裁的角逐已经开始。考虑到IMF面临的艰巨任务，我们应该选个能干的。</div><div class="item-time">3天前</div>
 <div class="item-bottom"></div>
 </div></div>
 <div 
@@ -526,36 +529,36 @@ data-cy='[{"devices":["iPhoneWeb","AndroidWeb","iPhoneApp","AndroidApp"],"patter
 
  
 <div class=" XLT LT ST MT PT"></div>
-<div class="item-container XL3 L3 S4 M6 P12     item-container-app has-image" data-id="001083502" data-type="premium" data-keywords="美国,美国政治,特朗普"><div class="item-inner">
-<h2 class="item-headline"><a target="_blank" href="/premium/001083502" class="item-headline-link locked">特朗普因独立日阅兵活动受批评</a></h2>
-<a class="image" target="_blank" href="/premium/001083502" >
-<figure class="loading" data-url="http://i.ftimg.net/picture/1/000087561_piclink.jpg"></figure>
+<div class="item-container XL3 L3 S4 M6 P12     item-container-app has-image" data-id="001083514" data-type="premium" data-keywords="数字货币,Libra,英国,英国经济"><div class="item-inner">
+<h2 class="item-headline"><a target="_blank" href="/premium/001083514" class="item-headline-link locked">FT社评：英国央行新政开启数字未来</a></h2>
+<a class="image" target="_blank" href="/premium/001083514" >
+<figure class="loading" data-url="http://i.ftimg.net/picture/3/000087593_piclink.jpg"></figure>
 </a>
-<div class="item-lead">美国总统被指把7月4日庆祝活动搞得政治化、用公共资金举办竞选集会，以及打破了独立日庆典“非党派和非政治性”的惯例。</div><div class="item-time">5天前</div>
+<div class="item-lead">英国央行宣布计划向科技公司开放隔夜存款账户，这为数字银行业务走进货币体系铺平了道路。</div><div class="item-time">3天前</div>
 <div class="item-bottom"></div>
 </div></div>
  <!--premium: : -->
 
  
 <div class=" PT"></div>
-<div class="item-container XL3 L3 S4 M6 P12     item-container-app has-image" data-id="001083500" data-type="premium" data-keywords="FT大视野,苹果,艾尔,iPhone,智能手机"><div class="item-inner">
-<h2 class="item-headline"><a target="_blank" href="/premium/001083500" class="item-headline-link locked">没有艾夫的苹果还能惊艳世界吗？</a></h2>
-<a class="image" target="_blank" href="/premium/001083500" >
-<figure class="loading" data-url="http://i.ftimg.net/picture/0/000087560_piclink.jpg"></figure>
+<div class="item-container XL3 L3 S4 M6 P12     item-container-app has-image" data-id="001083513" data-type="premium" data-keywords="全球政治,英美关系,英国,美国,特朗普"><div class="item-inner">
+<h2 class="item-headline"><a target="_blank" href="/premium/001083513" class="item-headline-link locked">英美为何产生“问题领导人”？</a></h2>
+<a class="image" target="_blank" href="/premium/001083513" >
+<figure class="loading" data-url="http://i.ftimg.net/picture/1/000087601_piclink.jpg"></figure>
 </a>
-<div class="item-lead">艾夫和他的设计团队曾定义一代高科技产品的美学。但在他准备离开苹果之际，许多年轻消费者对可持续性（而非身份象征）更感兴趣。</div><div class="item-time">5天前</div>
+<div class="item-lead">沃尔夫：曾在20世纪挽救过自由民主体制的英美，如今已失去道德罗盘。很多公民似乎不再关心他们的领导人是不是无赖。</div><div class="item-time">3天前</div>
 <div class="item-bottom"></div>
 </div></div>
  <!--premium: : -->
 
  
 <div class=" MT PT"></div>
-<div class="item-container XL3 L3 S4 M6 P12     item-container-app has-image" data-id="001083499" data-type="premium" data-keywords="FT大视野,华为,任正非,特朗普,中美贸易战,关税,5G"><div class="item-inner">
-<h2 class="item-headline"><a target="_blank" href="/premium/001083499" class="item-headline-link locked">任正非：华为专注于“做好自己的工作”</a></h2>
-<a class="image" target="_blank" href="/premium/001083499" >
-<figure class="loading" data-url="http://i.ftimg.net/picture/9/000087559_piclink.jpg"></figure>
+<div class="item-container XL3 L3 S4 M6 P12     item-container-app has-image" data-id="001083512" data-type="premium" data-keywords="货币政策,房价,房地产,降息"><div class="item-inner">
+<h2 class="item-headline"><a target="_blank" href="/premium/001083512" class="item-headline-link locked">降息不会遏制房价暴涨暴跌</a></h2>
+<a class="image" target="_blank" href="/premium/001083512" >
+<figure class="loading" data-url="http://i.ftimg.net/picture/5/000087595_piclink.jpg"></figure>
 </a>
-<div class="item-lead">与美国政府之间的激烈斗争料将促使华为加速降低对美国供应商的依赖，任正非在接受采访中就多次谈到了这个话题。</div><div class="item-time">5天前</div>
+<div class="item-lead">邰蒂：喜欢干预货币政策的政客应该考虑两个教训：一是降息通常不能阻止房价下跌，二是最好利用审慎政策抑制房价过度上行。</div><div class="item-time">3天前</div>
 <div class="item-bottom"></div>
 </div></div>
 <div 
@@ -573,24 +576,24 @@ data-o-ads-targeting="cnpos=info4;"
 
  
 <div class=" ST PT"></div>
-<div class="item-container XL3 L3 S4 M6 P12     item-container-app has-image" data-id="001083498" data-type="premium" data-keywords="欧洲央行,行长,德拉吉,拉加德,量化宽松"><div class="item-inner">
-<h2 class="item-headline"><a target="_blank" href="/premium/001083498" class="item-headline-link locked">德拉吉应在离任前抓紧重启“量化宽松”政策</a></h2>
-<a class="image" target="_blank" href="/premium/001083498" >
-<figure class="loading" data-url="http://i.ftimg.net/picture/7/000087557_piclink.jpg"></figure>
+<div class="item-container XL3 L3 S4 M6 P12     item-container-app has-image" data-id="001083511" data-type="premium" data-keywords="素食,植物蛋白,肉类消费"><div class="item-inner">
+<h2 class="item-headline"><a target="_blank" href="/premium/001083511" class="item-headline-link locked">植物肉兴起推动豌豆需求激增</a></h2>
+<a class="image" target="_blank" href="/premium/001083511" >
+<figure class="loading" data-url="http://i.ftimg.net/picture/6/000087596_piclink.jpg"></figure>
 </a>
-<div class="item-lead">克劳斯：德拉吉表示，除非欧元区通胀前景有所改善，否则将出台新一轮货币刺激措施，并可能重启债券购买计划。</div><div class="item-time">5天前</div>
+<div class="item-lead">尽管大豆是最丰富且最廉价的植物蛋白质来源，但它容易致敏。黄豌豆正逐渐成为食品公司的首选蛋白质来源。</div><div class="item-time">3天前</div>
 <div class="item-bottom"></div>
 </div></div>
  <!--premium: : -->
 
  
 <div class=" XLT LT MT PT"></div>
-<div class="item-container XL3 L3 S4 M6 P12     item-container-app has-image" data-id="001083506" data-type="premium" data-keywords="巴基斯坦,IMF,一带一路,援助"><div class="item-inner">
-<h2 class="item-headline"><a target="_blank" href="/premium/001083506" class="item-headline-link locked">IMF批准巴基斯坦60亿美元援助计划</a></h2>
-<a class="image" target="_blank" href="/premium/001083506" >
-<figure class="loading" data-url="http://i.ftimg.net/picture/0/000087570_piclink.jpg"></figure>
+<div class="item-container XL3 L3 S4 M6 P12     item-container-app has-image" data-id="001083508" data-type="premium" data-keywords="李泽楷,保险,李嘉诚,香港"><div class="item-inner">
+<h2 class="item-headline"><a target="_blank" href="/premium/001083508" class="item-headline-link locked">李泽楷的保险帝国雄心</a></h2>
+<a class="image" target="_blank" href="/premium/001083508" >
+<figure class="loading" data-url="http://i.ftimg.net/picture/8/000087488_piclink.jpg"></figure>
 </a>
-<div class="item-lead">为稳定经济，巴基斯坦总理伊姆兰•汗不得不彻底背离建设一个伊斯兰福利国家的竞选承诺，并推出了痛苦的改革措施。</div><div class="item-time">5天前</div>
+<div class="item-lead">李泽楷近期收购了泰国和香港的保险业务，还在新加坡低调建立线上保险业务，他能否挑战两大巨头友邦和保诚？</div><div class="item-time">5天前</div>
 <div class="item-bottom"></div>
 </div></div>
 <div 
@@ -609,84 +612,84 @@ data-cy='[{"devices":["iPhoneWeb","AndroidWeb","iPhoneApp","AndroidApp"],"patter
 
  
 <div class=" PT"></div>
-<div class="item-container XL3 L3 S4 M6 P12     item-container-app has-image" data-id="001083494" data-type="premium" data-keywords="华为,中美贸易战,物联网,5G,芯片"><div class="item-inner">
-<h2 class="item-headline"><a target="_blank" href="/premium/001083494" class="item-headline-link locked">任正非：美国会再打物联网</a></h2>
-<a class="image" target="_blank" href="/premium/001083494" >
-<figure class="loading" data-url="http://i.ftimg.net/picture/1/000086451_piclink.jpg"></figure>
+<div class="item-container XL3 L3 S4 M6 P12     item-container-app has-image" data-id="001083505" data-type="premium" data-keywords="房地产,私人股本,投资"><div class="item-inner">
+<h2 class="item-headline"><a target="_blank" href="/premium/001083505" class="item-headline-link locked">私人股本基金筹资迎接房地产暴跌</a></h2>
+<a class="image" target="_blank" href="/premium/001083505" >
+<figure class="loading" data-url="http://i.ftimg.net/picture/4/000087564_piclink.jpg"></figure>
 </a>
-<div class="item-lead">任正非预测，与美国的下一场较量将围绕华为进军物联网和智能工厂的行动展开。目前华为正在积极制定工业物联网行业标准。</div><div class="item-time">5天前</div>
+<div class="item-lead">以困境房地产为目标的私人股本基金今年融资规模已超过前两年总和。业内人士称，2021年底前许多房地产市场难免出现周期性转折。</div><div class="item-time">6天前</div>
 <div class="item-bottom"></div>
 </div></div>
  <!--premium: : -->
 
  
 <div class=" ST MT PT"></div>
-<div class="item-container XL3 L3 S4 M6 P12     item-container-app has-image" data-id="001083493" data-type="premium" data-keywords="欧洲,拉加德,欧洲央行,IMF,欧洲经济,欧盟"><div class="item-inner">
-<h2 class="item-headline"><a target="_blank" href="/premium/001083493" class="item-headline-link locked">拉加德将继承德拉吉的政策遗产</a></h2>
-<a class="image" target="_blank" href="/premium/001083493" >
-<figure class="loading" data-url="http://i.ftimg.net/picture/1/000087551_piclink.jpg"></figure>
+<div class="item-container XL3 L3 S4 M6 P12     item-container-app has-image" data-id="001083504" data-type="premium" data-keywords="中国央行,流动性,短期借款,银行房贷"><div class="item-inner">
+<h2 class="item-headline"><a target="_blank" href="/premium/001083504" class="item-headline-link locked">中国短期借款成本降至10年最低点</a></h2>
+<a class="image" target="_blank" href="/premium/001083504" >
+<figure class="loading" data-url="http://i.ftimg.net/picture/8/000086528_piclink.jpg"></figure>
 </a>
-<div class="item-lead">国际货币基金组织总裁拉加德被提名为欧洲央行行长，但现任行长马里奥•德拉吉的影响在他卸任后还将延续一段时间。</div><div class="item-time">5天前</div>
+<div class="item-lead">中国央行近期向金融体系注入流动性，以支持向较小城市和农村地区的银行放贷，这些银行在包商银行5月被接管后陷入资金困境。</div><div class="item-time">6天前</div>
 <div class="item-bottom"></div>
 </div></div>
  <!--premium: : -->
 
  
 <div class=" PT"></div>
-<div class="item-container XL3 L3 S4 M6 P12     item-container-app has-image" data-id="001083489" data-type="premium" data-keywords="欧盟,欧元区,欧洲央行,拉加德,冯德莱恩"><div class="item-inner">
-<h2 class="item-headline"><a target="_blank" href="/premium/001083489" class="item-headline-link locked">欧盟新领导人将很快面临考验</a></h2>
-<a class="image" target="_blank" href="/premium/001083489" >
-<figure class="loading" data-url="http://i.ftimg.net/picture/3/000087543_piclink.jpg"></figure>
+<div class="item-container XL3 L3 S4 M6 P12     item-container-app has-image" data-id="001083502" data-type="premium" data-keywords="美国,美国政治,特朗普"><div class="item-inner">
+<h2 class="item-headline"><a target="_blank" href="/premium/001083502" class="item-headline-link locked">特朗普因独立日阅兵活动受批评</a></h2>
+<a class="image" target="_blank" href="/premium/001083502" >
+<figure class="loading" data-url="http://i.ftimg.net/picture/1/000087561_piclink.jpg"></figure>
 </a>
-<div class="item-lead">FT社评：欧洲理事会提名了稳妥的人选来领导欧盟进入下一个十年。拉加德和冯德莱恩这个法德“二人组”令人印象深刻，然而这一选择并非没有风险。</div><div class="item-time">6天前</div>
+<div class="item-lead">美国总统被指把7月4日庆祝活动搞得政治化、用公共资金举办竞选集会，以及打破了独立日庆典“非党派和非政治性”的惯例。</div><div class="item-time">6天前</div>
 <div class="item-bottom"></div>
 </div></div>
  <!--premium: : -->
 
  
 <div class=" XLT LT MT PT"></div>
-<div class="item-container XL3 L3 S4 M6 P12     item-container-app has-image" data-id="001083485" data-type="premium" data-keywords="科创板,中美贸易战,贸易战,关税,科技"><div class="item-inner">
-<h2 class="item-headline"><a target="_blank" href="/premium/001083485" class="item-headline-link locked">贸易战下，科创板开市在即</a></h2>
-<a class="image" target="_blank" href="/premium/001083485" >
-<figure class="loading" data-url="http://i.ftimg.net/picture/9/000085909_piclink.jpg"></figure>
+<div class="item-container XL3 L3 S4 M6 P12     item-container-app has-image" data-id="001083500" data-type="premium" data-keywords="FT大视野,苹果,艾尔,iPhone,智能手机"><div class="item-inner">
+<h2 class="item-headline"><a target="_blank" href="/premium/001083500" class="item-headline-link locked">没有艾夫的苹果还能惊艳世界吗？</a></h2>
+<a class="image" target="_blank" href="/premium/001083500" >
+<figure class="loading" data-url="http://i.ftimg.net/picture/0/000087560_piclink.jpg"></figure>
 </a>
-<div class="item-lead">在中国科技行业应对风险资本融资放缓以及美中贸易战之际，北京方面希望科创板能为中国初创企业输送资金。</div><div class="item-time">6天前</div>
+<div class="item-lead">艾夫和他的设计团队曾定义一代高科技产品的美学。但在他准备离开苹果之际，许多年轻消费者对可持续性（而非身份象征）更感兴趣。</div><div class="item-time">6天前</div>
 <div class="item-bottom"></div>
 </div></div>
  <!--premium: : -->
 
  
 <div class=" ST PT"></div>
-<div class="item-container XL3 L3 S4 M6 P12     item-container-app has-image" data-id="001083484" data-type="premium" data-keywords="非洲,中非关系,中国投资,中企"><div class="item-inner">
-<h2 class="item-headline"><a target="_blank" href="/premium/001083484" class="item-headline-link locked">不应妖魔化非洲的中企</a></h2>
-<a class="image" target="_blank" href="/premium/001083484" >
-<figure class="loading" data-url="http://i.ftimg.net/picture/3/000087013_piclink.jpg"></figure>
+<div class="item-container XL3 L3 S4 M6 P12     item-container-app has-image" data-id="001083499" data-type="premium" data-keywords="FT大视野,华为,任正非,特朗普,中美贸易战,关税,5G"><div class="item-inner">
+<h2 class="item-headline"><a target="_blank" href="/premium/001083499" class="item-headline-link locked">任正非：华为专注于“做好自己的工作”</a></h2>
+<a class="image" target="_blank" href="/premium/001083499" >
+<figure class="loading" data-url="http://i.ftimg.net/picture/9/000087559_piclink.jpg"></figure>
 </a>
-<div class="item-lead">皮林：研究显示，中国企业在非洲雇佣的本地员工比例、支付的薪资水平以及员工培训标准，都跟在非洲的其他外国企业差不多。</div><div class="item-time">6天前</div>
+<div class="item-lead">与美国政府之间的激烈斗争料将促使华为加速降低对美国供应商的依赖，任正非在接受采访中就多次谈到了这个话题。</div><div class="item-time">6天前</div>
 <div class="item-bottom"></div>
 </div></div>
  <!--premium: : -->
 
  
 <div class=" MT PT"></div>
-<div class="item-container XL3 L3 S4 M6 P12     item-container-app has-image" data-id="001083482" data-type="premium" data-keywords="全球政治,自由主义,普京,民主"><div class="item-inner">
-<h2 class="item-headline"><a target="_blank" href="/premium/001083482" class="item-headline-link locked">自由主义失去意义了吗？</a></h2>
-<a class="image" target="_blank" href="/premium/001083482" >
-<figure class="loading" data-url="http://i.ftimg.net/picture/9/000087539_piclink.jpg"></figure>
+<div class="item-container XL3 L3 S4 M6 P12     item-container-app has-image" data-id="001083498" data-type="premium" data-keywords="欧洲央行,行长,德拉吉,拉加德,量化宽松"><div class="item-inner">
+<h2 class="item-headline"><a target="_blank" href="/premium/001083498" class="item-headline-link locked">德拉吉应在离任前抓紧重启“量化宽松”政策</a></h2>
+<a class="image" target="_blank" href="/premium/001083498" >
+<figure class="loading" data-url="http://i.ftimg.net/picture/7/000087557_piclink.jpg"></figure>
 </a>
-<div class="item-lead">沃尔夫：普京宣称自由主义思想失去了意义。他是自由主义的敌人，但他有一点是对的，自由民主国家遇到了困难。</div><div class="item-time">6天前</div>
+<div class="item-lead">克劳斯：德拉吉表示，除非欧元区通胀前景有所改善，否则将出台新一轮货币刺激措施，并可能重启债券购买计划。</div><div class="item-time">6天前</div>
 <div class="item-bottom"></div>
 </div></div>
  <!--premium: : -->
 
  
 <div class=" PT"></div>
-<div class="item-container XL3 L3 S4 M6 P12     item-container-app has-image" data-id="001083475" data-type="premium" data-keywords="美联储,特朗普"><div class="item-inner">
-<h2 class="item-headline"><a target="_blank" href="/premium/001083475" class="item-headline-link locked">特朗普提名美联储的批评者出任美联储理事</a></h2>
-<a class="image" target="_blank" href="/premium/001083475" >
-<figure class="loading" data-url="http://i.ftimg.net/picture/6/000087516_piclink.jpg"></figure>
+<div class="item-container XL3 L3 S4 M6 P12     item-container-app has-image" data-id="001083506" data-type="premium" data-keywords="巴基斯坦,IMF,一带一路,援助"><div class="item-inner">
+<h2 class="item-headline"><a target="_blank" href="/premium/001083506" class="item-headline-link locked">IMF批准巴基斯坦60亿美元援助计划</a></h2>
+<a class="image" target="_blank" href="/premium/001083506" >
+<figure class="loading" data-url="http://i.ftimg.net/picture/0/000087570_piclink.jpg"></figure>
 </a>
-<div class="item-lead">特朗普宣布将提名其2016年总统竞选经济顾问谢尔顿出任美联储理事，后者曾称美联储在设定利率方面拥有“苏维埃式的权力”。</div><div class="item-time">2019年7月3日</div>
+<div class="item-lead">为稳定经济，巴基斯坦总理伊姆兰•汗不得不彻底背离建设一个伊斯兰福利国家的竞选承诺，并推出了痛苦的改革措施。</div><div class="item-time">6天前</div>
 <div class="item-bottom"></div>
 </div></div>
                                                                                                                <div class="clearfloat"></div>

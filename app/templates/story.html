@@ -120,6 +120,9 @@ var gIsCurrentAdchFinal = false;
     if (window.cntopic && window.cntopic !== '') {
         dfpTargetingStr = 'cntopic=' + window.cntopic + ';' + dfpTargetingStr;
     }
+    if (window.languagePreference && window.languagePreference >= 0) {
+        dfpTargetingStr = 'cnlp=' + window.languagePreference + ';' + dfpTargetingStr;
+    }
     var configJson = JSON.stringify({
         gpt: {
             "network": 21753042392,
