@@ -11,6 +11,8 @@ function search (keys, page) {
     }
 	// console.log (keys);
 	// console.log (typeof page);
+	// MARK: - Set Cookie so that the search engine will not refuse to serve
+	SetCookie('viewpc',1,86400*10000,'/');
 	var url = '/index.php/ft/search/?keys='+ keys + '&type=default&i=4';
 	if (typeof page === 'string') {
 		url += '&page=' + page;
