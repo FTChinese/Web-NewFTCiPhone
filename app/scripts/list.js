@@ -14,7 +14,13 @@ function getJSON() {
 			adZone = results.gpt.zone;
 		}
 	} catch (ignore) {}
-	var data = {'meta':{'title':document.title,'description':'','theme':'default','adid':adId, 'adZone': adZone},'sections':[{'type':'block','title':'','name':'','side':'none','sideAlign':'right','lists':[{'name':'New List','title':'','url':'','description':'','language':'','float':'none','showTag':'no','showTimeStamp':'no','preferLead':'longlead','sponsorAdId':'','sponsorLogoUrl':'','sponsorLink':'','sponsorNote':'','feedStart':'0','feedItems':'0','feedTag':'','feedType':'all','feedImage':'optional','moreLink':'','items':[]}]}]};
+	var pageTitle;
+	if (window.linksForShare.title) {
+		pageTitle = window.linksForShare.title.replace(' - FT中文网', '').replace('&apos;', '\'');
+	} else {
+		pageTitle = document.title;
+	}
+	var data = {'meta':{'title':pageTitle,'description':'','theme':'default','adid':adId, 'adZone': adZone},'sections':[{'type':'block','title':'','name':'','side':'none','sideAlign':'right','lists':[{'name':'New List','title':'','url':'','description':'','language':'','float':'none','showTag':'no','showTimeStamp':'no','preferLead':'longlead','sponsorAdId':'','sponsorLogoUrl':'','sponsorLink':'','sponsorNote':'','feedStart':'0','feedItems':'0','feedTag':'','feedType':'all','feedImage':'optional','moreLink':'','items':[]}]}]};
 	var itemsArray = [];
 	for (var i=0; i<items.length; i++) {
 		var item = {};
