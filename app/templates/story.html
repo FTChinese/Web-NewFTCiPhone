@@ -45,26 +45,21 @@ var FTStoryid = '{comments-id}';
 {{analytics}}
 </script>
 <script>
-var userIdForGA = GetCookie('USER_ID');
-if (userIdForGA !== null) {
-    ga('create', 'UA-1608715-1', 'auto', {userId: userIdForGA}); 
-} else {
-    ga('create', 'UA-1608715-1', 'auto'); 
-}
-ga('require', 'displayfeatures');ga('require', 'ec');
-if (window.gAutoStart === undefined) {
-try {
-trackerNew();
-}catch(err){
-ga('send', 'pageview');
-}
-}
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());if (window.gAutoStart === undefined) {
+        try {
+            trackerNew();
+        }catch(err){
+            gtag('config', 'UA-1608715-1');
+        }
+    }
 </script>
 <!-- End Google Analytics -->
 <!-- link click -->
 <script>
 function linkClickGa(e){
-ga('send','event','AdClick', $(e).attr("href"), "An");
+gtag('event', $(e).attr("href"), {'event_label': "An", 'event_category': 'AdClick'});
 }
 </script>
 <!-- End link click -->

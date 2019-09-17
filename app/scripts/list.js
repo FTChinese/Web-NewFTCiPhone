@@ -328,7 +328,7 @@ function highlightFollowedContent(obj) {
 			}
 		}
 	}
-	ga('send','event','MyFT', 'Show', window.location.href, {'nonInteraction':1});
+	gtag('event', 'Show', {'event_label': window.location.href, 'event_category': 'MyFT', 'non_interaction': true});
 }
 try {
 	highlightFollowedContent(window.myFollow);

@@ -44,7 +44,6 @@ function lint(files) {
     .pipe($.eslint.format())
     .pipe($.if(!browserSync.active, $.eslint.failAfterError()));
 }
-
 gulp.task('lint', () => {
   return lint('app/scripts/**/*.js')
     .pipe(gulp.dest('app/scripts'));
@@ -228,6 +227,7 @@ gulp.task('ios', ['grab', 'build'], function () {
     .pipe(gulp.dest('../NewFTCApp-iOS/Page/Ad/'));
 
   gulp.src(['app/templates/register.html'])
+    .pipe(replace('{{analytics}}', analyticsJS))
     .pipe(gulp.dest('../NewFTCApp-iOS/Page/FTChinese/'))
     .on('end', function() {
       convert2Big5('../NewFTCApp-iOS/Page/FTChinese/register.html')
@@ -241,6 +241,7 @@ gulp.task('ios', ['grab', 'build'], function () {
 
 
   gulp.src(['app/templates/service.html'])
+    .pipe(replace('{{analytics}}', analyticsJS))
     .pipe(gulp.dest('../NewFTCApp-iOS/Page/FTChinese/'))
     .on('end', function() {
       convert2Big5('../NewFTCApp-iOS/Page/FTChinese/service.html')
