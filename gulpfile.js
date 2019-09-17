@@ -201,7 +201,8 @@ gulp.task('ios', ['grab', 'build'], function () {
   var listKeyJS = fs.readFileSync('dist/scripts/key-list.js', 'utf8');
   var myftCSS = fs.readFileSync('dist/styles/main-myft.css', 'utf8');
 
-  var analyticsJS = fs.readFileSync('dist/scripts/analytics.js', 'utf8');
+  //var analyticsJS = fs.readFileSync('dist/scripts/analytics.js', 'utf8');
+  var analyticsJS = fs.readFileSync('app/templates/gtag.js', 'utf8');
   var searchCSS  = fs.readFileSync('dist/styles/main-search.css', 'utf8');
   var searchJS = fs.readFileSync('dist/scripts/search.js', 'utf8');
 
@@ -375,6 +376,7 @@ gulp.task('grab', function () {
   getUrltoFile('https://www.ft.com/__origami/service/build/v2/bundles/js?modules=o-ads@10.2.1', './app/templates/o-ads.js');
   getUrltoFile('https://www.googletagservices.com/tag/js/gpt.js', './app/templates/gpt.js');
   getUrltoFile('https://d1jz9j0gyf09j1.cloudfront.net/index.php/jsapi/applaunchschedule', './app/templates/schedule.json');
+  getUrltoFile('https://www.googletagmanager.com/gtag/js?id=UA-1608715-1', './app/templates/gtag.js');
 });
 
 

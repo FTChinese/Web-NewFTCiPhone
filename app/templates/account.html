@@ -38,19 +38,7 @@ ga('send','event','AdClick', $(e).attr("href"), "An");
 </script>
 <!-- End link click -->
 
-<!-- Log Analytics -->
-<script>
-if (window.gAutoStart === undefined) {
-(function(d, s, u, j, x) {
-j = d.createElement(s),
-x = d.getElementsByTagName(s)[0];
-j.async = true;
-j.src = u;
-x.parentNode.insertBefore(j, x)
-})(document, 'script', 'https://static.ftimg.net/js/log.js?v=9&20180412');
-}
-</script>
-<!-- End Log Analytics -->
+
 <script type="text/javascript">{{story-js-key}}</script>
 
 <style>
@@ -193,4 +181,9 @@ function showSocialLogins(socialPlatforms) {
 }
 showSocialLogins('{showSocialLogins}');
 </script>
+
+<!-- Log Analytics: Put it at the end to avoid blocking 
+script async="" src="https://static.ftimg.net/js/log.js?v=9&20180412"
+End Log Analytics -->
+
 </html>
