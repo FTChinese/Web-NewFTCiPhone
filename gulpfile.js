@@ -217,6 +217,9 @@ gulp.task('ios', ['grab', 'build'], function () {
 
   const adPolyfillJS = fs.readFileSync('dist/scripts/ad-polyfill.js', 'utf8');
 
+
+  const speedreadToolsJS = fs.readFileSync('dist/scripts/speedread-tools.js', 'utf8');
+
   // var googleanalytics = fs.readFileSync('dist/log/ga.js', 'utf8');
   // var fa = fs.readFileSync('dist/log/analytics.js', 'utf8');
 
@@ -334,6 +337,15 @@ gulp.task('ios', ['grab', 'build'], function () {
     .pipe(gulp.dest('../NewFTCApp-iOS/Page/FTChinese/'))
     .on('end', function() {
       convert2Big5('../NewFTCApp-iOS/Page/FTChinese/ebook.html')
+    });
+
+
+  gulp.src(['app/templates/speedread.html'])
+    .pipe($.if('*.html', $.htmlmin({collapseWhitespace: true})))
+    .pipe(replace('<!--{speedreadtools}-->', speedreadToolsJS))
+    .pipe(gulp.dest('../NewFTCApp-iOS/Page/FTChinese/'))
+    .on('end', function() {
+      convert2Big5('../NewFTCApp-iOS/Page/FTChinese/speedread.html')
     });
 
 
