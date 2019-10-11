@@ -189,48 +189,54 @@ gulp.task('ios', ['grab', 'build'], function () {
   var rename = require("gulp-rename");
   var thedatestamp = new Date().getTime();
   var fs = require('fs');
-
   var storyCSS = fs.readFileSync('dist/styles/main-story.css', 'utf8');
   var storyMainJS = fs.readFileSync('dist/scripts/main-story.js', 'utf8');
   var storyKeyJS = fs.readFileSync('dist/scripts/key.js', 'utf8');
   var dbZoneHelperJS = fs.readFileSync('dist/scripts/main-db-zone-helper.js', 'utf8');
-
   var listCSS = fs.readFileSync('dist/styles/main-list.css', 'utf8');
   var listMainJS = fs.readFileSync('dist/scripts/main-list.js', 'utf8');
   var listKeyJS = fs.readFileSync('dist/scripts/key-list.js', 'utf8');
   var myftCSS = fs.readFileSync('dist/styles/main-myft.css', 'utf8');
-
-  //var analyticsJS = fs.readFileSync('dist/scripts/analytics.js', 'utf8');
   var analyticsJS = fs.readFileSync('app/templates/gtag.js', 'utf8');
   var searchCSS  = fs.readFileSync('dist/styles/main-search.css', 'utf8');
   var searchJS = fs.readFileSync('dist/scripts/search.js', 'utf8');
-
   var ebookCSS = fs.readFileSync('dist/styles/main-ebook.css', 'utf8');
   var ebookMainJS = fs.readFileSync('dist/scripts/main-ebook.js', 'utf8');
   var ebookKeyJS = fs.readFileSync('dist/scripts/key-ebook.js', 'utf8');
-
   var htmlBookCSS = fs.readFileSync('dist/styles/main-html-book.css', 'utf8');
   var htmlBookJS = fs.readFileSync('dist/scripts/main-html-book.js', 'utf8');
-
   const oAdsJS = fs.readFileSync('app/templates/o-ads.js', 'utf8');
   const gptJS = fs.readFileSync('app/templates/gpt.js', 'utf8');
-
   const adPolyfillJS = fs.readFileSync('dist/scripts/ad-polyfill.js', 'utf8');
-
-
   const gymToolsJS = fs.readFileSync('dist/scripts/gym-tools.js', 'utf8');
 
-  // var googleanalytics = fs.readFileSync('dist/log/ga.js', 'utf8');
-  // var fa = fs.readFileSync('dist/log/analytics.js', 'utf8');
+  const oTableCSS = fs.readFileSync('bower_components/ftcnext/app/origami/o-table.css', 'utf8');
+  const oTableJS = fs.readFileSync('bower_components/ftcnext/app/origami/o-table.js', 'utf8');
+  const oTableHTML = '<style>' + oTableCSS + '</style><script>' + oTableJS + '</script>';
+  const oTablePath = '../NewFTCApp-iOS/Page/FTChinese/o-table.html';
+  fs.writeFile(oTablePath, oTableHTML, function(err) {
+      if(err) {
+          return console.log(err);
+      }
+      console.log('otable writen to' + oTablePath);
+  });
 
-
-
+  const nightCSS = fs.readFileSync('dist/styles/main-night.css', 'utf8');
+  const nightHTML = '<style>' + nightCSS + '</style>';
+  const nightPath = '../NewFTCApp-iOS/Page/FTChinese/o-night.html';
+  fs.writeFile(nightPath, nightHTML, function(err) {
+      if(err) {
+          return console.log(err);
+      }
+      console.log('night html writen to' + nightPath);
+  });
 
   gulp.src(['app/templates/schedule.json'])
     .pipe(gulp.dest('../NewFTCApp-iOS/Page/Ad/'));
 
   gulp.src(['app/templates/register.html'])
     .pipe(replace('{{analytics}}', analyticsJS))
+    .pipe(replace('<!--night-style-native-app-->', nightHTML))
     .pipe(gulp.dest('../NewFTCApp-iOS/Page/FTChinese/'))
     .on('end', function() {
       convert2Big5('../NewFTCApp-iOS/Page/FTChinese/register.html')
@@ -359,26 +365,7 @@ gulp.task('ios', ['grab', 'build'], function () {
       convert2Big5('../NewFTCApp-iOS/Page/FTChinese/html-book.html')
     });
 
-  const oTableCSS = fs.readFileSync('bower_components/ftcnext/app/origami/o-table.css', 'utf8');
-  const oTableJS = fs.readFileSync('bower_components/ftcnext/app/origami/o-table.js', 'utf8');
-  const oTableHTML = '<style>' + oTableCSS + '</style><script>' + oTableJS + '</script>';
-  const oTablePath = '../NewFTCApp-iOS/Page/FTChinese/o-table.html';
-  fs.writeFile(oTablePath, oTableHTML, function(err) {
-      if(err) {
-          return console.log(err);
-      }
-      console.log('otable writen to' + oTablePath);
-  });
 
-  const nightCSS = fs.readFileSync('dist/styles/main-night.css', 'utf8');
-  const nightHTML = '<style>' + nightCSS + '</style>';
-  const nightPath = '../NewFTCApp-iOS/Page/FTChinese/o-night.html';
-  fs.writeFile(nightPath, nightHTML, function(err) {
-      if(err) {
-          return console.log(err);
-      }
-      console.log('night html writen to' + nightPath);
-  });
 
 });
 
