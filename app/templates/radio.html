@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html class="{night-class}" data-next-app="tag-page">
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta http-equiv="Content-Language" content="zh-CN"/>
+<title></title>
+<meta content="" name="description"/>
+<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<style>
+.audio-placeholder,.story-theme,.site-map,.overlay-container,.o-nav__placeholder,.story-action-placeholder, .header-inner div {
+display:none;
+}
+.story-theme {
+display: block;
+}
+.header-container,.header-inner {
+display: none;
+}
+</style>
+<script>
+window.cutsTheMustard = (typeof Function.prototype.bind !== 'undefined');
+if (window.cutsTheMustard) {
+document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/, 'js').replace(/\bcore\b/, 'enhanced');
+}
+</script>
+<style>{{story-css}}</style>
+<style>.is-ftc-app .o-nav__placeholder,.is-ftc-app .site-map,.is-ftc-app .story-action-placeholder{display:none}@media only screen and (max-width:490px){.is-ftc-app .video-player{margin-bottom:0}}</style>
+<script>var startTime = new Date().getTime();</script>
+<script>
+var gKeyTag = '英语电台';
+var gauthor = '';
+</script>
+<script type="text/javascript">
+var gPageId = 'interactive';
+var storyGenre="";
+var storyArea="";
+var storyIndustry="";
+var mainTopic="";
+var subTopic="";
+</script>
+<script type="text/javascript">
+var FTadchannelID = '';
+</script>
+
+<script type="text/javascript"> 
+ 
+var deviceGotFromPhp = '';
+var adchID = '1100';
+</script>
+
+<script type="text/javascript">{{story-js-key}}</script>
+
+<!--[if lte IE 8]>
+<script src="https://dhgxl8qk9zgzr.cloudfront.net/js/ie-polyfill.js?1570868152974"></script>
+<![endif]-->
+<script>window.interactiveType = 'Radio';</script>
+<script type="text/javascript">
+if(typeof startTime === "undefined"){
+var startTime=new Date().getTime();
+}
+var interactiveId = 'interactive{interactive-id}';
+</script>
+
+
+<!-- MARK: Important: Need to add Google Analytics load events manually -->
+<script>
+{{analytics}}
+</script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());if (window.gAutoStart === undefined) {
+        try {
+            trackerNew();
+        }catch(err){
+            gtag('config', 'UA-1608715-1');
+        }
+    }
+</script>
+<!-- End Google Analytics -->
+<!-- link click -->
+<script>
+function linkClickGa(e){
+gtag('event', $(e).attr("href"), {'event_label': "An", 'event_category': 'AdClick'});
+}
+</script>
+<!-- End link click -->
+
+<!-- Log Analytics -->
+<script>
+if (window.gAutoStart === undefined) {
+(function(d, s, u, j, x) {
+j = d.createElement(s),
+x = d.getElementsByTagName(s)[0];
+j.async = true;
+j.src = u;
+x.parentNode.insertBefore(j, x)
+})(document, 'script', 'https://static.ftimg.net/js/log.js?v=9&20180412');
+}
+</script>
+<!-- End Log Analytics -->
+
+<script>
+var gIsCurrentAdchFinal = true;
+</script>
+		
+<script>
+!function(a,b,c){var d=b.getElementsByTagName(c)[0],e=b.createElement(c);e.async=!0,e.src="http://tj.qipus.cn/api/sc/j/moni.min.js",d.parentNode.insertBefore(e,d)}(window,document,"script");
+</script>
+
+
+
+</head><body class="en"><!--{contentbody}--></body>
+<script type="text/javascript">{{story-js-main}}</script>
+<script type="text/javascript">
+var giftId = '';
+</script>
+<script type="text/javascript">/*{audio-script-render-js}*/</script>
+<script>
+window.audioHasRendered = true; 
+renderAudioData(document.getElementById('story-body-container'));
+</script>
+</html>

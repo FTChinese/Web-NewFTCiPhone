@@ -192,6 +192,7 @@ gulp.task('ios', ['grab', 'build'], function () {
   var storyCSS = fs.readFileSync('dist/styles/main-story.css', 'utf8');
   var storyMainJS = fs.readFileSync('dist/scripts/main-story.js', 'utf8');
   var storyKeyJS = fs.readFileSync('dist/scripts/key.js', 'utf8');
+  const audioScriptRenderJS = fs.readFileSync('dist/scripts/main-audio-script-render.js', 'utf8');
   var dbZoneHelperJS = fs.readFileSync('dist/scripts/main-db-zone-helper.js', 'utf8');
   var listCSS = fs.readFileSync('dist/styles/main-list.css', 'utf8');
   var listMainJS = fs.readFileSync('dist/scripts/main-list.js', 'utf8');
@@ -289,6 +290,22 @@ gulp.task('ios', ['grab', 'build'], function () {
     .pipe(gulp.dest('../NewFTCApp-iOS/Page/FTChinese/'))
     .on('end', function() {
       convert2Big5('../NewFTCApp-iOS/Page/FTChinese/story.html')
+    });
+
+
+  gulp.src(['app/templates/radio.html'])
+    .pipe($.if('*.html', $.htmlmin({collapseWhitespace: true})))
+    .pipe(replace('{{story-css}}', storyCSS))
+    .pipe(replace('{{story-js-main}}', storyMainJS))
+    .pipe(replace('{{story-js-key}}', storyKeyJS))
+    .pipe(replace('{{analytics}}', analyticsJS))
+    .pipe(replace('{{db-zone-helper-js}}', dbZoneHelperJS))
+    .pipe(replace('{{ad-pollyfill-js}}', adPolyfillJS))
+    .pipe(replace('/*{audio-script-render-js}*/', audioScriptRenderJS))
+    .pipe(rename('radio.html'))
+    .pipe(gulp.dest('../NewFTCApp-iOS/Page/FTChinese/'))
+    .on('end', function() {
+      convert2Big5('../NewFTCApp-iOS/Page/FTChinese/radio.html')
     });
 
 
