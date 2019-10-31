@@ -292,6 +292,18 @@ gulp.task('ios', ['grab', 'build'], function () {
       convert2Big5('../NewFTCApp-iOS/Page/FTChinese/story.html')
     });
 
+  gulp.src(['app/templates/message.html'])
+    .pipe($.if('*.html', $.htmlmin({collapseWhitespace: true})))
+    .pipe(replace('{{story-css}}', storyCSS))
+    .pipe(replace('{{story-js-main}}', storyMainJS))
+    .pipe(replace('{{story-js-key}}', storyKeyJS))
+    .pipe(replace('{{analytics}}', analyticsJS))
+    .pipe(rename('message.html'))
+    .pipe(gulp.dest('../NewFTCApp-iOS/Page/FTChinese/'))
+    .on('end', function() {
+      convert2Big5('../NewFTCApp-iOS/Page/FTChinese/message.html')
+    });
+
 
   gulp.src(['app/templates/radio.html'])
     .pipe($.if('*.html', $.htmlmin({collapseWhitespace: true})))
