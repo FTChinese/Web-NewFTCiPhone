@@ -249,7 +249,12 @@ gulp.task('ios', ['grab', 'build'], function () {
       convert2Big5('../NewFTCApp-iOS/Page/FTChinese/localbackup.html')
   });
 
-
+  gulp.src(['app/templates/dailyenglishbackup.html'])
+    .pipe(gulp.dest('../NewFTCApp-iOS/Page/FTChinese/'))
+    .on('end', function() {
+      convert2Big5('../NewFTCApp-iOS/Page/FTChinese/dailyenglishbackup.html')
+  });
+    
   gulp.src(['app/templates/service.html'])
     .pipe(replace('{{analytics}}', analyticsJS))
     .pipe(gulp.dest('../NewFTCApp-iOS/Page/FTChinese/'))
@@ -401,6 +406,7 @@ gulp.task('ios', ['grab', 'build'], function () {
 gulp.task('grab', function () {
   getUrltoFile('https://d1jz9j0gyf09j1.cloudfront.net/index.php/users/register?i=4&webview=ftcapp&v=1', './app/templates/register.html');
   getUrltoFile('https://d1jz9j0gyf09j1.cloudfront.net/channel/exclusive.html?webview=ftcapp&bodyonly=yes&newad=yes&v=1', './app/templates/localbackup.html');
+  getUrltoFile('https://d1jz9j0gyf09j1.cloudfront.net/channel/english.html?webview=ftcapp&bodyonly=yes&newad=yes&v=1', './app/templates/dailyenglishbackup.html');
   getUrltoFile('https://d1jz9j0gyf09j1.cloudfront.net/m/corp/preview.html?pageid=service&webview=ftcapp&v=1', './app/templates/service.html');
   getUrltoFile('https://www.ft.com/__origami/service/build/v2/bundles/js?modules=o-ads@10.2.1', './app/templates/o-ads.js');
   getUrltoFile('https://www.googletagservices.com/tag/js/gpt.js', './app/templates/gpt.js');

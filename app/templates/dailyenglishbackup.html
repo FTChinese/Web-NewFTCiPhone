@@ -1,0 +1,1023 @@
+		            
+<script type="text/javascript">
+var adchIDNew = window.location.href.replace(/^.*adchannelID=([0-9]{4}).*$/g,'$1');
+if (/^[0-9]{4}$/.test(adchIDNew)) {
+window.adchID = adchIDNew;
+} else {
+window.adchID = '5000';
+}
+window.adChannelId = window.adchID;
+document.title = '每日英语';
+</script>
+<!-- zone: english-->
+<!-- topnav:english subnav: pageId:english-->
+<script type="text/javascript">
+function parseUserkv(n){var c={},i=n.split(";");if(0!==i.length)return i.forEach(function(n){var i=n.split("|");2===i.length&&(c[i[0]]=i[1])}),c}function getDfpTargetingStr(n){var c="";return n.sex&&(c+="cnsex="+n.sex+";"),n.cs&&(c+="cncs="+n.cs+";"),n.csp&&(c+="cncsp="+n.csp+";"),n.hi&&(c+="cnhi="+n.hi+";"),n.in&&(c+="cnin="+n.in+";"),n.wf&&(c+="cnwf="+n.wf+";"),c}</script>
+<script>
+// MARK: - the cookie USER_KV is set from server side when user logs in
+var userKv = GetCookie('USER_KV');
+var dfpTargetingStr = '';
+if (userKv) {
+var userKvObj = parseUserkv(userKv);
+dfpTargetingStr = getDfpTargetingStr(userKvObj);
+}
+if (gUserType && gUserType !== '') {
+dfpTargetingStr = 'cnuser=' + gUserType + ';' + dfpTargetingStr;
+}
+window.uaString = navigator.userAgent || navigator.vendor || '';
+window.isWeChat = (/micromessenger/i.test(window.uaString));
+if (window.location.href.indexOf('webview=ftcapp') >= 0) {
+dfpTargetingStr = 'cnplatform=app;' + dfpTargetingStr;
+} else if (window.isWeChat) {
+dfpTargetingStr = 'cnplatform=wechat;' + dfpTargetingStr;
+} else {
+dfpTargetingStr = 'cnplatform=web;' + dfpTargetingStr;
+}
+if (window.cntopic && window.cntopic !== '') {
+dfpTargetingStr = 'cntopic=' + window.cntopic + ';' + dfpTargetingStr;
+}
+if (window.languagePreference && window.languagePreference >= 0) {
+dfpTargetingStr = 'cnlp=' + window.languagePreference + ';' + dfpTargetingStr;
+}
+//console.log ('Getting user type for google ad manager: ' + window.gUserType);
+var configJson = JSON.stringify({
+gpt: {
+"network": 21753042392,
+"site": "FtChinese",
+"zone": 'english'
+},
+collapseEmpty: 'before',
+dfp_targeting: dfpTargetingStr,
+formats: {
+"FtcLeaderboard" : {
+"sizes":[[1200, 120], [1200, 400], [1200, 250], [969, 90], [969, 400], [969, 250]]
+},
+"FtcBanner": {
+"sizes":[[1200, 120], [969, 90]]
+},
+"FtcMobileBanner": {
+"sizes": [[414, 104]]
+},
+"FtcMobileMpu":{
+"sizes":[[300, 250]]
+},
+"FtcMpu":{
+"sizes":[[300, 250], [300, 600], [300,1050]]
+},
+"FtcInfoFlow":{
+"sizes":[[400, 300]]
+},
+"FtcMobileFullscreen": {
+"sizes":[[414, 736]]
+},
+"FtcPcFullscreen":{
+"sizes":[[700, 520]]
+},
+"FtcPaidpost":{
+"sizes":[[280, 350]]
+},
+"FtcRibbon":{
+"sizes":[[300, 60]]
+},
+"FtcMembertext":{
+"sizes":[[300, 47]]
+},
+"FtcInRead":{
+"sizes":[[700, 520]]
+}
+}
+});
+var configScriptJsonStr = '<scr'+'ipt data-o-ads-config="" type="application/json">'+configJson+'</scr'+'ipt>';
+document.writeln(configScriptJsonStr);
+</script><script>
+window.newAd = true;
+</script>
+<div class="o-ads" data-o-ads-name="banner1"
+data-o-ads-center="true" 
+data-o-ads-formats-default="false" 
+data-o-ads-formats-small="FtcMobileBanner" 
+data-o-ads-formats-medium="false"
+data-o-ads-formats-large="FtcLeaderboard"
+data-o-ads-formats-extra="FtcLeaderboard"
+data-o-ads-targeting="cnpos=top1;"
+data-cy='[{"devices":["PC"],"pattern":"Leaderboard","position":"Num1"},{"devices":["iPhoneWeb","AndroidWeb","iPhoneApp","AndroidApp"],"pattern":"Banner","position":"Num1"}]'
+>
+</div>
+<div class="block-container no-side">
+<div class="block-inner">
+<div class="content-container">
+<div class="content-inner">
+<div class="list-container">
+<div class="list-inner">
+<div class="items hide" id="membership-login-prompt">
+<div class="no-image">
+<div class="item-inner">
+<div class="item-lead">您还没有登录。如果您希望使用已经购买的会员服务，<a href="screen://myft/account">请点击此处登录。</a></div>
+</div>
+</div>
+</div>
+<div class="items hide" id="membership-yellow-card-prompt">
+<div class="no-image">
+<div class="item-inner">
+<div class="item-lead">
+<div class="warn">亲爱的会员，您的账户近期在多台设备上异常登录。您的账户仅限您本人使用，如不是您本人操作，可能您的账号已泄漏。请您尽快进行如下操作：</div>
+<div class="warn">1. <a href="https://user.ftchinese.com/setting" target="_blank">修改密码，并妥善保护好新密码</a>。</div>
+<div class="warn">2. <a class="email-link" href="mailto: customer.service@ftchinese.com?subject=Appeal: Warning">点击此处寻求帮助</a>。</div>
+<div class="warn">为了保护您的利益，我们已经暂时锁定您的订阅账户，如有疑问，请联系客服。</div>
+</div></div>
+</div>
+</div>
+</div>
+<script>window.gYellowCardUserIds = '';</script>
+<div class="items hide" id="membership-red-card-prompt">
+<div class="no-image">
+<div class="item-inner">
+<div class="item-lead"><div class="warn">
+亲爱的会员，您的账号近期在多台设备上频繁异常登录。您的账户仅限您本人使用。为了保证您的利益，该账户已被暂时锁定。您可以：
+<a class="email-link" href="mailto: customer.service@ftchinese.com?subject=Appeal: Red Warning">点击此处与我们联系进行认证</a>。
+</div></div>
+</div>
+</div>
+</div>
+<script>window.gRedCardUserIds = '';</script>
+<script>checkUserWarnings();</script>
+</div>
+</div>
+<div class="clearfloat block-bottom"></div>
+</div>
+</div>
+<div class="clearfloat"></div>
+</div>
+</div>
+<div class="block-container has-side side-right"><div class="block-inner">
+<div class="content-container">
+<script type="text/javascript">
+window.gSubscriptionEventLabel = 'Page/english';
+</script>
+<div id="paywall-hint-container" style="display: none;">
+<div class="paywall-overlay-shadow" id="paywall-overlay-shadow"></div>
+<div id="paywall-box" class="subscribe-lock-container"> 
+<div class="lock-block">
+<div>
+<div class="lock-content">成为付费会员，阅读FT独家内容
+</div>
+<div class="lock-content">如果已经是会员，请<a href="http://user.ftchinese.com/login" class="o-client-id-link">点击这里</a>登录
+</div>
+</div>
+<div class="subscribe-btn" ><a href="https://cn.ft.com/index.php/ft/subscription?el=english"  id="subscribe-now" class="o-client-id-link">成为会员&#x25BA;</a></div>
+</div>
+</div>
+</div>
+<script type="text/javascript">updateClientIdLinks();</script><div class="content-inner">
+  
+<div class="list-container"><div class="list-inner"><div class="items">
+
+ 
+
+<div class="item-container XL4 L4 S12 M6 P12     is-audio item-container-app has-image" data-id="14228" data-type="interactive" data-audio="http://v.ftimg.net/album/ba0062a6-e4a8-11e9-9743-db5a370481bc.mp3" data-sub-type="radio" data-keywords="英语电台,interactive_search,"><div class="item-inner">
+<h2 class="item-headline"><div class=item-tag><a href="/tag/英语电台">英语电台</a></div><a target="_blank" href="/interactive/14228?topnav=english" class="item-headline-link locked">与伯尼·麦道夫的相遇使我了解到我们无法阅读他人</a></h2>
+<a class="image" target="_blank" href="/interactive/14228?topnav=english" >
+<figure class="loading" data-url="http://i.ftimg.net/picture/9/000090569_piclink.jpg"></figure>
+</a>
+<div class="item-lead">我们往往错误地认为，我们的直觉会告诉我们该相信谁。</div>
+<div class="item-bottom"></div>
+</div></div>
+<div 
+data-o-ads-name="infoflow1"
+class="o-ads infoflow"  
+data-o-ads-formats-default="false" 
+data-o-ads-formats-small="FtcInfoFlow" 
+data-o-ads-formats-medium="false"
+data-o-ads-formats-large="false"
+data-o-ads-formats-extra="false"
+data-o-ads-targeting="cnpos=info1;"
+>
+</div>
+ 
+ 
+<div class=" ST PT"></div>
+<div class="item-container XL4 L4 S12 M6 P12     is-audio item-container-app has-image" data-id="14226" data-type="interactive" data-audio="http://v.ftimg.net/album/2cd5bab2-e452-11e9-b112-9624ec9edc59.mp3" data-sub-type="radio" data-keywords="英语电台,interactive_search,"><div class="item-inner">
+<h2 class="item-headline"><div class=item-tag><a href="/tag/英语电台">英语电台</a></div><a target="_blank" href="/interactive/14226?topnav=english" class="item-headline-link locked">电子烟的危害</a></h2>
+<a class="image" target="_blank" href="/interactive/14226?topnav=english" >
+<figure class="loading" data-url="http://i.ftimg.net/picture/8/000090568_piclink.jpg"></figure>
+</a>
+<div class="item-lead">美国处于从放松对电子烟的疏忽到不明智地禁止它的危险中。</div>
+<div class="item-bottom"></div>
+</div></div>
+ 
+ 
+<div class=" MT ST PT"></div>
+<div class="item-container XL4 L4 S12 M6 P12     is-audio item-container-app has-image" data-id="14225" data-type="interactive" data-audio="http://v.ftimg.net/album/c998cc32-d93e-11e9-8f9b-77216ebe1f17.mp3" data-sub-type="radio" data-keywords="英语电台,interactive_search,"><div class="item-inner">
+<h2 class="item-headline"><div class=item-tag><a href="/tag/英语电台">英语电台</a></div><a target="_blank" href="/interactive/14225?topnav=english" class="item-headline-link locked">追求利润的极限</a></h2>
+<a class="image" target="_blank" href="/interactive/14225?topnav=english" >
+<figure class="loading" data-url="http://i.ftimg.net/picture/3/000090563_piclink.jpg"></figure>
+</a>
+<div class="item-lead">许多企业正试图为自己的业务定义一个更广泛的目标，但这一过程充满了风险。</div>
+<div class="item-bottom"></div>
+</div></div>
+<div id="iap-highlight"></div>
+ 
+ 
+<div class=" XLT LT ST PT"></div>
+<div class="item-container XL4 L4 S12 M6 P12     is-audio item-container-app has-image" data-id="14224" data-type="interactive" data-audio="http://v.ftimg.net/album/7ec25f94-e04f-11e9-9743-db5a370481bc.mp3" data-sub-type="radio" data-keywords="英语电台,interactive_search,"><div class="item-inner">
+<h2 class="item-headline"><div class=item-tag><a href="/tag/英语电台">英语电台</a></div><a target="_blank" href="/interactive/14224?topnav=english" class="item-headline-link locked">气候变化可能导致新的抵押贷款违约危机</a></h2>
+<a class="image" target="_blank" href="/interactive/14224?topnav=english" >
+<figure class="loading" data-url="http://i.ftimg.net/picture/7/000090567_piclink.jpg"></figure>
+</a>
+<div class="item-lead">每两年一次的小洪水将袭击越来越多的房屋。</div>
+<div class="item-bottom"></div>
+</div></div>
+ 
+ 
+<div class=" MT ST PT"></div>
+<div class="item-container XL4 L4 S12 M6 P12     is-audio item-container-app has-image" data-id="14215" data-type="interactive" data-audio="http://v.ftimg.net/album/50dea950-f5b4-11e9-a79c-bc9acae3b654.mp3" data-sub-type="radio" data-keywords="英语电台,interactive_search,"><div class="item-inner">
+<h2 class="item-headline"><div class=item-tag><a href="/tag/英语电台">英语电台</a></div><a target="_blank" href="/interactive/14215?topnav=english" class="item-headline-link locked">如何重塑美国资本市场的强大力量？</a></h2>
+<a class="image" target="_blank" href="/interactive/14215?topnav=english" >
+<figure class="loading" data-url="http://i.ftimg.net/picture/9/000090539_piclink.jpg"></figure>
+</a>
+<div class="item-lead">WeWork放弃IPO，反映了新上市公司数量的下降和私募股权的作用日益增强。</div>
+<div class="item-bottom"></div>
+</div></div>
+ 
+ 
+<div class=" ST PT"></div>
+<div class="item-container XL4 L4 S12 M6 P12     is-audio item-container-app has-image" data-id="14214" data-type="interactive" data-audio="http://v.ftimg.net/album/332146b2-fb0d-11e9-a354-36acbbb0d9b6.mp3" data-sub-type="radio" data-keywords="英语电台,interactive_search,"><div class="item-inner">
+<h2 class="item-headline"><div class=item-tag><a href="/tag/英语电台">英语电台</a></div><a target="_blank" href="/interactive/14214?topnav=english" class="item-headline-link locked">在愤怒时代，艺术仍然占有一席之地</a></h2>
+<a class="image" target="_blank" href="/interactive/14214?topnav=english" >
+<figure class="loading" data-url="http://i.ftimg.net/picture/0/000090540_piclink.jpg"></figure>
+</a>
+<div class="item-lead">文化必然掺杂政治，但不能以梦想和理想为代价。</div>
+<div class="item-bottom"></div>
+</div></div>
+ 
+ 
+<div class=" XLT LT MT ST PT"></div>
+<div class="item-container XL4 L4 S12 M6 P12     item-container-app has-image" data-id="14211" data-type="interactive" data-eaudio="http://v.ftimg.net/album/1b518eee-ffc1-11e9-be59-e49b2a136b8d.mp3" data-sub-type="speedreading" data-keywords="速读,interactive_search,"><div class="item-inner">
+<h2 class="item-headline"><div class=item-tag><a href="/channel/speedread.html">速读</a></div><a target="_blank" href="/interactive/14211?topnav=english" class="item-headline-link locked">对中国贸易反弹的乐观情绪为何需要缓和？</a></h2>
+<a class="image" target="_blank" href="/interactive/14211?topnav=english" >
+<figure class="loading" data-url="http://i.ftimg.net/picture/3/000090493_piclink.jpg"></figure>
+</a>
+<div class="item-lead">经济状况比2015年更早，刺激增长的政策也不如以往有效。</div>
+<div class="item-bottom"></div>
+</div></div>
+ 
+ 
+<div class=" ST PT"></div>
+<div class="item-container XL4 L4 S12 M6 P12     is-audio item-container-app has-image" data-id="14213" data-type="interactive" data-audio="http://v.ftimg.net/album/MLE_S01E37_influencer.mp3" data-sub-type="radio" data-keywords="麦可林学英语,音频,会员专享,interactive_search,英语电台"><div class="item-inner">
+<h2 class="item-headline"><div class=item-tag><a href="/tag/麦可林学英语">麦可林学英语</a></div><a target="_blank" href="/interactive/14213?topnav=english" class="item-headline-link locked">带货经济与爱造假的“网红”(S01E37)</a></h2>
+<a class="image" target="_blank" href="/interactive/14213?topnav=english" >
+<figure class="loading" data-url="http://i.ftimg.net/picture/4/000090544_piclink.jpg"></figure>
+</a>
+<div class="item-lead">抖音快手微博，此类平台的商业价值多聚焦在网红带货的能力上，但造假泛滥的现状，也令不少砸入重金的厂商感到迷茫。</div>
+<div class="item-bottom"></div>
+</div></div>
+<div 
+data-o-ads-name="mpu-middle1"
+class="o-ads"  
+data-o-ads-formats-default="false" 
+data-o-ads-formats-small="FtcMobileMpu" 
+data-o-ads-formats-medium="false"
+data-o-ads-formats-large="false"
+data-o-ads-formats-extra="false"
+data-o-ads-targeting="cnpos=middle1;"
+data-cy='[{"devices":["iPhoneWeb","AndroidWeb","iPhoneApp"],"pattern":"MPU","position":"Middle1"}]'
+>
+</div>
+ 
+ 
+<div class=" MT ST PT"></div>
+<div class="item-container XL4 L4 S12 M6 P12     is-audio item-container-app has-image" data-id="14209" data-type="interactive" data-audio="http://v.ftimg.net/album/cdb3edb4-fbc2-11e9-a354-36acbbb0d9b6.mp3" data-sub-type="radio" data-keywords="英语电台,interactive_search,"><div class="item-inner">
+<h2 class="item-headline"><div class=item-tag><a href="/tag/英语电台">英语电台</a></div><a target="_blank" href="/interactive/14209?topnav=english" class="item-headline-link locked">不要低估杰伊·鲍威尔与特朗普的斗争</a></h2>
+<a class="image" target="_blank" href="/interactive/14209?topnav=english" >
+<figure class="loading" data-url="http://i.ftimg.net/picture/2/000090492_piclink.jpg"></figure>
+</a>
+<div class="item-lead">私募基金的职业生涯让这位美联储主席有了与咄咄逼人的恶霸打交道的经验。</div>
+<div class="item-bottom"></div>
+</div></div>
+ 
+ 
+<div class=" XLT LT ST PT"></div>
+<div class="item-container XL4 L4 S12 M6 P12     is-audio item-container-app has-image" data-id="14208" data-type="interactive" data-audio="http://v.ftimg.net/album/868d0902-f0b4-11e9-ad1e-4367d8281195.mp3" data-sub-type="radio" data-keywords="英语电台,interactive_search,"><div class="item-inner">
+<h2 class="item-headline"><div class=item-tag><a href="/tag/英语电台">英语电台</a></div><a target="_blank" href="/interactive/14208?topnav=english" class="item-headline-link locked">吉姆·西蒙斯如何制造出一台赚钱的机器？</a></h2>
+<a class="image" target="_blank" href="/interactive/14208?topnav=english" >
+<figure class="loading" data-url="http://i.ftimg.net/picture/1/000090491_piclink.jpg"></figure>
+</a>
+<div class="item-lead">格雷戈里·扎克曼的书揭开了这位发起量子革命的文艺复兴创始人的神���面纱。</div>
+<div class="item-bottom"></div>
+</div></div>
+ 
+ 
+<div class=" MT ST PT"></div>
+<div class="item-container XL4 L4 S12 M6 P12     item-container-app has-image" data-id="14207" data-type="interactive" data-eaudio="http://v.ftimg.net/album/95403b22-e42a-11e9-b8e0-026e07cbe5b4.mp3" data-sub-type="speedreading" data-keywords="速读,interactive_search,"><div class="item-inner">
+<h2 class="item-headline"><div class=item-tag><a href="/channel/speedread.html">速读</a></div><a target="_blank" href="/interactive/14207?topnav=english" class="item-headline-link locked">跨国企业的权利是否过于强大？</a></h2>
+<a class="image" target="_blank" href="/interactive/14207?topnav=english" >
+<figure class="loading" data-url="http://i.ftimg.net/picture/4/000090474_piclink.jpg"></figure>
+</a>
+<div class="item-lead">尽管公众对此感到愤怒，但企业监管可能让将是分散的。</div>
+<div class="item-bottom"></div>
+</div></div>
+ 
+ 
+<div class=" ST PT"></div>
+<div class="item-container XL4 L4 S12 M6 P12     is-audio item-container-app has-image" data-id="14203" data-type="interactive" data-audio="http://v.ftimg.net/album/0e79832c-ef48-11e9-bfa4-b25f11f42901.mp3" data-sub-type="radio" data-keywords="英语电台,interactive_search,"><div class="item-inner">
+<h2 class="item-headline"><div class=item-tag><a href="/tag/英语电台">英语电���</a></div><a target="_blank" href="/interactive/14203?topnav=english" class="item-headline-link locked">我们能够控制超级智能吗？</a></h2>
+<a class="image" target="_blank" href="/interactive/14203?topnav=english" >
+<figure class="loading" data-url="http://i.ftimg.net/picture/1/000090471_piclink.jpg"></figure>
+</a>
+<div class="item-lead">斯图尔特·罗素的书避开了科幻炒作，对人工智能的挑战进行了认真详细的概述。</div>
+<div class="item-bottom"></div>
+</div></div>
+ 
+ 
+<div class=" XLT LT MT ST PT"></div>
+<div class="item-container XL4 L4 S12 M6 P12     is-audio item-container-app has-image" data-id="14202" data-type="interactive" data-audio="http://v.ftimg.net/album/e546d66e-fb25-11e9-a354-36acbbb0d9b6.mp3" data-sub-type="radio" data-keywords="英语电台,interactive_search,"><div class="item-inner">
+<h2 class="item-headline"><div class=item-tag><a href="/tag/英语电台">英语电台</a></div><a target="_blank" href="/interactive/14202?topnav=english" class="item-headline-link locked">聪明人玩的游戏</a></h2>
+<a class="image" target="_blank" href="/interactive/14202?topnav=english" >
+<figure class="loading" data-url="http://i.ftimg.net/picture/9/000090469_piclink.jpg"></figure>
+</a>
+<div class="item-lead">游戏创造的迷人时刻可以与最好的音乐或戏剧相媲美。</div>
+<div class="item-bottom"></div>
+</div></div>
+<div 
+data-o-ads-name="infoflow2"
+class="o-ads infoflow"  
+data-o-ads-formats-default="false" 
+data-o-ads-formats-small="FtcInfoFlow" 
+data-o-ads-formats-medium="false"
+data-o-ads-formats-large="false"
+data-o-ads-formats-extra="false"
+data-o-ads-targeting="cnpos=info2;"
+>
+</div>
+ 
+ 
+<div class=" ST PT"></div>
+<div class="item-container XL4 L4 S12 M6 P12     item-container-app has-image" data-id="14201" data-type="interactive" data-eaudio="http://v.ftimg.net/album/78d78b7c-fbfc-11e9-a354-36acbbb0d9b6.mp3" data-sub-type="speedreading" data-keywords="速读,interactive_search,"><div class="item-inner">
+<h2 class="item-headline"><div class=item-tag><a href="/channel/speedread.html">速读</a></div><a target="_blank" href="/interactive/14201?topnav=english" class="item-headline-link locked">科技巨头为何从提供乌托邦转变为销售反乌托邦？</a></h2>
+<a class="image" target="_blank" href="/interactive/14201?topnav=english" >
+<figure class="loading" data-url="http://i.ftimg.net/picture/2/000090432_piclink.jpg"></figure>
+</a>
+<div class="item-lead">经过40年私营部门的崛起，公共领域正在逐渐接近占主导地位的企业。</div>
+<div class="item-bottom"></div>
+</div></div>
+ 
+ 
+<div class=" MT ST PT"></div>
+<div class="item-container XL4 L4 S12 M6 P12     is-audio item-container-app has-image" data-id="14198" data-type="interactive" data-audio="http://v.ftimg.net/album/f8fd27a0-ee7b-11e9-a55a-30afa498db1b.mp3" data-sub-type="radio" data-keywords="英语电台,interactive_search,"><div class="item-inner">
+<h2 class="item-headline"><div class=item-tag><a href="/tag/英语电台">英语电台</a></div><a target="_blank" href="/interactive/14198?topnav=english" class="item-headline-link locked">寒冬之城：圣彼得堡的复兴</a></h2>
+<a class="image" target="_blank" href="/interactive/14198?topnav=english" >
+<figure class="loading" data-url="http://i.ftimg.net/picture/0/000090430_piclink.jpg"></figure>
+</a>
+<div class="item-lead">一场文化复兴正在进行，在镀金的宫殿旁边建有时髦的新场馆——在雪地里显得格外壮丽。</div>
+<div class="item-bottom"></div>
+</div></div>
+ 
+ 
+<div class=" XLT LT ST PT"></div>
+<div class="item-container XL4 L4 S12 M6 P12     is-audio item-container-app has-image" data-id="14199" data-type="interactive" data-audio="http://v.ftimg.net/album/d68deaf0-fb6a-11e9-a354-36acbbb0d9b6.mp3" data-sub-type="radio" data-keywords="英语电台,interactive_search,"><div class="item-inner">
+<h2 class="item-headline"><div class=item-tag><a href="/tag/英语电台">英语电台</a></div><a target="_blank" href="/interactive/14199?topnav=english" class="item-headline-link locked">波吉亚家族如何为特朗普的美国指明道路？</a></h2>
+<a class="image" target="_blank" href="/interactive/14199?topnav=english" >
+<figure class="loading" data-url="http://i.ftimg.net/picture/1/000090431_piclink.jpg"></figure>
+</a>
+<div class="item-lead">如今的美国与中世纪的天主教有一些令人不安的相似之处。</div>
+<div class="item-bottom"></div>
+</div></div>
+ 
+ 
+<div class=" MT ST PT"></div>
+<div class="item-container XL4 L4 S12 M6 P12     is-audio item-container-app has-image" data-id="14193" data-type="interactive" data-audio="http://v.ftimg.net/album/612e3e94-e04a-11e9-b112-9624ec9edc59.mp3" data-sub-type="radio" data-keywords="英语电台,interactive_search,"><div class="item-inner">
+<h2 class="item-headline"><div class=item-tag><a href="/tag/英语电台">英语电台</a></div><a target="_blank" href="/interactive/14193?topnav=english" class="item-headline-link locked">梅苏特·厄齐尔和特立独行者的灭亡</a></h2>
+<a class="image" target="_blank" href="/interactive/14193?topnav=english" >
+<figure class="loading" data-url="http://i.ftimg.net/picture/2/000090412_piclink.jpg"></figure>
+</a>
+<div class="item-lead">在足球和许多其他领域，数据分析的兴起对个人主义者来说是个坏消息。</div>
+<div class="item-bottom"></div>
+</div></div>
+ 
+ 
+<div class=" ST PT"></div>
+<div class="item-container XL4 L4 S12 M6 P12     is-audio item-container-app has-image" data-id="14188" data-type="interactive" data-audio="http://v.ftimg.net/album/7f91753a-e6c7-11e9-b8e0-026e07cbe5b4.mp3" data-sub-type="radio" data-keywords="英语电台,interactive_search,"><div class="item-inner">
+<h2 class="item-headline"><div class=item-tag><a href="/tag/英语电台">英语电台</a></div><a target="_blank" href="/interactive/14188?topnav=english" class="item-headline-link locked">东印度公司：血腥历史的教训</a></h2>
+<a class="image" target="_blank" href="/interactive/14188?topnav=english" >
+<figure class="loading" data-url="http://i.ftimg.net/picture/9/000090389_piclink.jpg"></figure>
+</a>
+<div class="item-lead">我们能从这家公司肆无忌惮的冒险行为中学到什么？</div>
+<div class="item-bottom"></div>
+</div></div>
+<div 
+data-o-ads-name="mpu-middle2"
+class="o-ads" 
+data-o-ads-formats-default="false" 
+data-o-ads-formats-small="FtcMobileMpu" 
+data-o-ads-formats-medium="false"
+data-o-ads-formats-large="false"
+data-o-ads-formats-extra="false"
+data-o-ads-targeting="cnpos=middle2;"
+data-cy='[{"devices":["iPhoneWeb","AndroidWeb","iPhoneApp","AndroidApp"],"pattern":"MPU","position":"Middle2"}]'
+>
+</div>
+ 
+ 
+<div class=" XLT LT MT ST PT"></div>
+<div class="item-container XL4 L4 S12 M6 P12     is-audio item-container-app has-image" data-id="14187" data-type="interactive" data-audio="http://v.ftimg.net/album/a08230a8-f6fe-11e9-a79c-bc9acae3b651.mp3" data-sub-type="radio" data-keywords="英语电台,interactive_search,"><div class="item-inner">
+<h2 class="item-headline"><div class=item-tag><a href="/tag/英语电台">英语电台</a></div><a target="_blank" href="/interactive/14187?topnav=english" class="item-headline-link locked">核实Facebook的幻想</a></h2>
+<a class="image" target="_blank" href="/interactive/14187?topnav=english" >
+<figure class="loading" data-url="http://i.ftimg.net/picture/7/000090387_piclink.jpg"></figure>
+</a>
+<div class="item-lead">认为一家市值5000亿美元的公司代表的是一种反主流文化的观念是荒谬的。</div>
+<div class="item-bottom"></div>
+</div></div>
+ 
+ 
+<div class=" ST PT"></div>
+<div class="item-container XL4 L4 S12 M6 P12     is-audio item-container-app has-image" data-id="14189" data-type="interactive" data-audio="http://v.ftimg.net/album/36a33c1c-cd6a-11e9-b018-ca4456540ea6.mp3" data-sub-type="radio" data-keywords="英语电台,interactive_search,"><div class="item-inner">
+<h2 class="item-headline"><div class=item-tag><a href="/tag/英语电台">英语电台</a></div><a target="_blank" href="/interactive/14189?topnav=english" class="item-headline-link locked">塔那西斯·科茨的《水舞者》——解禁的灵魂</a></h2>
+<a class="image" target="_blank" href="/interactive/14189?topnav=english" >
+<figure class="loading" data-url="http://i.ftimg.net/picture/8/000090408_piclink.jpg"></figure>
+</a>
+<div class="item-lead">这位美国国家图书奖得主首次涉足小说，将幻想与人类奴役的残酷融为一体</div>
+<div class="item-bottom"></div>
+</div></div>
+ 
+ 
+<div class=" MT ST PT"></div>
+<div class="item-container XL4 L4 S12 M6 P12     is-audio item-container-app has-image" data-id="14183" data-type="interactive" data-audio="http://v.ftimg.net/album/06b3347e-effe-11e9-bfa4-b25f11f42901.mp3" data-sub-type="radio" data-keywords="英语电台,interactive_search,"><div class="item-inner">
+<h2 class="item-headline"><div class=item-tag><a href="/tag/英语电台">英语电台</a></div><a target="_blank" href="/interactive/14183?topnav=english" class="item-headline-link locked">“继承”的秘密</a></h2>
+<a class="image" target="_blank" href="/interactive/14183?topnav=english" >
+<figure class="loading" data-url="http://i.ftimg.net/picture/0/000090350_piclink.jpg"></figure>
+</a>
+<div class="item-lead">HBO的热播剧刻画了一群贪婪的大亨，他们几乎没有什么可取之处。有什么不喜欢的？</div>
+<div class="item-bottom"></div>
+</div></div>
+<div 
+data-o-ads-name="infoflow3"
+class="o-ads infoflow"  
+data-o-ads-formats-default="false" 
+data-o-ads-formats-small="FtcInfoFlow" 
+data-o-ads-formats-medium="false"
+data-o-ads-formats-large="false"
+data-o-ads-formats-extra="false"
+data-o-ads-targeting="cnpos=info3;"
+>
+</div>
+ 
+ 
+<div class=" XLT LT ST PT"></div>
+<div class="item-container XL4 L4 S12 M6 P12     is-audio item-container-app has-image" data-id="14181" data-type="interactive" data-audio="http://v.ftimg.net/album/9835c9ae-f592-11e9-bbe1-4db3476c5ff0.mp3" data-sub-type="radio" data-keywords="英语电台,interactive_search,"><div class="item-inner">
+<h2 class="item-headline"><div class=item-tag><a href="/tag/英语电台">英语电台</a></div><a target="_blank" href="/interactive/14181?topnav=english" class="item-headline-link locked">坏消息：说话的方式比内容更加重要</a></h2>
+<a class="image" target="_blank" href="/interactive/14181?topnav=english" >
+<figure class="loading" data-url="http://i.ftimg.net/picture/8/000090348_piclink.jpg"></figure>
+</a>
+<div class="item-lead">没人打算在面试中提到他们的父母，但是无形之中会透露本人及父母的社会经济地位。</div>
+<div class="item-bottom"></div>
+</div></div>
+ 
+ 
+<div class=" MT ST PT"></div>
+<div class="item-container XL4 L4 S12 M6 P12     is-audio item-container-app has-image" data-id="14184" data-type="interactive" data-audio="http://v.ftimg.net/album/MLE_S01E36_Quantum_Computing.mp3" data-sub-type="radio" data-keywords="麦可林学英语,音频,会员专享,interactive_search,英语电台"><div class="item-inner">
+<h2 class="item-headline"><div class=item-tag><a href="/tag/麦可林学英语">麦可林学英语</a></div><a target="_blank" href="/interactive/14184?topnav=english" class="item-headline-link locked">“量子霸权”能否点亮人类奇点曙光？(S01E36)</a></h2>
+<a class="image" target="_blank" href="/interactive/14184?topnav=english" >
+<figure class="loading" data-url="http://i.ftimg.net/picture/9/000090379_piclink.jpg"></figure>
+</a>
+<div class="item-lead">美国科技巨头谷歌率先宣布实现“量子霸权”，尽管同行业者认为它有夸张之嫌，但这一突破对于相关领域投资的提振不容小觑。</div>
+<div class="item-bottom"></div>
+</div></div>
+ 
+ 
+<div class=" ST PT"></div>
+<div class="item-container XL4 L4 S12 M6 P12     is-audio item-container-app has-image" data-id="14182" data-type="interactive" data-audio="http://v.ftimg.net/album/c2331ae6-f640-11e9-9ef3-eca8fc8f2d65.mp3" data-sub-type="radio" data-keywords="英语电台,interactive_search,"><div class="item-inner">
+<h2 class="item-headline"><div class=item-tag><a href="/tag/英语电台">英语电台</a></div><a target="_blank" href="/interactive/14182?topnav=english" class="item-headline-link locked">千禧一代对X一代的赞美诗</a></h2>
+<a class="image" target="_blank" href="/interactive/14182?topnav=english" >
+<figure class="loading" data-url="http://i.ftimg.net/picture/9/000090349_piclink.jpg"></figure>
+</a>
+<div class="item-lead">X-ers一代介于两代乌托邦之间，提供了让人保持头脑冷静的宝贵时期。</div>
+<div class="item-bottom"></div>
+</div></div>
+<div 
+data-o-ads-name="mpu-middle3"
+class="o-ads" 
+data-o-ads-formats-default="false" 
+data-o-ads-formats-small="FtcMobileMpu" 
+data-o-ads-formats-medium="false"
+data-o-ads-formats-large="false"
+data-o-ads-formats-extra="false"
+data-o-ads-targeting="cnpos=middle3;"
+data-cy='[{"devices":["iPhoneWeb","AndroidWeb","iPhoneApp","AndroidApp"],"pattern":"MPU","position":"Middle3"}]'
+>
+</div>
+                                                                           <div class="clearfloat"></div>
+</div>
+</div></div>   
+<div class="list-container"><div class="list-inner"><h2 class="list-title">
+<a class="list-link" href="/channel/radio.html">FT英语电台</a>
+</h2>
+<div class="items">
+<div class="no-image">
+<div class="item-inner">
+<div class="item-lead">每天听FT英语电台，你也能说一口正宗的伦敦腔</div>
+</div>
+</div>
+</div>
+<div class="items">
+
+ 
+
+<div class="item-container XL4 L4 S12 M6 P12     is-audio item-container-app has-image" data-id="14228" data-type="interactive" data-audio="http://v.ftimg.net/album/ba0062a6-e4a8-11e9-9743-db5a370481bc.mp3" data-sub-type="radio" data-keywords="英语电台,interactive_search,"><div class="item-inner">
+<h2 class="item-headline"><a target="_blank" href="/interactive/14228?topnav=english" class="item-headline-link locked">与伯尼·麦道夫的相遇使我了解到我们无法阅读他人</a></h2>
+<a class="image" target="_blank" href="/interactive/14228?topnav=english" >
+<figure class="loading" data-url="http://i.ftimg.net/picture/9/000090569_piclink.jpg"></figure>
+</a>
+
+<div class="item-bottom"></div>
+</div></div>
+ 
+ 
+<div class=" ST PT"></div>
+<div class="item-container XL4 L4 S12 M6 P12     is-audio item-container-app has-image" data-id="14226" data-type="interactive" data-audio="http://v.ftimg.net/album/2cd5bab2-e452-11e9-b112-9624ec9edc59.mp3" data-sub-type="radio" data-keywords="英语电台,interactive_search,"><div class="item-inner">
+<h2 class="item-headline"><a target="_blank" href="/interactive/14226?topnav=english" class="item-headline-link locked">电子烟的危害</a></h2>
+<a class="image" target="_blank" href="/interactive/14226?topnav=english" >
+<figure class="loading" data-url="http://i.ftimg.net/picture/8/000090568_piclink.jpg"></figure>
+</a>
+
+<div class="item-bottom"></div>
+</div></div>
+ 
+ 
+<div class=" MT ST PT"></div>
+<div class="item-container XL4 L4 S12 M6 P12     is-audio item-container-app has-image" data-id="14225" data-type="interactive" data-audio="http://v.ftimg.net/album/c998cc32-d93e-11e9-8f9b-77216ebe1f17.mp3" data-sub-type="radio" data-keywords="英语电台,interactive_search,"><div class="item-inner">
+<h2 class="item-headline"><a target="_blank" href="/interactive/14225?topnav=english" class="item-headline-link locked">追求利润的极限</a></h2>
+<a class="image" target="_blank" href="/interactive/14225?topnav=english" >
+<figure class="loading" data-url="http://i.ftimg.net/picture/3/000090563_piclink.jpg"></figure>
+</a>
+
+<div class="item-bottom"></div>
+</div></div>
+ 
+ 
+<div class=" XLT LT ST PT"></div>
+<div class="item-container XL4 L4 S12 M6 P12     is-audio item-container-app has-image" data-id="14224" data-type="interactive" data-audio="http://v.ftimg.net/album/7ec25f94-e04f-11e9-9743-db5a370481bc.mp3" data-sub-type="radio" data-keywords="英语电台,interactive_search,"><div class="item-inner">
+<h2 class="item-headline"><a target="_blank" href="/interactive/14224?topnav=english" class="item-headline-link locked">气候变化可能导致新的抵押贷款违约危机</a></h2>
+<a class="image" target="_blank" href="/interactive/14224?topnav=english" >
+<figure class="loading" data-url="http://i.ftimg.net/picture/7/000090567_piclink.jpg"></figure>
+</a>
+
+<div class="item-bottom"></div>
+</div></div>
+ 
+ 
+<div class=" MT ST PT"></div>
+<div class="item-container XL4 L4 S12 M6 P12     is-audio item-container-app has-image" data-id="14215" data-type="interactive" data-audio="http://v.ftimg.net/album/50dea950-f5b4-11e9-a79c-bc9acae3b654.mp3" data-sub-type="radio" data-keywords="英语电台,interactive_search,"><div class="item-inner">
+<h2 class="item-headline"><a target="_blank" href="/interactive/14215?topnav=english" class="item-headline-link locked">如何重塑美国资本市场的强大力量？</a></h2>
+<a class="image" target="_blank" href="/interactive/14215?topnav=english" >
+<figure class="loading" data-url="http://i.ftimg.net/picture/9/000090539_piclink.jpg"></figure>
+</a>
+
+<div class="item-bottom"></div>
+</div></div>
+ 
+ 
+<div class=" ST PT"></div>
+<div class="item-container XL4 L4 S12 M6 P12     is-audio item-container-app has-image" data-id="14214" data-type="interactive" data-audio="http://v.ftimg.net/album/332146b2-fb0d-11e9-a354-36acbbb0d9b6.mp3" data-sub-type="radio" data-keywords="英语电台,interactive_search,"><div class="item-inner">
+<h2 class="item-headline"><a target="_blank" href="/interactive/14214?topnav=english" class="item-headline-link locked">在愤怒时代，艺术仍然占有一席之地</a></h2>
+<a class="image" target="_blank" href="/interactive/14214?topnav=english" >
+<figure class="loading" data-url="http://i.ftimg.net/picture/0/000090540_piclink.jpg"></figure>
+</a>
+
+<div class="item-bottom"></div>
+</div></div>
+                     <div class="clearfloat"></div>
+</div>
+</div></div>   
+<div class="list-container"><div class="list-inner"><h2 class="list-title">
+<a class="list-link" href="/channel/speedread.html">金融英语速读</a>
+</h2>
+<div class="items">
+<div class="no-image">
+<div class="item-inner">
+<div class="item-lead">阅读FT英文原文，提升阅读能力</div>
+</div>
+</div>
+</div>
+<div class="items">
+
+ 
+
+<div class="item-container XL4 L6 L-half M12 M-half S6 P12 P-half item-container-app has-image" data-id="14211" data-type="interactive" data-sub-type="speedreading" data-keywords="速读,interactive_search,"><div class="item-inner">
+<h2 class="item-headline"><a target="_blank" href="/interactive/14211?topnav=english" class="item-headline-link locked">对中国贸易反弹的乐观情绪为何需要缓和？</a></h2>
+<a class="image" target="_blank" href="/interactive/14211?topnav=english" >
+<figure class="loading" data-url="http://i.ftimg.net//picture/3/000090493_piclink.jpg"></figure>
+</a>
+<div class="item-lead">经济状况比2015年更早，刺激增长的政策也不如以往有效。</div>
+<div class="item-bottom"></div>
+</div></div>
+ 
+ 
+<div class=" MT PT"></div>
+<div class="item-container XL4 L6 L-half M12 M-half S6 P12 P-half item-container-app has-image" data-id="14207" data-type="interactive" data-sub-type="speedreading" data-keywords="速读,interactive_search,"><div class="item-inner">
+<h2 class="item-headline"><a target="_blank" href="/interactive/14207?topnav=english" class="item-headline-link locked">跨国企业的权利是否过于强大？</a></h2>
+<a class="image" target="_blank" href="/interactive/14207?topnav=english" >
+<figure class="loading" data-url="http://i.ftimg.net//picture/4/000090474_piclink.jpg"></figure>
+</a>
+<div class="item-lead">尽管公众对此感到愤怒，但企业监管可能让将是分散的。</div>
+<div class="item-bottom"></div>
+</div></div>
+ 
+ 
+<div class=" LT MT PT ST"></div>
+<div class="item-container XL4 L6 L-half M12 M-half S6 P12 P-half item-container-app has-image" data-id="14201" data-type="interactive" data-sub-type="speedreading" data-keywords="速读,interactive_search,"><div class="item-inner">
+<h2 class="item-headline"><a target="_blank" href="/interactive/14201?topnav=english" class="item-headline-link locked">科技巨头为何从提供乌托邦转变为销售反乌托邦？</a></h2>
+<a class="image" target="_blank" href="/interactive/14201?topnav=english" >
+<figure class="loading" data-url="http://i.ftimg.net//picture/2/000090432_piclink.jpg"></figure>
+</a>
+<div class="item-lead">经过40年私营部门的崛起，公共领域正在逐渐接近占主导地位的企业。</div>
+<div class="item-bottom"></div>
+</div></div>
+ 
+ 
+<div class="XLT MT PT"></div>
+<div class="item-container XL4 L6 L-half M12 M-half S6 P12 P-half item-container-app has-image" data-id="14180" data-type="interactive" data-sub-type="speedreading" data-keywords="速读,interactive_search,"><div class="item-inner">
+<h2 class="item-headline"><a target="_blank" href="/interactive/14180?topnav=english" class="item-headline-link locked">欧元区如何保护德国免于成为另一个日本？</a></h2>
+<a class="image" target="_blank" href="/interactive/14180?topnav=english" >
+<figure class="loading" data-url="http://i.ftimg.net//picture/6/000090346_piclink.jpg"></figure>
+</a>
+<div class="item-lead">德国政府应该感谢单一货币政策和马里奥·德拉吉所给予的一切。</div>
+<div class="item-bottom"></div>
+</div></div>
+ 
+ 
+<div class=" LT MT PT ST"></div>
+<div class="item-container XL4 L6 L-half M12 M-half S6 P12 P-half item-container-app has-image" data-id="14175" data-type="interactive" data-sub-type="speedreading" data-keywords="速读,interactive_search,"><div class="item-inner">
+<h2 class="item-headline"><a target="_blank" href="/interactive/14175?topnav=english" class="item-headline-link locked">对基金经理的个人崇拜是灾难的根源</a></h2>
+<a class="image" target="_blank" href="/interactive/14175?topnav=english" >
+<figure class="loading" data-url="http://i.ftimg.net//picture/1/000090271_piclink.jpg"></figure>
+</a>
+<div class="item-lead">监管者和雇主需要应对集中于个人的风险。</div>
+<div class="item-bottom"></div>
+</div></div>
+ 
+ 
+<div class=" MT PT"></div>
+<div class="item-container XL4 L6 L-half M12 M-half S6 P12 P-half item-container-app has-image" data-id="14156" data-type="interactive" data-sub-type="speedreading" data-keywords="速读,interactive_search,"><div class="item-inner">
+<h2 class="item-headline"><a target="_blank" href="/interactive/14156?topnav=english" class="item-headline-link locked">企业必须重新考虑他们真正的服务目标</a></h2>
+<a class="image" target="_blank" href="/interactive/14156?topnav=english" >
+<figure class="loading" data-url="http://i.ftimg.net//picture/5/000090165_piclink.jpg"></figure>
+</a>
+<div class="item-lead">千禧一代的员工和消费者，他们要求的不仅仅是单纯的个人利益目的。</div>
+<div class="item-bottom"></div>
+</div></div>
+                     <div class="clearfloat"></div>
+</div>
+</div></div>   
+<div class="list-container"><div class="list-inner"><h2 class="list-title">
+<a class="list-link" href="/channel/ce.html">双语阅读</a>
+</h2>
+<div class="items">
+<div class="no-image">
+<div class="item-inner">
+<div class="item-lead">FT原版文章，中英对照</div>
+</div>
+</div>
+</div>
+<div class="items">
+
+ 
+
+<div class="item-container XL4 L6 L-half M12 M-half S6 P12 P-half item-container-app has-image" data-id="001085084" data-type="story" data-date="1573426202" data-keywords="航运业,国际海事组织,温室气体排放,排放"><div class="item-inner">
+<h2 class="item-headline"><a target="_blank" href="/story/001085084/ce?topnav=english" class="item-headline-link ">航运业将讨论减排措施</a></h2>
+<a class="image" target="_blank" href="/story/001085084/ce?topnav=english" >
+<figure class="loading" data-url="http://i.ftimg.net/picture/0/000089580_piclink.jpg"></figure>
+</a>
+<div class="item-lead">国际海事组织将讨论法国和日本等国提出的减排建议。就现阶段而言，主要对策是针对油轮和散货船的“减速航行”措施。</div>
+<div class="item-bottom"></div>
+</div></div>
+ 
+ 
+<div class=" MT PT"></div>
+<div class="item-container XL4 L6 L-half M12 M-half S6 P12 P-half item-container-app has-image" data-id="001085064" data-type="premium" data-keywords="中美贸易,中美关系,贸易谈判,中美贸易战"><div class="item-inner">
+<h2 class="item-headline"><a target="_blank" href="/premium/001085064?topnav=english" class="item-headline-link locked">分析：中美同意分阶段取消加征关税</a></h2>
+<a class="image" target="_blank" href="/premium/001085064?topnav=english" >
+<figure class="loading" data-url="http://i.ftimg.net/picture/4/000088254_piclink.jpg"></figure>
+</a>
+<div class="item-lead">中国商务部发言人称，双方的谈判代表已同意分阶段取消加征关税。这令外界对中美两国今年能够签署协议萌生希望。</div>
+<div class="item-bottom"></div>
+</div></div>
+ 
+ 
+<div class=" LT MT PT ST"></div>
+<div class="item-container XL4 L6 L-half M12 M-half S6 P12 P-half item-container-app has-image" data-id="001085027" data-type="story" data-date="1572994478" data-keywords="英国钢铁,敬业集团,中国钢铁业,收购,中资收购"><div class="item-inner">
+<h2 class="item-headline"><a target="_blank" href="/story/001085027/ce?topnav=english" class="item-headline-link ">敬业集团接近收购英国钢铁</a></h2>
+<a class="image" target="_blank" href="/story/001085027/ce?topnav=english" >
+<figure class="loading" data-url="http://i.ftimg.net/picture/3/000090483_piclink.jpg"></figure>
+</a>
+<div class="item-lead">这家中国集团为英国第二大钢铁生产商打造新的未来的意愿，将为后者的员工、供应商和其经营所在社区带来希望。</div>
+<div class="item-bottom"></div>
+</div></div>
+ 
+ 
+<div class="XLT MT PT"></div>
+<div class="item-container XL4 L6 L-half M12 M-half S6 P12 P-half item-container-app has-image" data-id="001084990" data-type="story" data-date="1572821539" data-keywords="世界贸易组织,WTO,世贸组织,关税,惩罚性关税,中美贸易战"><div class="item-inner">
+<h2 class="item-headline"><a target="_blank" href="/story/001084990/ce?topnav=english" class="item-headline-link locked">分析：WTO授权中国对36亿美元美国商品加征关税</a></h2>
+<a class="image" target="_blank" href="/story/001084990/ce?topnav=english" >
+<figure class="loading" data-url="http://i.ftimg.net/picture/0/000089580_piclink.jpg"></figure>
+</a>
+<div class="item-lead">不过，如果中国真的按照世贸组织裁定实施这些关税，那就可能在美中努力敲定贸易战停火协议之际引发新的紧张。</div>
+<div class="item-bottom"></div>
+</div></div>
+ 
+ 
+<div class=" LT MT PT ST"></div>
+<div class="item-container XL4 L6 L-half M12 M-half S6 P12 P-half item-container-app has-image" data-id="001084975" data-type="story" data-date="1572562272" data-keywords="中美关系,中美贸易战,中美贸易协议"><div class="item-inner">
+<h2 class="item-headline"><a target="_blank" href="/story/001084975/ce?topnav=english" class="item-headline-link locked">特朗普：将在新地点与中国签署贸易协议</a></h2>
+<a class="image" target="_blank" href="/story/001084975/ce?topnav=english" >
+<figure class="loading" data-url="http://i.ftimg.net/picture/7/000090407_piclink.jpg"></figure>
+</a>
+<div class="item-lead">美国总统称，他将推进与中国国家主席习近平签署有限贸易停战协议���计划，只是在智利取消11月APEC峰会后需要另寻场合。</div>
+<div class="item-bottom"></div>
+</div></div>
+ 
+ 
+<div class=" MT PT"></div>
+<div class="item-container XL4 L6 L-half M12 M-half S6 P12 P-half item-container-app has-image" data-id="001084960" data-type="premium" data-keywords="渣打,银行业,香港"><div class="item-inner">
+<h2 class="item-headline"><a target="_blank" href="/premium/001084960?topnav=english" class="item-headline-link locked">Lex专栏：渣打股票面临压力</a></h2>
+<a class="image" target="_blank" href="/premium/001084960?topnav=english" >
+<figure class="loading" data-url="http://i.ftimg.net/picture/9/000090369_piclink.jpg"></figure>
+</a>
+<div class="item-lead">该行收入的三分之一来自香港，而预计今年香港经济将转弱。今年访问香港的内地富人减少，意味着储蓄和保险产品销售下降。</div>
+<div class="item-bottom"></div>
+</div></div>
+                     <div class="clearfloat"></div>
+</div>
+</div></div>   
+<div class="list-container"><div class="list-inner"><h2 class="list-title">
+<a class="list-link" href="/tag/麦可林学英语">麦可林学英语</a>
+</h2>
+<div class="items">
+<div class="no-image">
+<div class="item-inner">
+<div class="item-lead">更贴近现实世界的有声英文“教科书”</div>
+</div>
+</div>
+</div>
+<div class="items">
+
+ 
+
+<div class="item-container XL4 L6 L-half M12 M-half S6 P12 P-half is-audio item-container-app has-image" data-id="14213" data-type="interactive" data-audio="http://v.ftimg.net/album/MLE_S01E37_influencer.mp3" data-sub-type="radio" data-keywords="麦可林学英语,音频,会员专享,interactive_search,英语电台"><div class="item-inner">
+<h2 class="item-headline"><a target="_blank" href="/interactive/14213?topnav=english" class="item-headline-link locked">带货经济与爱造假的“网红”(S01E37)</a></h2>
+<a class="image" target="_blank" href="/interactive/14213?topnav=english" >
+<figure class="loading" data-url="http://i.ftimg.net/picture/4/000090544_piclink.jpg"></figure>
+</a>
+<div class="item-lead">抖音快手微博，此类平台的商业价值多聚焦在网红带货的能力上，但造假泛滥的现状，也令不少砸入重金的厂商感到迷茫。</div>
+<div class="item-bottom"></div>
+</div></div>
+ 
+ 
+<div class=" MT PT"></div>
+<div class="item-container XL4 L6 L-half M12 M-half S6 P12 P-half is-audio item-container-app has-image" data-id="14184" data-type="interactive" data-audio="http://v.ftimg.net/album/MLE_S01E36_Quantum_Computing.mp3" data-sub-type="radio" data-keywords="麦可林学英语,音频,会员专享,interactive_search,英语电台"><div class="item-inner">
+<h2 class="item-headline"><a target="_blank" href="/interactive/14184?topnav=english" class="item-headline-link locked">“量子霸权”能否点亮人类奇点曙光？(S01E36)</a></h2>
+<a class="image" target="_blank" href="/interactive/14184?topnav=english" >
+<figure class="loading" data-url="http://i.ftimg.net/picture/9/000090379_piclink.jpg"></figure>
+</a>
+<div class="item-lead">美国科技巨头谷歌率先宣布实现“量子霸权”，尽管同行业者认为它有夸张之嫌，但这一突破对于相关领域投资的提振不容小觑。</div>
+<div class="item-bottom"></div>
+</div></div>
+ 
+ 
+<div class=" LT MT PT ST"></div>
+<div class="item-container XL4 L6 L-half M12 M-half S6 P12 P-half is-audio item-container-app has-image" data-id="14168" data-type="interactive" data-audio="http://v.ftimg.net/album/MLE_S01E35.mp3" data-sub-type="radio" data-keywords="麦可林学英语,音频,会员专享,interactive_search,英语电台"><div class="item-inner">
+<h2 class="item-headline"><a target="_blank" href="/interactive/14168?topnav=english" class="item-headline-link locked">白宫贸易顾问纳瓦罗的“假名”风波（S01E35）</a></h2>
+<a class="image" target="_blank" href="/interactive/14168?topnav=english" >
+<figure class="loading" data-url="http://i.ftimg.net/picture/7/000090247_piclink.jpg"></figure>
+</a>
+<div class="item-lead">很多公众人物都有假名，用来发表真实看法，或吹捧和证实自己。���如今用假名真的能达到想要的效果吗？</div>
+<div class="item-bottom"></div>
+</div></div>
+ 
+ 
+<div class="XLT MT PT"></div>
+<div class="item-container XL4 L6 L-half M12 M-half S6 P12 P-half is-audio item-container-app has-image" data-id="14135" data-type="interactive" data-audio="http://v.ftimg.net/album/MLE_S01E34_NBA.mp3" data-sub-type="radio" data-keywords="麦可林学英语,音频,会员专享,interactive_search,英语电台"><div class="item-inner">
+<h2 class="item-headline"><a target="_blank" href="/interactive/14135?topnav=english" class="item-headline-link locked">NBA的平行宇宙观（S01E34）</a></h2>
+<a class="image" target="_blank" href="/interactive/14135?topnav=english" >
+<figure class="loading" data-url="http://i.ftimg.net/picture/8/000090048_piclink.jpg"></figure>
+</a>
+<div class="item-lead">中美两国的理念有时就像同一个世界的两层时空。日前NBA火箭队总经理莫雷发布的一段推文，在中国掀起了一轮抵制NBA的热潮，但这股抵制又被迅速降温。</div>
+<div class="item-bottom"></div>
+</div></div>
+ 
+ 
+<div class=" LT MT PT ST"></div>
+<div class="item-container XL4 L6 L-half M12 M-half S6 P12 P-half is-audio item-container-app has-image" data-id="14115" data-type="interactive" data-audio="http://v.ftimg.net/album/MLE_S01E33_7up.mp3" data-sub-type="radio" data-keywords="麦可林���英语,音频,会员专享,interactive_search,英语电台"><div class="item-inner">
+<h2 class="item-headline"><a target="_blank" href="/interactive/14115?topnav=english" class="item-headline-link locked">“人生七年”效应与打不破的阶层藩篱(S01E33)</a></h2>
+<a class="image" target="_blank" href="/interactive/14115?topnav=english" >
+<figure class="loading" data-url="http://i.ftimg.net/picture/0/000089870_piclink.jpg"></figure>
+</a>
+<div class="item-lead">英国纪录片《人生七年》在世界各地开花结果，引发不少人对阶层固化问题的再思考。</div>
+<div class="item-bottom"></div>
+</div></div>
+ 
+ 
+<div class=" MT PT"></div>
+<div class="item-container XL4 L6 L-half M12 M-half S6 P12 P-half is-audio item-container-app has-image" data-id="14073" data-type="interactive" data-audio="http://v.ftimg.net/album/MLE_S01E32_PKX.mp3" data-sub-type="radio" data-keywords="麦可林学英语,音频,会员专享,interactive_search,英语电台"><div class="item-inner">
+<h2 class="item-headline"><a target="_blank" href="/interactive/14073?topnav=english" class="item-headline-link locked">北京大兴机场“国庆献礼”背后（S01E32）</a></h2>
+<a class="image" target="_blank" href="/interactive/14073?topnav=english" >
+<figure class="loading" data-url="http://i.ftimg.net/picture/0/000089730_piclink.jpg"></figure>
+</a>
+<div class="item-lead">世界面积最大的北京大兴国际机场宣告投入运营，远期旅客吞吐量预计将达每年1亿人次。</div>
+<div class="item-bottom"></div>
+</div></div>
+                     <div class="clearfloat"></div>
+</div>
+</div></div>   
+<div class="list-container video-package"><div class="list-inner"><h2 class="list-title">
+<a class="list-link" href="/channel/ev.html">原声视频</a>
+</h2>
+<div class="items">
+
+<div class="item-inner video-package-inner"><div class="image"><figure id="video-package-play" class="loading-video" data-vid="3312"></figure></div><div class="video-package-title"><a href="/video/3312" target=_blank>【秒懂】特朗普弹劾调查：接下来会发生什么？</a></div></div>
+ 
+
+<div class="item-container XL2 L4 M4 S4 P4 on     item-container-app has-image" data-id="3312" data-type="video" data-keywords="弹劾,特朗普"><div class="item-inner">
+<h2 class="item-headline"><a target="_blank" href="/video/3312?topnav=english" class="item-headline-link ">【秒懂】特朗普弹劾调查：接下来会发生什么？</a></h2>
+<a class="image" target="_blank" href="/video/3312?topnav=english" >
+<figure class="loading" data-url="http://i.ftimg.net"></figure>
+</a>
+
+<div class="item-bottom"></div>
+</div></div>
+ 
+ 
+
+<div class="item-container XL2 L4 M4 S4 P4     item-container-app has-image" data-id="3311" data-type="video" data-keywords="脸书,天秤币"><div class="item-inner">
+<h2 class="item-headline"><a target="_blank" href="/video/3311?topnav=english" class="item-headline-link ">【秒懂】脸书的“天秤币”能取代美元吗？</a></h2>
+<a class="image" target="_blank" href="/video/3311?topnav=english" >
+<figure class="loading" data-url="http://i.ftimg.net/picture/5/000090475_piclink.jpg"></figure>
+</a>
+
+<div class="item-bottom"></div>
+</div></div>
+ 
+ 
+
+<div class="item-container XL2 L4 M4 S4 P4     item-container-app has-image" data-id="3304" data-type="video" data-keywords="奈飞,流媒体"><div class="item-inner">
+<h2 class="item-headline"><a target="_blank" href="/video/3304?topnav=english" class="item-headline-link ">流媒体巨头奈飞依旧不可战胜吗？</a></h2>
+<a class="image" target="_blank" href="/video/3304?topnav=english" >
+<figure class="loading" data-url="http://i.ftimg.net/picture/2/000090252_piclink.jpg"></figure>
+</a>
+
+<div class="item-bottom"></div>
+</div></div>
+ 
+ 
+<div class=" LT MT ST"></div>
+<div class="item-container XL2 L4 M4 S4 P4    P-hide item-container-app has-image" data-id="3309" data-type="video" data-keywords="脸书,扎克伯格"><div class="item-inner">
+<h2 class="item-headline"><a target="_blank" href="/video/3309?topnav=english" class="item-headline-link ">【秒懂】扎克伯格的话掺假了吗？</a></h2>
+<a class="image" target="_blank" href="/video/3309?topnav=english" >
+<figure class="loading" data-url="http://i.ftimg.net/picture/5/000090395_piclink.jpg"></figure>
+</a>
+
+<div class="item-bottom"></div>
+</div></div>
+ 
+ 
+
+<div class="item-container XL2 L4 M4 S4 P4    P-hide item-container-app has-image" data-id="3308" data-type="video" data-keywords="香港,房价,林郑月娥"><div class="item-inner">
+<h2 class="item-headline"><a target="_blank" href="/video/3308?topnav=english" class="item-headline-link ">【秒懂】林郑月娥打“房屋牌”能安抚抗议者吗？</a></h2>
+<a class="image" target="_blank" href="/video/3308?topnav=english" >
+<figure class="loading" data-url="http://i.ftimg.net/picture/1/000090321_piclink.jpg"></figure>
+</a>
+
+<div class="item-bottom"></div>
+</div></div>
+ 
+ 
+
+<div class="item-container XL2 L4 M4 S4 P4    P-hide item-container-app has-image" data-id="3306" data-type="video" data-keywords="量子计算机,谷歌"><div class="item-inner">
+<h2 class="item-headline"><a target="_blank" href="/video/3306?topnav=english" class="item-headline-link ">【秒懂】谷歌如何实现量子计算新突破？</a></h2>
+<a class="image" target="_blank" href="/video/3306?topnav=english" >
+<figure class="loading" data-url="http://i.ftimg.net/picture/2/000090272_piclink.jpg"></figure>
+</a>
+
+<div class="item-bottom"></div>
+</div></div>
+                     <div class="clearfloat"></div>
+</div>
+</div></div>        <div class="clearfloat block-bottom"></div>
+</div>  </div>  <div class="side-container"><div class="side-inner">
+	
+            <div class="side-list first-child leadOnly">
+<h2 class="list-title">
+<a href="#">频道简介</a>
+</h2>
+  <div class="item-container first item-container-app has-image" data-id="001067383" data-type="story"><div class="item-inner">
+<div class="item-lead item-description">FT英语学习版块包括四个部分：双语阅读、金融英语速读、原声视频和FT英语电台。</div>
+</div></div>  </div>    <div 
+data-o-ads-name="mpu-right1"
+class="o-ads"  
+data-o-ads-formats-default="false" 
+data-o-ads-formats-small="false" 
+data-o-ads-formats-medium="FtcMpu"
+data-o-ads-formats-large="FtcMpu"
+data-o-ads-targeting="cnpos=right1;"
+data-cy='[{"devices":["PC","PadApp","PadWeb"],"pattern":"MPU","position":"Right1"}]'
+>
+</div>
+  <div class="mps">
+<h2 class="list-title"><a href="#">热门文章</a></h2>
+<ul class="top10">
+							
+<li class="mp1"><span>1. </span><a target="_blank" href="/story/001085050">区块链带来生产关系的改变</a></li>
+<li class="mp2"><span>2. </span><a target="_blank" href="/story/001084997">韩国电子产业的抉择时刻</a></li>
+<li class="mp3"><span>3. </span><a target="_blank" href="/story/001085067">紫光集团亏损面扩大</a></li>
+<li class="mp4"><span>4. </span><a target="_blank" href="/story/001085064">分析：中美同意分阶段取消加征关税</a></li>
+<li class="mp5"><span>5. </span><a target="_blank" href="/story/001085072">FT社评：美国可能难以遏制对华技术出口</a></li>
+<li class="mp6"><span>6. </span><a target="_blank" href="/story/001085071">贸易战冲击美企在华供应链</a></li>
+<li class="mp7"><span>7. </span><a target="_blank" href="/story/001085070">10月份中国出口连续第3个月下滑</a></li>
+<li class="mp8"><span>8. </span><a target="_blank" href="/story/001085069">布隆伯格拟竞选下届美国总统</a></li>
+<li class="mp9"><span>9. </span><a target="_blank" href="/story/001085062">比特大陆爆发内讧</a></li>
+<li class="mp10"><span>10. </span><a target="_blank" href="/story/001085063">英国警方确认39名货车遇难者身份</a></li>
+</ul>
+</div>
+  <div 
+data-o-ads-name="mpu-right2"
+class="o-ads ftc-mpu"  
+data-o-ads-formats-default="false" 
+data-o-ads-formats-small="false" 
+data-o-ads-formats-medium="FtcMpu"
+data-o-ads-formats-large="FtcMpu"
+data-o-ads-targeting="cnpos=right2;"
+data-cy='[{"devices":["PC","PadApp","PadWeb"],"pattern":"MPU","position":"Right2"}]'
+>
+</div>
+    	
+</div>  </div>  <div class="clearfloat"></div>
+</div> </div> <div class="o-ads" data-o-ads-name="banner2"
+data-o-ads-center="true" 
+data-o-ads-formats-default="false"
+data-o-ads-formats-small="FtcMobileBanner"
+data-o-ads-formats-medium="false"
+data-o-ads-formats-large="FtcBanner" 
+data-o-ads-formats-extra="FtcBanner"
+data-o-ads-targeting="cnpos=top2;"
+data-cy='[{"devices":["PC"],"pattern":"Banner","position":"Num1"},{"devices":["iPhoneWeb","AndroidWeb","iPhoneApp","AndroidApp"],"pattern":"Banner","position":"Num2"}]'>
+</div>
+<div 
+data-o-ads-name="paidpost2"
+class="o-ads paid-post"  
+data-o-ads-formats-default="false" 
+data-o-ads-formats-small="false"
+data-o-ads-formats-medium="false"
+data-o-ads-formats-large="FtcPaidpost"
+data-o-ads-formats-extra="FtcPaidpost"
+data-o-ads-targeting="cnpos=paidpost2;"
+>
+</div>
+<div 
+data-o-ads-name="paidpost"
+class="o-ads paid-post"  
+data-o-ads-formats-default="false" 
+data-o-ads-formats-small="false"
+data-o-ads-formats-medium="false"
+data-o-ads-formats-large="FtcPaidpost"
+data-o-ads-formats-extra="FtcPaidpost"
+data-o-ads-targeting="cnpos=paidpost;"
+>
+</div>
+<img src='http://beacon.krxd.net/event.gif?event_id=KWA6DGT9&event_type=rtg' width=0 height=0 />
+<!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/7.2.2/firebase-app.js"></script>
+<!-- TODO: Add SDKs for Firebase products that you want to use
+https://firebase.google.com/docs/web/setup#available-libraries -->
+<script src="https://www.gstatic.com/firebasejs/7.2.2/firebase-analytics.js"></script>
+<script>
+// Your web app's Firebase configuration
+var firebaseConfig = {
+apiKey: "AIzaSyCB4QkzRm1oUl9-XA6kl8ob58FI3C6iDY0",
+authDomain: "ftchineseiphone.firebaseapp.com",
+databaseURL: "https://ftchineseiphone.firebaseio.com",
+projectId: "ftchineseiphone",
+storageBucket: "ftchineseiphone.appspot.com",
+messagingSenderId: "342601113715",
+appId: "1:342601113715:web:6d7016e26b94e3854fca06",
+measurementId: "G-PT4E4NGVJV"
+};
+// Initialize Firebase
+firebase.initializeApp(firebaseConfig);
+firebase.analytics();
+</script><div style="display: none;" class="specialanchor" tag="新中产全球配置" title="新中产全球配置" adid="" channel="" hideAd="no" zone="newmiddleclass" storyKeyWords="" cntopic=""></div>
+<div style="display: none;" class="specialanchor" tag="高端物业" title="高端物业" adid="" channel="" hideAd="no" zone="business/property" storyKeyWords="" cntopic=""></div>
+<div style="display: none;" class="specialanchor" tag="" title="奔驰维权" adid="" channel="" hideAd="no" zone="" storyKeyWords="奔驰维权,消费者权益,西安车主" cntopic="benzprotest"></div>
+<div style="display: none;" class="specialanchor" tag="" title="恐怖袭击" adid="5048" channel="" hideAd="no" zone="disaster" storyKeyWords="恐怖袭击" cntopic=""></div>
+<div style="display: none;" class="specialanchor" tag="灾难" title="灾难" adid="5048" channel="" hideAd="no" zone="disaster" storyKeyWords="" cntopic=""></div>
+<div style="display: none;" class="specialanchor" tag="空难" title="空难" adid="5048" channel="" hideAd="no" zone="disaster" storyKeyWords="" cntopic=""></div>
+<div style="display: none;" class="specialanchor" tag="自然灾害" title="自然灾害" adid="5048" channel="" hideAd="no" zone="disaster" storyKeyWords="" cntopic=""></div>
+<div style="display: none;" class="specialanchor" tag="车祸" title="车祸" adid="5048" channel="" hideAd="no" zone="disaster" storyKeyWords="" cntopic=""></div>
+<div style="display: none;" class="specialanchor" tag="地震" title="地震" adid="5048" channel="" hideAd="no" zone="disaster" storyKeyWords="" cntopic=""></div>
+<div style="display: none;" class="specialanchor" tag="逃犯条例" title="逃犯条例" adid="5048" channel="" hideAd="no" zone="disaster" storyKeyWords="" cntopic=""></div>
+<script type="text/javascript">
+window.linksForShare = {
+'url': window.location.href,
+'title': '每日英语 - FT中文网',
+'lead': '英国《金融时报》每日原版文章，中英文对照',
+'image': ''
+};
+</script>
