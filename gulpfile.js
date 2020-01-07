@@ -232,8 +232,20 @@ gulp.task('ios', ['grab', 'build'], function () {
       console.log('night html writen to' + nightPath);
   });
 
+  // MARK: - Get hot keywords from hot stories. 
+  const hotKeywordsPath = '../NewFTCApp-iOS/Page/FTChinese/hot-keywords.json'
+  fs.writeFile(hotKeywordsPath, getHotKeywords(), function(err) {
+      if(err) {
+          return console.log(err);
+      }
+      console.log('hot keywords writen to' + hotKeywordsPath);
+  });
+
   gulp.src(['app/templates/schedule.json'])
     .pipe(gulp.dest('../NewFTCApp-iOS/Page/Ad/'));
+
+  // gulp.src(['app/templates/hotstories.json'])
+  //   .pipe(gulp.dest('../NewFTCApp-iOS/Page/Ad/'));
 
   gulp.src(['app/templates/register.html'])
     .pipe(replace('{{analytics}}', analyticsJS))
@@ -412,8 +424,13 @@ gulp.task('grab', function () {
   getUrltoFile('https://www.googletagservices.com/tag/js/gpt.js', './app/templates/gpt.js');
   getUrltoFile('https://d1jz9j0gyf09j1.cloudfront.net/index.php/jsapi/applaunchschedule', './app/templates/schedule.json');
   getUrltoFile('https://www.googletagmanager.com/gtag/js?id=UA-1608715-1', './app/templates/gtag.js');
+  getUrltoFile('https://d1jz9j0gyf09j1.cloudfront.net/index.php/jsapi/hotstory/1quarterwithdetail', './app/templates/hotstories.json');
 });
 
+
+gulp.task('hotKeywords', function() {
+  getHotKeywords();
+});
 
 // MARK: code created for this project specifically
 function getUrltoFile (urlSource, fileName) {
@@ -464,7 +481,31 @@ function convert2Big5(originFile) {
     });
 }
 
-
-
-
-
+function getHotKeywords() {
+  const fs = require('fs');
+  const hotStoriesString = fs.readFileSync('app/templates/hotstories.json', 'utf8');
+  const hotStories = JSON.parse(hotStoriesString);
+  var keyScores = {};
+  const weight = 1;
+  for (item of hotStories) {
+    const keys = [
+      {type: 'tag', code: item.tag},
+      {type: 'author', code: item.cauthor},
+      {type: 'industry', code: item.industry},
+      {type: 'topic', code: item.topic},
+      {type: 'area', code: item.area}
+    ];
+    for (key of keys) {
+      if (key.code && key.code !== '') {
+        const codes = key.code.split(',');
+        for (const code of codes) {
+          var newScore = (keyScores[code]) ? keyScores[code].score + weight : weight;
+          keyScores[code] = {type: key.type, score: newScore};
+        }
+      }
+    }
+  }
+  console.log ('Key Scores to Cold Start: ');
+  console.log (keyScores);
+  return JSON.stringify(keyScores);
+}
