@@ -330,8 +330,27 @@ function highlightFollowedContent(obj) {
 	}
 	gtag('event', 'Show', {'event_label': window.location.href, 'event_category': 'MyFT', 'non_interaction': true});
 }
+
+function recommendTopics(myFTScores) {
+	if (myFTScores === undefined || myFTScores === '') {return;}
+	var newItem = document.createElement('div');
+	newItem.innerHTML = myFTScores;
+	var allListContainers = document.querySelectorAll('.block-container .list-container');
+	var listForInsertAfter;
+	for (var list of allListContainers) {
+		if (list.querySelectorAll('.item-container').length > 10) {
+			listForInsertAfter = list;
+			break;
+		}
+	}
+	if (listForInsertAfter) {
+		listForInsertAfter.parentNode.insertBefore(newItem, null);
+	}
+}
+
 try {
 	highlightFollowedContent(window.myFollow);
+	recommendTopics(window.myFTRecommendations);
 } catch (error) {
 	console.log (error);
 }
