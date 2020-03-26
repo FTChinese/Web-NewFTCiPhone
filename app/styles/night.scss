@@ -3,7 +3,7 @@
 		background:#000!important;
 		color:#AAA!important;
 	}
-	.side-container, .box-title a, table th, table tr, .oneStory, #mbagym-container ul.quizlist li, #gymslides .slide, .user_id{
+	.side-container, .box-title a, table th, table tr, .oneStory, #mbagym-container ul.quizlist li, #gymslides .slide, .user_id, .list-title a.list-link{
 		background:transparent!important;
 		color:#AAA!important;
 	}
@@ -21,5 +21,13 @@
 	}
 	.side-container .list-title a, button, .story-body, #allcomments .commentcontainer, .commentcontainer, .is-current, .story-body a  {
 		color: #AAA!important;
+	}
+}
+
+@media only screen and (max-width: 810px) and (min-width: 691px) {
+	.night {
+		.has-side .content-inner {
+			border-color: #333!important;
+		}
 	}
 }
