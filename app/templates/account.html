@@ -10,13 +10,14 @@
 <style>{{story-css}}</style>
 
 <!-- MARK: Important: Need to add Google Analytics load events manually -->
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-1608715-1"></script>
 <script>
-{{analytics}}
-</script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());if (window.gAutoStart === undefined) {
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    if (window.gAutoStart === undefined) {
         try {
             trackerNew();
         }catch(err){

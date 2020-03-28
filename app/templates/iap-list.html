@@ -9,7 +9,21 @@
 <style>
 {{iap-css}}
 </style>
-
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-1608715-1"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    if (window.gAutoStart === undefined) {
+        try {
+            trackerNew();
+        }catch(err){
+            gtag('config', 'UA-1608715-1');
+        }
+    }
+</script>
+<!-- End Google Analytics -->
 </head>
 
 <div class="channel-iap" id="channelScroller" style="overflow-y: scroll;"><div id="channelContent"><div id="head" onclick="switchNavOverlay()"><div class="header"><div class="channeltitle">{iap-title}</div></div></div><div class="layout-a_region-3"><div class="inner"><div class="container"></div></div></div><div class="layout-a_region-4"><div class="inner"><div class="adiframe mpu loaded-in-view" type="250" frame="ad300x250"></div></div></div></div></div>

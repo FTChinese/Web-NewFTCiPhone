@@ -198,7 +198,6 @@ gulp.task('ios', ['grab', 'build'], function () {
   var listMainJS = fs.readFileSync('dist/scripts/main-list.js', 'utf8');
   var listKeyJS = fs.readFileSync('dist/scripts/key-list.js', 'utf8');
   var myftCSS = fs.readFileSync('dist/styles/main-myft.css', 'utf8');
-  var analyticsJS = fs.readFileSync('app/templates/gtag.js', 'utf8');
   var searchCSS  = fs.readFileSync('dist/styles/main-search.css', 'utf8');
   var searchJS = fs.readFileSync('dist/scripts/search.js', 'utf8');
   var ebookCSS = fs.readFileSync('dist/styles/main-ebook.css', 'utf8');
@@ -210,7 +209,6 @@ gulp.task('ios', ['grab', 'build'], function () {
   const gptJS = fs.readFileSync('app/templates/gpt.js', 'utf8');
   const adPolyfillJS = fs.readFileSync('dist/scripts/ad-polyfill.js', 'utf8');
   const gymToolsJS = fs.readFileSync('dist/scripts/gym-tools.js', 'utf8');
-
   const oTableCSS = fs.readFileSync('bower_components/ftcnext/app/origami/o-table.css', 'utf8');
   const oTableJS = fs.readFileSync('bower_components/ftcnext/app/origami/o-table.js', 'utf8');
   const oTableHTML = '<style>' + oTableCSS + '</style><script>' + oTableJS + '</script>';
@@ -248,7 +246,6 @@ gulp.task('ios', ['grab', 'build'], function () {
   //   .pipe(gulp.dest('../NewFTCApp-iOS/Page/Ad/'));
 
   gulp.src(['app/templates/register.html'])
-    .pipe(replace('{{analytics}}', analyticsJS))
     .pipe(replace('<!--night-style-native-app-->', nightHTML))
     .pipe(gulp.dest('../NewFTCApp-iOS/Page/FTChinese/'))
     .on('end', function() {
@@ -268,7 +265,6 @@ gulp.task('ios', ['grab', 'build'], function () {
   });
     
   gulp.src(['app/templates/service.html'])
-    .pipe(replace('{{analytics}}', analyticsJS))
     .pipe(gulp.dest('../NewFTCApp-iOS/Page/FTChinese/'))
     .on('end', function() {
       convert2Big5('../NewFTCApp-iOS/Page/FTChinese/service.html')
@@ -278,7 +274,6 @@ gulp.task('ios', ['grab', 'build'], function () {
     .pipe(replace('{{story-css}}', storyCSS))
     .pipe(replace('{{story-js-main}}', storyMainJS))
     .pipe(replace('{{story-js-key}}', storyKeyJS))
-    .pipe(replace('{{analytics}}', analyticsJS))
     .pipe(gulp.dest('../NewFTCApp-iOS/Page/FTChinese/'))
     .on('end', function() {
       convert2Big5('../NewFTCApp-iOS/Page/FTChinese/account.html')
@@ -289,7 +284,6 @@ gulp.task('ios', ['grab', 'build'], function () {
     .pipe($.if('*.html', $.htmlmin({collapseWhitespace: true})))
     .pipe(replace('{{search-css}}', searchCSS))
     .pipe(replace('{{search-js}}', searchJS))
-    .pipe(replace('{{analytics}}', analyticsJS))
     .pipe(gulp.dest('../NewFTCApp-iOS/Page/FTChinese/'))
     .on('end', function() {
       convert2Big5('../NewFTCApp-iOS/Page/FTChinese/search.html')
@@ -300,7 +294,6 @@ gulp.task('ios', ['grab', 'build'], function () {
     .pipe(replace('{{story-css}}', storyCSS))
     .pipe(replace('{{story-js-main}}', storyMainJS))
     .pipe(replace('{{story-js-key}}', storyKeyJS))
-    .pipe(replace('{{analytics}}', analyticsJS))
     .pipe(replace('{{db-zone-helper-js}}', dbZoneHelperJS))
     .pipe(replace('{{ad-pollyfill-js}}', adPolyfillJS))
     .pipe(rename('story.html'))
@@ -314,7 +307,6 @@ gulp.task('ios', ['grab', 'build'], function () {
     .pipe(replace('{{story-css}}', storyCSS))
     .pipe(replace('{{story-js-main}}', storyMainJS))
     .pipe(replace('{{story-js-key}}', storyKeyJS))
-    .pipe(replace('{{analytics}}', analyticsJS))
     .pipe(rename('message.html'))
     .pipe(gulp.dest('../NewFTCApp-iOS/Page/FTChinese/'))
     .on('end', function() {
@@ -327,7 +319,6 @@ gulp.task('ios', ['grab', 'build'], function () {
     .pipe(replace('{{story-css}}', storyCSS))
     .pipe(replace('{{story-js-main}}', storyMainJS))
     .pipe(replace('{{story-js-key}}', storyKeyJS))
-    .pipe(replace('{{analytics}}', analyticsJS))
     .pipe(replace('{{db-zone-helper-js}}', dbZoneHelperJS))
     .pipe(replace('{{ad-pollyfill-js}}', adPolyfillJS))
     .pipe(replace('/*{audio-script-render-js}*/', audioScriptRenderJS))
@@ -343,7 +334,6 @@ gulp.task('ios', ['grab', 'build'], function () {
     .pipe(replace('{{story-css}}', storyCSS))
     .pipe(replace('{{story-js-main}}', storyMainJS))
     .pipe(replace('{{story-js-key}}', storyKeyJS))
-    .pipe(replace('{{analytics}}', analyticsJS))
     .pipe(rename('help.html'))
     .pipe(gulp.dest('../NewFTCApp-iOS/Page/FTChinese/'))
     .on('end', function() {
@@ -356,7 +346,6 @@ gulp.task('ios', ['grab', 'build'], function () {
     .pipe(replace('{{list-css}}', listCSS))
     .pipe(replace('{{list-js-main}}', listMainJS))
     .pipe(replace('{{list-js-key}}', listKeyJS))
-    .pipe(replace('{{analytics}}', analyticsJS))
     .pipe(replace('{{ad-pollyfill-js}}', adPolyfillJS))
     .pipe(gulp.dest('../NewFTCApp-iOS/Page/FTChinese/'))
     .on('end', function() {
@@ -369,7 +358,6 @@ gulp.task('ios', ['grab', 'build'], function () {
     .pipe(replace('{{list-css}}', myftCSS))
     .pipe(replace('{{list-js-main}}', listMainJS))
     .pipe(replace('{{list-js-key}}', listKeyJS))
-    .pipe(replace('{{analytics}}', analyticsJS))
     .pipe(replace('{{o-ads-js}}', oAdsJS))
     .pipe(replace('{{gpt-js}}', gptJS))
     .pipe(replace('{{ad-pollyfill-js}}', adPolyfillJS))
@@ -384,7 +372,6 @@ gulp.task('ios', ['grab', 'build'], function () {
     .pipe(replace('{{story-css}}', ebookCSS))
     .pipe(replace('{{story-js-main}}', ebookMainJS))
     .pipe(replace('{{story-js-key}}', ebookKeyJS))
-    .pipe(replace('{{analytics}}', analyticsJS))
     .pipe(rename('ebook.html'))
     .pipe(gulp.dest('../NewFTCApp-iOS/Page/FTChinese/'))
     .on('end', function() {
@@ -405,7 +392,6 @@ gulp.task('ios', ['grab', 'build'], function () {
     .pipe($.if('*.html', $.htmlmin({collapseWhitespace: true})))
     .pipe(replace('{{html-book-css}}', htmlBookCSS))
     .pipe(replace('{{html-book-js}}', htmlBookJS))
-    .pipe(replace('{{analytics}}', analyticsJS))
     .pipe(gulp.dest('../NewFTCApp-iOS/Page/FTChinese/'))
     .on('end', function() {
       convert2Big5('../NewFTCApp-iOS/Page/FTChinese/html-book.html')
@@ -423,7 +409,7 @@ gulp.task('grab', function () {
   getUrltoFile('https://www.ft.com/__origami/service/build/v2/bundles/js?modules=o-ads@10.2.1', './app/templates/o-ads.js');
   getUrltoFile('https://www.googletagservices.com/tag/js/gpt.js', './app/templates/gpt.js');
   getUrltoFile('https://d1jz9j0gyf09j1.cloudfront.net/index.php/jsapi/applaunchschedule', './app/templates/schedule.json');
-  getUrltoFile('https://www.googletagmanager.com/gtag/js?id=UA-1608715-1', './app/templates/gtag.js');
+  //getUrltoFile('https://www.googletagmanager.com/gtag/js?id=UA-1608715-1', './app/templates/gtag.js');
   getUrltoFile('https://d1jz9j0gyf09j1.cloudfront.net/index.php/jsapi/hotstory/1quarterwithdetail', './app/templates/hotstories.json');
 });
 
