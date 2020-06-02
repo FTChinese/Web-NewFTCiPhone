@@ -355,6 +355,13 @@ function updateBodyClass(newClass) {
     document.body.className = bodyClass;
 }
 
+function updateTimeStamp(newTimeStamp) {
+    var storyTimeEle = document.querySelector('.story-time');
+    if (storyTimeEle) {
+        storyTimeEle.innerHTML = newTimeStamp;
+    }
+}
+
 </script>
 
 </html>
