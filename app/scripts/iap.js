@@ -15,9 +15,7 @@ function updateProductsHTML(id, json, position) {
 		htmlCode = '<h2 class="list-title"><a href="screen://homepage/ebook">FT电子书</a></h2><div class="ebook-inner">' + htmlCode + '<div class="clearfloat"></div></div>';
 	}
 	var iapEle = document.getElementById(id);
-	if (iapEle) {
-		iapEle.innerHTML = htmlCode;
-	}
+	if (iapEle) iapEle.innerHTML = htmlCode;
 	loadImages();
 }
 
@@ -130,6 +128,20 @@ function promptUserLogin() {
 
 function hideUserLogin() {
 	var promptDiv = document.getElementById('membership-login-prompt');
+	if (promptDiv) {
+		promptDiv.className += ' hide';
+	}
+}
+
+function promptContactConfirm() {
+	var promptDiv = document.getElementById('subscriber-contact-confirm');
+	if (promptDiv) {
+		promptDiv.className = promptDiv.className.replace(/ hide/g, '');
+	}
+}
+
+function hideContactConfirm() {
+	var promptDiv = document.getElementById('subscriber-contact-confirm');
 	if (promptDiv) {
 		promptDiv.className += ' hide';
 	}
