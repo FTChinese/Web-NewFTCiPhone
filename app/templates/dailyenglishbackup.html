@@ -40,6 +40,14 @@ dfpTargetingStr = 'cntopic=' + window.cntopic + ';' + dfpTargetingStr;
 if (window.languagePreference && window.languagePreference >= 0) {
 dfpTargetingStr = 'cnlp=' + window.languagePreference + ';' + dfpTargetingStr;
 }
+var expireDate = GetCookie('expire');
+if (expireDate) {
+var todayDate = (new Date().getTime()) / 1000;
+var remainingDays = (expireDate - todayDate) / (60 * 60 * 24);
+if (remainingDays >= 0 && remainingDays <= 300) {
+dfpTargetingStr = 'cnex=300;' + dfpTargetingStr;
+}
+}
 //console.log ('Getting user type for google ad manager: ' + window.gUserType);
 var configJson = JSON.stringify({
 gpt: {
@@ -141,7 +149,7 @@ data-cy='[{"devices":["PC"],"pattern":"Leaderboard","position":"Num1"},{"devices
 <div class="no-image">
 <div class="item-inner">
 <div class="item-lead"><div class="warn">
-亲爱的会员，您的账号���期在多台设备上频繁异常登录。您的账户仅限您本人使用。为了保证您的利益，该账户已被暂时锁定。您可以：
+亲爱的会员，您的账号近期在多台设备上频繁异常登录。您的账户仅限您本人使用。为了保证您的利益，该账户已被暂时锁定。您可以：
 <a class="email-link" href="mailto: customer.service@ftchinese.com?subject=Appeal: Red Warning">点击此处与我们联系进行认证</a>。
 </div></div>
 </div>
@@ -166,12 +174,12 @@ data-cy='[{"devices":["PC"],"pattern":"Leaderboard","position":"Num1"},{"devices
 
  
 
-<div class="item-container XL4 L4 S12 M6 P12     is-audio item-container-app has-image" data-id="21741" data-type="interactive" data-audio="https://creatives.ftacademy.cn/album/07e72a35-4363-42a7-831c-4baebc5f3cf2.mp3" data-sub-type="radio" data-keywords="寰球商情速递,英语电台,Podcast,interactive_search"><div class="item-inner">
-<h2 class="item-headline"><div class=item-tag><a href="/tag/寰球商情速递">寰球商情速递</a></div><a target="_blank" href="/interactive/21741?topnav=english" class="item-headline-link locked">寰球商情速递：2020年8月19日</a></h2>
-<a class="image" target="_blank" href="/interactive/21741?topnav=english" >
+<div class="item-container XL4 L4 S12 M6 P12     is-audio item-container-app has-image" data-id="22306" data-type="interactive" data-audio="https://creatives.ftacademy.cn/album/33f8c758-fe15-4feb-9f73-5943fd8b6ad5.mp3" data-sub-type="radio" data-keywords="寰球商情速递,英语电台,Podcast,interactive_search"><div class="item-inner">
+<h2 class="item-headline"><div class=item-tag><a href="/tag/寰球商情速递">寰球商情速递</a></div><a target="_blank" href="/interactive/22306?topnav=english" class="item-headline-link locked">寰球商情速递：2020年8月27日</a></h2>
+<a class="image" target="_blank" href="/interactive/22306?topnav=english" >
 <figure class="loading" data-url="http://i.ftimg.net/picture/7/000093277_piclink.jpg"></figure>
 </a>
-<div class="item-lead">Oracle加入收购TikTok的竞赛；欧盟领导人联合呼吁普京帮助白俄罗斯摆脱政治危机；美国邮政局撤销一些列具有争议的成本削减措施，此前民主党曾批评这些举措会干涉总统大选投票；FT分析为何特殊目的收购公司正在逐步增加。</div><div class="item-time highlight" data-time="1597823085" data-pubdate="1597766400" data-fileupdatetime="1597823085" data-last-publish-time="0">1小时前</div>
+<div class="item-lead">欧盟贸易专员菲尔·霍根就新冠疫情失误引咎辞职；预计飓风劳拉将对墨西哥湾附近的美国炼油厂造成严重破坏；FT记者预测今年的全虚拟杰克森霍尔全球央行年会；西方国家政府关心世卫组织在调查新冠疫情起源时是否到访过武汉。</div><div class="item-time highlight" data-time="1598522969" data-pubdate="1598457600" data-fileupdatetime="1598522969" data-last-publish-time="0">5小时前</div>
 <div class="item-bottom"></div>
 </div></div>
 <div 
@@ -188,65 +196,43 @@ data-o-ads-targeting="cnpos=info1;"
  
  
 <div class=" ST PT"></div>
-<div class="item-container XL4 L4 S12 M6 P12     is-audio item-container-app has-image" data-id="21468" data-type="interactive" data-audio="https://creatives.ftacademy.cn/album/bigticket.mp3" data-sub-type="radio" data-keywords="每日一词,音频,会员专享"><div class="item-inner">
-<h2 class="item-headline"><div class=item-tag><a href="/channel/dailyword.html">每日一词</a></div><a target="_blank" href="/interactive/21468?topnav=english" class="item-headline-link locked">每日一词(A)：BIG-TICKET</a></h2>
-<a class="image" target="_blank" href="/interactive/21468?topnav=english" >
-<figure class="loading" data-url="http://i.ftimg.net/picture/0/000085930_piclink.jpg"></figure>
+<div class="item-container XL4 L4 S12 M6 P12     is-audio item-container-app has-image" data-id="22301" data-type="interactive" data-audio="https://creatives.ftacademy.cn/album/9dabf3b5-5303-4b17-9e6d-985b8d81a3c3.mp3" data-sub-type="radio" data-keywords="英语电台,Podcast,interactive_search"><div class="item-inner">
+<h2 class="item-headline"><div class=item-tag><a href="/channel/radio.html">FT英语电台</a></div><a target="_blank" href="/interactive/22301?topnav=english" class="item-headline-link locked">聚焦2020年美国总统大选争议</a></h2>
+<a class="image" target="_blank" href="/interactive/22301?topnav=english" >
+<figure class="loading" data-url="http://i.ftimg.net/picture/6/000094126_piclink.jpg"></figure>
 </a>
-<div class="item-lead">小词大世界，每天打卡，跟麦可林一起学单词。</div>
+<div class="item-lead">本期节目邀请到杜克大学公共政策学院院长朱迪思·凯利（Judith Kelley）和FT美国国家编辑爱德华·卢斯（Edward Luce）一同梳理与今届美国大选有关的谣言和真相。</div><div class="item-time highlight" data-time="1598522968" data-pubdate="1598457600" data-fileupdatetime="1598522968" data-last-publish-time="0">5小时前</div>
 <div class="item-bottom"></div>
 </div></div>
  
  
 <div class=" MT ST PT"></div>
-<div class="item-container XL4 L4 S12 M6 P12     is-audio item-container-app has-image" data-id="21641" data-type="interactive" data-audio="https://creatives.ftacademy.cn/album/282ecd1f-8402-4bf4-8ee7-3d179ce5fcc2.mp3" data-sub-type="radio" data-keywords="英语电台,原声视频,interactive_search"><div class="item-inner">
-<h2 class="item-headline"><div class=item-tag><a href="/channel/radio.html">FT英语电台</a></div><a target="_blank" href="/interactive/21641?topnav=english" class="item-headline-link locked">“世界高考”的算法有什么问题？</a></h2>
-<a class="image" target="_blank" href="/interactive/21641?topnav=english" >
-<figure class="loading" data-url="http://i.ftimg.net/picture/0/000099220_piclink.jpg"></figure>
+<div class="item-container XL4 L4 S12 M6 P12     is-audio item-container-app has-image" data-id="22052" data-type="interactive" data-audio="https://creatives.ftacademy.cn/album/5011e212-8ffe-49be-b961-877cbc697f40.mp3" data-sub-type="radio" data-keywords="英语电台,原声视频,interactive_search"><div class="item-inner">
+<h2 class="item-headline"><div class=item-tag><a href="/channel/radio.html">FT英语电台</a></div><a target="_blank" href="/interactive/22052?topnav=english" class="item-headline-link locked">美元的夏季低迷</a></h2>
+<a class="image" target="_blank" href="/interactive/22052?topnav=english" >
+<figure class="loading" data-url="http://i.ftimg.net/picture/0/000099580_piclink.jpg"></figure>
 </a>
-<div class="item-lead">英国《金融时报》的克里斯·吉尔斯研究了号称“世界高考”的A-level考试，指出A-level主要有三个问题。</div>
+<div class="item-lead">为什么市场做空美元。</div>
 <div class="item-bottom"></div>
 </div></div>
 <div id="iap-highlight"></div>
  
  
 <div class=" XLT LT ST PT"></div>
-<div class="item-container XL4 L4 S12 M6 P12     is-audio item-container-app has-image" data-id="21667" data-type="interactive" data-audio="https://creatives.ftacademy.cn/album/curio-32d79c87-1ade-4b63-8d14-7af1a553d963.mp3" data-sub-type="radio" data-keywords="英语电台,播音员朗读,interactive_search"><div class="item-inner">
-<h2 class="item-headline"><div class=item-tag><a href="/channel/radio.html">FT英语电台</a></div><a target="_blank" href="/interactive/21667?topnav=english" class="item-headline-link locked">我们不会记得在大流行中所做的很多事情</a></h2>
-<a class="image" target="_blank" href="/interactive/21667?topnav=english" >
-<figure class="loading" data-url="http://i.ftimg.net/picture/7/000099237_piclink.jpg"></figure>
+<div class="item-container XL4 L4 S12 M6 P12     is-audio item-container-app has-image" data-id="22051" data-type="interactive" data-audio="https://creatives.ftacademy.cn/album/cffb6525-ecbf-4ee5-bfa2-bf50b933da09.mp3" data-sub-type="radio" data-keywords="英语电台,原声视频,interactive_search"><div class="item-inner">
+<h2 class="item-headline"><div class=item-tag><a href="/channel/radio.html">FT英语电台</a></div><a target="_blank" href="/interactive/22051?topnav=english" class="item-headline-link locked">委内瑞拉的石油工业是如何崩溃的</a></h2>
+<a class="image" target="_blank" href="/interactive/22051?topnav=english" >
+<figure class="loading" data-url="http://i.ftimg.net/picture/9/000099579_piclink.jpg"></figure>
 </a>
-<div class="item-lead">我们对假期有如此深刻的记忆是有原因的。</div>
+<div class="item-lead">委内瑞拉曾经是拉美最令人羡慕的国家，但该国现在正面临破产。</div>
 <div class="item-bottom"></div>
 </div></div>
  
  
 <div class=" MT ST PT"></div>
-<div class="item-container XL4 L4 S12 M6 P12     item-container-app has-image" data-id="21709" data-type="interactive" data-sub-type="speedreading" data-keywords="速读,interactive_search,"><div class="item-inner">
-<h2 class="item-headline"><div class=item-tag><a href="/channel/speedread.html">金融英语速读</a></div><a target="_blank" href="/interactive/21709?topnav=english" class="item-headline-link locked">人工智能的突飞猛进可能成为数字化发展的关键</a></h2>
-<a class="image" target="_blank" href="/interactive/21709?topnav=english" >
-<figure class="loading" data-url="http://i.ftimg.net/picture/5/000099265_piclink.jpg"></figure>
-</a>
-<div class="item-lead">TikTok的推荐算法和OpenAI的语言模型是深度学习中最受关注的关键引爆点。</div>
-<div class="item-bottom"></div>
-</div></div>
- 
- 
-<div class=" ST PT"></div>
-<div class="item-container XL4 L4 S12 M6 P12     is-audio item-container-app has-image" data-id="21663" data-type="interactive" data-audio="https://creatives.ftacademy.cn/album/168bd2fa-e3b0-4249-b739-b6f390da1b3e.mp3" data-sub-type="radio" data-keywords="寰球商情速递,英语电台,Podcast,interactive_search"><div class="item-inner">
-<h2 class="item-headline"><div class=item-tag><a href="/tag/寰球商情速递">寰球商情速递</a></div><a target="_blank" href="/interactive/21663?topnav=english" class="item-headline-link locked">寰球商情速递：2020年8月18日</a></h2>
-<a class="image" target="_blank" href="/interactive/21663?topnav=english" >
-<figure class="loading" data-url="http://i.ftimg.net/picture/7/000093277_piclink.jpg"></figure>
-</a>
-<div class="item-lead">白俄罗斯爆发大规模示威，总统卢卡申科捍卫政治前途；股票交易程序Robinhood募集到新股权，估值超过110亿美元；特朗普政府已采取行动开放部分北极野生动物保护区，以便石油钻采；FT记者详解气候变化给人类社会及经济发展带来的损失。</div>
-<div class="item-bottom"></div>
-</div></div>
- 
- 
-<div class=" XLT LT MT ST PT"></div>
-<div class="item-container XL4 L4 S12 M6 P12     is-audio item-container-app has-image" data-id="21473" data-type="interactive" data-audio="https://creatives.ftacademy.cn/album/simpatico_缩混.mp3" data-sub-type="radio" data-keywords="每日一词,音频,会员专享"><div class="item-inner">
-<h2 class="item-headline"><div class=item-tag><a href="/channel/dailyword.html">每日一词</a></div><a target="_blank" href="/interactive/21473?topnav=english" class="item-headline-link locked">每日一词(A)：SIMPATICO</a></h2>
-<a class="image" target="_blank" href="/interactive/21473?topnav=english" >
+<div class="item-container XL4 L4 S12 M6 P12     is-audio item-container-app has-image" data-id="21575" data-type="interactive" data-audio="https://creatives.ftacademy.cn/album/engulf.mp3" data-sub-type="radio" data-keywords="每日一词,音频,会员专享"><div class="item-inner">
+<h2 class="item-headline"><div class=item-tag><a href="/channel/dailyword.html">每日一词</a></div><a target="_blank" href="/interactive/21575?topnav=english" class="item-headline-link locked">每日一词(A)：ENGULF</a></h2>
+<a class="image" target="_blank" href="/interactive/21575?topnav=english" >
 <figure class="loading" data-url="http://i.ftimg.net/picture/0/000085930_piclink.jpg"></figure>
 </a>
 <div class="item-lead">小词大世界，每天打卡，跟麦可林一起学单词。</div>
@@ -255,12 +241,34 @@ data-o-ads-targeting="cnpos=info1;"
  
  
 <div class=" ST PT"></div>
-<div class="item-container XL4 L4 S12 M6 P12     is-audio item-container-app has-image" data-id="21522" data-type="interactive" data-audio="https://creatives.ftacademy.cn/album/31039bc9-f48f-4155-9795-138de6fa426c.mp3" data-sub-type="radio" data-keywords="英语电台,interactive_search,原声视频"><div class="item-inner">
-<h2 class="item-headline"><div class=item-tag><a href="/channel/radio.html">FT英语电台</a></div><a target="_blank" href="/interactive/21522?topnav=english" class="item-headline-link locked">威廉·华兹华斯：我孤独地漫游，像一朵云</a></h2>
-<a class="image" target="_blank" href="/interactive/21522?topnav=english" >
-<figure class="loading" data-url="http://i.ftimg.net/picture/2/000099102_piclink.jpg"></figure>
+<div class="item-container XL4 L4 S12 M6 P12     is-audio item-container-app has-image" data-id="22201" data-type="interactive" data-audio="https://creatives.ftacademy.cn/album/95d0b367-63b9-48bf-b73e-b45cdcc329a6.mp3" data-sub-type="radio" data-keywords="寰球商情速递,英语电台,Podcast,interactive_search"><div class="item-inner">
+<h2 class="item-headline"><div class=item-tag><a href="/tag/寰球商情速递">寰球商情速递</a></div><a target="_blank" href="/interactive/22201?topnav=english" class="item-headline-link locked">寰球商情速递：2020年8月26日</a></h2>
+<a class="image" target="_blank" href="/interactive/22201?topnav=english" >
+<figure class="loading" data-url="http://i.ftimg.net/picture/7/000093277_piclink.jpg"></figure>
 </a>
-<div class="item-lead">演员西蒙·拉塞尔·比尔给威廉·华兹华斯最著名的诗赋予了新的含义。</div>
+<div class="item-lead">蚂蚁集团递交上市申请，披露2019年盈利26亿美元；欧洲新冠疫苗制造商向欧盟寻求法律责任豁免；低利率推动美国住宅建筑股价格飙升至历史新高。</div>
+<div class="item-bottom"></div>
+</div></div>
+ 
+ 
+<div class=" XLT LT MT ST PT"></div>
+<div class="item-container XL4 L4 S12 M6 P12     is-audio item-container-app has-image" data-id="22200" data-type="interactive" data-audio="https://creatives.ftacademy.cn/album/curio-bdd2a70f-ecd2-4aff-b6c7-c0624bfdeebb.mp3" data-sub-type="radio" data-keywords="英语电台,播音员朗读,interactive_search"><div class="item-inner">
+<h2 class="item-headline"><div class=item-tag><a href="/channel/radio.html">FT英语电台</a></div><a target="_blank" href="/interactive/22200?topnav=english" class="item-headline-link locked">华为面临致命威胁，芯片和手机供应链动摇</a></h2>
+<a class="image" target="_blank" href="/interactive/22200?topnav=english" >
+<figure class="loading" data-url="http://i.ftimg.net/picture/8/000099678_piclink.jpg"></figure>
+</a>
+<div class="item-lead">美国新制裁禁止中国电信设备制造商购买半导体产品。</div>
+<div class="item-bottom"></div>
+</div></div>
+ 
+ 
+<div class=" ST PT"></div>
+<div class="item-container XL4 L4 S12 M6 P12     is-audio item-container-app has-image" data-id="22150" data-type="interactive" data-audio="https://creatives.ftacademy.cn/album/97ffdb6f-2002-41b8-a7ff-8f40cdb3b1d2.mp3" data-sub-type="radio" data-keywords="英语电台,原声视频,interactive_search"><div class="item-inner">
+<h2 class="item-headline"><div class=item-tag><a href="/channel/radio.html">FT英语电台</a></div><a target="_blank" href="/interactive/22150?topnav=english" class="item-headline-link locked">为什么TikTok和微信成为中美科技战争的新前线</a></h2>
+<a class="image" target="_blank" href="/interactive/22150?topnav=english" >
+<figure class="loading" data-url="http://i.ftimg.net/picture/1/000099641_piclink.jpg"></figure>
+</a>
+<div class="item-lead">FT的金奇和迪米探讨了特朗普对中国社交媒体应用的禁令的影响。</div>
 <div class="item-bottom"></div>
 </div></div>
 <div 
@@ -278,20 +286,20 @@ data-cy='[{"devices":["iPhoneWeb","AndroidWeb","iPhoneApp"],"pattern":"MPU","pos
  
  
 <div class=" MT ST PT"></div>
-<div class="item-container XL4 L4 S12 M6 P12     is-audio item-container-app has-image" data-id="21583" data-type="interactive" data-audio="https://creatives.ftacademy.cn/album/curio-35acdb76-fd57-4ea5-9650-9d7dc3956dc5.mp3" data-sub-type="radio" data-keywords="英语电台,播音员朗读,interactive_search"><div class="item-inner">
-<h2 class="item-headline"><div class=item-tag><a href="/channel/radio.html">FT英语电台</a></div><a target="_blank" href="/interactive/21583?topnav=english" class="item-headline-link locked">在家工作开始变得令人厌烦</a></h2>
-<a class="image" target="_blank" href="/interactive/21583?topnav=english" >
-<figure class="loading" data-url="http://i.ftimg.net/picture/8/000099168_piclink.jpg"></figure>
+<div class="item-container XL4 L4 S12 M6 P12     is-audio item-container-app has-image" data-id="22053" data-type="interactive" data-audio="https://creatives.ftacademy.cn/album/8a704075-936f-47d9-b9c8-6a347ece53ff.mp3" data-sub-type="radio" data-keywords="英语电台,原声视频,interactive_search"><div class="item-inner">
+<h2 class="item-headline"><div class=item-tag><a href="/channel/radio.html">FT英语电台</a></div><a target="_blank" href="/interactive/22053?topnav=english" class="item-headline-link locked">拜登可以承受特朗普的袭击吗？</a></h2>
+<a class="image" target="_blank" href="/interactive/22053?topnav=english" >
+<figure class="loading" data-url="http://i.ftimg.net/picture/1/000099581_piclink.jpg"></figure>
 </a>
-<div class="item-lead">离开办公室几个月后，员工们又累又焦虑。但或许有一个简单的解决办法。</div>
+<div class="item-lead">特朗普在美国大选前瞄准拜登和贺锦丽。</div>
 <div class="item-bottom"></div>
 </div></div>
  
  
 <div class=" XLT LT ST PT"></div>
-<div class="item-container XL4 L4 S12 M6 P12     is-audio item-container-app has-image" data-id="19753" data-type="interactive" data-audio="https://creatives.ftacademy.cn/album/volte-face.mp3" data-sub-type="radio" data-keywords="每日一词,音频,会员专享"><div class="item-inner">
-<h2 class="item-headline"><div class=item-tag><a href="/channel/dailyword.html">每日一词</a></div><a target="_blank" href="/interactive/19753?topnav=english" class="item-headline-link locked">每日一词(A)：VOLTE-FACE</a></h2>
-<a class="image" target="_blank" href="/interactive/19753?topnav=english" >
+<div class="item-container XL4 L4 S12 M6 P12     is-audio item-container-app has-image" data-id="21578" data-type="interactive" data-audio="https://creatives.ftacademy.cn/album/caveat.mp3" data-sub-type="radio" data-keywords="每日一词,音频,会员专享"><div class="item-inner">
+<h2 class="item-headline"><div class=item-tag><a href="/channel/dailyword.html">每日一词</a></div><a target="_blank" href="/interactive/21578?topnav=english" class="item-headline-link locked">每日一词(A)：CAVEAT</a></h2>
+<a class="image" target="_blank" href="/interactive/21578?topnav=english" >
 <figure class="loading" data-url="http://i.ftimg.net/picture/0/000085930_piclink.jpg"></figure>
 </a>
 <div class="item-lead">小词大世界，每天打卡，跟麦可林一起学单词。</div>
@@ -300,34 +308,34 @@ data-cy='[{"devices":["iPhoneWeb","AndroidWeb","iPhoneApp"],"pattern":"MPU","pos
  
  
 <div class=" MT ST PT"></div>
-<div class="item-container XL4 L4 S12 M6 P12     is-audio item-container-app has-image" data-id="17875" data-type="interactive" data-audio="https://creatives.ftacademy.cn/album/8e5af49d-7beb-4eec-8051-32ab2ca5fb81.mp3" data-sub-type="radio" data-keywords="英语电台,interactive_search,Podcast"><div class="item-inner">
-<h2 class="item-headline"><div class=item-tag><a href="/channel/radio.html">FT英语电台</a></div><a target="_blank" href="/interactive/17875?topnav=english" class="item-headline-link locked">打造健康的城市：新冠疫情暴露大城市卫生条件不均</a></h2>
-<a class="image" target="_blank" href="/interactive/17875?topnav=english" >
-<figure class="loading" data-url="http://i.ftimg.net/picture/6/000094436_piclink.jpg"></figure>
+<div class="item-container XL4 L4 S12 M6 P12     is-audio item-container-app has-image" data-id="22119" data-type="interactive" data-audio="https://creatives.ftacademy.cn/album/93a72ba0-9000-4613-8924-959b03e93ab3.mp3" data-sub-type="radio" data-keywords="寰球商情速递,英语电台,Podcast,interactive_search"><div class="item-inner">
+<h2 class="item-headline"><div class=item-tag><a href="/tag/寰球商情速递">寰球商情速递</a></div><a target="_blank" href="/interactive/22119?topnav=english" class="item-headline-link locked">寰球商情速递：2020年8月25日</a></h2>
+<a class="image" target="_blank" href="/interactive/22119?topnav=english" >
+<figure class="loading" data-url="http://i.ftimg.net/picture/7/000093277_piclink.jpg"></figure>
 </a>
-<div class="item-lead">看新冠疫情如何造成巴黎、新德里及英国大城市人口及区域之间公共卫生条件的差异，以及如何尽量缩小这种差距。</div>
+<div class="item-lead">印度要求电信运营商移除华为设备；保险业预计新冠疫情将引发索赔潮；美国就谁得以优先接种新冠疫苗陷入政治争拗；分裂的共和党质疑特朗普的政治遗产。</div>
 <div class="item-bottom"></div>
 </div></div>
  
  
 <div class=" ST PT"></div>
-<div class="item-container XL4 L4 S12 M6 P12     is-audio item-container-app has-image" data-id="21581" data-type="interactive" data-audio="https://creatives.ftacademy.cn/album/a7142caa-af8a-428d-875c-4e8c92aa179e.mp3" data-sub-type="radio" data-keywords="寰球商情速递,英语电台,Podcast,interactive_search"><div class="item-inner">
-<h2 class="item-headline"><div class=item-tag><a href="/tag/寰球商情速递">寰球商情速递</a></div><a target="_blank" href="/interactive/21581?topnav=english" class="item-headline-link locked">寰球商情速递：2020年8月17日</a></h2>
-<a class="image" target="_blank" href="/interactive/21581?topnav=english" >
-<figure class="loading" data-url="http://i.ftimg.net/picture/7/000093277_piclink.jpg"></figure>
+<div class="item-container XL4 L4 S12 M6 P12     is-audio item-container-app has-image" data-id="14882" data-type="interactive" data-audio="https://creatives.ftacademy.cn/album/5a393b5a-4f23-11ea-95a0-43d18ec715f5.mp3" data-sub-type="radio" data-keywords="英语电台,interactive_search"><div class="item-inner">
+<h2 class="item-headline"><div class=item-tag><a href="/channel/radio.html">FT英语电台</a></div><a target="_blank" href="/interactive/14882?topnav=english" class="item-headline-link locked">书评：皮凯蒂的《资本与意识形态》</a></h2>
+<a class="image" target="_blank" href="/interactive/14882?topnav=english" >
+<figure class="loading" data-url="http://i.ftimg.net/picture/0/000094390_piclink.jpg"></figure>
 </a>
-<div class="item-lead">出于选举考虑，美国民主党高级官员呼吁邮政局长在国会作证；制药集团CureVac否认将以成本价出售疫苗；意大利经济复苏程度高于预期；FT记者详解旅行减少为何会对巧克力行业不利。</div>
+<div class="item-lead">这位世界知名的法国经济学家的新书使用了大量数据来分析不平等，但是他得出的结论是有瑕疵的。</div>
 <div class="item-bottom"></div>
 </div></div>
  
  
 <div class=" XLT LT MT ST PT"></div>
-<div class="item-container XL4 L4 S12 M6 P12     is-audio item-container-app has-image" data-id="21582" data-type="interactive" data-audio="https://creatives.ftacademy.cn/album/curio-fd3863c8-493c-4c9c-a42b-f3a628dc26fe.mp3" data-sub-type="radio" data-keywords="英语电台,播音员朗读,interactive_search"><div class="item-inner">
-<h2 class="item-headline"><div class=item-tag><a href="/channel/radio.html">FT英语电台</a></div><a target="_blank" href="/interactive/21582?topnav=english" class="item-headline-link locked">为什么我们最终都是伪君子</a></h2>
-<a class="image" target="_blank" href="/interactive/21582?topnav=english" >
-<figure class="loading" data-url="http://i.ftimg.net/picture/7/000099167_piclink.jpg"></figure>
+<div class="item-container XL4 L4 S12 M6 P12     is-audio item-container-app has-image" data-id="21608" data-type="interactive" data-audio="https://creatives.ftacademy.cn/album/meltdown.mp3" data-sub-type="radio" data-keywords="每日一词,音频,会员专享"><div class="item-inner">
+<h2 class="item-headline"><div class=item-tag><a href="/channel/dailyword.html">每日一词</a></div><a target="_blank" href="/interactive/21608?topnav=english" class="item-headline-link locked">每日一词(A)：MELTDOWN</a></h2>
+<a class="image" target="_blank" href="/interactive/21608?topnav=english" >
+<figure class="loading" data-url="http://i.ftimg.net/picture/0/000085930_piclink.jpg"></figure>
 </a>
-<div class="item-lead">我们有一种偏执，认为除了我们之外的所有人都在破坏维系社会的道德准则。</div>
+<div class="item-lead">小词大世界，每天打卡，跟麦可林一起学单词。</div>
 <div class="item-bottom"></div>
 </div></div>
 <div 
@@ -344,56 +352,56 @@ data-o-ads-targeting="cnpos=info2;"
  
  
 <div class=" ST PT"></div>
-<div class="item-container XL4 L4 S12 M6 P12     is-audio item-container-app has-image" data-id="21026" data-type="interactive" data-audio="https://creatives.ftacademy.cn/album/curio-0630521e-37d3-4a44-a7ea-b2dc82f8bad9.mp3" data-sub-type="radio" data-keywords="英语电台,interactive_search,播音员朗读"><div class="item-inner">
-<h2 class="item-headline"><div class=item-tag><a href="/channel/radio.html">FT英语电台</a></div><a target="_blank" href="/interactive/21026?topnav=english" class="item-headline-link locked">吹哨人罗琴科夫："体育从来不是干净的，永远不会”</a></h2>
-<a class="image" target="_blank" href="/interactive/21026?topnav=english" >
-<figure class="loading" data-url="http://i.ftimg.net/picture/6/000098726_piclink.jpg"></figure>
+<div class="item-container XL4 L4 S12 M6 P12     is-audio item-container-app has-image" data-id="22055" data-type="interactive" data-audio="https://creatives.ftacademy.cn/album/367e47ce-b6da-4d2c-8872-f5826491f79d.mp3" data-sub-type="radio" data-keywords="寰球商情速递,英语电台,Podcast"><div class="item-inner">
+<h2 class="item-headline"><div class=item-tag><a href="/tag/寰球商情速递">寰球商情速递</a></div><a target="_blank" href="/interactive/22055?topnav=english" class="item-headline-link locked">寰球商情速递：2020年8月24日</a></h2>
+<a class="image" target="_blank" href="/interactive/22055?topnav=english" >
+<figure class="loading" data-url="http://i.ftimg.net/picture/7/000093277_piclink.jpg"></figure>
 </a>
-<div class="item-lead">俄罗斯曾经的兴奋剂沙皇帮助揭开体育史上最严重的丑闻之一。</div>
+<div class="item-lead">特朗普考虑在大选前加速引进一款英国新冠疫苗；新研究显示，疫情期间全球上市公司的分红回报遭遇十年来最差季度表现；FT编辑讲解美国高端百货商店内曼·马库斯破产内幕。</div>
 <div class="item-bottom"></div>
 </div></div>
  
  
 <div class=" MT ST PT"></div>
-<div class="item-container XL4 L4 S12 M6 P12     is-audio item-container-app has-image" data-id="21477" data-type="interactive" data-audio="https://creatives.ftacademy.cn/album/1d5916ab-66b9-44ef-8528-804f518837f0.mp3" data-sub-type="radio" data-keywords="英语电台,interactive_search,原声视频"><div class="item-inner">
-<h2 class="item-headline"><div class=item-tag><a href="/channel/radio.html">FT英语电台</a></div><a target="_blank" href="/interactive/21477?topnav=english" class="item-headline-link locked">马丁·沃尔夫：Covid-19会杀死民粹主义吗？</a></h2>
-<a class="image" target="_blank" href="/interactive/21477?topnav=english" >
-<figure class="loading" data-url="http://i.ftimg.net/picture/5/000099085_piclink.jpg"></figure>
+<div class="item-container XL4 L4 S12 M6 P12     is-audio item-container-app has-image" data-id="21978" data-type="interactive" data-audio="https://creatives.ftacademy.cn/album/fcfa0d52-7fa0-4841-b059-10130141a39c.mp3" data-sub-type="radio" data-keywords="英语电台,Podcast"><div class="item-inner">
+<h2 class="item-headline"><div class=item-tag><a href="/channel/radio.html">FT英语电台</a></div><a target="_blank" href="/interactive/21978?topnav=english" class="item-headline-link locked">约翰逊面临巨大重组内���压力</a></h2>
+<a class="image" target="_blank" href="/interactive/21978?topnav=english" >
+<figure class="loading" data-url="http://i.ftimg.net/picture/6/000098456_piclink.jpeg"></figure>
 </a>
-<div class="item-lead">英国《金融时报》首席经济学评论员观察这场全球大流行疫情的政治影响。</div>
+<div class="item-lead">英国首相改组内阁的压力加大，脱欧贸易谈判也举步维艰。</div>
 <div class="item-bottom"></div>
 </div></div>
  
  
 <div class=" XLT LT ST PT"></div>
-<div class="item-container XL4 L4 S12 M6 P12     is-audio item-container-app has-image" data-id="21476" data-type="interactive" data-audio="https://creatives.ftacademy.cn/album/fdfa5116-c7d8-471e-9f6d-515f32851417.mp3" data-sub-type="radio" data-keywords="英语电台,interactive_search,原声视频"><div class="item-inner">
-<h2 class="item-headline"><div class=item-tag><a href="/channel/radio.html">FT英语电台</a></div><a target="_blank" href="/interactive/21476?topnav=english" class="item-headline-link locked">为什么所有的金融资产都在涨？</a></h2>
-<a class="image" target="_blank" href="/interactive/21476?topnav=english" >
-<figure class="loading" data-url="http://i.ftimg.net/picture/4/000099084_piclink.jpg"></figure>
+<div class="item-container XL4 L4 S12 M6 P12     is-audio item-container-app has-image" data-id="21835" data-type="interactive" data-audio="https://creatives.ftacademy.cn/album/curio-de843f6e-0be1-4667-8a9f-f397cf840e72.mp3" data-sub-type="radio" data-keywords="英语电台,播音员朗读,interactive_search"><div class="item-inner">
+<h2 class="item-headline"><div class=item-tag><a href="/channel/radio.html">FT英语电台</a></div><a target="_blank" href="/interactive/21835?topnav=english" class="item-headline-link locked">重拾怀疑的美德</a></h2>
+<a class="image" target="_blank" href="/interactive/21835?topnav=english" >
+<figure class="loading" data-url="http://i.ftimg.net/picture/7/000099377_piclink.jpg"></figure>
 </a>
-<div class="item-lead">英国《金融时报》的罗伯特•阿姆斯特朗研究了几乎所有资产类别都在上涨的原因。</div>
+<div class="item-lead">怀疑论者，如已故的布伦特-斯考克罗夫特，是这个世界的无名英雄。</div>
 <div class="item-bottom"></div>
 </div></div>
  
  
 <div class=" MT ST PT"></div>
-<div class="item-container XL4 L4 S12 M6 P12     is-audio item-container-app has-image" data-id="21527" data-type="interactive" data-audio="https://creatives.ftacademy.cn/album/c543fd79-6ce8-4309-96e9-a00e5c73ae6b.mp3" data-sub-type="radio" data-keywords="英语电台,interactive_search,Podcast"><div class="item-inner">
-<h2 class="item-headline"><div class=item-tag><a href="/channel/radio.html">FT英语电台</a></div><a target="_blank" href="/interactive/21527?topnav=english" class="item-headline-link locked">一次历史性衰退的代价</a></h2>
-<a class="image" target="_blank" href="/interactive/21527?topnav=english" >
-<figure class="loading" data-url="http://i.ftimg.net/picture/6/000098456_piclink.jpeg"></figure>
+<div class="item-container XL4 L4 S12 M6 P12     is-audio item-container-app has-image" data-id="21607" data-type="interactive" data-audio="https://creatives.ftacademy.cn/album/surcharge.mp3" data-sub-type="radio" data-keywords="每日一词,音频,会员专享"><div class="item-inner">
+<h2 class="item-headline"><div class=item-tag><a href="/channel/dailyword.html">每日一词</a></div><a target="_blank" href="/interactive/21607?topnav=english" class="item-headline-link locked">每日一词(A)：SURCHARGE</a></h2>
+<a class="image" target="_blank" href="/interactive/21607?topnav=english" >
+<figure class="loading" data-url="http://i.ftimg.net/picture/0/000085930_piclink.jpg"></figure>
 </a>
-<div class="item-lead">英国经济迎来最差时刻，同时面临职员在线工作与学生无法考试的尴尬局面。</div>
+<div class="item-lead">小词大世界，每天打卡，跟麦可林一起学单词。</div>
 <div class="item-bottom"></div>
 </div></div>
  
  
 <div class=" ST PT"></div>
-<div class="item-container XL4 L4 S12 M6 P12     is-audio item-container-app has-image" data-id="21449" data-type="interactive" data-audio="https://creatives.ftacademy.cn/album/curio-0e8aff25-629c-4737-a1dc-8ed4ee32447e.mp3" data-sub-type="radio" data-keywords="英语电台,interactive_search,播音员朗读"><div class="item-inner">
-<h2 class="item-headline"><div class=item-tag><a href="/channel/radio.html">FT英语电台</a></div><a target="_blank" href="/interactive/21449?topnav=english" class="item-headline-link locked">黎巴嫩：一个不堪重负的国家</a></h2>
-<a class="image" target="_blank" href="/interactive/21449?topnav=english" >
-<figure class="loading" data-url="http://i.ftimg.net/picture/1/000099071_piclink.jpg"></figure>
+<div class="item-container XL4 L4 S12 M6 P12     is-audio item-container-app has-image" data-id="21922" data-type="interactive" data-audio="https://creatives.ftacademy.cn/album/curio-fe5a7907-14b9-4e61-9938-ec3dd9d06831.mp3" data-sub-type="radio" data-keywords="英语电台,播音员朗读,interactive_search"><div class="item-inner">
+<h2 class="item-headline"><div class=item-tag><a href="/channel/radio.html">FT英语电台</a></div><a target="_blank" href="/interactive/21922?topnav=english" class="item-headline-link locked">如果你能在任何地方做你的工作，那么任何人都能做你的工作？</a></h2>
+<a class="image" target="_blank" href="/interactive/21922?topnav=english" >
+<figure class="loading" data-url="http://i.ftimg.net/picture/0/000099470_piclink.jpg"></figure>
 </a>
-<div class="item-lead">在港口大规模爆炸之前，这个国家已经在经济和金融危机中摇摇欲坠。</div>
+<div class="item-lead">相信人们在家就能很好地工作，是现在管理者必须学会的一项技能。</div>
 <div class="item-bottom"></div>
 </div></div>
 <div 
@@ -411,34 +419,34 @@ data-cy='[{"devices":["iPhoneWeb","AndroidWeb","iPhoneApp","AndroidApp"],"patter
  
  
 <div class=" XLT LT MT ST PT"></div>
-<div class="item-container XL4 L4 S12 M6 P12     is-audio item-container-app has-image" data-id="20964" data-type="interactive" data-audio="https://creatives.ftacademy.cn/album/curio-63ddc026-a6c9-46a5-b5d2-2f3c4f9e6e84.mp3" data-sub-type="radio" data-keywords="英语电台,interactive_search,播音员朗读"><div class="item-inner">
-<h2 class="item-headline"><div class=item-tag><a href="/channel/radio.html">FT英语电台</a></div><a target="_blank" href="/interactive/20964?topnav=english" class="item-headline-link locked">冷漠的力量</a></h2>
-<a class="image" target="_blank" href="/interactive/20964?topnav=english" >
-<figure class="loading" data-url="http://i.ftimg.net/picture/6/000098696_piclink.jpg"></figure>
+<div class="item-container XL4 L4 S12 M6 P12     is-audio item-container-app has-image" data-id="21923" data-type="interactive" data-audio="https://creatives.ftacademy.cn/album/curio-6eb655a2-21f5-4313-b287-964a63dd88b3.mp3" data-sub-type="radio" data-keywords="英语电台,播音员朗读,interactive_search"><div class="item-inner">
+<h2 class="item-headline"><div class=item-tag><a href="/channel/radio.html">FT英语电台</a></div><a target="_blank" href="/interactive/21923?topnav=english" class="item-headline-link locked">Spac能摆脱坏名声吗？</a></h2>
+<a class="image" target="_blank" href="/interactive/21923?topnav=english" >
+<figure class="loading" data-url="http://i.ftimg.net/picture/1/000099471_piclink.jpg"></figure>
 </a>
-<div class="item-lead">为什么你不需要热爱你所做的事情也能出类拔萃。</div>
+<div class="item-lead">过去五年，投资者在大多数Spac公司上都亏损了。</div>
 <div class="item-bottom"></div>
 </div></div>
  
  
 <div class=" ST PT"></div>
-<div class="item-container XL4 L4 S12 M6 P12     is-audio item-container-app has-image" data-id="21448" data-type="interactive" data-audio="https://creatives.ftacademy.cn/album/curio-26d1649a-f127-4de6-a568-f34060ca348c.mp3" data-sub-type="radio" data-keywords="英语电台,interactive_search,播音员朗读"><div class="item-inner">
-<h2 class="item-headline"><div class=item-tag><a href="/channel/radio.html">FT英语电台</a></div><a target="_blank" href="/interactive/21448?topnav=english" class="item-headline-link locked">拜登和贺锦丽之谜</a></h2>
-<a class="image" target="_blank" href="/interactive/21448?topnav=english" >
-<figure class="loading" data-url="http://i.ftimg.net/picture/0/000099070_piclink.jpg"></figure>
+<div class="item-container XL4 L4 S12 M6 P12     is-audio item-container-app has-image" data-id="21936" data-type="interactive" data-audio="https://creatives.ftacademy.cn/album/1b556897-c5a9-4392-bfcd-ea3b91e65f7d.mp3" data-sub-type="radio" data-keywords="英语电台,原声视频,interactive_search"><div class="item-inner">
+<h2 class="item-headline"><div class=item-tag><a href="/channel/radio.html">FT英语电台</a></div><a target="_blank" href="/interactive/21936?topnav=english" class="item-headline-link locked">英国法律解读：政府如何限制司法审查</a></h2>
+<a class="image" target="_blank" href="/interactive/21936?topnav=english" >
+<figure class="loading" data-url="http://i.ftimg.net/picture/1/000099481_piclink.jpg"></figure>
 </a>
-<div class="item-lead">特朗普可以将他对手的副总统人选描绘成一个可能操纵白宫未知数。</div>
+<div class="item-lead">英国《金融时报》法律专家戴维•艾伦•格林解释了拟议中的司法审查改革。</div>
 <div class="item-bottom"></div>
 </div></div>
  
  
 <div class=" MT ST PT"></div>
-<div class="item-container XL4 L4 S12 M6 P12     is-audio item-container-app has-image" data-id="21446" data-type="interactive" data-audio="https://creatives.ftacademy.cn/album/8b57ba36-1447-440d-a416-c797a0574d5c.mp3" data-sub-type="radio" data-keywords="寰球商情速递,英语电台,interactive_search,Podcast"><div class="item-inner">
-<h2 class="item-headline"><div class=item-tag><a href="/tag/寰球商情速递">寰球商情速递</a></div><a target="_blank" href="/interactive/21446?topnav=english" class="item-headline-link locked">寰球商情速递：2020年8月14日</a></h2>
-<a class="image" target="_blank" href="/interactive/21446?topnav=english" >
-<figure class="loading" data-url="http://i.ftimg.net/picture/7/000093277_piclink.jpg"></figure>
+<div class="item-container XL4 L4 S12 M6 P12     is-audio item-container-app has-image" data-id="21744" data-type="interactive" data-audio="https://creatives.ftacademy.cn/album/curio-f8ceffe7-cc89-4d95-975e-6142924a33b8.mp3" data-sub-type="radio" data-keywords="英语电台,播音员朗读,interactive_search"><div class="item-inner">
+<h2 class="item-headline"><div class=item-tag><a href="/channel/radio.html">FT英语电台</a></div><a target="_blank" href="/interactive/21744?topnav=english" class="item-headline-link locked">2020年属于内向人士吗?</a></h2>
+<a class="image" target="_blank" href="/interactive/21744?topnav=english" >
+<figure class="loading" data-url="http://i.ftimg.net/picture/1/000099301_piclink.jpg"></figure>
 </a>
-<div class="item-lead">以色列与阿联酋达成了历史性的和平协议；特朗普威胁剥夺美国邮政费用，以阻挠在11月大选中实施邮寄投票；富国银行CCO将离职，此前两年他一直致力于扭转该行的内部监管行动；FT记者解释为何中国在面对美国制裁时小心行事。</div>
+<div class="item-lead">对于那些觉得办公室嘈杂、充满矛盾的人来说，在家工作发挥了他们的优势。</div>
 <div class="item-bottom"></div>
 </div></div>
 <div 
@@ -455,34 +463,34 @@ data-o-ads-targeting="cnpos=info3;"
  
  
 <div class=" XLT LT ST PT"></div>
-<div class="item-container XL4 L4 S12 M6 P12     is-audio item-container-app has-image" data-id="21390" data-type="interactive" data-audio="https://creatives.ftacademy.cn/album/c5bee8c3-fc7f-400f-9754-e895b393525c.mp3" data-sub-type="radio" data-keywords="英语电台,interactive_search,原声视频"><div class="item-inner">
-<h2 class="item-headline"><div class=item-tag><a href="/channel/radio.html">FT英语电台</a></div><a target="_blank" href="/interactive/21390?topnav=english" class="item-headline-link locked">贺锦丽在首场竞选活动中痛批特朗普</a></h2>
-<a class="image" target="_blank" href="/interactive/21390?topnav=english" >
-<figure class="loading" data-url="http://i.ftimg.net/picture/2/000099042_piclink.jpg"></figure>
+<div class="item-container XL4 L4 S12 M6 P12     is-audio item-container-app has-image" data-id="21920" data-type="interactive" data-audio="https://creatives.ftacademy.cn/album/dd7c9778-42bd-4646-a1d9-51d98d760e6b.mp3" data-sub-type="radio" data-keywords="寰球商情速递,英语电台,Podcast,interactive_search"><div class="item-inner">
+<h2 class="item-headline"><div class=item-tag><a href="/tag/寰球商情速递">寰球商情速递</a></div><a target="_blank" href="/interactive/21920?topnav=english" class="item-headline-link locked">寰球商情速递：2020年8月21日</a></h2>
+<a class="image" target="_blank" href="/interactive/21920?topnav=english" >
+<figure class="loading" data-url="http://i.ftimg.net/picture/7/000093277_piclink.jpg"></figure>
 </a>
-<div class="item-lead">民主党副总统候选人批评美国总统的表现和领导能力。</div>
+<div class="item-lead">在美国“宣布死刑”后，华为员工开始逐渐担心裁员；中国公司雇佣的香港投资银行家数量正逐步超过来自华尔街及其他国际银行的工作者；远程工作使公司开始外包员工。</div>
 <div class="item-bottom"></div>
 </div></div>
  
  
 <div class=" MT ST PT"></div>
-<div class="item-container XL4 L4 S12 M6 P12     is-audio item-container-app has-image" data-id="20877" data-type="interactive" data-audio="https://creatives.ftacademy.cn/album/curio-72b1fbd7-6059-4cb9-835d-c608acc3e603.mp3" data-sub-type="radio" data-keywords="英语电台,interactive_search,播音员朗读"><div class="item-inner">
-<h2 class="item-headline"><div class=item-tag><a href="/channel/radio.html">FT英语电台</a></div><a target="_blank" href="/interactive/20877?topnav=english" class="item-headline-link locked">重建西方社会需要系统的转变</a></h2>
-<a class="image" target="_blank" href="/interactive/20877?topnav=english" >
-<figure class="loading" data-url="http://i.ftimg.net/picture/1/000098601_piclink.jpg"></figure>
+<div class="item-container XL4 L4 S12 M6 P12     is-audio item-container-app has-image" data-id="21912" data-type="interactive" data-audio="https://creatives.ftacademy.cn/album/itiswhatitis.mp3" data-sub-type="radio" data-keywords="每日一词,音频,会员专享"><div class="item-inner">
+<h2 class="item-headline"><div class=item-tag><a href="/channel/dailyword.html">每日一词</a></div><a target="_blank" href="/interactive/21912?topnav=english" class="item-headline-link locked">每日一词(B)：IT IS WHAT IT IS</a></h2>
+<a class="image" target="_blank" href="/interactive/21912?topnav=english" >
+<figure class="loading" data-url="http://i.ftimg.net/picture/0/000085930_piclink.jpg"></figure>
 </a>
-<div class="item-lead">第一步是承认社会和经济组织的失败。</div>
+<div class="item-lead">美国民主党全国代表大会上，多名民主党人都引用了特朗普曾说过的一句话来抨击这位总统。他们为什么抓住这句话不放？</div>
 <div class="item-bottom"></div>
 </div></div>
  
  
 <div class=" ST PT"></div>
-<div class="item-container XL4 L4 S12 M6 P12     is-audio item-container-app has-image" data-id="19752" data-type="interactive" data-audio="https://creatives.ftacademy.cn/album/seachange.mp3" data-sub-type="radio" data-keywords="每日一词,音频,会员专享"><div class="item-inner">
-<h2 class="item-headline"><div class=item-tag><a href="/channel/dailyword.html">每日一词</a></div><a target="_blank" href="/interactive/19752?topnav=english" class="item-headline-link locked">每日一词(A)：SEA-CHANGE</a></h2>
-<a class="image" target="_blank" href="/interactive/19752?topnav=english" >
-<figure class="loading" data-url="http://i.ftimg.net/picture/0/000085930_piclink.jpg"></figure>
+<div class="item-container XL4 L4 S12 M6 P12     is-audio item-container-app has-image" data-id="21895" data-type="interactive" data-audio="https://creatives.ftacademy.cn/album/6c1c8e84-7010-4f16-982d-8166a743b735.mp3" data-sub-type="radio" data-keywords="英语电台,原声视频,interactive_search"><div class="item-inner">
+<h2 class="item-headline"><div class=item-tag><a href="/channel/radio.html">FT英语电台</a></div><a target="_blank" href="/interactive/21895?topnav=english" class="item-headline-link locked">解读白俄罗斯动荡</a></h2>
+<a class="image" target="_blank" href="/interactive/21895?topnav=english" >
+<figure class="loading" data-url="http://i.ftimg.net/picture/4/000099464_piclink.jpg"></figure>
 </a>
-<div class="item-lead">小词大世界，每天打卡，跟麦可林一起学单词。</div>
+<div class="item-lead">为什么抗议者呼吁长期领导人卢卡申科下台。</div>
 <div class="item-bottom"></div>
 </div></div>
 <div 
@@ -515,9 +523,9 @@ data-cy='[{"devices":["iPhoneWeb","AndroidWeb","iPhoneApp","AndroidApp"],"patter
 
  
 
-<div class="item-container XL4 L4 S12 M6 P12     is-audio item-container-app has-image" data-id="21741" data-type="interactive" data-audio="https://creatives.ftacademy.cn/album/07e72a35-4363-42a7-831c-4baebc5f3cf2.mp3" data-sub-type="radio" data-keywords="寰球商情速递,英语电台,Podcast,interactive_search"><div class="item-inner">
-<h2 class="item-headline"><a target="_blank" href="/interactive/21741?topnav=english" class="item-headline-link locked">寰球商情速递：2020年8月19日</a></h2>
-<a class="image" target="_blank" href="/interactive/21741?topnav=english" >
+<div class="item-container XL4 L4 S12 M6 P12     is-audio item-container-app has-image" data-id="22306" data-type="interactive" data-audio="https://creatives.ftacademy.cn/album/33f8c758-fe15-4feb-9f73-5943fd8b6ad5.mp3" data-sub-type="radio" data-keywords="寰球商情速递,英语电台,Podcast,interactive_search"><div class="item-inner">
+<h2 class="item-headline"><a target="_blank" href="/interactive/22306?topnav=english" class="item-headline-link locked">寰球商情速递：2020年8月27日</a></h2>
+<a class="image" target="_blank" href="/interactive/22306?topnav=english" >
 <figure class="loading" data-url="http://i.ftimg.net/picture/7/000093277_piclink.jpg"></figure>
 </a>
 
@@ -526,10 +534,10 @@ data-cy='[{"devices":["iPhoneWeb","AndroidWeb","iPhoneApp","AndroidApp"],"patter
  
  
 <div class=" ST PT"></div>
-<div class="item-container XL4 L4 S12 M6 P12     is-audio item-container-app has-image" data-id="21641" data-type="interactive" data-audio="https://creatives.ftacademy.cn/album/282ecd1f-8402-4bf4-8ee7-3d179ce5fcc2.mp3" data-sub-type="radio" data-keywords="英语电台,原声视频,interactive_search"><div class="item-inner">
-<h2 class="item-headline"><a target="_blank" href="/interactive/21641?topnav=english" class="item-headline-link locked">“世界高考”的算法有什么问题？</a></h2>
-<a class="image" target="_blank" href="/interactive/21641?topnav=english" >
-<figure class="loading" data-url="http://i.ftimg.net/picture/0/000099220_piclink.jpg"></figure>
+<div class="item-container XL4 L4 S12 M6 P12     is-audio item-container-app has-image" data-id="22301" data-type="interactive" data-audio="https://creatives.ftacademy.cn/album/9dabf3b5-5303-4b17-9e6d-985b8d81a3c3.mp3" data-sub-type="radio" data-keywords="英语电台,Podcast,interactive_search"><div class="item-inner">
+<h2 class="item-headline"><a target="_blank" href="/interactive/22301?topnav=english" class="item-headline-link locked">聚焦2020年美国总统大选争议</a></h2>
+<a class="image" target="_blank" href="/interactive/22301?topnav=english" >
+<figure class="loading" data-url="http://i.ftimg.net/picture/6/000094126_piclink.jpg"></figure>
 </a>
 
 <div class="item-bottom"></div>
@@ -537,10 +545,10 @@ data-cy='[{"devices":["iPhoneWeb","AndroidWeb","iPhoneApp","AndroidApp"],"patter
  
  
 <div class=" MT ST PT"></div>
-<div class="item-container XL4 L4 S12 M6 P12     is-audio item-container-app has-image" data-id="21667" data-type="interactive" data-audio="https://creatives.ftacademy.cn/album/curio-32d79c87-1ade-4b63-8d14-7af1a553d963.mp3" data-sub-type="radio" data-keywords="英语电台,播音员朗读,interactive_search"><div class="item-inner">
-<h2 class="item-headline"><a target="_blank" href="/interactive/21667?topnav=english" class="item-headline-link locked">我们不会记得在大流行中所做的很多事情</a></h2>
-<a class="image" target="_blank" href="/interactive/21667?topnav=english" >
-<figure class="loading" data-url="http://i.ftimg.net/picture/7/000099237_piclink.jpg"></figure>
+<div class="item-container XL4 L4 S12 M6 P12     is-audio item-container-app has-image" data-id="22052" data-type="interactive" data-audio="https://creatives.ftacademy.cn/album/5011e212-8ffe-49be-b961-877cbc697f40.mp3" data-sub-type="radio" data-keywords="英语电台,原声视频,interactive_search"><div class="item-inner">
+<h2 class="item-headline"><a target="_blank" href="/interactive/22052?topnav=english" class="item-headline-link locked">美元的夏季低迷</a></h2>
+<a class="image" target="_blank" href="/interactive/22052?topnav=english" >
+<figure class="loading" data-url="http://i.ftimg.net/picture/0/000099580_piclink.jpg"></figure>
 </a>
 
 <div class="item-bottom"></div>
@@ -548,10 +556,10 @@ data-cy='[{"devices":["iPhoneWeb","AndroidWeb","iPhoneApp","AndroidApp"],"patter
  
  
 <div class=" XLT LT ST PT"></div>
-<div class="item-container XL4 L4 S12 M6 P12     is-audio item-container-app has-image" data-id="21663" data-type="interactive" data-audio="https://creatives.ftacademy.cn/album/168bd2fa-e3b0-4249-b739-b6f390da1b3e.mp3" data-sub-type="radio" data-keywords="寰球商情速递,英语电台,Podcast,interactive_search"><div class="item-inner">
-<h2 class="item-headline"><a target="_blank" href="/interactive/21663?topnav=english" class="item-headline-link locked">寰球商情速递：2020年8月18日</a></h2>
-<a class="image" target="_blank" href="/interactive/21663?topnav=english" >
-<figure class="loading" data-url="http://i.ftimg.net/picture/7/000093277_piclink.jpg"></figure>
+<div class="item-container XL4 L4 S12 M6 P12     is-audio item-container-app has-image" data-id="22051" data-type="interactive" data-audio="https://creatives.ftacademy.cn/album/cffb6525-ecbf-4ee5-bfa2-bf50b933da09.mp3" data-sub-type="radio" data-keywords="英语电台,原声视频,interactive_search"><div class="item-inner">
+<h2 class="item-headline"><a target="_blank" href="/interactive/22051?topnav=english" class="item-headline-link locked">委内瑞拉的石油工业是如何崩溃的</a></h2>
+<a class="image" target="_blank" href="/interactive/22051?topnav=english" >
+<figure class="loading" data-url="http://i.ftimg.net/picture/9/000099579_piclink.jpg"></figure>
 </a>
 
 <div class="item-bottom"></div>
@@ -559,10 +567,10 @@ data-cy='[{"devices":["iPhoneWeb","AndroidWeb","iPhoneApp","AndroidApp"],"patter
  
  
 <div class=" MT ST PT"></div>
-<div class="item-container XL4 L4 S12 M6 P12     is-audio item-container-app has-image" data-id="21522" data-type="interactive" data-audio="https://creatives.ftacademy.cn/album/31039bc9-f48f-4155-9795-138de6fa426c.mp3" data-sub-type="radio" data-keywords="英语电台,interactive_search,原声视频"><div class="item-inner">
-<h2 class="item-headline"><a target="_blank" href="/interactive/21522?topnav=english" class="item-headline-link locked">威廉·华兹华斯：我孤独地漫游，像一朵云</a></h2>
-<a class="image" target="_blank" href="/interactive/21522?topnav=english" >
-<figure class="loading" data-url="http://i.ftimg.net/picture/2/000099102_piclink.jpg"></figure>
+<div class="item-container XL4 L4 S12 M6 P12     is-audio item-container-app has-image" data-id="22201" data-type="interactive" data-audio="https://creatives.ftacademy.cn/album/95d0b367-63b9-48bf-b73e-b45cdcc329a6.mp3" data-sub-type="radio" data-keywords="寰球���情速递,英语电台,Podcast,interactive_search"><div class="item-inner">
+<h2 class="item-headline"><a target="_blank" href="/interactive/22201?topnav=english" class="item-headline-link locked">寰球商情速递：2020年8月26日</a></h2>
+<a class="image" target="_blank" href="/interactive/22201?topnav=english" >
+<figure class="loading" data-url="http://i.ftimg.net/picture/7/000093277_piclink.jpg"></figure>
 </a>
 
 <div class="item-bottom"></div>
@@ -570,10 +578,10 @@ data-cy='[{"devices":["iPhoneWeb","AndroidWeb","iPhoneApp","AndroidApp"],"patter
  
  
 <div class=" ST PT"></div>
-<div class="item-container XL4 L4 S12 M6 P12     is-audio item-container-app has-image" data-id="21583" data-type="interactive" data-audio="https://creatives.ftacademy.cn/album/curio-35acdb76-fd57-4ea5-9650-9d7dc3956dc5.mp3" data-sub-type="radio" data-keywords="英语电台,播音员朗读,interactive_search"><div class="item-inner">
-<h2 class="item-headline"><a target="_blank" href="/interactive/21583?topnav=english" class="item-headline-link locked">在家工作开始变得令人厌烦</a></h2>
-<a class="image" target="_blank" href="/interactive/21583?topnav=english" >
-<figure class="loading" data-url="http://i.ftimg.net/picture/8/000099168_piclink.jpg"></figure>
+<div class="item-container XL4 L4 S12 M6 P12     is-audio item-container-app has-image" data-id="22200" data-type="interactive" data-audio="https://creatives.ftacademy.cn/album/curio-bdd2a70f-ecd2-4aff-b6c7-c0624bfdeebb.mp3" data-sub-type="radio" data-keywords="英语电台,播音员朗读,interactive_search"><div class="item-inner">
+<h2 class="item-headline"><a target="_blank" href="/interactive/22200?topnav=english" class="item-headline-link locked">华为面临致命威胁，芯片和手机供应链动摇</a></h2>
+<a class="image" target="_blank" href="/interactive/22200?topnav=english" >
+<figure class="loading" data-url="http://i.ftimg.net/picture/8/000099678_piclink.jpg"></figure>
 </a>
 
 <div class="item-bottom"></div>
@@ -677,67 +685,67 @@ data-cy='[{"devices":["iPhoneWeb","AndroidWeb","iPhoneApp","AndroidApp"],"patter
 
  
 
-<div class="item-container XL4 L6 L-half M12 M-half S6 P12 P-half item-container-app has-image" data-id="001089038" data-type="story" data-date="1597788922" data-keywords="新型冠状病毒,科学,世界卫生组织,健康,联合国"><div class="item-inner">
-<h2 class="item-headline"><a target="_blank" href="/story/001089038/ce?topnav=english" class="item-headline-link ">WHO敦促富裕成员国加入全球疫苗计划</a></h2>
-<a class="image" target="_blank" href="/story/001089038/ce?topnav=english" >
-<figure class="loading" data-url="http://creatives.ftacademy.cn/picture/3/000098923_piclink.jpg"></figure>
+<div class="item-container XL4 L6 L-half M12 M-half S6 P12 P-half item-container-app has-image" data-id="001089147" data-type="story" data-date="1598480074" data-keywords="蚂蚁金服,新股发行,摩根士丹利,投资银行,友邦保险,花旗,摩根大通,花旗集团,IPO"><div class="item-inner">
+<h2 class="item-headline"><a target="_blank" href="/story/001089147/ce?topnav=english" class="item-headline-link ">蚂蚁集团上市将给投行带来丰厚收入</a></h2>
+<a class="image" target="_blank" href="/story/001089147/ce?topnav=english" >
+<figure class="loading" data-url="http://creatives.ftacademy.cn/picture/0/000097660_piclink.jpg"></figure>
 </a>
-<div class="item-lead">世卫组织的COVAX计划将由富裕成员国买单，力求确保在2021年底前在全球公平分发20亿剂有效疫苗。但这项倡议迄今未能形成势头。</div>
+<div class="item-lead">这家中国支付公司在沪港两地上市，将给花旗、摩根大通和摩根士丹利等华尔街银行总共带来至少3亿美元手续费收入。</div>
 <div class="item-bottom"></div>
 </div></div>
  
  
 <div class=" MT PT"></div>
-<div class="item-container XL4 L6 L-half M12 M-half S6 P12 P-half item-container-app has-image" data-id="001089022" data-type="story" data-date="1597701487" data-keywords="吉利汽车,新型冠状病毒,新兴市场,沃尔沃"><div class="item-inner">
-<h2 class="item-headline"><a target="_blank" href="/story/001089022/ce?topnav=english" class="item-headline-link ">吉利汽车上半年利润大幅下降</a></h2>
-<a class="image" target="_blank" href="/story/001089022/ce?topnav=english" >
-<figure class="loading" data-url="http://creatives.ftacademy.cn/picture/2/000087692_piclink.jpg"></figure>
+<div class="item-container XL4 L6 L-half M12 M-half S6 P12 P-half item-container-app has-image" data-id="001089128" data-type="story" data-date="1598393153" data-keywords="摩根大通,上投摩根,新兴市场,贝莱德"><div class="item-inner">
+<h2 class="item-headline"><a target="_blank" href="/story/001089128/ce?topnav=english" class="item-headline-link ">摩根大通拟溢价收购上投摩根全部股份</a></h2>
+<a class="image" target="_blank" href="/story/001089128/ce?topnav=english" >
+<figure class="loading" data-url="http://creatives.ftacademy.cn/picture/1/000088061_piclink.jpg"></figure>
 </a>
-<div class="item-lead">2020年上半年利润为23亿元人民币，同比下降43%。新冠疫情也令这家中国汽车制造商下调了年度销量目标。</div>
+<div class="item-lead">该行将支付70亿元人民币收购上投摩根其余49%股份，从而成为首家全资拥有在华共同基金企业的外国公司。</div>
 <div class="item-bottom"></div>
 </div></div>
  
  
 <div class=" LT MT PT ST"></div>
-<div class="item-container XL4 L6 L-half M12 M-half S6 P12 P-half item-container-app has-image" data-id="001088975" data-type="story" data-date="1597354577" data-keywords="以色列,阿联酋,特朗普,Twitter"><div class="item-inner">
-<h2 class="item-headline"><a target="_blank" href="/story/001088975/ce?topnav=english" class="item-headline-link ">以色列与阿联酋达成历史性和平协议</a></h2>
-<a class="image" target="_blank" href="/story/001088975/ce?topnav=english" >
-<figure class="loading" data-url="http://creatives.ftacademy.cn/picture/0/000099060_piclink.jpg"></figure>
+<div class="item-container XL4 L6 L-half M12 M-half S6 P12 P-half item-container-app has-image" data-id="001089108" data-type="story" data-date="1598306512" data-keywords="新型冠状病毒,科学,世界卫生组织,健康,二次感染"><div class="item-inner">
+<h2 class="item-headline"><a target="_blank" href="/story/001089108/ce?topnav=english" class="item-headline-link ">研究人员发现首例新冠病毒二次感染</a></h2>
+<a class="image" target="_blank" href="/story/001089108/ce?topnav=english" >
+<figure class="loading" data-url="http://creatives.ftacademy.cn/picture/5/000091485_piclink.jpg"></figure>
 </a>
-<div class="item-lead">由美国斡旋达成的这项协议意味着，阿联酋将成为继埃及和约旦之后第三个与以色列建立正式外交关系的阿拉伯国家。</div>
+<div class="item-lead">香港大学研究人员通过两次感染的基因指纹证明患者在时隔四个半月后被再次感染，而不是其体内一直有病毒残留。</div>
 <div class="item-bottom"></div>
 </div></div>
  
  
 <div class="XLT MT PT"></div>
-<div class="item-container XL4 L6 L-half M12 M-half S6 P12 P-half item-container-app has-image" data-id="001088959" data-type="story" data-date="1597269553" data-keywords="英国,英国经济,新型冠状病毒"><div class="item-inner">
-<h2 class="item-headline"><a target="_blank" href="/story/001088959/ce?topnav=english" class="item-headline-link ">英国经济第二季度收缩���分之一</a></h2>
-<a class="image" target="_blank" href="/story/001088959/ce?topnav=english" >
-<figure class="loading" data-url="http://creatives.ftacademy.cn/picture/3/000099013_piclink.jpg"></figure>
+<div class="item-container XL4 L6 L-half M12 M-half S6 P12 P-half item-container-app has-image" data-id="001089094" data-type="story" data-date="1598220543" data-keywords="新型冠状病毒,美国大选,科学,特朗普,健康,牛津大学,阿斯利康,拜登,佩洛西"><div class="item-inner">
+<h2 class="item-headline"><a target="_blank" href="/story/001089094/ce?topnav=english" class="item-headline-link ">特朗普考虑赶在大选前引进英国疫苗</a></h2>
+<a class="image" target="_blank" href="/story/001089094/ce?topnav=english" >
+<figure class="loading" data-url="http://creatives.ftacademy.cn/picture/6/000097486_piclink.jpg"></figure>
 </a>
-<div class="item-lead">第二季度GDP环比下降20.4%，跌幅超过其他任何大型欧洲经济体，陷入英国有记录以来的最严重衰退。</div>
+<div class="item-lead">知情人士称，特朗普政府正考虑绕过正常监管标准，走快速通道引进阿斯利康的新冠疫苗，以便在总统大选前在美国开始接种疫苗。</div>
 <div class="item-bottom"></div>
 </div></div>
  
  
 <div class=" LT MT PT ST"></div>
-<div class="item-container XL4 L6 L-half M12 M-half S6 P12 P-half item-container-app has-image" data-id="001088936" data-type="premium" data-keywords="英国,英国经济,就业,新型冠状病毒"><div class="item-inner">
-<h2 class="item-headline"><a target="_blank" href="/premium/001088936?topnav=english" class="item-headline-link locked">抗疫封锁以来英国近75万人失业</a></h2>
-<a class="image" target="_blank" href="/premium/001088936?topnav=english" >
-<figure class="loading" data-url="http://creatives.ftacademy.cn/picture/9/000098909_piclink.jpg"></figure>
+<div class="item-container XL4 L6 L-half M12 M-half S6 P12 P-half item-container-app has-image" data-id="001089074" data-type="story" data-date="1597959650" data-keywords="史蒂夫•班农,美国,特朗普,法律"><div class="item-inner">
+<h2 class="item-headline"><a target="_blank" href="/story/001089074/ce?topnav=english" class="item-headline-link ">史蒂夫•班农因涉嫌诈骗被捕</a></h2>
+<a class="image" target="_blank" href="/story/001089074/ce?topnav=english" >
+<figure class="loading" data-url="http://creatives.ftacademy.cn/picture/0/000099460_piclink.jpg"></figure>
 </a>
-<div class="item-lead">得益于政府的职位保留计划，整体就业数据自3月以来变化不大。但随着该计划将于10月终止，会有更多英国人面临失业。</div>
+<div class="item-lead">这位特朗普前顾问被控诈骗数十万人。他曾与另外三人发起“我们筑墙”众筹活动。四人已被控密谋挪用部分捐款。</div>
 <div class="item-bottom"></div>
 </div></div>
  
  
 <div class=" MT PT"></div>
-<div class="item-container XL4 L6 L-half M12 M-half S6 P12 P-half item-container-app has-image" data-id="001088918" data-type="story" data-date="1597095468" data-keywords="芝加哥,美国,美国政治,骚乱,治安"><div class="item-inner">
-<h2 class="item-headline"><a target="_blank" href="/story/001088918/ce?topnav=english" class="item-headline-link locked">芝加哥市中心遭遇洗劫</a></h2>
-<a class="image" target="_blank" href="/story/001088918/ce?topnav=english" >
-<figure class="loading" data-url="http://creatives.ftacademy.cn/picture/1/000098841_piclink.jpg"></figure>
+<div class="item-container XL4 L6 L-half M12 M-half S6 P12 P-half item-container-app has-image" data-id="001089059" data-type="premium" data-keywords="市场,股票分拆,特斯拉,亚马逊,苹果,Facebook,谷歌"><div class="item-inner">
+<h2 class="item-headline"><a target="_blank" href="/premium/001089059?topnav=english" class="item-headline-link locked">Lex专栏：股票拆分有魔力吗？</a></h2>
+<a class="image" target="_blank" href="/premium/001089059?topnav=english" >
+<figure class="loading" data-url="http://creatives.ftacademy.cn/picture/5/000096205_piclink.jpg"></figure>
 </a>
-<div class="item-lead">市中心各处在上周日晚和周一凌晨遭到洗劫。警方称，约100人被捕，13名警察受伤。市长形容洗劫行为是“无耻的犯罪行为”。</div>
+<div class="item-lead">将一股1000美元的股票拆成两股500美元的股票，股份的价值理应不变。但苹果和特斯拉宣布股票分拆计划以来，股价均实现跃升。</div>
 <div class="item-bottom"></div>
 </div></div>
                      <div class="clearfloat"></div>
@@ -758,6 +766,17 @@ data-cy='[{"devices":["iPhoneWeb","AndroidWeb","iPhoneApp","AndroidApp"],"patter
 
  
 
+<div class="item-container XL4 L6 L-half M12 M-half S6 P12 P-half is-audio item-container-app has-image" data-id="22285" data-type="interactive" data-audio="https://creatives.ftacademy.cn/album/MLE_S2E5_India_bans_China_app.mp3" data-sub-type="radio" data-keywords="麦可林学英语,音频,会员专享"><div class="item-inner">
+<h2 class="item-headline"><a target="_blank" href="/interactive/22285?topnav=english" class="item-headline-link locked">印度：让中国APP从“新希望”走向“新绝望”(S2E5)</a></h2>
+<a class="image" target="_blank" href="/interactive/22285?topnav=english" >
+<figure class="loading" data-url="http://i.ftimg.net/picture/1/000099771_piclink.jpg"></figure>
+</a>
+<div class="item-lead">除了TikTok和微信外，本月印度对中国手机应用的封禁名单越拉越长。莫迪政府到底在想些什么？</div>
+<div class="item-bottom"></div>
+</div></div>
+ 
+ 
+<div class=" MT PT"></div>
 <div class="item-container XL4 L6 L-half M12 M-half S6 P12 P-half is-audio item-container-app has-image" data-id="21278" data-type="interactive" data-audio="https://creatives.ftacademy.cn/album/MLEREAL.mp3" data-sub-type="radio" data-keywords="麦可林学英语,音频,会员专享"><div class="item-inner">
 <h2 class="item-headline"><a target="_blank" href="/interactive/21278?topnav=english" class="item-headline-link locked">青创大赛舞弊背后：中国下一代人才靠代际传递？(S2E4)</a></h2>
 <a class="image" target="_blank" href="/interactive/21278?topnav=english" >
@@ -768,7 +787,7 @@ data-cy='[{"devices":["iPhoneWeb","AndroidWeb","iPhoneApp","AndroidApp"],"patter
 </div></div>
  
  
-<div class=" MT PT"></div>
+<div class=" LT MT PT ST"></div>
 <div class="item-container XL4 L6 L-half M12 M-half S6 P12 P-half is-audio item-container-app has-image" data-id="19065" data-type="interactive" data-audio="https://creatives.ftacademy.cn/album/MLE.mp3" data-sub-type="radio" data-keywords="麦可林学英语,音频,会员专享"><div class="item-inner">
 <h2 class="item-headline"><a target="_blank" href="/interactive/19065?topnav=english" class="item-headline-link locked">如何“干预”2020年美国总统大选？(S2E3)</a></h2>
 <a class="image" target="_blank" href="/interactive/19065?topnav=english" >
@@ -779,7 +798,7 @@ data-cy='[{"devices":["iPhoneWeb","AndroidWeb","iPhoneApp","AndroidApp"],"patter
 </div></div>
  
  
-<div class=" LT MT PT ST"></div>
+<div class="XLT MT PT"></div>
 <div class="item-container XL4 L6 L-half M12 M-half S6 P12 P-half is-audio item-container-app has-image" data-id="17568" data-type="interactive" data-audio="https://creatives.ftacademy.cn/album/1.mp3" data-sub-type="radio" data-keywords="麦可林学英语,音频,会员专享"><div class="item-inner">
 <h2 class="item-headline"><a target="_blank" href="/interactive/17568?topnav=english" class="item-headline-link locked">冲刺吧，新冠病毒疫苗！(S2E2)</a></h2>
 <a class="image" target="_blank" href="/interactive/17568?topnav=english" >
@@ -790,7 +809,7 @@ data-cy='[{"devices":["iPhoneWeb","AndroidWeb","iPhoneApp","AndroidApp"],"patter
 </div></div>
  
  
-<div class="XLT MT PT"></div>
+<div class=" LT MT PT ST"></div>
 <div class="item-container XL4 L6 L-half M12 M-half S6 P12 P-half is-audio item-container-app has-image" data-id="16315" data-type="interactive" data-audio="https://creatives.ftacademy.cn/album/MLE_S2E1_Africans_in_China.mp3" data-sub-type="radio" data-keywords="麦可林学英语,音频,会员专享"><div class="item-inner">
 <h2 class="item-headline"><a target="_blank" href="/interactive/16315?topnav=english" class="item-headline-link locked">“疫情过后想回家”：非洲移民被中国人种族歧视了吗？(S2E1)</a></h2>
 <a class="image" target="_blank" href="/interactive/16315?topnav=english" >
@@ -801,24 +820,13 @@ data-cy='[{"devices":["iPhoneWeb","AndroidWeb","iPhoneApp","AndroidApp"],"patter
 </div></div>
  
  
-<div class=" LT MT PT ST"></div>
-<div class="item-container XL4 L6 L-half M12 M-half S6 P12 P-half is-audio item-container-app has-image" data-id="14590" data-type="interactive" data-audio="https://creatives.ftacademy.cn/album/MLE_S01E52_finale_cruises.mp3" data-eaudio="https://s3-us-west-2.amazonaws.com/ftlabs-audio-rss-bucket.prod/.mp3" data-sub-type="radio" data-keywords="麦可���学英语,音频,会员专享"><div class="item-inner">
+<div class=" MT PT"></div>
+<div class="item-container XL4 L6 L-half M12 M-half S6 P12 P-half is-audio item-container-app has-image" data-id="14590" data-type="interactive" data-audio="https://creatives.ftacademy.cn/album/MLE_S01E52_finale_cruises.mp3" data-sub-type="radio" data-keywords="麦可林学英语,音频,会员专享"><div class="item-inner">
 <h2 class="item-headline"><a target="_blank" href="/interactive/14590?topnav=english" class="item-headline-link locked">第一季终：2020恐怖邮轮(S01E52)</a></h2>
 <a class="image" target="_blank" href="/interactive/14590?topnav=english" >
 <figure class="loading" data-url="http://i.ftimg.net/picture/8/000093158_piclink.jpg"></figure>
 </a>
 <div class="item-lead">新冠病毒疫情开始肆虐全球，改变了很多人的生活，也重创了一些原本蓬勃发展的行业。本期MLE，为你讲述有关几艘邮轮的故事。</div>
-<div class="item-bottom"></div>
-</div></div>
- 
- 
-<div class=" MT PT"></div>
-<div class="item-container XL4 L6 L-half M12 M-half S6 P12 P-half is-audio item-container-app has-image" data-id="14572" data-type="interactive" data-audio="https://creatives.ftacademy.cn/album/MLE_S01E51.mp3" data-eaudio="https://s3-us-west-2.amazonaws.com/ftlabs-audio-rss-bucket.prod/.mp3" data-sub-type="radio" data-keywords="麦可林学英语,音频,会员专享"><div class="item-inner">
-<h2 class="item-headline"><a target="_blank" href="/interactive/14572?topnav=english" class="item-headline-link locked">新冠病毒怎样改变中国？(S01E51)</a></h2>
-<a class="image" target="_blank" href="/interactive/14572?topnav=english" >
-<figure class="loading" data-url="http://i.ftimg.net/picture/5/000092985_piclink.jpg"></figure>
-</a>
-<div class="item-lead">谁也不曾想到，SARS过后17年，病毒带来的灾难又一次冲击了神州大地，造成的影响也可能是广泛而深远的。</div>
 <div class="item-bottom"></div>
 </div></div>
                      <div class="clearfloat"></div>
@@ -839,20 +847,20 @@ data-cy='[{"devices":["iPhoneWeb","AndroidWeb","iPhoneApp","AndroidApp"],"patter
 
  
 
-<div class="item-container XL4 L12 M12 M-half S12 S-double-width P12 P-half is-audio item-container-app has-image" data-id="21468" data-type="interactive" data-audio="https://creatives.ftacademy.cn/album/bigticket.mp3" data-sub-type="radio" data-keywords="每日一词,音频,会员专享"><div class="item-inner">
-<h2 class="item-headline"><a target="_blank" href="/interactive/21468?topnav=english" class="item-headline-link locked">每日一词(A)：BIG-TICKET</a></h2>
-<a class="image" target="_blank" href="/interactive/21468?topnav=english" >
+<div class="item-container XL4 L12 M12 M-half S12 S-double-width P12 P-half is-audio item-container-app has-image" data-id="21575" data-type="interactive" data-audio="https://creatives.ftacademy.cn/album/engulf.mp3" data-sub-type="radio" data-keywords="每日一词,音频,会员专享"><div class="item-inner">
+<h2 class="item-headline"><a target="_blank" href="/interactive/21575?topnav=english" class="item-headline-link locked">每日一词(A)：ENGULF</a></h2>
+<a class="image" target="_blank" href="/interactive/21575?topnav=english" >
 <figure class="loading" data-url="http://i.ftimg.net/picture/0/000085930_piclink.jpg"></figure>
 </a>
-<div class="item-lead">小词大世界，每天���卡，跟麦可林一起学单词。</div>
+<div class="item-lead">小词大世界，每天打卡，跟麦可林一起学单词。</div>
 <div class="item-bottom"></div>
 </div></div>
  
  
 <div class=" LT MT PT ST"></div>
-<div class="item-container XL4 L6 L-half M12 M-half S6 P12 P-half is-audio item-container-app has-image" data-id="21473" data-type="interactive" data-audio="https://creatives.ftacademy.cn/album/simpatico_缩混.mp3" data-sub-type="radio" data-keywords="每日一词,音频,会员专享"><div class="item-inner">
-<h2 class="item-headline"><a target="_blank" href="/interactive/21473?topnav=english" class="item-headline-link locked">每日一词(A)：SIMPATICO</a></h2>
-<a class="image" target="_blank" href="/interactive/21473?topnav=english" >
+<div class="item-container XL4 L6 L-half M12 M-half S6 P12 P-half is-audio item-container-app has-image" data-id="21578" data-type="interactive" data-audio="https://creatives.ftacademy.cn/album/caveat.mp3" data-sub-type="radio" data-keywords="每日一词,音频,会员专享"><div class="item-inner">
+<h2 class="item-headline"><a target="_blank" href="/interactive/21578?topnav=english" class="item-headline-link locked">每日一词(A)：CAVEAT</a></h2>
+<a class="image" target="_blank" href="/interactive/21578?topnav=english" >
 <figure class="loading" data-url="http://i.ftimg.net/picture/0/000085930_piclink.jpg"></figure>
 </a>
 <div class="item-lead">小词大世界，每天打卡，跟麦可林一起学单词。</div>
@@ -861,9 +869,9 @@ data-cy='[{"devices":["iPhoneWeb","AndroidWeb","iPhoneApp","AndroidApp"],"patter
  
  
 <div class=" MT PT"></div>
-<div class="item-container XL4 L6 L-half M12 M-half S6 P12 P-half is-audio item-container-app has-image" data-id="19753" data-type="interactive" data-audio="https://creatives.ftacademy.cn/album/volte-face.mp3" data-sub-type="radio" data-keywords="每日一词,音频,会员专享"><div class="item-inner">
-<h2 class="item-headline"><a target="_blank" href="/interactive/19753?topnav=english" class="item-headline-link locked">每日一词(A)：VOLTE-FACE</a></h2>
-<a class="image" target="_blank" href="/interactive/19753?topnav=english" >
+<div class="item-container XL4 L6 L-half M12 M-half S6 P12 P-half is-audio item-container-app has-image" data-id="21608" data-type="interactive" data-audio="https://creatives.ftacademy.cn/album/meltdown.mp3" data-sub-type="radio" data-keywords="每日一词,音频,会员专享"><div class="item-inner">
+<h2 class="item-headline"><a target="_blank" href="/interactive/21608?topnav=english" class="item-headline-link locked">每日一词(A)：MELTDOWN</a></h2>
+<a class="image" target="_blank" href="/interactive/21608?topnav=english" >
 <figure class="loading" data-url="http://i.ftimg.net/picture/0/000085930_piclink.jpg"></figure>
 </a>
 <div class="item-lead">小词大世界，每天打卡，跟麦可林一起学单词。</div>
@@ -880,67 +888,67 @@ data-cy='[{"devices":["iPhoneWeb","AndroidWeb","iPhoneApp","AndroidApp"],"patter
 
  
 
-<div class="item-container XL4 L4 S12 M6 P12     is-audio item-container-app has-image" data-id="21641" data-type="interactive" data-audio="https://creatives.ftacademy.cn/album/282ecd1f-8402-4bf4-8ee7-3d179ce5fcc2.mp3" data-sub-type="radio" data-keywords="英语电台,原声视频,interactive_search"><div class="item-inner">
-<h2 class="item-headline"><a target="_blank" href="/interactive/21641?topnav=english" class="item-headline-link locked">“世界高考”的算法有什么问题？</a></h2>
-<a class="image" target="_blank" href="/interactive/21641?topnav=english" >
-<figure class="loading" data-url="http://i.ftimg.net/picture/0/000099220_piclink.jpg"></figure>
+<div class="item-container XL4 L4 S12 M6 P12     is-audio item-container-app has-image" data-id="22052" data-type="interactive" data-audio="https://creatives.ftacademy.cn/album/5011e212-8ffe-49be-b961-877cbc697f40.mp3" data-sub-type="radio" data-keywords="英语电台,原声视频,interactive_search"><div class="item-inner">
+<h2 class="item-headline"><a target="_blank" href="/interactive/22052?topnav=english" class="item-headline-link locked">美元的夏季低迷</a></h2>
+<a class="image" target="_blank" href="/interactive/22052?topnav=english" >
+<figure class="loading" data-url="http://i.ftimg.net/picture/0/000099580_piclink.jpg"></figure>
 </a>
-<div class="item-lead">英国《金融时报》的克里斯·吉尔斯研究了号称“世界高考”的A-level考试，指出A-level主要有三个问题。</div>
+<div class="item-lead">为什么市场做空美元。</div>
 <div class="item-bottom"></div>
 </div></div>
  
  
 <div class=" ST PT"></div>
-<div class="item-container XL4 L4 S12 M6 P12     is-audio item-container-app has-image" data-id="21522" data-type="interactive" data-audio="https://creatives.ftacademy.cn/album/31039bc9-f48f-4155-9795-138de6fa426c.mp3" data-sub-type="radio" data-keywords="英语电台,interactive_search,原声视频"><div class="item-inner">
-<h2 class="item-headline"><a target="_blank" href="/interactive/21522?topnav=english" class="item-headline-link locked">威廉·华兹华斯：我孤独地漫游，像一朵云</a></h2>
-<a class="image" target="_blank" href="/interactive/21522?topnav=english" >
-<figure class="loading" data-url="http://i.ftimg.net/picture/2/000099102_piclink.jpg"></figure>
+<div class="item-container XL4 L4 S12 M6 P12     is-audio item-container-app has-image" data-id="22051" data-type="interactive" data-audio="https://creatives.ftacademy.cn/album/cffb6525-ecbf-4ee5-bfa2-bf50b933da09.mp3" data-sub-type="radio" data-keywords="英语电台,原声视频,interactive_search"><div class="item-inner">
+<h2 class="item-headline"><a target="_blank" href="/interactive/22051?topnav=english" class="item-headline-link locked">委内瑞拉的石油工业是如何崩溃的</a></h2>
+<a class="image" target="_blank" href="/interactive/22051?topnav=english" >
+<figure class="loading" data-url="http://i.ftimg.net/picture/9/000099579_piclink.jpg"></figure>
 </a>
-<div class="item-lead">演员西蒙·拉塞尔·比尔给威廉·华兹华斯最著名的诗赋予了新的含义。</div>
+<div class="item-lead">委内瑞拉曾经是拉美最令人羡慕的国家，但该国现在正面临破产。</div>
 <div class="item-bottom"></div>
 </div></div>
  
  
 <div class=" MT ST PT"></div>
-<div class="item-container XL4 L4 S12 M6 P12     is-audio item-container-app has-image" data-id="21477" data-type="interactive" data-audio="https://creatives.ftacademy.cn/album/1d5916ab-66b9-44ef-8528-804f518837f0.mp3" data-sub-type="radio" data-keywords="英语电台,interactive_search,原声视频"><div class="item-inner">
-<h2 class="item-headline"><a target="_blank" href="/interactive/21477?topnav=english" class="item-headline-link locked">马丁·沃尔夫：Covid-19会杀死民粹主义吗？</a></h2>
-<a class="image" target="_blank" href="/interactive/21477?topnav=english" >
-<figure class="loading" data-url="http://i.ftimg.net/picture/5/000099085_piclink.jpg"></figure>
+<div class="item-container XL4 L4 S12 M6 P12     is-audio item-container-app has-image" data-id="22150" data-type="interactive" data-audio="https://creatives.ftacademy.cn/album/97ffdb6f-2002-41b8-a7ff-8f40cdb3b1d2.mp3" data-sub-type="radio" data-keywords="英语电台,原声视频,interactive_search"><div class="item-inner">
+<h2 class="item-headline"><a target="_blank" href="/interactive/22150?topnav=english" class="item-headline-link locked">为什么TikTok和微信成为中美科技战争的新前线</a></h2>
+<a class="image" target="_blank" href="/interactive/22150?topnav=english" >
+<figure class="loading" data-url="http://i.ftimg.net/picture/1/000099641_piclink.jpg"></figure>
 </a>
-<div class="item-lead">英国《金融时报》首席经济学评论员观察这场全球大流行疫情的政治影响。</div>
+<div class="item-lead">FT的金奇和迪米探讨了特朗普对中国社交媒体应用的禁令的影响。</div>
 <div class="item-bottom"></div>
 </div></div>
  
  
 <div class=" XLT LT ST PT"></div>
-<div class="item-container XL4 L4 S12 M6 P12     is-audio item-container-app has-image" data-id="21476" data-type="interactive" data-audio="https://creatives.ftacademy.cn/album/fdfa5116-c7d8-471e-9f6d-515f32851417.mp3" data-sub-type="radio" data-keywords="英语电台,interactive_search,原声视频"><div class="item-inner">
-<h2 class="item-headline"><a target="_blank" href="/interactive/21476?topnav=english" class="item-headline-link locked">为什么所有的金融资产都在涨？</a></h2>
-<a class="image" target="_blank" href="/interactive/21476?topnav=english" >
-<figure class="loading" data-url="http://i.ftimg.net/picture/4/000099084_piclink.jpg"></figure>
+<div class="item-container XL4 L4 S12 M6 P12     is-audio item-container-app has-image" data-id="22053" data-type="interactive" data-audio="https://creatives.ftacademy.cn/album/8a704075-936f-47d9-b9c8-6a347ece53ff.mp3" data-sub-type="radio" data-keywords="英语电台,原声视频,interactive_search"><div class="item-inner">
+<h2 class="item-headline"><a target="_blank" href="/interactive/22053?topnav=english" class="item-headline-link locked">拜登可以承受特朗普的袭击吗？</a></h2>
+<a class="image" target="_blank" href="/interactive/22053?topnav=english" >
+<figure class="loading" data-url="http://i.ftimg.net/picture/1/000099581_piclink.jpg"></figure>
 </a>
-<div class="item-lead">英国《金融时报》的罗伯特•阿姆斯特朗研究了几乎所有资产类别都在上涨的原因。</div>
+<div class="item-lead">特朗普在美国大选前瞄准拜登和贺锦丽。</div>
 <div class="item-bottom"></div>
 </div></div>
  
  
 <div class=" MT ST PT"></div>
-<div class="item-container XL4 L4 S12 M6 P12     is-audio item-container-app has-image" data-id="21390" data-type="interactive" data-audio="https://creatives.ftacademy.cn/album/c5bee8c3-fc7f-400f-9754-e895b393525c.mp3" data-sub-type="radio" data-keywords="英语电台,interactive_search,原声视频"><div class="item-inner">
-<h2 class="item-headline"><a target="_blank" href="/interactive/21390?topnav=english" class="item-headline-link locked">贺锦丽在首场竞选活动中痛批特朗普</a></h2>
-<a class="image" target="_blank" href="/interactive/21390?topnav=english" >
-<figure class="loading" data-url="http://i.ftimg.net/picture/2/000099042_piclink.jpg"></figure>
+<div class="item-container XL4 L4 S12 M6 P12     is-audio item-container-app has-image" data-id="21936" data-type="interactive" data-audio="https://creatives.ftacademy.cn/album/1b556897-c5a9-4392-bfcd-ea3b91e65f7d.mp3" data-sub-type="radio" data-keywords="英语电台,原声视频,interactive_search"><div class="item-inner">
+<h2 class="item-headline"><a target="_blank" href="/interactive/21936?topnav=english" class="item-headline-link locked">英国法律解读：政府如何限制司法审查</a></h2>
+<a class="image" target="_blank" href="/interactive/21936?topnav=english" >
+<figure class="loading" data-url="http://i.ftimg.net/picture/1/000099481_piclink.jpg"></figure>
 </a>
-<div class="item-lead">民主党副总统候选人批评美国总统的表现和领导能力。</div>
+<div class="item-lead">英国《金融时报》法律专家戴维•艾伦•格林解释了拟议中的司法审查改革。</div>
 <div class="item-bottom"></div>
 </div></div>
  
  
 <div class=" ST PT"></div>
-<div class="item-container XL4 L4 S12 M6 P12     is-audio item-container-app has-image" data-id="21217" data-type="interactive" data-audio="https://creatives.ftacademy.cn/album/440d8d8d-7e7c-40f8-b20f-e73c182a67c0.mp3" data-sub-type="radio" data-keywords="英语电台,interactive_search,原声视频"><div class="item-inner">
-<h2 class="item-headline"><a target="_blank" href="/interactive/21217?topnav=english" class="item-headline-link locked">黎巴嫩是一个失败的国家吗？</a></h2>
-<a class="image" target="_blank" href="/interactive/21217?topnav=english" >
-<figure class="loading" data-url="http://i.ftimg.net/picture/3/000098893_piclink.jpg"></figure>
+<div class="item-container XL4 L4 S12 M6 P12     is-audio item-container-app has-image" data-id="21895" data-type="interactive" data-audio="https://creatives.ftacademy.cn/album/6c1c8e84-7010-4f16-982d-8166a743b735.mp3" data-sub-type="radio" data-keywords="英语电台,原声视频,interactive_search"><div class="item-inner">
+<h2 class="item-headline"><a target="_blank" href="/interactive/21895?topnav=english" class="item-headline-link locked">解读白俄罗斯动荡</a></h2>
+<a class="image" target="_blank" href="/interactive/21895?topnav=english" >
+<figure class="loading" data-url="http://i.ftimg.net/picture/4/000099464_piclink.jpg"></figure>
 </a>
-<div class="item-lead">国家不应该破产，但黎巴嫩已经破产了。</div>
+<div class="item-lead">为什么抗议者呼吁长期领导人卢卡申科下台。</div>
 <div class="item-bottom"></div>
 </div></div>
                      <div class="clearfloat"></div>
@@ -969,16 +977,16 @@ data-cy='[{"devices":["PC","PadApp","PadWeb"],"pattern":"MPU","position":"Right1
 <h2 class="list-title"><a href="#">热门文章</a></h2>
 <ul class="top10">
 							
-<li class="mp1"><span>1. </span><a target="_blank" href="/story/001089011">重温基辛格：如何看待中美关系的未来？</a></li>
-<li class="mp2"><span>2. </span><a target="_blank" href="/story/001089010">节约粮食应该，但也不要制造恐慌</a></li>
-<li class="mp3"><span>3. </span><a target="_blank" href="/story/001089014">“拜登经济学”和美国新“新政”</a></li>
-<li class="mp4"><span>4. </span><a target="_blank" href="/story/001089019">美国收紧对华为供应商的限制</a></li>
-<li class="mp5"><span>5. </span><a target="_blank" href="/story/001089024">四名知名共和党人将为拜登站台</a></li>
-<li class="mp6"><span>6. </span><a target="_blank" href="/story/001089025">中国在全球出口中所占份额出现下滑</a></li>
-<li class="mp7"><span>7. </span><a target="_blank" href="/story/001089016">书评：最后的上海王</a></li>
-<li class="mp8"><span>8. </span><a target="_blank" href="/story/001089006">债券市场将成为香港发展的新机遇</a></li>
-<li class="mp9"><span>9. </span><a target="_blank" href="/story/001089013">印度反对派需要寻找新理念</a></li>
-<li class="mp10"><span>10. </span><a target="_blank" href="/story/001089022">吉利汽车上半年利润大幅下降</a></li>
+<li class="mp1"><span>1. </span><a target="_blank" href="/story/001089118">中美关系的危险前程</a></li>
+<li class="mp2"><span>2. </span><a target="_blank" href="/story/001089119">特朗普能否再次赢得总统大选？</a></li>
+<li class="mp3"><span>3. </span><a target="_blank" href="/story/001089117">投资引领中国经济的复苏</a></li>
+<li class="mp4"><span>4. </span><a target="_blank" href="/story/001089121">华为是否“大到不能倒”？</a></li>
+<li class="mp5"><span>5. </span><a target="_blank" href="/story/001089125">Lex专栏：印度封杀华为对双方都不利</a></li>
+<li class="mp6"><span>6. </span><a target="_blank" href="/story/001089120">全球化的下一阶段：规则之争成为焦点</a></li>
+<li class="mp7"><span>7. </span><a target="_blank" href="/story/001089130">内外交困的中国科技企业</a></li>
+<li class="mp8"><span>8. </span><a target="_blank" href="/story/001089122">深圳：火热楼市面对韧性考验</a></li>
+<li class="mp9"><span>9. </span><a target="_blank" href="/story/001089127">蚂蚁集团提交招股文件</a></li>
+<li class="mp10"><span>10. </span><a target="_blank" href="/story/001089129">Lex专栏：蚂蚁的盛大上市</a></li>
 </ul>
 </div>
   <div 

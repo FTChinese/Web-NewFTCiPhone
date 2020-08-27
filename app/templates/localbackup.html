@@ -40,6 +40,14 @@ dfpTargetingStr = 'cntopic=' + window.cntopic + ';' + dfpTargetingStr;
 if (window.languagePreference && window.languagePreference >= 0) {
 dfpTargetingStr = 'cnlp=' + window.languagePreference + ';' + dfpTargetingStr;
 }
+var expireDate = GetCookie('expire');
+if (expireDate) {
+var todayDate = (new Date().getTime()) / 1000;
+var remainingDays = (expireDate - todayDate) / (60 * 60 * 24);
+if (remainingDays >= 0 && remainingDays <= 300) {
+dfpTargetingStr = 'cnex=300;' + dfpTargetingStr;
+}
+}
 //console.log ('Getting user type for google ad manager: ' + window.gUserType);
 var configJson = JSON.stringify({
 gpt: {
@@ -162,12 +170,12 @@ window.newAd = true;
 
  
 
-<div class="item-container XL3 L3 S4 M6 P12     item-container-app has-image" data-id="001089045" data-type="premium" data-keywords="安倍晋三,日本"><div class="item-inner">
-<h2 class="item-headline"><a target="_blank" href="/premium/001089045" class="item-headline-link locked">安倍入院引发“继任猜测”</a></h2>
-<a class="image" target="_blank" href="/premium/001089045" >
-<figure class="loading" data-url="http://creatives.ftacademy.cn/picture/7/000099287_piclink.jpg"></figure>
+<div class="item-container XL3 L3 S4 M6 P12     item-container-app has-image" data-id="001089153" data-type="premium" data-keywords="硅谷,苹果,Facebook,谷歌,SEC"><div class="item-inner">
+<h2 class="item-headline"><a target="_blank" href="/premium/001089153" class="item-headline-link locked">Facebook称苹果新系统将重创定向广告收入</a></h2>
+<a class="image" target="_blank" href="/premium/001089153" >
+<figure class="loading" data-url="http://creatives.ftacademy.cn/picture/9/000093959_piclink.jpg"></figure>
 </a>
-<div class="item-lead">尽管日本官员称安倍晋三只是去医院做常规体检，但在其自民党党魁任期只剩一年之际，公众已开始关注会由谁接替其出任首相。</div><div class="item-time highlight" data-time="1597821780" data-pubdate="1597766400" data-fileupdatetime="1597822065" data-last-publish-time="1597821780">1小时前</div>
+<div class="item-lead">iPhone iOS 14系统将要求应用获得用户许可后才能收集允许追踪和广告定位的数据。Facebook称此举会令该社交平台和应用制造商广告收入腰斩。</div><div class="item-time" data-time="1598508496" data-pubdate="1598457600" data-fileupdatetime="1598508330" data-last-publish-time="1598508496">9小时前</div>
 <div class="item-bottom"></div>
 </div></div>
 <div 
@@ -184,79 +192,79 @@ data-o-ads-targeting="cnpos=info1;"
  
  
 <div class=" PT"></div>
-<div class="item-container XL3 L3 S4 M6 P12     item-container-app has-image" data-id="001089041" data-type="premium" data-keywords="华为,5G,中美贸易战,中美关系"><div class="item-inner">
-<h2 class="item-headline"><a target="_blank" href="/premium/001089041" class="item-headline-link locked">Lex专栏：美国把华为逼上死路的得与失</a></h2>
-<a class="image" target="_blank" href="/premium/001089041" >
-<figure class="loading" data-url="http://creatives.ftacademy.cn/picture/5/000099285_piclink.jpg"></figure>
+<div class="item-container XL3 L3 S4 M6 P12     item-container-app has-image" data-id="001089148" data-type="premium" data-keywords="华为,专利,英国法律,英国法庭,诉讼"><div class="item-inner">
+<h2 class="item-headline"><a target="_blank" href="/premium/001089148" class="item-headline-link locked">华为专利许可诉讼上诉失败</a></h2>
+<a class="image" target="_blank" href="/premium/001089148" >
+<figure class="loading" data-url="http://creatives.ftacademy.cn/picture/7/000092307_piclink.jpg"></figure>
 </a>
-<div class="item-lead">美国此举有利于其在5G领域迎头赶上，但它并不高明，它对美国寻求的科技主导地位来说是一次糟糕的宣传。</div><div class="item-time" data-time="1597802055" data-pubdate="1597766400" data-fileupdatetime="1597802104" data-last-publish-time="1597802055">6小时前</div>
+<div class="item-lead">2017年被英格兰高等法院命令支付全球许可费后，该公司不服，于是向英国最高法院提出上诉。这一上诉已被驳回。</div><div class="item-time" data-time="1598480074" data-pubdate="1598457600" data-fileupdatetime="1598479111" data-last-publish-time="1598480074">17小时前</div>
 <div class="item-bottom"></div>
 </div></div>
  
  
 <div class=" MT PT"></div>
-<div class="item-container XL3 L3 S4 M6 P12     item-container-app has-image" data-id="001089040" data-type="premium" data-keywords="甲骨文,TikTok,特朗普,微软,领英,盖茨"><div class="item-inner">
-<h2 class="item-headline"><a target="_blank" href="/premium/001089040" class="item-headline-link locked">Lex专栏：甲骨文竞购TikTok的模糊逻辑</a></h2>
-<a class="image" target="_blank" href="/premium/001089040" >
-<figure class="loading" data-url="http://creatives.ftacademy.cn/picture/3/000085943_piclink.jpg"></figure>
+<div class="item-container XL3 L3 S4 M6 P12     item-container-app has-image" data-id="001089143" data-type="premium" data-keywords="FT大视野,贷款抵押债券,CLO,新型冠状病毒,新冠疫情,金融市场"><div class="item-inner">
+<h2 class="item-headline"><a target="_blank" href="/premium/001089143" class="item-headline-link locked">CLO：酝酿中的下一场金融危机？</a></h2>
+<a class="image" target="_blank" href="/premium/001089143" >
+<figure class="loading" data-url="http://creatives.ftacademy.cn/picture/1/000099721_piclink.jpg"></figure>
 </a>
-<div class="item-lead">就收购TikTok而言，微软至少可以依托其拥有Xbox和领英的事实，拼凑出一个行业逻辑论点。甲骨文可以依托的东西就少得多了。</div><div class="item-time" data-time="1597788922" data-pubdate="1597766400" data-fileupdatetime="1597788448" data-last-publish-time="1597788922">10小时前</div>
+<div class="item-lead">贷款抵押债券的市场规模在过去十年急剧扩张，但新冠疫情下贷款质量下降和违约率上升，让人担心抛售潮出现并对整体经济产生影响。</div><div class="item-time" data-time="1598472546" data-pubdate="1598457600" data-fileupdatetime="1598463313" data-last-publish-time="1598472546">19小时前</div>
 <div class="item-bottom"></div>
 </div></div>
 <div id="iap-highlight"></div>
  
  
 <div class=" ST PT"></div>
-<div class="item-container XL3 L3 S4 M6 P12     item-container-app has-image" data-id="001089039" data-type="premium" data-keywords="中美贸易战,中国经济,新兴市场,华为,苹果,英特尔,瑞士信贷,三星,5G,半导体,高通"><div class="item-inner">
-<h2 class="item-headline"><a target="_blank" href="/premium/001089039" class="item-headline-link locked">美国对华为制裁震动全球芯片供应链</a></h2>
-<a class="image" target="_blank" href="/premium/001089039" >
-<figure class="loading" data-url="http://creatives.ftacademy.cn/picture/2/000099232_piclink.jpg"></figure>
+<div class="item-container XL3 L3 S4 M6 P12     item-container-app has-image" data-id="001089138" data-type="premium" data-keywords="中国经济,双循环,国际循环,内循���,国内循环,国内需求,需求,消费"><div class="item-inner">
+<h2 class="item-headline"><a target="_blank" href="/premium/001089138" class="item-headline-link locked">中国“双循环”经济模式的问题</a></h2>
+<a class="image" target="_blank" href="/premium/001089138" >
+<figure class="loading" data-url="http://creatives.ftacademy.cn/picture/0/000098780_piclink.jpg"></figure>
 </a>
-<div class="item-lead">据称，鉴于美国工具在芯片制造领域不可或缺，新制裁相当于全面禁止向华为出售任何芯片，潜在使其5G设备和手机业务难以为继。</div><div class="item-time" data-time="1597788922" data-pubdate="1597766400" data-fileupdatetime="1597785819" data-last-publish-time="1597788922">10小时前</div>
+<div class="item-lead">佩蒂斯：“双循环”这一新提法的本质仍是内需再平衡，即扩大消费，而这要求收入分配的再平衡，且将损及出口竞争力。</div><div class="item-time" data-time="1598472546" data-pubdate="1598457600" data-fileupdatetime="1598465114" data-last-publish-time="1598472546">19小时前</div>
 <div class="item-bottom"></div>
 </div></div>
  
  
 <div class=" XLT LT MT PT"></div>
-<div class="item-container XL3 L3 S4 M6 P12     item-container-app has-image" data-id="001089034" data-type="premium" data-keywords="FT大视野,气候变化,拜登,特朗普"><div class="item-inner">
-<h2 class="item-headline"><a target="_blank" href="/premium/001089034" class="item-headline-link locked">拜登的气候变化承诺是一场赌博</a></h2>
-<a class="image" target="_blank" href="/premium/001089034" >
-<figure class="loading" data-url="http://creatives.ftacademy.cn/picture/2/000099272_piclink.jpg"></figure>
+<div class="item-container XL3 L3 S4 M6 P12     item-container-app has-image" data-id="001089136" data-type="premium" data-keywords="公共债务,国债,安倍晋三,国际货币基金组织,货币政策"><div class="item-inner">
+<h2 class="item-headline"><a target="_blank" href="/premium/001089136" class="item-headline-link locked">先别担忧公共债务</a></h2>
+<a class="image" target="_blank" href="/premium/001089136" >
+<figure class="loading" data-url="http://creatives.ftacademy.cn/picture/6/000099716_piclink.jpg"></figure>
 </a>
-<div class="item-lead">拜登的能源行业计划将涉及从中东地缘政治到清洁技术领域与中国的全球竞争等种种问题，可能不受美国油气产区选民欢迎。</div><div class="item-time" data-time="1597779871" data-pubdate="1597766400" data-fileupdatetime="1597779447" data-last-publish-time="1597779871">13小时前</div>
+<div class="item-lead">哈丁：尽管公共债务增加是有代价的，但没有什么理由立即拉响警报，这个问题可以留待经济复苏到一定程度再来处理。</div><div class="item-time" data-time="1598472546" data-pubdate="1598457600" data-fileupdatetime="1598467508" data-last-publish-time="1598472546">19小时前</div>
 <div class="item-bottom"></div>
 </div></div>
  
  
 <div class=" PT"></div>
-<div class="item-container XL3 L3 S4 M6 P12     item-container-app has-image" data-id="001089033" data-type="premium" data-keywords="数字货币,中国人民银行,美联储,摩根大通,Facebook,金融科技"><div class="item-inner">
-<h2 class="item-headline"><a target="_blank" href="/premium/001089033" class="item-headline-link locked">FT社评：央行数字货币急不得</a></h2>
-<a class="image" target="_blank" href="/premium/001089033" >
-<figure class="loading" data-url="http://creatives.ftacademy.cn/picture/0/000087510_piclink.jpg"></figure>
+<div class="item-container XL3 L3 S4 M6 P12     item-container-app has-image" data-id="001089129" data-type="premium" data-keywords="蚂蚁集团,蚂蚁金服,马云,阿里巴巴,IPO,中国股市"><div class="item-inner">
+<h2 class="item-headline"><a target="_blank" href="/premium/001089129" class="item-headline-link locked">Lex专栏：蚂蚁的盛大上市</a></h2>
+<a class="image" target="_blank" href="/premium/001089129" >
+<figure class="loading" data-url="http://creatives.ftacademy.cn/picture/9/000099669_piclink.jpg"></figure>
 </a>
-<div class="item-lead">开发由政府支持的数字货币似乎已是不可避免，但也存在风险，有许多挑战需要考量，央行不应急着推数字货币。</div><div class="item-time" data-time="1597779871" data-pubdate="1597766400" data-fileupdatetime="1597773574" data-last-publish-time="1597779871">13小时前</div>
+<div class="item-lead">蚂蚁集团在沪港同步上市或成就史上最大IPO。它在此刻上市是明智之举，其估值合理，而且中国监管机构正在鼓励投资者购买股票。</div><div class="item-time" data-time="1598413714" data-pubdate="1598371200" data-fileupdatetime="1598413812" data-last-publish-time="1598413714">1天前</div>
 <div class="item-bottom"></div>
 </div></div>
  
  
 <div class=" ST MT PT"></div>
-<div class="item-container XL3 L3 S4 M6 P12     item-container-app has-image" data-id="001089030" data-type="premium" data-keywords="中澳关系,澳大利亚,葡萄酒,关税,倾销,贸易"><div class="item-inner">
-<h2 class="item-headline"><a target="_blank" href="/premium/001089030" class="item-headline-link locked">中国对澳大利亚葡萄酒展开反倾销调查</a></h2>
-<a class="image" target="_blank" href="/premium/001089030" >
-<figure class="loading" data-url="http://creatives.ftacademy.cn/picture/8/000099238_piclink.jpg"></figure>
+<div class="item-container XL3 L3 S4 M6 P12     item-container-app has-image" data-id="001089125" data-type="premium" data-keywords="华为,爱立信,三星,5G,诺基亚,沃达丰,印度"><div class="item-inner">
+<h2 class="item-headline"><a target="_blank" href="/premium/001089125" class="item-headline-link locked">Lex专栏：印度封杀华为对双方都不利</a></h2>
+<a class="image" target="_blank" href="/premium/001089125" >
+<figure class="loading" data-url="http://creatives.ftacademy.cn/picture/2/000099232_piclink.jpg"></figure>
 </a>
-<div class="item-lead">分析人士警告称，中国可能就此对澳大利亚葡萄酒征收惩罚性关税。今年截至6月底，中国市场占澳大利亚葡萄酒出口总额的五分之二。</div><div class="item-time" data-time="1597737808" data-pubdate="1597680000" data-fileupdatetime="1597738800" data-last-publish-time="1597737808">1天前</div>
+<div class="item-lead">印度政府表示，电信运营商不应在移动网络中使用华为和中兴设备。此举将把华为逐出世界第二大电信市场，但印度电信运营商面临更严重的问题。</div><div class="item-time" data-time="1598393153" data-pubdate="1598371200" data-fileupdatetime="1598391659" data-last-publish-time="1598393153">1天前</div>
 <div class="item-bottom"></div>
 </div></div>
  
  
 <div class=" PT"></div>
-<div class="item-container XL3 L3 S4 M6 P12     item-container-app has-image" data-id="001089025" data-type="premium" data-keywords="出口,贸易,中美贸易战,供应链"><div class="item-inner">
-<h2 class="item-headline"><a target="_blank" href="/premium/001089025" class="item-headline-link locked">中国在全球出口中所占份额出现下滑</a></h2>
-<a class="image" target="_blank" href="/premium/001089025" >
-<figure class="loading" data-url="http://creatives.ftacademy.cn/picture/2/000099232_piclink.jpg"></figure>
+<div class="item-container XL3 L3 S4 M6 P12     item-container-app has-image" data-id="001089123" data-type="premium" data-keywords="英国,房地产,新型冠状病毒"><div class="item-inner">
+<h2 class="item-headline"><a target="_blank" href="/premium/001089123" class="item-headline-link locked">FT社评：英国房市反常活跃</a></h2>
+<a class="image" target="_blank" href="/premium/001089123" >
+<figure class="loading" data-url="http://creatives.ftacademy.cn/picture/4/000087564_piclink.jpg"></figure>
 </a>
-<div class="item-lead">研究显示，去年中国出口占到全球出口的22%，较上一年下降3个百分点。在消费品方面，中国出口的���额下降4个百分点至42%。</div><div class="item-time" data-time="1597724469" data-pubdate="1597680000" data-fileupdatetime="1597724651" data-last-publish-time="1597724469">1天前</div>
+<div class="item-lead">尽管英国深陷史上最严重衰退，但房价依然强劲，交易活动也已恢复。然而问题仍然是，面对持续拉低房价的经济力量，英国房市能够抵御多久？</div><div class="item-time" data-time="1598381365" data-pubdate="1598371200" data-fileupdatetime="1598380069" data-last-publish-time="1598381365">1天前</div>
 <div class="item-bottom"></div>
 </div></div>
 <div 
@@ -274,56 +282,56 @@ data-cy='[{"devices":["iPhoneWeb","AndroidWeb","iPhoneApp"],"pattern":"MPU","pos
  
  
 <div class=" XLT LT MT PT"></div>
-<div class="item-container XL3 L3 S4 M6 P12     item-container-app has-image" data-id="001089023" data-type="premium" data-keywords="资产管理,财富管理,银行,理财"><div class="item-inner">
-<h2 class="item-headline"><a target="_blank" href="/premium/001089023" class="item-headline-link locked">中资银行理财子公司寻求与外国资管机构“搭伙”</a></h2>
-<a class="image" target="_blank" href="/premium/001089023" >
-<figure class="loading" data-url="http://creatives.ftacademy.cn/picture/0/000099230_piclink.jpg"></figure>
+<div class="item-container XL3 L3 S4 M6 P12     item-container-app has-image" data-id="001089122" data-type="premium" data-keywords="深圳,房地产,中国经济,新型冠状病毒"><div class="item-inner">
+<h2 class="item-headline"><a target="_blank" href="/premium/001089122" class="item-headline-link locked">深圳：火热楼市面对韧性考验</a></h2>
+<a class="image" target="_blank" href="/premium/001089122" >
+<figure class="loading" data-url="http://creatives.ftacademy.cn/picture/4/000099654_piclink.jpg"></figure>
 </a>
-<div class="item-lead">中国一些银行的理财子公司已经与或有意与外国资管机构合作，成立由外资控股的合资理财公司，或者合作推出理财产品。</div><div class="item-time" data-time="1597722040" data-pubdate="1597680000" data-fileupdatetime="1597722125" data-last-publish-time="1597722040">1天前</div>
+<div class="item-lead">深圳房价上涨得益于其作为中国科技中心的地位、以及土地供应短缺，但也体现出中国住房市场面对新冠疫情的韧性。</div><div class="item-time" data-time="1598381365" data-pubdate="1598371200" data-fileupdatetime="1598380276" data-last-publish-time="1598381365">1天前</div>
 <div class="item-bottom"></div>
 </div></div>
  
  
 <div class=" ST PT"></div>
-<div class="item-container XL3 L3 S4 M6 P12     item-container-app has-image" data-id="001089017" data-type="premium" data-keywords="能源,新能源,石油,环保"><div class="item-inner">
-<h2 class="item-headline"><a target="_blank" href="/premium/001089017" class="item-headline-link locked">企业应回归能源政策辩论</a></h2>
-<a class="image" target="_blank" href="/premium/001089017" >
-<figure class="loading" data-url="http://creatives.ftacademy.cn/picture/6/000080116_piclink.jpg"></figure>
+<div class="item-container XL3 L3 S4 M6 P12     item-container-app has-image" data-id="001089121" data-type="premium" data-keywords="FT大视野,华为,中美贸易战,国家安全"><div class="item-inner">
+<h2 class="item-headline"><a target="_blank" href="/premium/001089121" class="item-headline-link locked">华为是否“大到不能倒”？</a></h2>
+<a class="image" target="_blank" href="/premium/001089121" >
+<figure class="loading" data-url="http://creatives.ftacademy.cn/picture/7/000099657_piclink.jpg"></figure>
 </a>
-<div class="item-lead">巴特勒：能源已经成为全球公共政策辩论的重要议题，然而来自商界的声音，在很大程度上被排除在了政策制定流程之外。</div><div class="item-time" data-time="1597693860" data-pubdate="1597680000" data-fileupdatetime="1597692064" data-last-publish-time="1597693860">1天前</div>
+<div class="item-lead">有些人将美国对华为的最新制裁比作“死刑判决”，但也有人认为此言过早。中国政府会出手吗？华为困局是否有解？</div><div class="item-time" data-time="1598381365" data-pubdate="1598371200" data-fileupdatetime="1598407230" data-last-publish-time="1598381365">1天前</div>
 <div class="item-bottom"></div>
 </div></div>
  
  
 <div class=" MT PT"></div>
-<div class="item-container XL3 L3 S4 M6 P12     item-container-app has-image" data-id="001089016" data-type="premium" data-keywords="上海,租界,金融,贸易,犹太人,上海王"><div class="item-inner">
-<h2 class="item-headline"><a target="_blank" href="/premium/001089016" class="item-headline-link locked">书评：最后的上海王</a></h2>
-<a class="image" target="_blank" href="/premium/001089016" >
-<figure class="loading" data-url="http://creatives.ftacademy.cn/picture/3/000099213_piclink.jpg"></figure>
+<div class="item-container XL3 L3 S4 M6 P12     item-container-app has-image" data-id="001089120" data-type="premium" data-keywords="全球化,地缘政治,硅谷,特朗普,新兴市场,华为,拜登"><div class="item-inner">
+<h2 class="item-headline"><a target="_blank" href="/premium/001089120" class="item-headline-link locked">全球化的下一阶段：规则之争成为焦点</a></h2>
+<a class="image" target="_blank" href="/premium/001089120" >
+<figure class="loading" data-url="http://creatives.ftacademy.cn/picture/6/000099656_piclink.jpg"></figure>
 </a>
-<div class="item-lead">本书讲述两个犹太家族在上世纪30年代的上海商界驰骋的往事。他们留下的地标性建筑至今妆点着上海的天际线。</div><div class="item-time" data-time="1597693860" data-pubdate="1597680000" data-fileupdatetime="1597685730" data-last-publish-time="1597693860">1天前</div>
+<div class="item-lead">桑德布：后特朗普时代，基于规则的全球化有望回归，但美国、欧盟和中国将围绕谁来制定规则展开激烈竞争。</div><div class="item-time" data-time="1598381365" data-pubdate="1598371200" data-fileupdatetime="1598380033" data-last-publish-time="1598381365">1天前</div>
 <div class="item-bottom"></div>
 </div></div>
  
  
 <div class=" PT"></div>
-<div class="item-container XL3 L3 S4 M6 P12     item-container-app has-image" data-id="001089015" data-type="premium" data-keywords="新型市场,MSCI,经济"><div class="item-inner">
-<h2 class="item-headline"><a target="_blank" href="/premium/001089015" class="item-headline-link locked">MSCI新兴市场指数权重失衡影响几何？</a></h2>
-<a class="image" target="_blank" href="/premium/001089015" >
-<figure class="loading" data-url="http://creatives.ftacademy.cn/picture/5/000070945_piclink.jpg"></figure>
+<div class="item-container XL3 L3 S4 M6 P12     item-container-app has-image" data-id="001089116" data-type="premium" data-keywords="联发科,华为,芯片"><div class="item-inner">
+<h2 class="item-headline"><a target="_blank" href="/premium/001089116" class="item-headline-link locked">联发科技遭受美国华为禁令冲击</a></h2>
+<a class="image" target="_blank" href="/premium/001089116" >
+<figure class="loading" data-url="http://creatives.ftacademy.cn/picture/4/000099614_piclink.jpg"></figure>
 </a>
-<div class="item-lead">数据显示，MSCI新兴市场指数的权重已经向亚洲经济体集中，其中中国大陆、台湾���韩国占据了63.5%。</div><div class="item-time" data-time="1597693860" data-pubdate="1597680000" data-fileupdatetime="1597688705" data-last-publish-time="1597693860">1天前</div>
+<div class="item-lead">直到近日，曾被称为中国“山寨机”之王的台湾富翁蔡明介还很风光。但美国上周的华为禁令，却令他的联发科一下子从波峰跌入波谷。</div><div class="item-time" data-time="1598340956" data-pubdate="1598284800" data-fileupdatetime="1598341286" data-last-publish-time="1598340956">2天前</div>
 <div class="item-bottom"></div>
 </div></div>
  
  
 <div class=" XLT LT ST MT PT"></div>
-<div class="item-container XL3 L3 S4 M6 P12     item-container-app has-image" data-id="001089014" data-type="premium" data-keywords="美国大选,特朗普,拜登,佩洛西"><div class="item-inner">
-<h2 class="item-headline"><a target="_blank" href="/premium/001089014" class="item-headline-link locked">“拜登经济学”和美国新“新政”</a></h2>
-<a class="image" target="_blank" href="/premium/001089014" >
-<figure class="loading" data-url="http://creatives.ftacademy.cn/picture/9/000099209_piclink.jpg"></figure>
+<div class="item-container XL3 L3 S4 M6 P12     item-container-app has-image" data-id="001089112" data-type="premium" data-keywords="华为,电信,印度,中印关系,5G"><div class="item-inner">
+<h2 class="item-headline"><a target="_blank" href="/premium/001089112" class="item-headline-link locked">印度将从电信网络中逐步排除华为设备</a></h2>
+<a class="image" target="_blank" href="/premium/001089112" >
+<figure class="loading" data-url="http://creatives.ftacademy.cn/picture/0/000099610_piclink.jpg"></figure>
 </a>
-<div class="item-lead">卢斯：如果特朗普败选，民主党应在拜登任期努力推行重大改革，这将是半个多世纪以来重写美国社会契约的最佳机会。</div><div class="item-time" data-time="1597693860" data-pubdate="1597680000" data-fileupdatetime="1597692138" data-last-publish-time="1597693860">1天前</div>
+<div class="item-lead">根据行业高管和官员的说法，印度政府已指示电信企业在未来的投资中不要采用中国设备，但它未发表过任何���类公开声明。</div><div class="item-time" data-time="1598330490" data-pubdate="1598284800" data-fileupdatetime="1598330691" data-last-publish-time="1598330490">2天前</div>
 <div class="item-bottom"></div>
 </div></div>
 <div 
@@ -340,56 +348,56 @@ data-o-ads-targeting="cnpos=info2;"
  
  
 <div class=" PT"></div>
-<div class="item-container XL3 L3 S4 M6 P12     item-container-app has-image" data-id="001089007" data-type="premium" data-keywords="南中国海,菲律宾,中美关系,中菲关系"><div class="item-inner">
-<h2 class="item-headline"><a target="_blank" href="/premium/001089007" class="item-headline-link locked">美国强硬的南中国海政策遭菲律宾泼冷水</a></h2>
-<a class="image" target="_blank" href="/premium/001089007" >
-<figure class="loading" data-url="http://creatives.ftacademy.cn/picture/9/000099169_piclink.jpg"></figure>
+<div class="item-container XL3 L3 S4 M6 P12     item-container-app has-image" data-id="001089111" data-type="premium" data-keywords="微信,腾讯,TikTok,特朗普,中美贸易战,中美关系"><div class="item-inner">
+<h2 class="item-headline"><a target="_blank" href="/premium/001089111" class="item-headline-link locked">Lex专栏：特朗普的微信禁令可能适得其反</a></h2>
+<a class="image" target="_blank" href="/premium/001089111" >
+<figure class="loading" data-url="http://creatives.ftacademy.cn/picture/2/000099612_piclink.jpg"></figure>
 </a>
-<div class="item-lead">美国的南中国海立场日趋强硬，并尝试以具体行动配合其言论。但菲律宾在该问题上的立场的转变，可能成为美国强硬战略的薄弱环节。</div><div class="item-time" data-time="1597653414" data-pubdate="1597593600" data-fileupdatetime="1597654025" data-last-publish-time="1597653414">2天前</div>
+<div class="item-lead">事实上，特朗普限制美国企业使用中国腾讯旗下的微信和中资背景的TikTok的行政令，可能对美国企业伤害更大。</div><div class="item-time" data-time="1598327188" data-pubdate="1598284800" data-fileupdatetime="1598327262" data-last-publish-time="1598327188">2天前</div>
 <div class="item-bottom"></div>
 </div></div>
  
  
 <div class=" MT PT"></div>
-<div class="item-container XL3 L3 S4 M6 P12     item-container-app has-image" data-id="001088997" data-type="premium" data-keywords="香港,中资银行,华尔街投行,香港国安法"><div class="item-inner">
-<h2 class="item-headline"><a target="_blank" href="/premium/001088997" class="item-headline-link locked">中资金融机构努力扩大香港业务</a></h2>
-<a class="image" target="_blank" href="/premium/001088997" >
-<figure class="loading" data-url="http://creatives.ftacademy.cn/picture/5/000091485_piclink.jpg"></figure>
+<div class="item-container XL3 L3 S4 M6 P12     item-container-app has-image" data-id="001089109" data-type="premium" data-keywords="深圳证交所,创业板,中国人民银行,新兴市场,新股发行,纳斯达克"><div class="item-inner">
+<h2 class="item-headline"><a target="_blank" href="/premium/001089109" class="item-headline-link locked">创业板改革引发股价暴涨</a></h2>
+<a class="image" target="_blank" href="/premium/001089109" >
+<figure class="loading" data-url="http://creatives.ftacademy.cn/picture/9/000085909_piclink.jpg"></figure>
 </a>
-<div class="item-lead">数据显示，中资集团在香港聘用的投行从业者人数逼近华尔街同行。2019年以来，香港增长最快的五家金融集团中，有四家来自中国内地。</div><div class="item-time" data-time="1597615891" data-pubdate="1597593600" data-fileupdatetime="1597614005" data-last-publish-time="1597615891">2天前</div>
+<div class="item-lead">最新改革取消了创业板新股上市首五日涨跌幅限制，康泰医学盘中暴涨近3000%。</div><div class="item-time" data-time="1598306512" data-pubdate="1598284800" data-fileupdatetime="1598305244" data-last-publish-time="1598306512">2天前</div>
 <div class="item-bottom"></div>
 </div></div>
  
  
 <div class=" ST PT"></div>
-<div class="item-container XL3 L3 S4 M6 P12     item-container-app has-image" data-id="001088992" data-type="premium" data-keywords="互联网,上网,电商,5G"><div class="item-inner">
-<h2 class="item-headline"><a target="_blank" href="/premium/001088992" class="item-headline-link locked">普及上网是商机，也是社会责任</a></h2>
-<a class="image" target="_blank" href="/premium/001088992" >
-<figure class="loading" data-url="http://creatives.ftacademy.cn/picture/6/000087356_piclink.jpg"></figure>
+<div class="item-container XL3 L3 S4 M6 P12     item-container-app has-image" data-id="001089106" data-type="premium" data-keywords="美国,美国外交,地缘政治,特朗普,书评"><div class="item-inner">
+<h2 class="item-headline"><a target="_blank" href="/premium/001089106" class="item-headline-link locked">美国的外交���策钟摆如何影响世界？</a></h2>
+<a class="image" target="_blank" href="/premium/001089106" >
+<figure class="loading" data-url="http://creatives.ftacademy.cn/picture/5/000095265_piclink.jpg"></figure>
 </a>
-<div class="item-lead">桑希尔：新冠危机突显网络是家庭的生命线，是信息、教育和娱乐的来源。一些迹象表明，这场危机将推动普及上网的努力。</div><div class="item-time" data-time="1597607958" data-pubdate="1597593600" data-fileupdatetime="1597604439" data-last-publish-time="1597607958">2天前</div>
+<div class="item-lead">斯蒂芬斯：美国的外交政策从来都像一个钟摆，在自私的孤立主义和植根于美国例外论的干预主义之间来回摆动。</div><div class="item-time" data-time="1598297911" data-pubdate="1598284800" data-fileupdatetime="1598293324" data-last-publish-time="1598297911">2天前</div>
 <div class="item-bottom"></div>
 </div></div>
  
  
 <div class=" XLT LT MT PT"></div>
-<div class="item-container XL3 L3 S4 M6 P12     item-container-app has-image" data-id="001088991" data-type="premium" data-keywords="FT大视野,石油,油价,能源,新能源"><div class="item-inner">
-<h2 class="item-headline"><a target="_blank" href="/premium/001088991" class="item-headline-link locked">最后的探索：石油行业收缩勘探活动</a></h2>
-<a class="image" target="_blank" href="/premium/001088991" >
-<figure class="loading" data-url="http://creatives.ftacademy.cn/picture/1/000099131_piclink.jpg"></figure>
+<div class="item-container XL3 L3 S4 M6 P12     item-container-app has-image" data-id="001089105" data-type="premium" data-keywords="路易威登,中国市场,中美贸易战,新型冠状病毒"><div class="item-inner">
+<h2 class="item-headline"><a target="_blank" href="/premium/001089105" class="item-headline-link locked">迈克尔•伯克：路易威登将加速布局中国</a></h2>
+<a class="image" target="_blank" href="/premium/001089105" >
+<figure class="loading" data-url="http://creatives.ftacademy.cn/picture/0/000099600_piclink.jpg"></figure>
 </a>
-<div class="item-lead">过去5年，石油巨头的累计勘探支出下降了40%至45%。新的勘探被活动人士认为是“对地球的犯罪”，企业只好低调地进行勘探。</div><div class="item-time" data-time="1597607958" data-pubdate="1597593600" data-fileupdatetime="1597604265" data-last-publish-time="1597607958">2天前</div>
+<div class="item-lead">路易威登首席执行官对FT表示，五年内，路易威登的大部分业务都将在中国市场，而新冠疫情加速了这一进程。</div><div class="item-time" data-time="1598297911" data-pubdate="1598284800" data-fileupdatetime="1598306185" data-last-publish-time="1598297911">2天前</div>
 <div class="item-bottom"></div>
 </div></div>
  
  
 <div class=" PT"></div>
-<div class="item-container XL3 L3 S4 M6 P12     item-container-app has-image" data-id="001088989" data-type="premium" data-keywords="FT大���野,教育,英国,大学,A Level"><div class="item-inner">
-<h2 class="item-headline"><a target="_blank" href="/premium/001088989" class="item-headline-link locked">疫情如何影响英国“高考”和教育公平</a></h2>
-<a class="image" target="_blank" href="/premium/001088989" >
-<figure class="loading" data-url="http://creatives.ftacademy.cn/picture/8/000099128_piclink.jpg"></figure>
+<div class="item-container XL3 L3 S4 M6 P12     item-container-app has-image" data-id="001089104" data-type="premium" data-keywords="ESG,投资,股东权益"><div class="item-inner">
+<h2 class="item-headline"><a target="_blank" href="/premium/001089104" class="item-headline-link locked">谨慎对待ESG投资</a></h2>
+<a class="image" target="_blank" href="/premium/001089104" >
+<figure class="loading" data-url="http://creatives.ftacademy.cn/picture/6/000099596_piclink.jpg"></figure>
 </a>
-<div class="item-lead">新冠疫情导致英国取消了今年的A Level考试，采用一系列统计评估法对学生进行打分。人们担心，这将对弱势群体学生更加不利。</div><div class="item-time" data-time="1597607958" data-pubdate="1597593600" data-fileupdatetime="1597637368" data-last-publish-time="1597607958">2天前</div>
+<div class="item-lead">ESG投资理念背后隐藏着一种危险的看法：股东经济利益和社会利益长期而言总是会协调一致。而事实并非如此。</div><div class="item-time" data-time="1598297911" data-pubdate="1598284800" data-fileupdatetime="1598290787" data-last-publish-time="1598297911">2天前</div>
 <div class="item-bottom"></div>
 </div></div>
 <div 
@@ -407,34 +415,34 @@ data-cy='[{"devices":["iPhoneWeb","AndroidWeb","iPhoneApp","AndroidApp"],"patter
  
  
 <div class=" ST MT PT"></div>
-<div class="item-container XL3 L3 S4 M6 P12     item-container-app has-image" data-id="001088979" data-type="premium" data-keywords="在美中企,投资,SEC,纳���达克,美国股市"><div class="item-inner">
-<h2 class="item-headline"><a target="_blank" href="/premium/001088979" class="item-headline-link locked">安本标准投资：中国企业在美退市将导致估值过低</a></h2>
-<a class="image" target="_blank" href="/premium/001088979" >
-<figure class="loading" data-url="http://creatives.ftacademy.cn/picture/7/000095567_piclink.jpg"></figure>
+<div class="item-container XL3 L3 S4 M6 P12     item-container-app has-image" data-id="001089102" data-type="premium" data-keywords="美国股市,做空"><div class="item-inner">
+<h2 class="item-headline"><a target="_blank" href="/premium/001089102" class="item-headline-link locked">美股空头净额比率创15年新低</a></h2>
+<a class="image" target="_blank" href="/premium/001089102" >
+<figure class="loading" data-url="http://creatives.ftacademy.cn/picture/5/000099555_piclink.jpg"></figure>
 </a>
-<div class="item-lead">安本标准投资认为，如果美国继续要求中国企业必须接受审计检查否则就从美国退市，投资者可能会受到不公正待遇。</div><div class="item-time" data-time="1597395093" data-pubdate="1597334400" data-fileupdatetime="1597395017" data-last-publish-time="1597395093">4天前</div>
+<div class="item-lead">随着美股从3月低点大幅飙升，寻求从美股下跌中获利的投资者遭受了巨大损失，其中押注科技股下跌的卖空者损失最为惨重。</div><div class="item-time" data-time="1598258191" data-pubdate="1598198400" data-fileupdatetime="1598258352" data-last-publish-time="1598258191">3天前</div>
 <div class="item-bottom"></div>
 </div></div>
  
  
 <div class=" PT"></div>
-<div class="item-container XL3 L3 S4 M6 P12     item-container-app has-image" data-id="001088977" data-type="premium" data-keywords="中国经济,中国股市,基金,新兴市场,投资"><div class="item-inner">
-<h2 class="item-headline"><a target="_blank" href="/premium/001088977" class="item-headline-link locked">晨星：中国投资者错过业绩最佳主动型基金</a></h2>
-<a class="image" target="_blank" href="/premium/001088977" >
-<figure class="loading" data-url="http://creatives.ftacademy.cn/picture/3/000090473_piclink.jpg"></figure>
+<div class="item-container XL3 L3 S4 M6 P12     item-container-app has-image" data-id="001089097" data-type="premium" data-keywords="远程办公,在家办公,远程工作,伦敦金融城"><div class="item-inner">
+<h2 class="item-headline"><a target="_blank" href="/premium/001089097" class="item-headline-link locked">伦敦金融城企业计划让远程办公成为常态</a></h2>
+<a class="image" target="_blank" href="/premium/001089097" >
+<figure class="loading" data-url="http://creatives.ftacademy.cn/picture/8/000099548_piclink.jpg"></figure>
 </a>
-<div class="item-lead">数据提供商晨星的数据显示，“投资者普遍未能选择业绩高于平均水平的主动偏股型基金”，这反映出避险情绪。</div><div class="item-time" data-time="1597385011" data-pubdate="1597334400" data-fileupdatetime="1597381225" data-last-publish-time="1597385011">5天前</div>
+<div class="item-lead">伦敦金融城的银行、资产管理公司、保险公司及会计师事务所纷纷拿出计划，打算将员工在家办公变得更常规化。</div><div class="item-time" data-time="1598236313" data-pubdate="1598198400" data-fileupdatetime="1598236425" data-last-publish-time="1598236313">3天前</div>
 <div class="item-bottom"></div>
 </div></div>
  
  
 <div class=" XLT LT MT PT"></div>
-<div class="item-container XL3 L3 S4 M6 P12     item-container-app has-image" data-id="001088974" data-type="premium" data-keywords="美国大选,特朗普,拜登,佩洛西"><div class="item-inner">
-<h2 class="item-headline"><a target="_blank" href="/premium/001088974" class="item-headline-link locked">特朗普威胁阻止向邮寄投票拨款</a></h2>
-<a class="image" target="_blank" href="/premium/001088974" >
-<figure class="loading" data-url="http://creatives.ftacademy.cn/picture/3/000098433_piclink.jpg"></figure>
+<div class="item-container XL3 L3 S4 M6 P12     item-container-app has-image" data-id="001089095" data-type="premium" data-keywords="微信,国家安全,特朗普,社交媒体,新兴市场,腾讯"><div class="item-inner">
+<h2 class="item-headline"><a target="_blank" href="/premium/001089095" class="item-headline-link locked">美国微信用户挑战白宫微信禁令</a></h2>
+<a class="image" target="_blank" href="/premium/001089095" >
+<figure class="loading" data-url="http://creatives.ftacademy.cn/picture/4/000099544_piclink.jpg"></figure>
 </a>
-<div class="item-lead">近期多次抨击邮寄投票方式的美国总统警告，他不会同意任何为邮寄投票拨款的立法。</div><div class="item-time" data-time="1597354577" data-pubdate="1597334400" data-fileupdatetime="1597353055" data-last-publish-time="1597354577">5天前</div>
+<div class="item-lead">美国微信用户联合会声称，微信已成为数百万华裔美国人不可或缺的数字服务，而特朗普发布的行政令将打击这一人群���</div><div class="item-time" data-time="1598220543" data-pubdate="1598198400" data-fileupdatetime="1598220249" data-last-publish-time="1598220543">3天前</div>
 <div class="item-bottom"></div>
 </div></div>
 <div 
@@ -451,34 +459,34 @@ data-o-ads-targeting="cnpos=info3;"
  
  
 <div class=" ST PT"></div>
-<div class="item-container XL3 L3 S4 M6 P12     item-container-app has-image" data-id="001088973" data-type="premium" data-keywords="新型冠状病毒,疫苗,康希诺生物"><div class="item-inner">
-<h2 class="item-headline"><a target="_blank" href="/premium/001088973" class="item-headline-link locked">新冠疫苗开发商纷纷寻求通过股市募资</a></h2>
-<a class="image" target="_blank" href="/premium/001088973" >
-<figure class="loading" data-url="http://creatives.ftacademy.cn/picture/2/000094012_piclink.jpg"></figure>
+<div class="item-container XL3 L3 S4 M6 P12     item-container-app has-image" data-id="001089090" data-type="premium" data-keywords="华尔街,花旗,高盛,摩根大通,瑞士信贷,Facebook,黑石,新股发行,并购,摩根士丹利,德意志银行"><div class="item-inner">
+<h2 class="item-headline"><a target="_blank" href="/premium/001089090" class="item-headline-link locked">华尔街银行竞相追逐SPAC热潮</a></h2>
+<a class="image" target="_blank" href="/premium/001089090" >
+<figure class="loading" data-url="http://creatives.ftacademy.cn/picture/6/000099286_piclink.jpg"></figure>
 </a>
-<div class="item-lead">中国公司康希诺生物在上海证交所科创板交易首日股价飙升127%。德国CureVac也准备在纽约IPO。</div><div class="item-time" data-time="1597354577" data-pubdate="1597334400" data-fileupdatetime="1597354093" data-last-publish-time="1597354577">5天前</div>
+<div class="item-lead">特殊目的收购公司的兴起为承销商带来了丰厚的手续费收入，促使投行重组股票团队以顺应这一趋势。</div><div class="item-time" data-time="1598206611" data-pubdate="1598198400" data-fileupdatetime="1598219348" data-last-publish-time="1598206611">3天前</div>
 <div class="item-bottom"></div>
 </div></div>
  
  
 <div class=" MT PT"></div>
-<div class="item-container XL3 L3 S4 M6 P12     item-container-app has-image" data-id="001088972" data-type="premium" data-keywords="联想,中美关系,中美经贸,中美贸易战,电脑"><div class="item-inner">
-<h2 class="item-headline"><a target="_blank" href="/premium/001088972" class="item-headline-link locked">联想实现强劲销售和利润增长</a></h2>
-<a class="image" target="_blank" href="/premium/001088972" >
-<figure class="loading" data-url="http://creatives.ftacademy.cn/picture/1/000099061_piclink.jpg"></figure>
+<div class="item-container XL3 L3 S4 M6 P12     item-container-app has-image" data-id="001089089" data-type="premium" data-keywords="FT大视野,新型冠状病毒,科学,特朗普,健康,阿斯利康,微软,哈佛大学,Facebook,拜登,盖茨"><div class="item-inner">
+<h2 class="item-headline"><a target="_blank" href="/premium/001089089" class="item-headline-link locked">谁在疫情期间反对疫苗？</a></h2>
+<a class="image" target="_blank" href="/premium/001089089" >
+<figure class="loading" data-url="http://creatives.ftacademy.cn/picture/0/000099530_piclink.jpg"></figure>
 </a>
-<div class="item-lead">多家中国企业在美国遭遇阻力之际，联想在美业务是一个罕见的成功故事，上半年在美国笔记本和台式电脑市场份额增至16%。</div><div class="item-time" data-time="1597354577" data-pubdate="1597334400" data-fileupdatetime="1597353598" data-last-publish-time="1597354577">5天前</div>
+<div class="item-lead">就在各方全力以赴研发新冠疫苗之际，许多美国人对疫苗犹豫不决，担心特朗普为了提振自己的选情而施压联邦监管部门仓促批准疫苗。</div><div class="item-time" data-time="1598206611" data-pubdate="1598198400" data-fileupdatetime="1598199433" data-last-publish-time="1598206611">3天前</div>
 <div class="item-bottom"></div>
 </div></div>
  
  
 <div class=" PT"></div>
-<div class="item-container XL3 L3 S4 M6 P12     item-container-app has-image" data-id="001088971" data-type="premium" data-keywords="黄金,美联储,投资,贵金属"><div class="item-inner">
-<h2 class="item-headline"><a target="_blank" href="/premium/001088971" class="item-headline-link locked">黄金成为“必备”资产后的隐患</a></h2>
-<a class="image" target="_blank" href="/premium/001088971" >
-<figure class="loading" data-url="http://creatives.ftacademy.cn/picture/1/000099051_piclink.jpg"></figure>
+<div class="item-container XL3 L3 S4 M6 P12     item-container-app has-image" data-id="001089088" data-type="premium" data-keywords="民粹主义,国际政治,美国大选,特朗普,普京,拜登"><div class="item-inner">
+<h2 class="item-headline"><a target="_blank" href="/premium/001089088" class="item-headline-link locked">特朗普败选将打击欧洲民粹主义</a></h2>
+<a class="image" target="_blank" href="/premium/001089088" >
+<figure class="loading" data-url="http://creatives.ftacademy.cn/picture/6/000092036_piclink.jpg"></figure>
 </a>
-<div class="item-lead">埃里安：黄金变成“必备”资产是一个更大转变的起点。投资者正将越来越多的传统高���险资产当作低风险资产，甚至用其对冲风险。</div><div class="item-time" data-time="1597345503" data-pubdate="1597334400" data-fileupdatetime="1597340226" data-last-publish-time="1597345503">5天前</div>
+<div class="item-lead">克勒斯特夫：拉拢对俄罗斯和德国持怀疑态度的几个欧盟成员国似乎是特朗普政府对欧政策的精髓。如果特朗普败选，这种战略将难以为继。</div><div class="item-time" data-time="1598206611" data-pubdate="1598198400" data-fileupdatetime="1598219391" data-last-publish-time="1598206611">3天前</div>
 <div class="item-bottom"></div>
 </div></div>
 <div 
@@ -496,34 +504,34 @@ data-cy='[{"devices":["iPhoneWeb","AndroidWeb","iPhoneApp","AndroidApp"],"patter
  
  
 <div class=" XLT LT ST MT PT"></div>
-<div class="item-container XL3 L3 S4 M6 P12     item-container-app has-image" data-id="001088953" data-type="premium" data-keywords="英国脱欧,英国退欧,特朗普,英国,欧盟"><div class="item-inner">
-<h2 class="item-headline"><a target="_blank" href="/premium/001088953" class="item-headline-link locked">英国脱欧反而可能强化西方联盟</a></h2>
-<a class="image" target="_blank" href="/premium/001088953" >
-<figure class="loading" data-url="http://creatives.ftacademy.cn/picture/2/000099002_piclink.jpg"></figure>
+<div class="item-container XL3 L3 S4 M6 P12     item-container-app has-image" data-id="001089082" data-type="premium" data-keywords="TikTok,微软,Facebook,Instagram"><div class="item-inner">
+<h2 class="item-headline"><a target="_blank" href="/premium/001089082" class="item-headline-link locked">TikTok的收购大戏或造福Facebook</a></h2>
+<a class="image" target="_blank" href="/premium/001089082" >
+<figure class="loading" data-url="http://creatives.ftacademy.cn/picture/9/000098819_piclink.jpg"></figure>
 </a>
-<div class="item-lead">拉赫曼：没有了英国这个成员，欧盟能够进一步推进一体化。而对后特朗普时代的美国而言���更强大的欧盟将是更有效的伙伴。</div><div class="item-time" data-time="1597260919" data-pubdate="1597248000" data-fileupdatetime="1597252088" data-last-publish-time="1597260919">6天前</div>
+<div class="item-lead">对TikTok的争夺实际上事关数据采集。这款应用的算法值得一争。无论TikTok的买主是谁，扎克伯格都可能成为真正赢家。</div><div class="item-time" data-time="1597994285" data-pubdate="1597939200" data-fileupdatetime="1597994637" data-last-publish-time="1597994285">6天前</div>
 <div class="item-bottom"></div>
 </div></div>
  
  
 <div class=" PT"></div>
-<div class="item-container XL3 L3 S4 M6 P12     item-container-app has-image" data-id="001088950" data-type="premium" data-keywords="IPO,中资企业,华尔街,中美关系,上市"><div class="item-inner">
-<h2 class="item-headline"><a target="_blank" href="/premium/001088950" class="item-headline-link locked">华尔街银行从中企身上所赚IPO佣金不降反升</a></h2>
-<a class="image" target="_blank" href="/premium/001088950" >
-<figure class="loading" data-url="http://creatives.ftacademy.cn/picture/9/000098999_piclink.jpg"></figure>
+<div class="item-container XL3 L3 S4 M6 P12     item-container-app has-image" data-id="001089079" data-type="premium" data-keywords="阿里巴巴,亚马逊,腾讯,在美中企"><div class="item-inner">
+<h2 class="item-headline"><a target="_blank" href="/premium/001089079" class="item-headline-link locked">Lex专栏：阿里巴巴距离亚马逊更远了</a></h2>
+<a class="image" target="_blank" href="/premium/001089079" >
+<figure class="loading" data-url="http://creatives.ftacademy.cn/picture/6/000091046_piclink.jpg"></figure>
 </a>
-<div class="item-lead">路孚特的数据显示，今年以来，美国的银行从中国企业的股票发行中赚取的费用较一年前增长约24%，达到4.14亿美元。</div><div class="item-time" data-time="1597260919" data-pubdate="1597248000" data-fileupdatetime="1597252176" data-last-publish-time="1597260919">6天前</div>
+<div class="item-lead">阿里巴巴在国内遭遇腾讯的激烈竞争。它正指望在美国市场实现增���，然而中美争斗对阿里巴巴的未来是不祥之兆。</div><div class="item-time" data-time="1597981597" data-pubdate="1597939200" data-fileupdatetime="1597981554" data-last-publish-time="1597981597">6天前</div>
 <div class="item-bottom"></div>
 </div></div>
  
  
 <div class=" MT PT"></div>
-<div class="item-container XL3 L3 S4 M6 P12     item-container-app has-image" data-id="001088949" data-type="premium" data-keywords="���元,美联储,汇丰,欧洲央行"><div class="item-inner">
-<h2 class="item-headline"><a target="_blank" href="/premium/001088949" class="item-headline-link locked">美元的生命力还很强</a></h2>
-<a class="image" target="_blank" href="/premium/001088949" >
-<figure class="loading" data-url="http://creatives.ftacademy.cn/picture/4/000096374_piclink.jpg"></figure>
+<div class="item-container XL3 L3 S4 M6 P12     item-container-app has-image" data-id="001089077" data-type="premium" data-keywords="三峡,中国,中国经济,新兴市场"><div class="item-inner">
+<h2 class="item-headline"><a target="_blank" href="/premium/001089077" class="item-headline-link locked">中国三峡大坝水位处于建库以来最高水平</a></h2>
+<a class="image" target="_blank" href="/premium/001089077" >
+<figure class="loading" data-url="http://creatives.ftacademy.cn/picture/2/000099462_piclink.jpg"></figure>
 </a>
-<div class="item-lead">邦宁：似乎可以解释美元近期疲软的许多因素，应该不会持续太久。基于对近期趋势的外推预测美元进一步走低，可能会失算。</div><div class="item-time" data-time="1597260919" data-pubdate="1597248000" data-fileupdatetime="1597251589" data-last-publish-time="1597260919">6天前</div>
+<div class="item-lead">长江上游面临今夏第五次洪峰之际，三峡大坝的泄洪流量达到每秒4.92万立方米，这也是三峡建库以来最高水平。</div><div class="item-time" data-time="1597959650" data-pubdate="1597939200" data-fileupdatetime="1597958984" data-last-publish-time="1597959650">6天前</div>
 <div class="item-bottom"></div>
 </div></div>
 <div 
@@ -540,23 +548,23 @@ data-o-ads-targeting="cnpos=info4;"
  
  
 <div class=" ST PT"></div>
-<div class="item-container XL3 L3 S4 M6 P12     item-container-app has-image" data-id="001088948" data-type="premium" data-keywords="FT大视野,汇丰,高盛,贝莱德,摩根大通,瑞银,欧洲央行,摩根士丹利,巴克莱"><div class="item-inner">
-<h2 class="item-headline"><a target="_blank" href="/premium/001088948" class="item-headline-link locked">疫情大考中的银行</a></h2>
-<a class="image" target="_blank" href="/premium/001088948" >
-<figure class="loading" data-url="http://creatives.ftacademy.cn/picture/4/000098994_piclink.jpg"></figure>
+<div class="item-container XL3 L3 S4 M6 P12     item-container-app has-image" data-id="001089075" data-type="premium" data-keywords="阿里巴巴,电商,中国经济"><div class="item-inner">
+<h2 class="item-headline"><a target="_blank" href="/premium/001089075" class="item-headline-link locked">阿里巴巴营收超预期</a></h2>
+<a class="image" target="_blank" href="/premium/001089075" >
+<figure class="loading" data-url="http://creatives.ftacademy.cn/picture/5/000089655_piclink.jpg"></figure>
 </a>
-<div class="item-lead">新冠危机给银行业带来巨大考验，巨额信贷损失让低利率环境下本已微薄的利润承压，今年以来欧美银行股皆大跌。</div><div class="item-time" data-time="1597260919" data-pubdate="1597248000" data-fileupdatetime="1597253062" data-last-publish-time="1597260919">6天前</div>
+<div class="item-lead">这家电商巨头公布了好于预期的销售增长，尽管其业务受到高速增长的竞争对手和海外政策制定者日益加大的威胁。</div><div class="item-time" data-time="1597959650" data-pubdate="1597939200" data-fileupdatetime="1597957422" data-last-publish-time="1597959650">6天前</div>
 <div class="item-bottom"></div>
 </div></div>
  
  
 <div class=" XLT LT MT PT"></div>
-<div class="item-container XL3 L3 S4 M6 P12     item-container-app has-image" data-id="001088945" data-type="premium" data-keywords="香港,银行,制裁,中美关系"><div class="item-inner">
-<h2 class="item-headline"><a target="_blank" href="/premium/001088945" class="item-headline-link locked">美国涉港制裁对银行有负面影响</a></h2>
-<a class="image" target="_blank" href="/premium/001088945" >
-<figure class="loading" data-url="http://creatives.ftacademy.cn/picture/3/000098963_piclink.jpg"></figure>
+<div class="item-container XL3 L3 S4 M6 P12     item-container-app has-image" data-id="001089072" data-type="premium" data-keywords="FT大视野,新型冠状病毒,中国经济,单页"><div class="item-inner">
+<h2 class="item-headline"><a target="_blank" href="/premium/001089072" class="item-headline-link locked">中国经济疫情后的不均衡复苏</a></h2>
+<a class="image" target="_blank" href="/premium/001089072" >
+<figure class="loading" data-url="http://creatives.ftacademy.cn/picture/8/000099458_piclink.jpg"></figure>
 </a>
-<div class="item-lead">香港金管局表示，美方制裁在香港境内“没有法律效力”。但这些措施可能对在香港经营的美国和国际银行产生重大影响。</div><div class="item-time" data-time="1597222217" data-pubdate="1597161600" data-fileupdatetime="1597222276" data-last-publish-time="1597222217">6天前</div>
+<div class="item-lead">到目前为止，中国较富裕阶层在经济上基本未受疫情严重影响，但许多低收入者却陷入了困境。</div><div class="item-time" data-time="1597951768" data-pubdate="1597939200" data-fileupdatetime="1597951679" data-last-publish-time="1597951768">6天前</div>
 <div class="item-bottom"></div>
 </div></div>
 <div 
@@ -574,78 +582,78 @@ data-cy='[{"devices":["iPhoneWeb","AndroidWeb","iPhoneApp","AndroidApp"],"patter
  
  
 <div class=" PT"></div>
-<div class="item-container XL3 L3 S4 M6 P12     item-container-app has-image" data-id="001088941" data-type="premium" data-keywords="中概股,会计"><div class="item-inner">
-<h2 class="item-headline"><a target="_blank" href="/premium/001088941" class="item-headline-link locked">Lex专栏：中概股的止步和退市</a></h2>
-<a class="image" target="_blank" href="/premium/001088941" >
-<figure class="loading" data-url="http://creatives.ftacademy.cn/picture/8/000098918_piclink.jpg"></figure>
+<div class="item-container XL3 L3 S4 M6 P12     item-container-app has-image" data-id="001089060" data-type="premium" data-keywords="乐尚街,新冠疫情,拍卖,奢侈品,富豪"><div class="item-inner">
+<h2 class="item-headline"><a target="_blank" href="/premium/001089060" class="item-headline-link locked">疫情期，顶级富豪怎么消费？</a></h2>
+<a class="image" target="_blank" href="/premium/001089060" >
+<figure class="loading" data-url="http://creatives.ftacademy.cn/picture/3/000099393_piclink.jpg"></figure>
 </a>
-<div class="item-lead">推动改善海外上市中国企业的会计准则是有道理的，但以不符合美国的特定标准为由将它们驱逐出美国交易所则毫无道理。</div><div class="item-time" data-time="1597212655" data-pubdate="1597161600" data-fileupdatetime="1597212754" data-last-publish-time="1597212655">2020年8月12日</div>
+<div class="item-lead">疫情改变了顶级富豪的消费方式，却没阻止他们花钱。在线艺术拍卖、组织私人派对、在度假区购豪宅，有些领域消费暴涨。</div><div class="item-time" data-time="1597951768" data-pubdate="1597939200" data-fileupdatetime="1597957077" data-last-publish-time="1597951768">6天前</div>
 <div class="item-bottom"></div>
 </div></div>
  
  
 <div class=" ST MT PT"></div>
-<div class="item-container XL3 L3 S4 M6 P12     item-container-app has-image" data-id="001088937" data-type="premium" data-keywords="高通,垄断,科技,知识产权"><div class="item-inner">
-<h2 class="item-headline"><a target="_blank" href="/premium/001088937" class="item-headline-link locked">高通就涉嫌垄断市场案上诉获胜</a></h2>
-<a class="image" target="_blank" href="/premium/001088937" >
-<figure class="loading" data-url="http://creatives.ftacademy.cn/picture/4/000098904_piclink.jpg"></figure>
+<div class="item-container XL3 L3 S4 M6 P12     item-container-app has-image" data-id="001089063" data-type="premium" data-keywords="甲骨文,TikTok,中美贸易战,并购,字节跳动"><div class="item-inner">
+<h2 class="item-headline"><a target="_blank" href="/premium/001089063" class="item-headline-link locked">甲骨文为什么和微软抢TikTok？</a></h2>
+<a class="image" target="_blank" href="/premium/001089063" >
+<figure class="loading" data-url="http://creatives.ftacademy.cn/picture/5/000099385_piclink.jpg"></figure>
 </a>
-<div class="item-lead">联邦第九巡回上诉法院的裁决，令美国联邦贸易委员会去年赢得的诉讼受挫，后者发现高通利用知识产权收取过高使用费。</div><div class="item-time" data-time="1597182838" data-pubdate="1597161600" data-fileupdatetime="1597181267" data-last-publish-time="1597182838">2020年8月12日</div>
+<div class="item-lead">分析师认为，甲骨文有意收购TikTok的美国业务，是埃里森个人头脑发热、基于政治考量的投机行为，而不是出于公司的战略需要。</div><div class="item-time" data-time="1597906780" data-pubdate="1597852800" data-fileupdatetime="1597906623" data-last-publish-time="1597906780">2020年8月20日</div>
 <div class="item-bottom"></div>
 </div></div>
  
  
 <div class=" PT"></div>
-<div class="item-container XL3 L3 S4 M6 P12     item-container-app has-image" data-id="001088936" data-type="premium" data-keywords="英国,英国经济,就业,新型冠状病毒"><div class="item-inner">
-<h2 class="item-headline"><a target="_blank" href="/premium/001088936" class="item-headline-link locked">抗疫封锁以来英国近75万人失业</a></h2>
-<a class="image" target="_blank" href="/premium/001088936" >
-<figure class="loading" data-url="http://creatives.ftacademy.cn/picture/9/000098909_piclink.jpg"></figure>
+<div class="item-container XL3 L3 S4 M6 P12     item-container-app has-image" data-id="001089059" data-type="premium" data-keywords="市场,股票分拆,特斯拉,亚马逊,苹果,Facebook,谷歌"><div class="item-inner">
+<h2 class="item-headline"><a target="_blank" href="/premium/001089059" class="item-headline-link locked">Lex专栏：股票拆分有魔力吗？</a></h2>
+<a class="image" target="_blank" href="/premium/001089059" >
+<figure class="loading" data-url="http://creatives.ftacademy.cn/picture/5/000096205_piclink.jpg"></figure>
 </a>
-<div class="item-lead">得益于政府的职位保留计划，整体就业数据自3月以来变化不大。但随着该计划将于10月终止，会有更多英国人面临失业。</div><div class="item-time" data-time="1597182838" data-pubdate="1597161600" data-fileupdatetime="1597182627" data-last-publish-time="1597182838">2020年8月12日</div>
+<div class="item-lead">将一股1000美元的股票拆成两股500美元的股票，股份的价值理应不变。但苹果和特斯拉宣布股票分拆计划以来，股价均实现跃升。</div><div class="item-time" data-time="1597874653" data-pubdate="1597852800" data-fileupdatetime="1597873939" data-last-publish-time="1597874653">2020年8月20日</div>
 <div class="item-bottom"></div>
 </div></div>
  
  
 <div class=" XLT LT MT PT"></div>
-<div class="item-container XL3 L3 S4 M6 P12     item-container-app has-image" data-id="001088934" data-type="premium" data-keywords="欧盟,欧洲经济,欧洲"><div class="item-inner">
-<h2 class="item-headline"><a target="_blank" href="/premium/001088934" class="item-headline-link locked">欧盟复苏基金如何发挥最大潜力？</a></h2>
-<a class="image" target="_blank" href="/premium/001088934" >
-<figure class="loading" data-url="http://creatives.ftacademy.cn/picture/5/000098875_piclink.jpg"></figure>
+<div class="item-container XL3 L3 S4 M6 P12     item-container-app has-image" data-id="001089058" data-type="premium" data-keywords="中概股,港交所,花旗,新股发行,京东,网易,阿里巴巴"><div class="item-inner">
+<h2 class="item-headline"><a target="_blank" href="/premium/001089058" class="item-headline-link locked">中概股回归推动港交所利润创新高</a></h2>
+<a class="image" target="_blank" href="/premium/001089058" >
+<figure class="loading" data-url="http://creatives.ftacademy.cn/picture/1/000089261_piclink.jpg"></figure>
 </a>
-<div class="item-lead">马祖卡托：设立复苏基金是欧盟的一个转折点，但欧盟委员会需要设定大胆的任务，推动欧洲经济朝着绿色和数字化转型。</div><div class="item-time" data-time="1597176263" data-pubdate="1597161600" data-fileupdatetime="1597169592" data-last-publish-time="1597176263">2020年8月12日</div>
+<div class="item-lead">香港交易所今年上半年实现创纪录利润，原因是从美国退市的可能性促使中国科技集团在香港发行数十亿美元股票。</div><div class="item-time" data-time="1597874653" data-pubdate="1597852800" data-fileupdatetime="1597873078" data-last-publish-time="1597874653">2020年8月20日</div>
 <div class="item-bottom"></div>
 </div></div>
  
  
 <div class=" ST PT"></div>
-<div class="item-container XL3 L3 S4 M6 P12     item-container-app has-image" data-id="001088933" data-type="premium" data-keywords="立讯精密,供应链,iPhone,苹果,中美关系"><div class="item-inner">
-<h2 class="item-headline"><a target="_blank" href="/premium/001088933" class="item-headline-link locked">立讯精密：面向中国的本地化iPhone制造商</a></h2>
-<a class="image" target="_blank" href="/premium/001088933" >
-<figure class="loading" data-url="http://creatives.ftacademy.cn/picture/0/000098890_piclink.jpg"></figure>
+<div class="item-container XL3 L3 S4 M6 P12     item-container-app has-image" data-id="001089056" data-type="premium" data-keywords="苹果,高盛,腾讯,诺基亚,硅谷,亚马逊,微软"><div class="item-inner">
+<h2 class="item-headline"><a target="_blank" href="/premium/001089056" class="item-headline-link locked">苹果市值盘中突破2万亿美元</a></h2>
+<a class="image" target="_blank" href="/premium/001089056" >
+<figure class="loading" data-url="http://creatives.ftacademy.cn/picture/6/000088756_piclink.jpg"></figure>
 </a>
-<div class="item-lead">这家中资企业收购纬创iPhone工厂之举，可能标志着分割iPhone供应链的开端。在美中紧张的背景下，此举有助于苹果管理风险。</div><div class="item-time" data-time="1597176263" data-pubdate="1597161600" data-fileupdatetime="1597168180" data-last-publish-time="1597176263">2020年8月12日</div>
+<div class="item-lead">iPhone制造商股价已从3月的低谷上涨一倍，周三盘中突破467.77美元门槛，使其成为首家市值2万亿美元的科技巨头。</div><div class="item-time" data-time="1597874653" data-pubdate="1597852800" data-fileupdatetime="1597873298" data-last-publish-time="1597874653">2020年8月20日</div>
 <div class="item-bottom"></div>
 </div></div>
  
  
 <div class=" MT PT"></div>
-<div class="item-container XL3 L3 S4 M6 P12     item-container-app has-image" data-id="001088927" data-type="premium" data-keywords="航空,新型冠状病毒,公司治理"><div class="item-inner">
-<h2 class="item-headline"><a target="_blank" href="/premium/001088927" class="item-headline-link locked">FT社评：疫情后的企业结构调整应当慎重</a></h2>
-<a class="image" target="_blank" href="/premium/001088927" >
-<figure class="loading" data-url="http://creatives.ftacademy.cn/picture/9/000098859_piclink.jpg"></figure>
+<div class="item-container XL3 L3 S4 M6 P12     item-container-app has-image" data-id="001089049" data-type="premium" data-keywords="巴菲特,投资,市场,基金"><div class="item-inner">
+<h2 class="item-headline"><a target="_blank" href="/premium/001089049" class="item-headline-link locked">巴菲特也像常人一样投资了？</a></h2>
+<a class="image" target="_blank" href="/premium/001089049" >
+<figure class="loading" data-url="http://creatives.ftacademy.cn/picture/6/000095506_piclink.jpg"></figure>
 </a>
-<div class="item-lead">许多企业有赖社会支持才支撑到现在，若其进行结构调整时只关注股东利益，那会让人觉得亏损由社会承担了，利润却由私人享受。</div><div class="item-time" data-time="1597132852" data-pubdate="1597075200" data-fileupdatetime="1597133325" data-last-publish-time="1597132852">2020年8月11日</div>
+<div class="item-lead">阿姆斯特朗：“在别人贪婪时恐惧，在别人恐惧时贪婪”，伯克希尔哈撒韦今年二季度所做的交易，似乎没有遵循这一箴言。</div><div class="item-time" data-time="1597866429" data-pubdate="1597852800" data-fileupdatetime="1597866014" data-last-publish-time="1597866429">2020年8月20日</div>
 <div class="item-bottom"></div>
 </div></div>
  
  
 <div class=" PT"></div>
-<div class="item-container XL3 L3 S4 M6 P12     item-container-app has-image" data-id="001088923" data-type="premium" data-keywords="房地产,豪宅,英国,投资"><div class="item-inner">
-<h2 class="item-headline"><a target="_blank" href="/premium/001088923" class="item-headline-link locked">Lex专栏：现在购置超豪华房产并不明智</a></h2>
-<a class="image" target="_blank" href="/premium/001088923" >
-<figure class="loading" data-url="http://creatives.ftacademy.cn/picture/7/000098857_piclink.jpg"></figure>
+<div class="item-container XL3 L3 S4 M6 P12     item-container-app has-image" data-id="001089045" data-type="premium" data-keywords="安倍晋三,日本"><div class="item-inner">
+<h2 class="item-headline"><a target="_blank" href="/premium/001089045" class="item-headline-link locked">安倍入院引发“继任猜测”</a></h2>
+<a class="image" target="_blank" href="/premium/001089045" >
+<figure class="loading" data-url="http://creatives.ftacademy.cn/picture/7/000099287_piclink.jpg"></figure>
 </a>
-<div class="item-lead">一栋可俯瞰伦敦摄政公园、有28间卧室、标价1.85亿英镑的房产，无论其是多么的抢眼，都与疫情肆虐的当下时代严重脱节。</div><div class="item-time" data-time="1597119704" data-pubdate="1597075200" data-fileupdatetime="1597119763" data-last-publish-time="1597119704">2020年8月11日</div>
+<div class="item-lead">尽管日本官员称安倍晋三只是去医院做常规体检，但在其自民党党魁任期只剩一年之际，公众已开始关注会由谁接替其出任首相。</div><div class="item-time" data-time="1597821780" data-pubdate="1597766400" data-fileupdatetime="1597822065" data-last-publish-time="1597821780">2020年8月19日</div>
 <div class="item-bottom"></div>
 </div></div>
                                                                                                                <div class="clearfloat"></div>
