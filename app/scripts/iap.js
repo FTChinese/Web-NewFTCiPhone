@@ -133,10 +133,17 @@ function hideUserLogin() {
 	}
 }
 
-function promptContactConfirm() {
+function promptContactConfirm(membership) {
 	var promptDiv = document.getElementById('subscriber-contact-confirm');
 	if (promptDiv) {
 		promptDiv.className = promptDiv.className.replace(/ hide/g, '');
+		if (!membership || membership === '') {return;}
+		var promptLink = promptDiv.querySelector('a[href]');
+		if (!promptLink) {return;}
+		var link = promptLink.href;
+		if (link.indexOf('membership=' + membership) < 0) {
+			promptLink.href = link + '&membership=' + membership;
+		}
 	}
 }
 
