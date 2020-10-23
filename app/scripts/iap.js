@@ -141,7 +141,9 @@ function promptContactConfirm(membership) {
 		var promptLink = promptDiv.querySelector('a[href]');
 		if (!promptLink) {return;}
 		var link = promptLink.href;
-		if (link.indexOf('membership=' + membership) < 0) {
+		if (/membership=/.test(link)) {
+			promptLink.href = link.replace(/(&membership=)[a-zA-Z\-]+/g, '$1' + membership);
+		} else {
 			promptLink.href = link + '&membership=' + membership;
 		}
 	}
