@@ -205,6 +205,7 @@ gulp.task('ios', ['grab', 'build'], function () {
   var ebookKeyJS = fs.readFileSync('dist/scripts/key-ebook.js', 'utf8');
   var htmlBookCSS = fs.readFileSync('dist/styles/main-html-book.css', 'utf8');
   var htmlBookJS = fs.readFileSync('dist/scripts/main-html-book.js', 'utf8');
+  const commonCSS = fs.readFileSync('dist/styles/main-common.css', 'utf8');
   const oAdsJS = fs.readFileSync('app/templates/o-ads.js', 'utf8');
   const gptJS = fs.readFileSync('app/templates/gpt.js', 'utf8');
   const adPolyfillJS = fs.readFileSync('dist/scripts/ad-polyfill.js', 'utf8');
@@ -382,6 +383,7 @@ gulp.task('ios', ['grab', 'build'], function () {
   gulp.src(['app/templates/gym.html'])
     .pipe($.if('*.html', $.htmlmin({collapseWhitespace: true})))
     .pipe(replace('<!--{gymtools}-->', gymToolsJS))
+    .pipe(replace('<!--{commoncss}-->', `<style>${commonCSS}</style>`))
     .pipe(gulp.dest('../NewFTCApp-iOS/Page/FTChinese/'))
     .on('end', function() {
       convert2Big5('../NewFTCApp-iOS/Page/FTChinese/gym.html')

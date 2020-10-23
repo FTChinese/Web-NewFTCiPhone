@@ -2,7 +2,11 @@
 
 // click events
 try {
+    if (typeof delegate === 'undefined') {
+        window.delegate = new Delegate(document.body);
+    }
     delegate.on('click', '.myft-follow', function(){
+        console.log('clicked');
         var message = {
             tag: this.getAttribute('data-tag'),
             type: this.getAttribute('data-type')
@@ -58,4 +62,6 @@ function checkFollow() {
     }
 }
 
-checkFollow();
+document.addEventListener('DOMContentLoaded',function(){
+    checkFollow();
+});
