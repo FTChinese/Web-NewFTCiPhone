@@ -133,20 +133,25 @@ function hideUserLogin() {
 	}
 }
 
-function promptContactConfirm(membership) {
+function promptContactConfirm(membership, action) {
 	var promptDiv = document.getElementById('subscriber-contact-confirm');
-	if (promptDiv) {
-		promptDiv.className = promptDiv.className.replace(/ hide/g, '');
-		if (!membership || membership === '') {return;}
-		var promptLink = promptDiv.querySelector('a[href]');
-		if (!promptLink) {return;}
-		var link = promptLink.href;
-		if (/membership=/.test(link)) {
-			promptLink.href = link.replace(/(&membership=)[a-zA-Z\-]+/g, '$1' + membership);
-		} else {
-			promptLink.href = link + '&membership=' + membership;
-		}
+	if (!promptDiv) {return;}
+	promptDiv.className = promptDiv.className.replace(/ hide/g, '');
+	if (!membership || membership === '') {return;}
+	var promptLink = promptDiv.querySelector('a[href]');
+	if (!promptLink) {return;}
+	var link = promptLink.href;
+	if (/membership=/.test(link)) {
+		link = link.replace(/(&membership=)[a-zA-Z\-]+/g, '$1' + membership);
+	} else {
+		link += '&membership=' + membership;
 	}
+	if (/action=/.test(link)) {
+		link = link.replace(/(&action=)[a-zA-Z\-]+/g, '$1' + action);
+	} else {
+		link += '&action=' + action;
+	}
+	promptLink.href = link;
 }
 
 function hideContactConfirm() {
