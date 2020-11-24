@@ -6,14 +6,17 @@ const del = require('del');
 const wiredep = require('wiredep').stream;
 const runSequence = require('run-sequence');
 const gutil = require('gulp-util');
-
 const $ = gulpLoadPlugins();
 const reload = browserSync.reload;
-
 let dev = true;
 
-
-
+function lint(files) {
+  return gulp.src(files)
+    .pipe($.eslint({ fix: true }))
+    .pipe(reload({stream: true, once: true}))
+    .pipe($.eslint.format())
+    .pipe($.if(!browserSync.active, $.eslint.failAfterError()));
+}
 
 gulp.task('styles', () => {
   return gulp.src('app/styles/*.scss')
@@ -30,113 +33,69 @@ gulp.task('styles', () => {
     .pipe(reload({stream: true}));
 });
 
+gulp.task('scripts', () => {
+  return gulp.src('app/scripts/**/*.js')
+    .pipe($.plumber())
+    .pipe($.if(dev, $.sourcemaps.init()))
+    .pipe($.babel())
+    .pipe($.if(dev, $.sourcemaps.write('.')))
+    .pipe(gulp.dest('.tmp/scripts'))
+    .pipe(reload({stream: true}));
+});
+
+gulp.task('lint', () => {
+  return lint('app/scripts/**/*.js')
+    .pipe(gulp.dest('app/scripts'));
+});
+
+gulp.task('lint:test', () => {
+  return lint('test/spec/**/*.js')
+    .pipe(gulp.dest('test/spec'));
+});
 
 
+gulp.task('html', gulp.series('styles', 'scripts', () => {
+  return gulp.src('app/*.html')
+    .pipe($.useref({searchPath: ['.tmp', 'app', '.']}))
+    .pipe($.if(/\.js$/, $.uglify({compress: {drop_console: true}})))
+    .on('error', function (err) { gutil.log(gutil.colors.red('[Error]'), err.toString()); })
+    .pipe($.if(/\.css$/, $.cssnano({safe: true, autoprefixer: false})))
+    .pipe($.if(/\.html$/, $.htmlmin({
+      collapseWhitespace: true,
+      minifyCSS: true,
+      minifyJS: {compress: {drop_console: true}},
+      processConditionalComments: true,
+      removeComments: true,
+      removeEmptyAttributes: true,
+      removeScriptTypeAttributes: true,
+      removeStyleLinkTypeAttributes: true
+    })))
+    .pipe(gulp.dest('dist'));
+}));
+
+gulp.task('images', () => {
+  return gulp.src('app/images/**/*')
+    .pipe($.cache($.imagemin()))
+    .pipe(gulp.dest('dist/images'));
+});
+
+gulp.task('fonts', () => {
+  return gulp.src(require('main-bower-files')('**/*.{eot,svg,ttf,woff,woff2}', function (err) {})
+    .concat('app/fonts/**/*'))
+    .pipe($.if(dev, gulp.dest('.tmp/fonts'), gulp.dest('dist/fonts')));
+});
+
+gulp.task('extras', () => {
+  return gulp.src([
+    'app/*',
+    '!app/*.html'
+  ], {
+    dot: true
+  }).pipe(gulp.dest('dist'));
+});
 
 
-
-
-
-
-
-// gulp.task('scripts', () => {
-//   return gulp.src('app/scripts/**/*.js')
-//     .pipe($.plumber())
-//     .pipe($.if(dev, $.sourcemaps.init()))
-//     .pipe($.babel())
-//     .pipe($.if(dev, $.sourcemaps.write('.')))
-//     .pipe(gulp.dest('.tmp/scripts'))
-//     .pipe(reload({stream: true}));
-// });
-
-// function lint(files) {
-//   return gulp.src(files)
-//     .pipe($.eslint({ fix: true }))
-//     .pipe(reload({stream: true, once: true}))
-//     .pipe($.eslint.format())
-//     .pipe($.if(!browserSync.active, $.eslint.failAfterError()));
-// }
-// gulp.task('lint', () => {
-//   return lint('app/scripts/**/*.js')
-//     .pipe(gulp.dest('app/scripts'));
-// });
-// gulp.task('lint:test', () => {
-//   return lint('test/spec/**/*.js')
-//     .pipe(gulp.dest('test/spec'));
-// });
-
-// gulp.task('html', ['styles', 'scripts'], () => {
-//   return gulp.src('app/*.html')
-//     .pipe($.useref({searchPath: ['.tmp', 'app', '.']}))
-//     .pipe($.if(/\.js$/, $.uglify({compress: {drop_console: true}})))
-//     .on('error', function (err) { gutil.log(gutil.colors.red('[Error]'), err.toString()); })
-//     .pipe($.if(/\.css$/, $.cssnano({safe: true, autoprefixer: false})))
-//     .pipe($.if(/\.html$/, $.htmlmin({
-//       collapseWhitespace: true,
-//       minifyCSS: true,
-//       minifyJS: {compress: {drop_console: true}},
-//       processConditionalComments: true,
-//       removeComments: true,
-//       removeEmptyAttributes: true,
-//       removeScriptTypeAttributes: true,
-//       removeStyleLinkTypeAttributes: true
-//     })))
-//     .pipe(gulp.dest('dist'));
-// });
-
-// gulp.task('images', () => {
-//   return gulp.src('app/images/**/*')
-//     .pipe($.cache($.imagemin()))
-//     .pipe(gulp.dest('dist/images'));
-// });
-
-// gulp.task('fonts', () => {
-//   return gulp.src(require('main-bower-files')('**/*.{eot,svg,ttf,woff,woff2}', function (err) {})
-//     .concat('app/fonts/**/*'))
-//     .pipe($.if(dev, gulp.dest('.tmp/fonts'), gulp.dest('dist/fonts')));
-// });
-
-// gulp.task('extras', () => {
-//   return gulp.src([
-//     'app/*',
-//     '!app/*.html'
-//   ], {
-//     dot: true
-//   }).pipe(gulp.dest('dist'));
-// });
-
-// gulp.task('clean', del.bind(null, ['.tmp', 'dist']));
-
-
-
-
-
-
-// gulp.task('serve', () => {
-//   runSequence(['clean', 'wiredep'], ['styles', 'scripts', 'fonts'], () => {
-//     browserSync.init({
-//       notify: false,
-//       port: 9000,
-//       server: {
-//         baseDir: ['.tmp', 'app'],
-//         routes: {
-//           '/bower_components': 'bower_components'
-//         }
-//       }
-//     });
-
-//     gulp.watch([
-//       'app/*.html',
-//       'app/images/**/*',
-//       '.tmp/fonts/**/*'
-//     ]).on('change', reload);
-
-//     gulp.watch('app/styles/**/*.scss', ['styles']);
-//     gulp.watch('app/scripts/**/*.js', ['scripts']);
-//     gulp.watch('app/fonts/**/*', ['fonts']);
-//     gulp.watch('bower.json', ['wiredep', 'fonts']);
-//   });
-// });
+gulp.task('clean', del.bind(null, ['.tmp', 'dist']));
 
 gulp.task('serve', 
   gulp.parallel(
@@ -157,68 +116,57 @@ gulp.task('serve',
   )
 );
 
+gulp.task('build', gulp.series(
+  gulp.parallel('lint', 'html', 'images', 'fonts', 'extras'), 
+  () => {return gulp.src('dist/**/*').pipe($.size({title: 'build', gzip: true}));}
+));
 
+// inject bower components
+gulp.task('wiredep', () => {
+  gulp.src('app/styles/*.scss')
+    .pipe($.filter(file => file.stat && file.stat.size))
+    .pipe(wiredep({
+      ignorePath: /^(\.\.\/)+/
+    }))
+    .pipe(gulp.dest('app/styles'));
 
+  return gulp.src('app/*.html')
+    .pipe(wiredep({
+      ignorePath: /^(\.\.\/)*\.\./
+    }))
+    .pipe(gulp.dest('app'));
+});
 
+gulp.task('default', gulp.series('clean', 'wiredep', 'build'));
 
+gulp.task('serve:dist', gulp.parallel('default', () => {
+  browserSync.init({
+    notify: false,
+    port: 9000,
+    server: {
+      baseDir: ['dist']
+    }
+  });
+}));
 
+gulp.task('serve:test', gulp.series('scripts', () => {
+  browserSync.init({
+    notify: false,
+    port: 9000,
+    ui: false,
+    server: {
+      baseDir: 'test',
+      routes: {
+        '/scripts': '.tmp/scripts',
+        '/bower_components': 'bower_components'
+      }
+    }
+  });
+  gulp.watch('app/scripts/**/*.js', gulp.parallel('scripts'));
+  gulp.watch(['test/spec/**/*.js', 'test/index.html']).on('change', reload);
+  gulp.watch('test/spec/**/*.js', gulp.parallel('lint:test'));
+}));
 
-
-// gulp.task('serve:dist', ['default'], () => {
-//   browserSync.init({
-//     notify: false,
-//     port: 9000,
-//     server: {
-//       baseDir: ['dist']
-//     }
-//   });
-// });
-
-// gulp.task('serve:test', ['scripts'], () => {
-//   browserSync.init({
-//     notify: false,
-//     port: 9000,
-//     ui: false,
-//     server: {
-//       baseDir: 'test',
-//       routes: {
-//         '/scripts': '.tmp/scripts',
-//         '/bower_components': 'bower_components'
-//       }
-//     }
-//   });
-
-//   gulp.watch('app/scripts/**/*.js', ['scripts']);
-//   gulp.watch(['test/spec/**/*.js', 'test/index.html']).on('change', reload);
-//   gulp.watch('test/spec/**/*.js', ['lint:test']);
-// });
-
-// // inject bower components
-// gulp.task('wiredep', () => {
-//   gulp.src('app/styles/*.scss')
-//     .pipe($.filter(file => file.stat && file.stat.size))
-//     .pipe(wiredep({
-//       ignorePath: /^(\.\.\/)+/
-//     }))
-//     .pipe(gulp.dest('app/styles'));
-
-//   gulp.src('app/*.html')
-//     .pipe(wiredep({
-//       ignorePath: /^(\.\.\/)*\.\./
-//     }))
-//     .pipe(gulp.dest('app'));
-// });
-
-// gulp.task('build', ['lint', 'html', 'images', 'fonts', 'extras'], () => {
-//   return gulp.src('dist/**/*').pipe($.size({title: 'build', gzip: true}));
-// });
-
-// gulp.task('default', () => {
-//   return new Promise(resolve => {
-//     dev = false;
-//     runSequence(['clean', 'wiredep'], 'build', resolve);
-//   });
-// });
 
 
 
@@ -446,57 +394,63 @@ gulp.task('serve',
 
 // });
 
-// gulp.task('grab', function () {
-//   getUrltoFile('https://d1jz9j0gyf09j1.cloudfront.net/index.php/users/register?i=4&webview=ftcapp&v=1', './app/templates/register.html');
-//   getUrltoFile('https://d1jz9j0gyf09j1.cloudfront.net/channel/exclusive.html?webview=ftcapp&bodyonly=yes&newad=yes&v=1', './app/templates/localbackup.html');
-//   getUrltoFile('https://d1jz9j0gyf09j1.cloudfront.net/channel/english.html?webview=ftcapp&bodyonly=yes&newad=yes&v=1', './app/templates/dailyenglishbackup.html');
-//   getUrltoFile('https://d1jz9j0gyf09j1.cloudfront.net/m/corp/preview.html?pageid=service&webview=ftcapp&v=1', './app/templates/service.html');
-//   getUrltoFile('https://www.ft.com/__origami/service/build/v2/bundles/js?modules=o-ads@10.2.1', './app/templates/o-ads.js');
-//   getUrltoFile('https://www.googletagservices.com/tag/js/gpt.js', './app/templates/gpt.js');
-//   getUrltoFile('https://d1jz9j0gyf09j1.cloudfront.net/index.php/jsapi/applaunchschedule', './app/templates/schedule.json');
-//   //getUrltoFile('https://www.googletagmanager.com/gtag/js?id=UA-1608715-1', './app/templates/gtag.js');
-//   getUrltoFile('https://d1jz9j0gyf09j1.cloudfront.net/index.php/jsapi/hotstory/1quarterwithdetail', './app/templates/hotstories.json');
-// });
+gulp.task('grab', async () => {
+  await Promise.all([
+    getUrltoFile('https://d1jz9j0gyf09j1.cloudfront.net/index.php/users/register?i=4&webview=ftcapp&v=1', './app/templates/register.html'),
+    getUrltoFile('https://d1jz9j0gyf09j1.cloudfront.net/channel/exclusive.html?webview=ftcapp&bodyonly=yes&newad=yes&v=1', './app/templates/localbackup.html'),
+    getUrltoFile('https://d1jz9j0gyf09j1.cloudfront.net/channel/english.html?webview=ftcapp&bodyonly=yes&newad=yes&v=1', './app/templates/dailyenglishbackup.html'),
+    getUrltoFile('https://d1jz9j0gyf09j1.cloudfront.net/m/corp/preview.html?pageid=service&webview=ftcapp&v=1', './app/templates/service.html'),
+    getUrltoFile('https://www.ft.com/__origami/service/build/v2/bundles/js?modules=o-ads@10.2.1', './app/templates/o-ads.js'),
+    getUrltoFile('https://www.googletagservices.com/tag/js/gpt.js', './app/templates/gpt.js'),
+    getUrltoFile('https://d1jz9j0gyf09j1.cloudfront.net/index.php/jsapi/applaunchschedule', './app/templates/schedule.json'),
+    getUrltoFile('https://d1jz9j0gyf09j1.cloudfront.net/index.php/jsapi/hotstory/1quarterwithdetail', './app/templates/hotstories.json')
+  ]);
+  console.log('All grabs are done! ');
+});
 
 
-// gulp.task('hotKeywords', function() {
-//   getHotKeywords();
-// });
+gulp.task('hotKeywords', async () => {
+  await getHotKeywords();
+});
 
 
 
 
 // MARK: code created for this project specifically
-function getUrltoFile (urlSource, fileName) {
-  var http = require('http');
-  var url = require('url');
-  var options = {
-      host: url.parse(urlSource).hostname,
-      path: url.parse(urlSource).pathname + unescape(url.parse(urlSource).search || '')
-  }
-  console.log (options.path);
-  var request = http.request(options, function (res) {
-      var data = '';
-      res.on('data', function (chunk) {
-          data += chunk;
-      });
-      //console.log (data);
-      res.on('end', function () {
-        var fs = require('fs');
-        fs.writeFile(fileName, data, function(err) {
-            if(err) {
-                return console.log(err);
-            }
-            console.log(urlSource);
-            console.log('writen to');
-            console.log(fileName);
+async function getUrltoFile (urlSource, fileName) {
+  return new Promise((resolve, reject)=>{
+    var http = require('http');
+    var url = require('url');
+    var options = {
+        host: url.parse(urlSource).hostname,
+        path: url.parse(urlSource).pathname + unescape(url.parse(urlSource).search || '')
+    }
+    console.log (options.path);
+    var request = http.request(options, function (res) {
+        var data = '';
+        res.on('data', function (chunk) {
+            data += chunk;
         });
-      });
+        //console.log (data);
+        res.on('end', function () {
+          var fs = require('fs');
+          fs.writeFile(fileName, data, function(err) {
+              if(err) {
+                  return console.log(err);
+              }
+              console.log(urlSource);
+              console.log('writen to');
+              console.log(fileName);
+              resolve(fileName);
+          });
+        });
+    });
+    request.on('error', function (e) {
+        console.log(e.message);
+        reject(false);
+    });
+    request.end();
   });
-  request.on('error', function (e) {
-      console.log(e.message);
-  });
-  request.end();
 }
 
 //convert2Big5('../NewFTCApp-iOS/Page/FTChinese/account.html')
@@ -515,31 +469,33 @@ function convert2Big5(originFile) {
     });
 }
 
-function getHotKeywords() {
-  const fs = require('fs');
-  const hotStoriesString = fs.readFileSync('app/templates/hotstories.json', 'utf8');
-  const hotStories = JSON.parse(hotStoriesString);
-  var keyScores = {};
-  const weight = 1;
-  for (item of hotStories) {
-    const keys = [
-      {type: 'tag', code: item.tag},
-      {type: 'author', code: item.cauthor},
-      {type: 'industry', code: item.industry},
-      {type: 'topic', code: item.topic},
-      {type: 'area', code: item.area}
-    ];
-    for (key of keys) {
-      if (key.code && key.code !== '') {
-        const codes = key.code.split(',');
-        for (const code of codes) {
-          var newScore = (keyScores[code]) ? keyScores[code].score + weight : weight;
-          keyScores[code] = {type: key.type, score: newScore};
+async function getHotKeywords() {
+  return new Promise((resolve, reject)=>{
+    const fs = require('fs');
+    const hotStoriesString = fs.readFileSync('app/templates/hotstories.json', 'utf8');
+    const hotStories = JSON.parse(hotStoriesString);
+    var keyScores = {};
+    const weight = 1;
+    for (item of hotStories) {
+      const keys = [
+        {type: 'tag', code: item.tag},
+        {type: 'author', code: item.cauthor},
+        {type: 'industry', code: item.industry},
+        {type: 'topic', code: item.topic},
+        {type: 'area', code: item.area}
+      ];
+      for (key of keys) {
+        if (key.code && key.code !== '') {
+          const codes = key.code.split(',');
+          for (const code of codes) {
+            var newScore = (keyScores[code]) ? keyScores[code].score + weight : weight;
+            keyScores[code] = {type: key.type, score: newScore};
+          }
         }
       }
     }
-  }
-  console.log ('Key Scores to Cold Start: ');
-  console.log (keyScores);
-  return JSON.stringify(keyScores);
+    console.log ('Key Scores to Cold Start: ');
+    console.log (keyScores);
+    resolve (JSON.stringify(keyScores));
+  });
 }
