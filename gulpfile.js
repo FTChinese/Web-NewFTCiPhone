@@ -117,8 +117,8 @@ gulp.task('serve',
 );
 
 gulp.task('build', gulp.series(
-  gulp.parallel('lint', 'html', 'images', 'fonts', 'extras'), 
-  () => {return gulp.src('dist/**/*').pipe($.size({title: 'build', gzip: true}));}
+  gulp.parallel('html', 'images', 'fonts', 'extras'),
+  async () => {gulp.src('dist/**/*').pipe($.size({title: 'build', gzip: true}));}
 ));
 
 // inject bower components
@@ -168,232 +168,6 @@ gulp.task('serve:test', gulp.series('scripts', () => {
 }));
 
 
-
-
-
-
-
-
-// // MARK: Create the HTML files for iOS Native App
-// gulp.task('ios', ['grab', 'build'], function () {
-//   var replace = require('gulp-replace');
-//   var rename = require("gulp-rename");
-//   var thedatestamp = new Date().getTime();
-//   var fs = require('fs');
-//   var storyCSS = fs.readFileSync('dist/styles/main-story.css', 'utf8');
-//   var storyMainJS = fs.readFileSync('dist/scripts/main-story.js', 'utf8');
-//   var storyKeyJS = fs.readFileSync('dist/scripts/key.js', 'utf8');
-//   const audioScriptRenderJS = fs.readFileSync('dist/scripts/main-audio-script-render.js', 'utf8');
-//   var dbZoneHelperJS = fs.readFileSync('dist/scripts/main-db-zone-helper.js', 'utf8');
-//   var listCSS = fs.readFileSync('dist/styles/main-list.css', 'utf8');
-//   var listMainJS = fs.readFileSync('dist/scripts/main-list.js', 'utf8');
-//   var listKeyJS = fs.readFileSync('dist/scripts/key-list.js', 'utf8');
-//   var myftCSS = fs.readFileSync('dist/styles/main-myft.css', 'utf8');
-//   var searchCSS  = fs.readFileSync('dist/styles/main-search.css', 'utf8');
-//   var searchJS = fs.readFileSync('dist/scripts/search.js', 'utf8');
-//   var ebookCSS = fs.readFileSync('dist/styles/main-ebook.css', 'utf8');
-//   var ebookMainJS = fs.readFileSync('dist/scripts/main-ebook.js', 'utf8');
-//   var ebookKeyJS = fs.readFileSync('dist/scripts/key-ebook.js', 'utf8');
-//   var htmlBookCSS = fs.readFileSync('dist/styles/main-html-book.css', 'utf8');
-//   var htmlBookJS = fs.readFileSync('dist/scripts/main-html-book.js', 'utf8');
-//   const commonCSS = fs.readFileSync('dist/styles/main-common.css', 'utf8');
-//   const oAdsJS = fs.readFileSync('app/templates/o-ads.js', 'utf8');
-//   const gptJS = fs.readFileSync('app/templates/gpt.js', 'utf8');
-//   const adPolyfillJS = fs.readFileSync('dist/scripts/ad-polyfill.js', 'utf8');
-//   const gymToolsJS = fs.readFileSync('dist/scripts/gym-tools.js', 'utf8');
-//   const oTableCSS = fs.readFileSync('bower_components/ftcnext/app/origami/o-table.css', 'utf8');
-//   const oTableJS = fs.readFileSync('bower_components/ftcnext/app/origami/o-table.js', 'utf8');
-//   const oTableHTML = '<style>' + oTableCSS + '</style><script>' + oTableJS + '</script>';
-//   const oTablePath = '../NewFTCApp-iOS/Page/FTChinese/o-table.html';
-//   fs.writeFile(oTablePath, oTableHTML, function(err) {
-//       if(err) {
-//           return console.log(err);
-//       }
-//       console.log('otable writen to' + oTablePath);
-//   });
-
-//   const nightCSS = fs.readFileSync('dist/styles/main-night.css', 'utf8');
-//   const nightHTML = '<style>' + nightCSS + '</style>';
-//   const nightPath = '../NewFTCApp-iOS/Page/FTChinese/o-night.html';
-//   fs.writeFile(nightPath, nightHTML, function(err) {
-//       if(err) {
-//           return console.log(err);
-//       }
-//       console.log('night html writen to' + nightPath);
-//   });
-
-//   // MARK: - Get hot keywords from hot stories. 
-//   const hotKeywordsPath = '../NewFTCApp-iOS/Page/FTChinese/hot-keywords.json'
-//   fs.writeFile(hotKeywordsPath, getHotKeywords(), function(err) {
-//       if(err) {
-//           return console.log(err);
-//       }
-//       console.log('hot keywords writen to' + hotKeywordsPath);
-//   });
-
-//   gulp.src(['app/templates/schedule.json'])
-//     .pipe(gulp.dest('../NewFTCApp-iOS/Page/Ad/'));
-
-//   // gulp.src(['app/templates/hotstories.json'])
-//   //   .pipe(gulp.dest('../NewFTCApp-iOS/Page/Ad/'));
-
-//   gulp.src(['app/templates/register.html'])
-//     .pipe(replace('<!--night-style-native-app-->', nightHTML))
-//     .pipe(gulp.dest('../NewFTCApp-iOS/Page/FTChinese/'))
-//     .on('end', function() {
-//       convert2Big5('../NewFTCApp-iOS/Page/FTChinese/register.html')
-//   });
-
-//   gulp.src(['app/templates/localbackup.html'])
-//     .pipe(gulp.dest('../NewFTCApp-iOS/Page/FTChinese/'))
-//     .on('end', function() {
-//       convert2Big5('../NewFTCApp-iOS/Page/FTChinese/localbackup.html')
-//   });
-
-//   gulp.src(['app/templates/dailyenglishbackup.html'])
-//     .pipe(gulp.dest('../NewFTCApp-iOS/Page/FTChinese/'))
-//     .on('end', function() {
-//       convert2Big5('../NewFTCApp-iOS/Page/FTChinese/dailyenglishbackup.html')
-//   });
-    
-//   gulp.src(['app/templates/service.html'])
-//     .pipe(gulp.dest('../NewFTCApp-iOS/Page/FTChinese/'))
-//     .on('end', function() {
-//       convert2Big5('../NewFTCApp-iOS/Page/FTChinese/service.html')
-//   });
-
-//   gulp.src(['app/templates/account.html'])
-//     .pipe(replace('{{story-css}}', storyCSS))
-//     .pipe(replace('{{story-js-main}}', storyMainJS))
-//     .pipe(replace('{{story-js-key}}', storyKeyJS))
-//     .pipe(gulp.dest('../NewFTCApp-iOS/Page/FTChinese/'))
-//     .on('end', function() {
-//       convert2Big5('../NewFTCApp-iOS/Page/FTChinese/account.html')
-//     });
-
-
-//   gulp.src(['app/templates/search.html'])
-//     .pipe($.if('*.html', $.htmlmin({collapseWhitespace: true})))
-//     .pipe(replace('{{search-css}}', searchCSS))
-//     .pipe(replace('{{search-js}}', searchJS))
-//     .pipe(gulp.dest('../NewFTCApp-iOS/Page/FTChinese/'))
-//     .on('end', function() {
-//       convert2Big5('../NewFTCApp-iOS/Page/FTChinese/search.html')
-//     });
-
-//   gulp.src(['app/templates/story.html'])
-//     .pipe($.if('*.html', $.htmlmin({collapseWhitespace: true})))
-//     .pipe(replace('{{story-css}}', storyCSS))
-//     .pipe(replace('{{story-js-main}}', storyMainJS))
-//     .pipe(replace('{{story-js-key}}', storyKeyJS))
-//     .pipe(replace('{{db-zone-helper-js}}', dbZoneHelperJS))
-//     .pipe(replace('{{ad-pollyfill-js}}', adPolyfillJS))
-//     .pipe(rename('story.html'))
-//     .pipe(gulp.dest('../NewFTCApp-iOS/Page/FTChinese/'))
-//     .on('end', function() {
-//       convert2Big5('../NewFTCApp-iOS/Page/FTChinese/story.html')
-//     });
-
-//   gulp.src(['app/templates/message.html'])
-//     .pipe($.if('*.html', $.htmlmin({collapseWhitespace: true})))
-//     .pipe(replace('{{story-css}}', storyCSS))
-//     .pipe(replace('{{story-js-main}}', storyMainJS))
-//     .pipe(replace('{{story-js-key}}', storyKeyJS))
-//     .pipe(rename('message.html'))
-//     .pipe(gulp.dest('../NewFTCApp-iOS/Page/FTChinese/'))
-//     .on('end', function() {
-//       convert2Big5('../NewFTCApp-iOS/Page/FTChinese/message.html')
-//     });
-
-
-//   gulp.src(['app/templates/radio.html'])
-//     .pipe($.if('*.html', $.htmlmin({collapseWhitespace: true})))
-//     .pipe(replace('{{story-css}}', storyCSS))
-//     .pipe(replace('{{story-js-main}}', storyMainJS))
-//     .pipe(replace('{{story-js-key}}', storyKeyJS))
-//     .pipe(replace('{{db-zone-helper-js}}', dbZoneHelperJS))
-//     .pipe(replace('{{ad-pollyfill-js}}', adPolyfillJS))
-//     .pipe(replace('/*{audio-script-render-js}*/', audioScriptRenderJS))
-//     .pipe(rename('radio.html'))
-//     .pipe(gulp.dest('../NewFTCApp-iOS/Page/FTChinese/'))
-//     .on('end', function() {
-//       convert2Big5('../NewFTCApp-iOS/Page/FTChinese/radio.html')
-//     });
-
-
-//   gulp.src(['app/templates/help.html'])
-//     .pipe($.if('*.html', $.htmlmin({collapseWhitespace: true})))
-//     .pipe(replace('{{story-css}}', storyCSS))
-//     .pipe(replace('{{story-js-main}}', storyMainJS))
-//     .pipe(replace('{{story-js-key}}', storyKeyJS))
-//     .pipe(rename('help.html'))
-//     .pipe(gulp.dest('../NewFTCApp-iOS/Page/FTChinese/'))
-//     .on('end', function() {
-//       convert2Big5('../NewFTCApp-iOS/Page/FTChinese/help.html')
-//     });
-
-
-//   gulp.src(['app/templates/list.html'])
-//     .pipe($.if('*.html', $.htmlmin({collapseWhitespace: true})))
-//     .pipe(replace('{{list-css}}', listCSS))
-//     .pipe(replace('{{list-js-main}}', listMainJS))
-//     .pipe(replace('{{list-js-key}}', listKeyJS))
-//     .pipe(replace('{{ad-pollyfill-js}}', adPolyfillJS))
-//     .pipe(gulp.dest('../NewFTCApp-iOS/Page/FTChinese/'))
-//     .on('end', function() {
-//       convert2Big5('../NewFTCApp-iOS/Page/FTChinese/list.html')
-//     });
-
-
-//   gulp.src(['app/templates/list.html'])
-//     .pipe($.if('*.html', $.htmlmin({collapseWhitespace: true})))
-//     .pipe(replace('{{list-css}}', myftCSS))
-//     .pipe(replace('{{list-js-main}}', listMainJS))
-//     .pipe(replace('{{list-js-key}}', listKeyJS))
-//     .pipe(replace('{{o-ads-js}}', oAdsJS))
-//     .pipe(replace('{{gpt-js}}', gptJS))
-//     .pipe(replace('{{ad-pollyfill-js}}', adPolyfillJS))
-//     .pipe(rename('myft.html'))
-//     .pipe(gulp.dest('../NewFTCApp-iOS/Page/FTChinese/'))
-//     .on('end', function() {
-//       convert2Big5('../NewFTCApp-iOS/Page/FTChinese/myft.html')
-//     });
-
-//   gulp.src(['app/templates/ebook.html'])
-//     .pipe($.if('*.html', $.htmlmin({collapseWhitespace: true})))
-//     .pipe(replace('{{story-css}}', ebookCSS))
-//     .pipe(replace('{{story-js-main}}', ebookMainJS))
-//     .pipe(replace('{{story-js-key}}', ebookKeyJS))
-//     .pipe(rename('ebook.html'))
-//     .pipe(gulp.dest('../NewFTCApp-iOS/Page/FTChinese/'))
-//     .on('end', function() {
-//       convert2Big5('../NewFTCApp-iOS/Page/FTChinese/ebook.html')
-//     });
-
-
-//   gulp.src(['app/templates/gym.html'])
-//     .pipe($.if('*.html', $.htmlmin({collapseWhitespace: true})))
-//     .pipe(replace('<!--{gymtools}-->', gymToolsJS))
-//     .pipe(replace('<!--{commoncss}-->', `<style>${commonCSS}</style>`))
-//     .pipe(gulp.dest('../NewFTCApp-iOS/Page/FTChinese/'))
-//     .on('end', function() {
-//       convert2Big5('../NewFTCApp-iOS/Page/FTChinese/gym.html')
-//     });
-
-
-//   gulp.src(['app/templates/html-book.html'])
-//     .pipe($.if('*.html', $.htmlmin({collapseWhitespace: true})))
-//     .pipe(replace('{{html-book-css}}', htmlBookCSS))
-//     .pipe(replace('{{html-book-js}}', htmlBookJS))
-//     .pipe(gulp.dest('../NewFTCApp-iOS/Page/FTChinese/'))
-//     .on('end', function() {
-//       convert2Big5('../NewFTCApp-iOS/Page/FTChinese/html-book.html')
-//     });
-
-
-
-// });
-
 gulp.task('grab', async () => {
   await Promise.all([
     getUrltoFile('https://d1jz9j0gyf09j1.cloudfront.net/index.php/users/register?i=4&webview=ftcapp&v=1', './app/templates/register.html'),
@@ -412,8 +186,6 @@ gulp.task('grab', async () => {
 gulp.task('hotKeywords', async () => {
   await getHotKeywords();
 });
-
-
 
 
 // MARK: code created for this project specifically
@@ -494,8 +266,232 @@ async function getHotKeywords() {
         }
       }
     }
-    console.log ('Key Scores to Cold Start: ');
-    console.log (keyScores);
+    // console.log ('Key Scores to Cold Start: ');
+    // console.log (keyScores);
     resolve (JSON.stringify(keyScores));
   });
 }
+
+
+
+
+
+
+// MARK: Create the HTML files for iOS Native App
+gulp.task('ios', gulp.series('grab', 'build', async () => {
+  console.log('\n\n\n\n*********************\nNow Start to update iOS app...')
+  var replace = require('gulp-replace');
+  var rename = require("gulp-rename");
+  var thedatestamp = new Date().getTime();
+  var fs = require('fs');
+  var storyCSS = fs.readFileSync('dist/styles/main-story.css', 'utf8');
+  var storyMainJS = fs.readFileSync('dist/scripts/main-story.js', 'utf8');
+  var storyKeyJS = fs.readFileSync('dist/scripts/key.js', 'utf8');
+  const audioScriptRenderJS = fs.readFileSync('dist/scripts/main-audio-script-render.js', 'utf8');
+  var dbZoneHelperJS = fs.readFileSync('dist/scripts/main-db-zone-helper.js', 'utf8');
+  var listCSS = fs.readFileSync('dist/styles/main-list.css', 'utf8');
+  var listMainJS = fs.readFileSync('dist/scripts/main-list.js', 'utf8');
+  var listKeyJS = fs.readFileSync('dist/scripts/key-list.js', 'utf8');
+  var myftCSS = fs.readFileSync('dist/styles/main-myft.css', 'utf8');
+  var searchCSS  = fs.readFileSync('dist/styles/main-search.css', 'utf8');
+  var searchJS = fs.readFileSync('dist/scripts/search.js', 'utf8');
+  var ebookCSS = fs.readFileSync('dist/styles/main-ebook.css', 'utf8');
+  var ebookMainJS = fs.readFileSync('dist/scripts/main-ebook.js', 'utf8');
+  var ebookKeyJS = fs.readFileSync('dist/scripts/key-ebook.js', 'utf8');
+  var htmlBookCSS = fs.readFileSync('dist/styles/main-html-book.css', 'utf8');
+  var htmlBookJS = fs.readFileSync('dist/scripts/main-html-book.js', 'utf8');
+  const commonCSS = fs.readFileSync('dist/styles/main-common.css', 'utf8');
+  const oAdsJS = fs.readFileSync('app/templates/o-ads.js', 'utf8');
+  const gptJS = fs.readFileSync('app/templates/gpt.js', 'utf8');
+  const adPolyfillJS = fs.readFileSync('dist/scripts/ad-polyfill.js', 'utf8');
+  const gymToolsJS = fs.readFileSync('dist/scripts/gym-tools.js', 'utf8');
+  const oTableCSS = fs.readFileSync('bower_components/ftcnext/app/origami/o-table.css', 'utf8');
+  const oTableJS = fs.readFileSync('bower_components/ftcnext/app/origami/o-table.js', 'utf8');
+  const oTableHTML = '<style>' + oTableCSS + '</style><script>' + oTableJS + '</script>';
+  const oTablePath = '../NewFTCApp-iOS/Page/FTChinese/o-table.html';
+  fs.writeFile(oTablePath, oTableHTML, function(err) {
+      if(err) {
+          return console.log(err);
+      }
+      console.log('otable writen to' + oTablePath);
+  });
+
+  const nightCSS = fs.readFileSync('dist/styles/main-night.css', 'utf8');
+  const nightHTML = '<style>' + nightCSS + '</style>';
+  const nightPath = '../NewFTCApp-iOS/Page/FTChinese/o-night.html';
+  fs.writeFile(nightPath, nightHTML, function(err) {
+      if(err) {
+          return console.log(err);
+      }
+      console.log('night html writen to' + nightPath);
+  });
+
+  // MARK: - Get hot keywords from hot stories. 
+  const hotKeywordsPath = '../NewFTCApp-iOS/Page/FTChinese/hot-keywords.json';
+  const hotKeyWordsHTML = await getHotKeywords();
+  fs.writeFile(hotKeywordsPath, hotKeyWordsHTML, function(err) {
+      if(err) {
+          return console.log(err);
+      }
+      console.log('hot keywords writen to' + hotKeywordsPath);
+  });
+
+  gulp.src(['app/templates/schedule.json'])
+    .pipe(gulp.dest('../NewFTCApp-iOS/Page/Ad/'));
+
+  // gulp.src(['app/templates/hotstories.json'])
+  //   .pipe(gulp.dest('../NewFTCApp-iOS/Page/Ad/'));
+
+  gulp.src(['app/templates/register.html'])
+    .pipe(replace('<!--night-style-native-app-->', nightHTML))
+    .pipe(gulp.dest('../NewFTCApp-iOS/Page/FTChinese/'))
+    .on('end', function() {
+      convert2Big5('../NewFTCApp-iOS/Page/FTChinese/register.html')
+  });
+
+  gulp.src(['app/templates/localbackup.html'])
+    .pipe(gulp.dest('../NewFTCApp-iOS/Page/FTChinese/'))
+    .on('end', function() {
+      convert2Big5('../NewFTCApp-iOS/Page/FTChinese/localbackup.html')
+  });
+
+  gulp.src(['app/templates/dailyenglishbackup.html'])
+    .pipe(gulp.dest('../NewFTCApp-iOS/Page/FTChinese/'))
+    .on('end', function() {
+      convert2Big5('../NewFTCApp-iOS/Page/FTChinese/dailyenglishbackup.html')
+  });
+    
+  gulp.src(['app/templates/service.html'])
+    .pipe(gulp.dest('../NewFTCApp-iOS/Page/FTChinese/'))
+    .on('end', function() {
+      convert2Big5('../NewFTCApp-iOS/Page/FTChinese/service.html')
+  });
+
+  gulp.src(['app/templates/account.html'])
+    .pipe(replace('{{story-css}}', storyCSS))
+    .pipe(replace('{{story-js-main}}', storyMainJS))
+    .pipe(replace('{{story-js-key}}', storyKeyJS))
+    .pipe(gulp.dest('../NewFTCApp-iOS/Page/FTChinese/'))
+    .on('end', function() {
+      convert2Big5('../NewFTCApp-iOS/Page/FTChinese/account.html')
+    });
+
+
+  gulp.src(['app/templates/search.html'])
+    .pipe($.if('*.html', $.htmlmin({collapseWhitespace: true})))
+    .pipe(replace('{{search-css}}', searchCSS))
+    .pipe(replace('{{search-js}}', searchJS))
+    .pipe(gulp.dest('../NewFTCApp-iOS/Page/FTChinese/'))
+    .on('end', function() {
+      convert2Big5('../NewFTCApp-iOS/Page/FTChinese/search.html')
+    });
+
+  gulp.src(['app/templates/story.html'])
+    .pipe($.if('*.html', $.htmlmin({collapseWhitespace: true})))
+    .pipe(replace('{{story-css}}', storyCSS))
+    .pipe(replace('{{story-js-main}}', storyMainJS))
+    .pipe(replace('{{story-js-key}}', storyKeyJS))
+    .pipe(replace('{{db-zone-helper-js}}', dbZoneHelperJS))
+    .pipe(replace('{{ad-pollyfill-js}}', adPolyfillJS))
+    .pipe(rename('story.html'))
+    .pipe(gulp.dest('../NewFTCApp-iOS/Page/FTChinese/'))
+    .on('end', function() {
+      convert2Big5('../NewFTCApp-iOS/Page/FTChinese/story.html')
+    });
+
+  gulp.src(['app/templates/message.html'])
+    .pipe($.if('*.html', $.htmlmin({collapseWhitespace: true})))
+    .pipe(replace('{{story-css}}', storyCSS))
+    .pipe(replace('{{story-js-main}}', storyMainJS))
+    .pipe(replace('{{story-js-key}}', storyKeyJS))
+    .pipe(rename('message.html'))
+    .pipe(gulp.dest('../NewFTCApp-iOS/Page/FTChinese/'))
+    .on('end', function() {
+      convert2Big5('../NewFTCApp-iOS/Page/FTChinese/message.html')
+    });
+
+
+  gulp.src(['app/templates/radio.html'])
+    .pipe($.if('*.html', $.htmlmin({collapseWhitespace: true})))
+    .pipe(replace('{{story-css}}', storyCSS))
+    .pipe(replace('{{story-js-main}}', storyMainJS))
+    .pipe(replace('{{story-js-key}}', storyKeyJS))
+    .pipe(replace('{{db-zone-helper-js}}', dbZoneHelperJS))
+    .pipe(replace('{{ad-pollyfill-js}}', adPolyfillJS))
+    .pipe(replace('/*{audio-script-render-js}*/', audioScriptRenderJS))
+    .pipe(rename('radio.html'))
+    .pipe(gulp.dest('../NewFTCApp-iOS/Page/FTChinese/'))
+    .on('end', function() {
+      convert2Big5('../NewFTCApp-iOS/Page/FTChinese/radio.html')
+    });
+
+
+  gulp.src(['app/templates/help.html'])
+    .pipe($.if('*.html', $.htmlmin({collapseWhitespace: true})))
+    .pipe(replace('{{story-css}}', storyCSS))
+    .pipe(replace('{{story-js-main}}', storyMainJS))
+    .pipe(replace('{{story-js-key}}', storyKeyJS))
+    .pipe(rename('help.html'))
+    .pipe(gulp.dest('../NewFTCApp-iOS/Page/FTChinese/'))
+    .on('end', function() {
+      convert2Big5('../NewFTCApp-iOS/Page/FTChinese/help.html')
+    });
+
+
+  gulp.src(['app/templates/list.html'])
+    .pipe($.if('*.html', $.htmlmin({collapseWhitespace: true})))
+    .pipe(replace('{{list-css}}', listCSS))
+    .pipe(replace('{{list-js-main}}', listMainJS))
+    .pipe(replace('{{list-js-key}}', listKeyJS))
+    .pipe(replace('{{ad-pollyfill-js}}', adPolyfillJS))
+    .pipe(gulp.dest('../NewFTCApp-iOS/Page/FTChinese/'))
+    .on('end', function() {
+      convert2Big5('../NewFTCApp-iOS/Page/FTChinese/list.html')
+    });
+
+
+  gulp.src(['app/templates/list.html'])
+    .pipe($.if('*.html', $.htmlmin({collapseWhitespace: true})))
+    .pipe(replace('{{list-css}}', myftCSS))
+    .pipe(replace('{{list-js-main}}', listMainJS))
+    .pipe(replace('{{list-js-key}}', listKeyJS))
+    .pipe(replace('{{o-ads-js}}', oAdsJS))
+    .pipe(replace('{{gpt-js}}', gptJS))
+    .pipe(replace('{{ad-pollyfill-js}}', adPolyfillJS))
+    .pipe(rename('myft.html'))
+    .pipe(gulp.dest('../NewFTCApp-iOS/Page/FTChinese/'))
+    .on('end', function() {
+      convert2Big5('../NewFTCApp-iOS/Page/FTChinese/myft.html')
+    });
+
+  gulp.src(['app/templates/ebook.html'])
+    .pipe($.if('*.html', $.htmlmin({collapseWhitespace: true})))
+    .pipe(replace('{{story-css}}', ebookCSS))
+    .pipe(replace('{{story-js-main}}', ebookMainJS))
+    .pipe(replace('{{story-js-key}}', ebookKeyJS))
+    .pipe(rename('ebook.html'))
+    .pipe(gulp.dest('../NewFTCApp-iOS/Page/FTChinese/'))
+    .on('end', function() {
+      convert2Big5('../NewFTCApp-iOS/Page/FTChinese/ebook.html')
+    });
+
+
+  gulp.src(['app/templates/gym.html'])
+    .pipe($.if('*.html', $.htmlmin({collapseWhitespace: true})))
+    .pipe(replace('<!--{gymtools}-->', gymToolsJS))
+    .pipe(replace('<!--{commoncss}-->', `<style>${commonCSS}</style>`))
+    .pipe(gulp.dest('../NewFTCApp-iOS/Page/FTChinese/'))
+    .on('end', function() {
+      convert2Big5('../NewFTCApp-iOS/Page/FTChinese/gym.html')
+    });
+
+  gulp.src(['app/templates/html-book.html'])
+    .pipe($.if('*.html', $.htmlmin({collapseWhitespace: true})))
+    .pipe(replace('{{html-book-css}}', htmlBookCSS))
+    .pipe(replace('{{html-book-js}}', htmlBookJS))
+    .pipe(gulp.dest('../NewFTCApp-iOS/Page/FTChinese/'))
+    .on('end', function() {
+      convert2Big5('../NewFTCApp-iOS/Page/FTChinese/html-book.html')
+    });
+
+}));
