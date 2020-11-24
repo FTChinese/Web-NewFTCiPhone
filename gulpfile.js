@@ -145,7 +145,7 @@ gulp.task('serve',
       browserSync.init({
         server: {
           baseDir: ['app', '.tmp'],
-          index: 'index.html',
+          index: 'story.html',
           routes: {
             '/bower_components': 'bower_components'
           }
