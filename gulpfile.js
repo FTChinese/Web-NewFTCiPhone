@@ -27,7 +27,8 @@ gulp.task('styles', () => {
       precision: 10,
       includePaths: ['.', 'bower_components']
     }).on('error', $.sass.logError))
-    .pipe($.autoprefixer({browsers: ['> 1%', 'last 2 versions', 'Firefox ESR']}))
+    // MARK: - auto prefixer removed important styles such as -webkit-box-orient. 
+    // .pipe($.autoprefixer({browsers: ['> 1%', 'last 2 versions', 'Firefox ESR']}))
     .pipe($.if(dev, $.sourcemaps.write()))
     .pipe(gulp.dest('.tmp/styles'))
     .pipe(reload({stream: true}));
