@@ -4,3 +4,10 @@ dist
 bower_components
 test/bower_components
 .DS_Store
+dailyenglishbackup.html
+gpt.js
+hotstories.json
+localbackup.html
+register.html
+schedule.json
+service.html
