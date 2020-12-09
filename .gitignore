@@ -4,10 +4,3 @@ dist
 bower_components
 test/bower_components
 .DS_Store
-app/templates/hotstories.json
-app/templates/register.html
-app/templates/schedule.json
-app/templates/dailyenglishbackup.html
-app/templates/gpt.js
-app/templates/localbackup.html
-app/templates/service.html
