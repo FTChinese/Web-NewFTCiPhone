@@ -22,6 +22,9 @@
 	.side-container .list-title a, button, .story-body, #allcomments .commentcontainer, .commentcontainer, .is-current, .story-body a  {
 		color: #AAA!important;
 	}
+	.has-side .content-inner  {
+		border-color: transparent!important;
+	}
 }
 
 @media only screen and (max-width: 810px) and (min-width: 691px) {
