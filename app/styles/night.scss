@@ -3,7 +3,7 @@
 		background:#000!important;
 		color:#AAA!important;
 	}
-	.side-container, .box-title a, table th, table tr, .oneStory, #mbagym-container ul.quizlist li, #gymslides .slide, .user_id, .list-title a.list-link{
+	.side-container, .box-title a, table th, table tr, .oneStory, #mbagym-container ul.quizlist li, #gymslides .slide, .user_id, .list-title a.list-link, .commentTextArea{
 		background:transparent!important;
 		color:#AAA!important;
 	}
@@ -13,7 +13,7 @@
 	.item-lead {
 		color:#999!important;
 	}
-	a, .item-tag a, .item-headline a, .relative-container a, .item-time.highlight, .item-time, .block-container a {
+	a, .item-tag a, .item-headline a, .relative-container a, .item-time.highlight, .item-time, .block-container a, .ui-light-btn {
 		color:#BBB!important;
 	}
 	.story-headline-large:after {
@@ -21,6 +21,9 @@
 	}
 	.side-container .list-title a, button, .story-body, #allcomments .commentcontainer, .commentcontainer, .is-current, .story-body a  {
 		color: #AAA!important;
+	}
+	.has-side .content-inner  {
+		border-color: transparent!important;
 	}
 }
 
