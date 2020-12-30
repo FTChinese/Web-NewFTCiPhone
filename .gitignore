@@ -9,3 +9,4 @@ app/templates/localbackup.html
 app/templates/register.html
 app/templates/service.html
 app/templates/dailyenglishbackup.html
+app/templates/schedule.json
