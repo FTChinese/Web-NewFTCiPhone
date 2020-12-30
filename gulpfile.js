@@ -306,6 +306,7 @@ gulp.task('ios', gulp.series('grab', 'build', async () => {
   const gptJS = fs.readFileSync('app/templates/gpt.js', 'utf8');
   const adPolyfillJS = fs.readFileSync('dist/scripts/ad-polyfill.js', 'utf8');
   const gymToolsJS = fs.readFileSync('dist/scripts/gym-tools.js', 'utf8');
+  const gymListenJS = fs.readFileSync('dist/scripts/gym-listen.js', 'utf8');
   const oTableCSS = fs.readFileSync('bower_components/ftcnext/app/origami/o-table.css', 'utf8');
   const oTableJS = fs.readFileSync('bower_components/ftcnext/app/origami/o-table.js', 'utf8');
   const oTableHTML = '<style>' + oTableCSS + '</style><script>' + oTableJS + '</script>';
@@ -480,6 +481,7 @@ gulp.task('ios', gulp.series('grab', 'build', async () => {
   gulp.src(['app/templates/gym.html'])
     .pipe($.if('*.html', $.htmlmin({collapseWhitespace: true})))
     .pipe(replace('<!--{gymtools}-->', gymToolsJS))
+    .pipe(replace('/*gym-listen*/', gymListenJS))
     .pipe(replace('<!--{commoncss}-->', `<style>${commonCSS}</style>`))
     .pipe(gulp.dest('../NewFTCApp-iOS/Page/FTChinese/'))
     .on('end', function() {
