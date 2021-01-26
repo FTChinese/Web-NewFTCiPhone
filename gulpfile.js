@@ -172,8 +172,9 @@ gulp.task('serve:test', gulp.series('scripts', () => {
 gulp.task('grab', async () => {
   await Promise.all([
     getUrltoFile('https://d1jz9j0gyf09j1.cloudfront.net/index.php/users/register?i=4&webview=ftcapp&v=1', './app/templates/register.html'),
-    getUrltoFile('https://d1jz9j0gyf09j1.cloudfront.net/channel/exclusive.html?webview=ftcapp&bodyonly=yes&newad=yes&v=1', './app/templates/localbackup.html'),
+    getUrltoFile('https://d1jz9j0gyf09j1.cloudfront.net/m/corp/preview.html?pageid=homelocalbackup&webview=ftcapp&bodyonly=yes&newad=yes&v=1', './app/templates/localbackup.html'),
     getUrltoFile('https://d1jz9j0gyf09j1.cloudfront.net/m/corp/preview.html?pageid=bestofenglish&webview=ftcapp&bodyonly=yes&newad=yes&v=1', './app/templates/dailyenglishbackup.html'),
+    getUrltoFile('https://d1jz9j0gyf09j1.cloudfront.net/m/corp/preview.html?pageid=mba&webview=ftcapp&bodyonly=yes&newad=yes&v=1', './app/templates/mbabackup.html'),
     getUrltoFile('https://d1jz9j0gyf09j1.cloudfront.net/m/corp/preview.html?pageid=service&webview=ftcapp&v=1', './app/templates/service.html'),
     getUrltoFile('https://www.ft.com/__origami/service/build/v2/bundles/js?modules=o-ads@10.2.1', './app/templates/o-ads.js'),
     getUrltoFile('https://www.googletagservices.com/tag/js/gpt.js', './app/templates/gpt.js'),
