@@ -13,3 +13,4 @@ app/templates/schedule.json
 app/templates/gpt.js
 app/templates/mbabackup.html
 app/templates/o-ads.js
+app/templates/findpassword.html

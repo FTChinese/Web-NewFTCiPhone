@@ -171,6 +171,7 @@ gulp.task('serve:test', gulp.series('scripts', () => {
 
 gulp.task('grab', async () => {
   await Promise.all([
+    getUrltoFile('https://d3plbs0ewhofpw.cloudfront.net/users/findpassword?i=4&webview=ftcapp&v=1', './app/templates/findpassword.html'),
     getUrltoFile('https://d1jz9j0gyf09j1.cloudfront.net/index.php/users/register?i=4&webview=ftcapp&v=1', './app/templates/register.html'),
     getUrltoFile('https://d1jz9j0gyf09j1.cloudfront.net/m/corp/preview.html?pageid=homelocalbackup&webview=ftcapp&bodyonly=yes&newad=yes&v=1', './app/templates/localbackup.html'),
     getUrltoFile('https://d1jz9j0gyf09j1.cloudfront.net/m/corp/preview.html?pageid=bestofenglish&webview=ftcapp&bodyonly=yes&newad=yes&v=1', './app/templates/dailyenglishbackup.html'),
@@ -344,6 +345,14 @@ gulp.task('ios', gulp.series('grab', 'build', async () => {
 
   // gulp.src(['app/templates/hotstories.json'])
   //   .pipe(gulp.dest('../NewFTCApp-iOS/Page/Ad/'));
+
+
+  gulp.src(['app/templates/findpassword.html'])
+  .pipe(replace('<!--night-style-native-app-->', nightHTML))
+  .pipe(gulp.dest('../NewFTCApp-iOS/Page/FTChinese/'))
+  .on('end', function() {
+    convert2Big5('../NewFTCApp-iOS/Page/FTChinese/findpassword.html')
+  });
 
   gulp.src(['app/templates/register.html'])
     .pipe(replace('<!--night-style-native-app-->', nightHTML))
