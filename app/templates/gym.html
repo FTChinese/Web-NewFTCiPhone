@@ -1,5 +1,5 @@
 
-	            <!DOCTYPE html>
+<!DOCTYPE html>
 <!--[if lt IE 7 ]>
 <html class="msie msie6">
   <![endif]-->
@@ -5302,36 +5302,6 @@ return;
           } else {
               $("#gym-button").html("确定").removeClass("disabled").attr("action","check");
           }
-      });
-      $("#gymslides a[href]").each(function(){
-          var theId = $(this).attr("href") || "";
-          var isAd = (theId.indexOf("?")>0) ? "&" : "?";
-          if (/\/interactive\/[0-9]+/i.test(theId)) {
-            theId = theId.replace ( /[^\d]/g, '' );
-            $(this).attr("href","index.php/ft/interactive/" + theId + "?i=3&isad=1");
-          } else {
-            $(this).attr('href', theId + isAd + 'isad=1');
-          }
-      });
-      $("#gymslides").on("click","a[href]",function(){
-          // var theId = $(this).attr("href") || "", actionNote;
-          // //if ($(this).find(".action-note").length===0) {$(this).append("<font class='action-note'></font>");}
-          // if (/\/story\/[0-9]+/i.test(theId)) {
-          //     actionNote = $(this).find(".action-note");
-          //     theId = theId.replace(/^.*\/story\/([0-9]+).*$/g,"$1");
-          //     actionNote.html("提交...");
-          //     $.post("/index.php/users/addfavstory/"+theId, {
-          //         storyid: theId
-          //     }, function(data){
-          //         if(data == "ok") {
-          //             actionNote.html("已收藏");
-          //             gClipped = true;
-          //         } else {
-          //             actionNote.html("收藏失败");
-          //         }
-          //     });
-          //     return false;
-          // }
       });
       // MARK: auto scroll
       $('#scroll-control').on('click', function() {
