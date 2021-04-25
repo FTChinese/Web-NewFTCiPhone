@@ -313,6 +313,11 @@ gulp.task('ios', gulp.series('grab', 'build', async () => {
   const oTableJS = fs.readFileSync('bower_components/ftcnext/app/origami/o-table.js', 'utf8');
   const oTableHTML = '<style>' + oTableCSS + '</style><script>' + oTableJS + '</script>';
   const oTablePath = '../NewFTCApp-iOS/Page/FTChinese/o-table.html';
+
+
+  console.log(listMainJS);
+
+
   fs.writeFile(oTablePath, oTableHTML, function(err) {
       if(err) {
           return console.log(err);

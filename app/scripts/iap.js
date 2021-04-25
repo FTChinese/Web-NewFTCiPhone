@@ -19,9 +19,50 @@ function updateProductsHTML(id, json, position) {
 	loadImages();
 }
 
-// MARK: Update the locks at the end of premium content headlines
+function promptUserLogin() {
+	var promptDiv = document.getElementById('membership-login-prompt');
+	if (promptDiv) {
+		promptDiv.className = promptDiv.className.replace(/ hide/g, '');
+	}
+}
+
+function hideUserLogin() {
+	var promptDiv = document.getElementById('membership-login-prompt');
+	if (promptDiv) {
+		promptDiv.className += ' hide';
+	}
+}
+
+function promptContactConfirm(membership, action) {
+	var promptDiv = document.getElementById('subscriber-contact-confirm');
+	if (!promptDiv) {return;}
+	promptDiv.className = promptDiv.className.replace(/ hide/g, '');
+	if (!membership || membership === '') {return;}
+	var promptLink = promptDiv.querySelector('a[href]');
+	if (!promptLink) {return;}
+	var link = promptLink.href;
+	if (/membership=/.test(link)) {
+		link = link.replace(/(&membership=)[a-zA-Z\-]+/g, '$1' + membership);
+	} else {
+		link += '&membership=' + membership;
+	}
+	if (/action=/.test(link)) {
+		link = link.replace(/(&action=)[a-zA-Z\-]+/g, '$1' + action);
+	} else {
+		link += '&action=' + action;
+	}
+	promptLink.href = link;
+}
+
+function hideContactConfirm() {
+	var promptDiv = document.getElementById('subscriber-contact-confirm');
+	if (promptDiv) {
+		promptDiv.className += ' hide';
+	}
+}
+
 function updateHeadlineLocks() {
-	// MARK: If a reader opens the link in an HTML Book, No need to display locks. But if an item is marked as 'TryBook', display the lock. 
+	// MARK: If a reader opens the link in an HTML Book, No need to display locks. But if an item is marked as 'TryBook', display the lock.
 	if (window.location.href.indexOf('htmlbook') > 0) {
 		var itemContainers = document.querySelectorAll('.item-container');
 		for (var s=0; s<itemContainers.length; s++) {
@@ -45,7 +86,7 @@ function updateHeadlineLocks() {
 	if (privileges.indexOf('EditorChoice') >= 0) {
 		userPrivilegeLevel = 2;
 	} else if (privileges.indexOf('premium') >= 0) {
-		userPrivilegeLevel = 1; 
+		userPrivilegeLevel = 1;
 	}
 	// MARK: Remove all existing lock classes
 	var lockedItems = document.querySelectorAll('.item-headline-link.locked, .item-headline-link.unlocked');
@@ -53,7 +94,7 @@ function updateHeadlineLocks() {
 		lockedItems[r].className = lockedItems[r].className.replace(/unlocked/g, '').replace(/locked/g, '').replace(/ +/, ' ');
 	}
 	// MARK: Story Archive
-	var archiveInSeconds = 7 * 24 * 60 * 60;
+	var archiveInSeconds = 2 * 24 * 60 * 60;
 	var storyItems = document.querySelectorAll('[data-type=story][data-date]');
 	for (var k=0; k<storyItems.length; k++) {
 		var storyPubDate = storyItems[k].getAttribute('data-date');
@@ -95,7 +136,7 @@ function updateHeadlineLocks() {
 			}
 		}
 	}
-	// MARK: Support "会员专享" and "高端专享" 
+	// MARK: Support "会员专享" and "高端专享"
 	var interactives = document.querySelectorAll('[data-type=interactive][data-keywords]');
 	for (var m=0; m<interactives.length; m++) {
 		var keyWords = interactives[m].getAttribute('data-keywords');
@@ -116,48 +157,6 @@ function updateHeadlineLocks() {
 				}
 			}
 		}
-	}
-}
-
-function promptUserLogin() {
-	var promptDiv = document.getElementById('membership-login-prompt');
-	if (promptDiv) {
-		promptDiv.className = promptDiv.className.replace(/ hide/g, '');
-	}
-}
-
-function hideUserLogin() {
-	var promptDiv = document.getElementById('membership-login-prompt');
-	if (promptDiv) {
-		promptDiv.className += ' hide';
-	}
-}
-
-function promptContactConfirm(membership, action) {
-	var promptDiv = document.getElementById('subscriber-contact-confirm');
-	if (!promptDiv) {return;}
-	promptDiv.className = promptDiv.className.replace(/ hide/g, '');
-	if (!membership || membership === '') {return;}
-	var promptLink = promptDiv.querySelector('a[href]');
-	if (!promptLink) {return;}
-	var link = promptLink.href;
-	if (/membership=/.test(link)) {
-		link = link.replace(/(&membership=)[a-zA-Z\-]+/g, '$1' + membership);
-	} else {
-		link += '&membership=' + membership;
-	}
-	if (/action=/.test(link)) {
-		link = link.replace(/(&action=)[a-zA-Z\-]+/g, '$1' + action);
-	} else {
-		link += '&action=' + action;
-	}
-	promptLink.href = link;
-}
-
-function hideContactConfirm() {
-	var promptDiv = document.getElementById('subscriber-contact-confirm');
-	if (promptDiv) {
-		promptDiv.className += ' hide';
 	}
 }
 
