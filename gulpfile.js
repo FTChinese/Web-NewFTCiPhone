@@ -315,7 +315,6 @@ gulp.task('ios', gulp.series('grab', 'build', async () => {
   const oTablePath = '../NewFTCApp-iOS/Page/FTChinese/o-table.html';
 
 
-  console.log(listMainJS);
 
 
   fs.writeFile(oTablePath, oTableHTML, function(err) {
