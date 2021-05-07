@@ -137,7 +137,7 @@ a.ui-light-btn {
 <div class="user-name-container">欢迎您，<span class="user_Name"></span></div>
 <input type="button" value="登出" class="comment_btn button ui-light-btn" onclick="javascript: logout();"/>
 <a href="http://www.ftchinese.com/m/corp/preview.html?pageid=subscriptioninfoconfirm&to=all" class="button ui-light-btn">修改我的信息</a>
-<a id="wechat-ftc-binding"></a>
+<!--<a id="wechat-ftc-binding"></a>-->
 <input type="hidden" name="storyid"  id=cstoryid value=""/>
 <div class="logged"><div class="statusmsg"></div></div>
 </div>
@@ -168,15 +168,37 @@ a.ui-light-btn {
     checkLogin();
 </script>
 <script type="text/javascript">
+
 function showSocialLoginIn(socialPlatform) {
     document.getElementById('social-login-' + socialPlatform).style.display = 'block';
 }
+
 function showSocialLogins(socialPlatforms) {
     var socialPlatformsArray = socialPlatforms.split(',');
     for (var i=0; i<socialPlatformsArray.length; i++) {
         showSocialLoginIn(socialPlatformsArray[i]);
     }
 }
+
+function weChatBinding() {
+    var email = 'some@ftchinese.com';
+    var password = 'xxxxxx';
+    xhr = new XMLHttpRequest();
+    xhr.open('POST', '/index.php/jsapi/wechatBinding');
+    xhr.setRequestHeader('Content-Type', 'application/json');
+    xhr.onload = function() {
+        if (xhr.status === 200) {
+            console.log(xhr.responseText);
+            var userInfo = JSON.parse(xhr.responseText);
+            console.log(userInfo);
+        }
+    };
+    xhr.send(JSON.stringify({
+        email: email,
+        password: password
+    }));
+}
+
 showSocialLogins('{showSocialLogins}');
 </script>
 
