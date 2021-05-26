@@ -114,6 +114,9 @@ a.ui-light-btn {
 .password {
     background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACEAAAAkCAYAAAFwLmNKAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA2hpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMy1jMDExIDY2LjE0NTY2MSwgMjAxMi8wMi8wNi0xNDo1NjoyNyAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDpGOTdGMTE3NDA3MjA2ODExODA4MzlBQTY0MzBBODVGNCIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDpGMEZCNzJGMzE5MzYxMUU4OUIxOUYzMTFGREM3QTAzNCIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDpGMEZCNzJGMjE5MzYxMUU4OUIxOUYzMTFGREM3QTAzNCIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgQ1M2IChNYWNpbnRvc2gpIj4gPHhtcE1NOkRlcml2ZWRGcm9tIHN0UmVmOmluc3RhbmNlSUQ9InhtcC5paWQ6RkE3RjExNzQwNzIwNjgxMTgwODM5QUE2NDMwQTg1RjQiIHN0UmVmOmRvY3VtZW50SUQ9InhtcC5kaWQ6Rjk3RjExNzQwNzIwNjgxMTgwODM5QUE2NDMwQTg1RjQiLz4gPC9yZGY6RGVzY3JpcHRpb24+IDwvcmRmOlJERj4gPC94OnhtcG1ldGE+IDw/eHBhY2tldCBlbmQ9InIiPz7mtLtQAAAB5klEQVR42mJcvnQOAxT8BGJ2EIMFKvAfiBlhNBMDKgBJMDAhqYKB/+gqwQAggBihFslD+Q9hljyEqcDQRlgAIIAYkVzfD8S3gXgaEGcBsSoQFyL7BgQKkNw6DdkkFqhHGJC8jgFYkL2OA/wHCCBkN4HAQagGO3RTGNDC7j9yoMKABBJbGls4vERiP8MZUNh88p+QAnxe/U/QCoIKAAIIPaBg4BwQG2IRPw/ERsTYAvLYN6jb0fE3bB5nweFCG1LECfqXGIArXv6TaggDEUkVZxKmmneoFiZkhQMyAAggXIkNBMqBOA/KngTEnYRcAQOiQPwKTawDisWA+DWhsABp/oMllf7GYjCGAQ1QmhWLwWxQuhGfAWlEhFsOvjCQJBToVE8PA28AxTmUiVr5gZFM/f+HQSwMjnRAUYkEEGD4SiR0wAnErdDcyIpHHajcmArE1dCajirBACpLTkANLIQ64AgQRwKxDLTJKAPlH4HKg9pZX6H62Cl1hBzUMHMoPxWa+G2BeAUQPwXiX1B6BVScEaqOAarvCxArUOKIZUhxHgXExMbdHGjIwNLMMkocYY3EXk5ieluHxLYktr6lNvhFbLnFxDAIwKgjiO4vUKONRkpDkJIKkKxKczRNjDpi0GdRumTDQR8SAO7IWP66KBqdAAAAAElFTkSuQmCC');
 }
+#wechat-ftc-binding-container {
+    display: none;
+}
 </style>
 
 </head>
@@ -159,6 +162,15 @@ a.ui-light-btn {
     </div>
 </div>
 
+<div id="wechat-ftc-binding-container">
+    <div class="container">
+        <div class="user-name-container">请输入邮箱和密码进行绑定操作：</div>
+        <input placeholder="请输入邮箱" type="text" autocorrect="off" name="username" id="wechat-binding-email" class="user_id textinput user-name"/>
+        <input placeholder="请输入密码" type="password" name="password"  class="user_id textinput password" id="wechat-binding-password"/>
+        <div class="topmargin statusmsg" id="wechat-binding-status"></div>
+        <input type="submit" value="绑定" class="comment_btn submitbutton button ui-light-btn" onclick="weChatBinding()"/> 
+    </div>
+</div>
 
 </div>
 
@@ -181,18 +193,33 @@ function showSocialLogins(socialPlatforms) {
 }
 
 function weChatBinding() {
-    var email = 'some@ftchinese.com';
-    var password = 'xxxxxx';
+    var status = document.querySelector('#wechat-binding-status');
+    var email = document.getElementById('wechat-binding-email').value;
+    var password = document.getElementById('wechat-binding-password').value;
+    status.innerHTML = '正在向服务器发送信息...';
     xhr = new XMLHttpRequest();
     xhr.open('POST', '/index.php/jsapi/wechatBinding');
     xhr.setRequestHeader('Content-Type', 'application/json');
     xhr.onload = function() {
         if (xhr.status === 200) {
-            console.log(xhr.responseText);
             var userInfo = JSON.parse(xhr.responseText);
-            console.log(userInfo);
+            if (userInfo.status && userInfo.status === 'success') {
+                status.innerHTML = '绑定成功';
+                document.querySelector('.logincomment').style.display = 'block';
+                document.querySelector('#wechat-ftc-binding-container').style.display = 'none';
+                document.querySelector('#wechat-ftc-binding').style.display = 'none';
+            } else if (userInfo.errmsg) {
+                status.innerHTML = `服务器返回错误信息：${userInfo.errmsg}，请重新尝试`;
+            } else {
+                status.innerHTML = `服务器返回未知错误：${xhr.responseText}`;
+            }
+        } else {
+            status.innerHTML = `服务器返回错误代码：${xhr.status}`;
         }
     };
+    xhr.onerror = function(err) {
+        status.innerHTML = err.toString();
+    }
     xhr.send(JSON.stringify({
         email: email,
         password: password
@@ -200,6 +227,12 @@ function weChatBinding() {
 }
 
 showSocialLogins('{showSocialLogins}');
+
+document.getElementById('wechat-ftc-binding').onclick = function() {
+    document.querySelector('.nologincomment, .logincomment').style.display = 'none';
+    document.querySelector('#wechat-ftc-binding-container').style.display = 'block';
+};
+
 </script>
 
 
