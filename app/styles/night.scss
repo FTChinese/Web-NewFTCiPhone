@@ -1,7 +1,19 @@
 .night {
-	body, #mbagym-container, .bottom-part{
+	body, #mbagym-container, .bottom-part {
 		background:#000!important;
 		color:#AAA!important;
+	}
+	.card-grid .item-container.no-image .item-inner {
+		background:#333333!important;
+	}
+	.card-grid .item-container.no-image.blue .item-inner {
+		background:#0f5499!important;
+	}
+	.card-grid .item-container.no-image.purple .item-inner {
+		background:#593380!important;
+	}
+	.card-grid .item-container.no-image.dark-green .item-inner {
+		background:#0a5e66!important;
 	}
 	.side-container, .box-title a, table th, table tr, .oneStory, #mbagym-container ul.quizlist li, #gymslides .slide, .user_id, .list-title, .list-title a.list-link, .commentTextArea, .box-title, .cmt_quote, .showcmt{
 		background:transparent!important;
