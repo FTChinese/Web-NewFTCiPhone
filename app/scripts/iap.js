@@ -115,7 +115,7 @@ function updateHeadlineLocks() {
 		}
 	}
 	// MARK: Paid content for standard and premium subscribers
-	var headlines = document.querySelectorAll('[data-type=premium] .item-headline-link, [data-sub-type=radio] .item-headline-link, [data-sub-type=speedreading] .item-headline-link');
+	var headlines = document.querySelectorAll('[data-type=premium] .item-headline-link, [data-sub-type=radio] .item-headline-link, [data-sub-type=speedreading] .item-headline-link, [data-type=premium].item-headline-link, [data-sub-type=radio].item-headline-link, [data-sub-type=speedreading].item-headline-link');
 	for (var i=0; i<headlines.length; i++) {
 		var headlineClass = headlines[i].className.replace(/unlocked/g, '').replace(/locked/g, '').replace(/ +/, ' ');
 		if (privileges.indexOf('premium') >= 0) {
@@ -147,7 +147,7 @@ function updateHeadlineLocks() {
 			contentPrivilegeLevel = 1;
 		}
 		if (contentPrivilegeLevel>0) {
-			var currentHeadline = interactives[m].querySelector('.item-headline-link');
+			var currentHeadline = (interactives[m].className.indexOf('item-headline-link') >= 0) ? interactives[m] : interactives[m].querySelector('.item-headline-link');
 			if (currentHeadline) {
 				var headlineClass = currentHeadline.className.replace(/unlocked/g, '').replace(/locked/g, '').replace(/ +/, ' ');
 				if (userPrivilegeLevel >= contentPrivilegeLevel) {
