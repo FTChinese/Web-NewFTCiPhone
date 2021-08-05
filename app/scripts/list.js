@@ -15,7 +15,7 @@ function getJSON() {
 		}
 	} catch (ignore) {}
 	var pageTitle;
-	if (window.linksForShare.title) {
+	if (window.linksForShare && window.linksForShare.title) {
 		pageTitle = window.linksForShare.title.replace(' - FT中文网', '').replace('&apos;', '\'');
 	} else {
 		pageTitle = document.title;
