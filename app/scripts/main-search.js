@@ -9,11 +9,31 @@ function search (keys, page) {
             }
         } catch (ignore) {}
     }
-	// console.log (keys);
-	// console.log (typeof page);
 	// MARK: - Set Cookie so that the search engine will not refuse to serve
 	SetCookie('viewpc',1,86400*10000,'/');
-	var url = '/index.php/ft/search/?keys='+ keys + '&type=default&i=4&supportsubtype=yes';
+	var brand = 'other';
+	var ua = navigator.userAgent || '';
+	if (webkit) {
+		brand = 'apple';
+	} else if (/huawei/gi.test(ua)) {
+		brand = 'huawei';
+	}
+	var isPaidSubscriber = false;
+	if (typeof window.subscriptionType === 'string') {
+		// MARK: - iOS native app
+		isPaidSubscriber = !(window.subscriptionType === 'noneSubscriber');
+	} else if (window.androidUserInfo && window.androidUserInfo.membership) {
+		// MARK: - Android native app
+		var expireDate = new Date(window.androidUserInfo.membership.expireDate);
+		var todayDate = new Date();
+		if (expireDate >= todayDate) {
+			isPaidSubscriber = true;
+		} else if (window.androidUserInfo.membership.vip === true) {
+			isPaidSubscriber = true;
+		}
+	}
+	var paid = isPaidSubscriber ? 'yes' : 'no';
+	var url = '/index.php/ft/search/?keys='+ keys + '&type=default&i=4&supportsubtype=yes&brand=' + brand + '&paid=' + paid;
 	if (typeof page === 'string') {
 		url += '&page=' + page;
 	}
