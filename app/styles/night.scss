@@ -1,9 +1,9 @@
 .night {
-	body, #mbagym-container, .bottom-part {
+	body, #mbagym-container, .bottom-part, td {
 		background:#000!important;
 		color:#AAA!important;
 	}
-	.card-grid .item-container.no-image .item-inner {
+	.card-grid .item-container.no-image .item-inner, .o-member-container .o-member {
 		background:#333333!important;
 	}
 	.card-grid .item-container.no-image.blue .item-inner {
