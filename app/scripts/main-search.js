@@ -2,7 +2,7 @@ function search (keys, page) {
     function reportSearchResultToNative(term, status) {
         var data = {action: 'search', term: term, status: status};
         try {
-            if (webkit) {
+            if (typeof webkit === 'object') {
                 webkit.messageHandlers.searchResults.postMessage(data);
             } else if (Android) {
                 Android.onPageLoaded(JSON.stringify(data));
@@ -13,7 +13,7 @@ function search (keys, page) {
 	SetCookie('viewpc',1,86400*10000,'/');
 	var brand = 'other';
 	var ua = navigator.userAgent || '';
-	if (webkit) {
+	if (typeof webkit === 'object') {
 		brand = 'apple';
 	} else if (/huawei/gi.test(ua)) {
 		brand = 'huawei';
