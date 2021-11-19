@@ -7,6 +7,7 @@ const wiredep = require('wiredep').stream;
 const runSequence = require('run-sequence');
 const gutil = require('gulp-util');
 const $ = gulpLoadPlugins();
+var sass = require('gulp-dart-sass');
 const reload = browserSync.reload;
 let dev = true;
 
@@ -22,12 +23,12 @@ gulp.task('styles', () => {
   return gulp.src('app/styles/*.scss')
     .pipe($.plumber())
     .pipe($.if(dev, $.sourcemaps.init()))
-    .pipe($.sass.sync({
+    .pipe(sass.sync({
       outputStyle: 'expanded',
       precision: 10,
       includePaths: ['.', 'bower_components']
-    }).on('error', $.sass.logError))
-    // MARK: - auto prefixer removed important styles such as -webkit-box-orient. 
+    }).on('error', sass.logError))
+    // MARK: - auto prefixer removed important styles such as -webkit-box-orient.
     // .pipe($.autoprefixer({browsers: ['> 1%', 'last 2 versions', 'Firefox ESR']}))
     .pipe($.if(dev, $.sourcemaps.write()))
     .pipe(gulp.dest('.tmp/styles'))
@@ -98,9 +99,9 @@ gulp.task('extras', () => {
 
 gulp.task('clean', del.bind(null, ['.tmp', 'dist']));
 
-gulp.task('serve', 
+gulp.task('serve',
   gulp.parallel(
-    'styles', 
+    'styles',
     function serve() {
       browserSync.init({
         server: {
@@ -334,7 +335,7 @@ gulp.task('ios', gulp.series('grab', 'build', async () => {
       console.log('night html writen to' + nightPath);
   });
 
-  // MARK: - Get hot keywords from hot stories. 
+  // MARK: - Get hot keywords from hot stories.
   const hotKeywordsPath = '../NewFTCApp-iOS/Page/FTChinese/hot-keywords.json';
   const hotKeyWordsHTML = await getHotKeywords();
   fs.writeFile(hotKeywordsPath, hotKeyWordsHTML, function(err) {
@@ -376,7 +377,7 @@ gulp.task('ios', gulp.series('grab', 'build', async () => {
     .on('end', function() {
       convert2Big5('../NewFTCApp-iOS/Page/FTChinese/dailyenglishbackup.html')
   });
-    
+
   gulp.src(['app/templates/service.html'])
     .pipe(gulp.dest('../NewFTCApp-iOS/Page/FTChinese/'))
     .on('end', function() {
