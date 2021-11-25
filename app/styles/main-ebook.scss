@@ -1,14 +1,14 @@
 @import "ftcnext/app/styles/main-story";
 
 .ebook-container {
-	padding: $defaultPadding/2;
+	padding: $defaultPadding*0.5;
 	margin: auto;
 	max-width: 1024px;
 }
 .book-title-container {
 	display: none;
 	background-color: #f2dfce;
-	margin-bottom: $defaultPadding/2;
+	margin-bottom: $defaultPadding*0.5;
 }
 .book-tag {
 	text-align: center;
@@ -28,7 +28,7 @@
 	text-align: center;
 	font-weight: bold;
 	font-size: 1.2em;
-	padding: 5px 0 $defaultPadding/2 0;
+	padding: 5px 0 $defaultPadding*0.5 0;
 
 }
 

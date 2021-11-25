@@ -4,7 +4,7 @@
 @import "image-ios";
 @import "ftcnext/app/styles/main-speedread";
 body {
-	padding-top: $defaultPadding/2;
+	padding-top: $defaultPadding*0.5;
 	//font-family: Helvetica, -apple-system, "blisslight", blisslight, "blissregular", blissregular, Arial, Helvetica, sans-serif;
 }
 @import "night";
