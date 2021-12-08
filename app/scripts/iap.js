@@ -94,7 +94,7 @@ function updateHeadlineLocks() {
 		lockedItems[r].className = lockedItems[r].className.replace(/unlocked/g, '').replace(/locked/g, '').replace(/ +/, ' ');
 	}
 	// MARK: Story Archive
-	var archiveInSeconds = 2 * 24 * 60 * 60;
+	var archiveInSeconds = 24 * 60 * 60;
 	var storyItems = document.querySelectorAll('[data-type=story][data-date]');
 	for (var k=0; k<storyItems.length; k++) {
 		var storyPubDate = storyItems[k].getAttribute('data-date');
