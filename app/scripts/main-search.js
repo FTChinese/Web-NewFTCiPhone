@@ -4,7 +4,7 @@ function search (keys, page) {
         try {
             if (typeof webkit === 'object') {
                 webkit.messageHandlers.searchResults.postMessage(data);
-            } else if (Android) {
+            } else if (typeof Android === 'object') {
                 Android.onPageLoaded(JSON.stringify(data));
             }
         } catch (ignore) {}

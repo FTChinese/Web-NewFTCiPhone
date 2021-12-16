@@ -68,13 +68,13 @@ function getJSON() {
 		//console.log (item);
 	}
 	try {
-		if (webkit) {
+		if (typeof webkit === 'object') {
 			webkit.messageHandlers.items.postMessage(data);
 		}
 	} catch (ignore) {}
 
 	try {
-		if (Android) {
+		if (typeof Android === 'object') {
 			Android.onPageLoaded(JSON.stringify(data));
 		}
 	} catch (ignore) {}
@@ -111,13 +111,13 @@ function tapOnEle(event, ele) {
 	}
 	var row = ele.getAttribute('data-row');
 	try {
-		if (webkit) {
+		if (typeof webkit === 'object') {
 			webkit.messageHandlers.selectItem.postMessage(row);
 		}
 	} catch (ignore) {}
 
 	try {
-		if (Android) {
+		if (typeof Android === 'object') {
 			Android.onSelectItem(row);
 		}
 	} catch (ignore) {}
@@ -179,13 +179,13 @@ function specialReportsData() {
 		specialAnchorsData.push(item);
 	}
 	try {
-		if (webkit) {
+		if (typeof webkit === 'object') {
 			webkit.messageHandlers.sponsors.postMessage(specialAnchorsData);
 		}
 	} catch (ignore) {}
 
 	try {
-		if (Android) {
+		if (typeof Android === 'object') {
 			Android.onLoadedSponsors(JSON.stringify(specialAnchorsData));
 		}
 	} catch (ignore) {}
@@ -195,12 +195,12 @@ function specialReportsData() {
 
 function sharePageFromApp(linkObj) {
 	try {
-		if (webkit) {
+		if (typeof webkit === 'object') {
 			webkit.messageHandlers.sharePageFromApp.postMessage(linkObj);
 		}
 	} catch (ignore) {}
 	try {
-		if (Android) {
+		if (typeof Android === 'object') {
 			Android.onSharePageFromApp(JSON.stringify(linkObj));
 		}
 	} catch (ignore) {}
@@ -209,12 +209,12 @@ function sharePageFromApp(linkObj) {
 function sendPageInfoToApp() {
 	if (typeof window.linksForShare === 'object') {
 		try {
-			if (webkit) {
+			if (typeof webkit === 'object') {
 				webkit.messageHandlers.sendPageInfoToApp.postMessage(window.linksForShare);
 			}
 		} catch (ignore) {}
 		try {
-			if (Android) {
+			if (typeof Android === 'object') {
 				Android.onSendPageInfoToApp(JSON.stringify(window.linksForShare));
 			}
 		} catch (ignore) {}

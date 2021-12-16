@@ -3,7 +3,7 @@ function openMySetting(ele){
         'mySetting': '我的设置'
     };
 
-    if (webkit) {
+    if (typeof webkit === 'object') {
     	webkit.messageHandlers.mySetting.postMessage(message);
     }
 }

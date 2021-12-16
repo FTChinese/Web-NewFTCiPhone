@@ -21,12 +21,12 @@ try {
             message.action = 'unfollow';
         }
         try {
-            if (webkit) {
+            if (typeof webkit === 'object') {
                 webkit.messageHandlers.follow.postMessage(message);
             }
         } catch (ignore) {}
         try {
-            if (Android) {
+            if (typeof Android === 'object') {
                 Android.follow(JSON.stringify(message));
             }
         } catch (ignore) {}

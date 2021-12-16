@@ -5084,9 +5084,9 @@ return;
                           name: 'FinishSpeedReading',
                           parameters: null
                         };
-                        if (webkit) {
+                        if (typeof webkit === 'object') {
                             webkit.messageHandlers.trackEvent.postMessage(trackEvent);
-                        } else if (Android) {
+                        } else if (typeof Android === 'object') {
                             Android.trackEvent(JSON.stringify(trackEvent));
                         }
                       } catch(ignore) {

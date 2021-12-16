@@ -3,7 +3,7 @@ function listen(ele) {
         'audio': ele.src
     };
 
-    if (webkit) {
+    if (typeof webkit === 'object') {
     	webkit.messageHandlers.listen.postMessage(message);
     }
 }
