@@ -176,6 +176,9 @@ function specialReportsData() {
 		if (specialAnchors[i].getAttribute('hideAd')) {
 			item.hideAd = specialAnchors[i].getAttribute('hideAd');
 		}
+		if (specialAnchors[i].getAttribute('hasPayingSponsor')) {
+			item.hasPayingSponsor = specialAnchors[i].getAttribute('hasPayingSponsor');
+		}
 		specialAnchorsData.push(item);
 	}
 	try {
