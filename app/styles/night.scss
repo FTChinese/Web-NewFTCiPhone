@@ -18,10 +18,13 @@
 	.side-container, .box-title a, table th, table tr, .oneStory, #mbagym-container ul.quizlist li, #gymslides .slide, .user_id, .list-title, .list-title a.list-link, .commentTextArea, .box-title, .cmt_quote, .showcmt{
 		background:transparent!important;
 		color:#AAA!important;
-
 	}
-	.side-container .list-title, table caption, table tr.row-odd, table tbody tr:nth-child(2n), .image figure, .banner-content, #allcomments .commentcontainer, .commentcontainer, .ebook-image-container .ebook-image-inner:before, .book-title-container, #mbagym-container[theme="defau"] .quizlist li.selected, #mbagym-container .rightanswer {
+	table caption, table tr.row-odd, table tbody tr:nth-child(2n), .image figure, .banner-content, #allcomments .commentcontainer, .commentcontainer, .ebook-image-container .ebook-image-inner:before, .book-title-container, #mbagym-container[theme="defau"] .quizlist li.selected, #mbagym-container .rightanswer {
 		background: #333!important;
+	}
+	.side-container .list-title {
+		background: transparent!important;
+		border-top: 4px solid #BBB!important;
 	}
 	.item-lead {
 		color:#999!important;
@@ -35,7 +38,7 @@
 	.side-container .list-title a, button, .story-body, #allcomments .commentcontainer, .commentcontainer, .cmt_quote, .showcmt, .is-current, .story-body a  {
 		color: #AAA!important;
 	}
-	.has-side .content-inner, .list-title {
+	.has-side .content-inner, .list-title, .PT, .oneStory, .storyInner, .top10 li, .side-by-side .item-headline {
 		border-color: transparent!important;
 	}
 	.list-title {
