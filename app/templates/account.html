@@ -211,10 +211,13 @@ function showSocialLogins(socialPlatforms) {
     }
 }
 
-function showWechatFTCBinding() {
+function showWechatFTCBinding(message) {
     document.querySelector('.nologincomment').style.display = 'none';
     document.querySelector('.logincomment').style.display = 'none';
     document.querySelector('#wechat-ftc-binding-container').style.display = 'block';
+    if (typeof message === 'string' && message !== '') {
+        document.querySelector('#wechat-ftc-binding-container .user-name-container').innerHTML = message;
+    }
     cleanFields();
 }
 
