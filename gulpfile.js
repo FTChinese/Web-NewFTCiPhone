@@ -399,6 +399,7 @@ gulp.task('ios', gulp.series('grab', 'build', async () => {
     .pipe(replace('{{search-css}}', searchCSS))
     .pipe(replace('{{search-js}}', searchJS))
     .pipe(gulp.dest('../NewFTCApp-iOS/Page/FTChinese/'))
+    .pipe(gulp.dest('../ftc-android-kotlin/app/src/main/res/raw/'))
     .on('end', function() {
       convert2Big5('../NewFTCApp-iOS/Page/FTChinese/search.html')
     });
@@ -412,6 +413,7 @@ gulp.task('ios', gulp.series('grab', 'build', async () => {
     .pipe(replace('{{ad-pollyfill-js}}', adPolyfillJS))
     .pipe(rename('story.html'))
     .pipe(gulp.dest('../NewFTCApp-iOS/Page/FTChinese/'))
+    .pipe(gulp.dest('../ftc-android-kotlin/app/src/main/res/raw/'))
     .on('end', function() {
       convert2Big5('../NewFTCApp-iOS/Page/FTChinese/story.html')
     });
@@ -462,6 +464,7 @@ gulp.task('ios', gulp.series('grab', 'build', async () => {
     .pipe(replace('{{list-js-key}}', listKeyJS))
     .pipe(replace('{{ad-pollyfill-js}}', adPolyfillJS))
     .pipe(gulp.dest('../NewFTCApp-iOS/Page/FTChinese/'))
+    .pipe(gulp.dest('../ftc-android-kotlin/app/src/main/res/raw/'))
     .on('end', function() {
       convert2Big5('../NewFTCApp-iOS/Page/FTChinese/list.html')
     });
@@ -499,6 +502,7 @@ gulp.task('ios', gulp.series('grab', 'build', async () => {
     .pipe(replace('/*gym-listen*/', gymListenJS))
     .pipe(replace('<!--{commoncss}-->', `<style>${commonCSS}</style>`))
     .pipe(gulp.dest('../NewFTCApp-iOS/Page/FTChinese/'))
+    .pipe(gulp.dest('../ftc-android-kotlin/app/src/main/res/raw/'))
     .on('end', function() {
       convert2Big5('../NewFTCApp-iOS/Page/FTChinese/gym.html')
     });
