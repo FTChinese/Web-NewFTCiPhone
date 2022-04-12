@@ -5,8 +5,8 @@
     -o-#{$name}: #{$argument};
     #{$name}: #{$argument};
   }
-@import "ftcnext/app/styles/theme-default.scss";
-@import "ftcnext/app/styles/variables.scss";
-@import "ftcnext/app/styles/mixins.scss";
-@import "ftcnext/app/styles/common.scss";
-@import "ftcnext/app/styles/common-content.scss";
+@import "next/app/styles/theme-default.scss";
+@import "next/app/styles/variables.scss";
+@import "next/app/styles/mixins.scss";
+@import "next/app/styles/common.scss";
+@import "next/app/styles/common-content.scss";

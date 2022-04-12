@@ -26,7 +26,8 @@ gulp.task('styles', () => {
     .pipe(sass.sync({
       outputStyle: 'expanded',
       precision: 10,
-      includePaths: ['.', 'bower_components']
+      includePaths: ['.', 'bower_components', 'node_modules']
+      // includePaths: ['.', 'bower_components']
     }).on('error', sass.logError))
     // MARK: - auto prefixer removed important styles such as -webkit-box-orient.
     // .pipe($.autoprefixer({browsers: ['> 1%', 'last 2 versions', 'Firefox ESR']}))
@@ -310,8 +311,8 @@ gulp.task('ios', gulp.series('grab', 'build', async () => {
   const adPolyfillJS = fs.readFileSync('dist/scripts/ad-polyfill.js', 'utf8');
   const gymToolsJS = fs.readFileSync('dist/scripts/gym-tools.js', 'utf8');
   const gymListenJS = fs.readFileSync('dist/scripts/gym-listen.js', 'utf8');
-  const oTableCSS = fs.readFileSync('bower_components/ftcnext/app/origami/o-table.css', 'utf8');
-  const oTableJS = fs.readFileSync('bower_components/ftcnext/app/origami/o-table.js', 'utf8');
+  const oTableCSS = fs.readFileSync('node_modules/next/app/origami/o-table.css', 'utf8');
+  const oTableJS = fs.readFileSync('node_modules/next/app/origami/o-table.js', 'utf8');
   const oTableHTML = '<style>' + oTableCSS + '</style><script>' + oTableJS + '</script>';
   const oTablePath = '../NewFTCApp-iOS/Page/FTChinese/o-table.html';
 

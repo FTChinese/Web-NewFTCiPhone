@@ -1,7 +1,7 @@
 {
   "private": true,
   "engines": {
-    "node": ">=4"
+    "node": ">=16"
   },
   "devDependencies": {
     "babel-core": "^6.4.0",
@@ -45,5 +45,9 @@
         "single"
       ]
     }
+  },
+  "dependencies": {
+    "jquery": "^3.6.0",
+    "next": "github:FTChinese/NEXT"
   }
 }

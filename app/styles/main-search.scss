@@ -8,11 +8,11 @@
   -o-#{$name}: #{$argument};
   #{$name}: #{$argument};
 }
-@import "ftcnext/app/styles/theme-default.scss";
-@import "ftcnext/app/styles/variables";
-@import "ftcnext/app/styles/mixins";
-@import "ftcnext/app/styles/pagination";
-@import "ftcnext/app/styles/subscription";
+@import "next/app/styles/theme-default.scss";
+@import "next/app/styles/variables";
+@import "next/app/styles/mixins";
+@import "next/app/styles/pagination";
+@import "next/app/styles/subscription";
 body {
 	background: #FFF1E0;
 }

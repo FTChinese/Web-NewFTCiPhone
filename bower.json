@@ -2,13 +2,9 @@
   "name": "web-newftciphone",
   "private": true,
   "dependencies": {
-    "jquery": "~2.1.1",
-    "o-fonts": "^3.0.3"
+    "jquery": "~2.1.1"
   },
   "devDependencies": {
-    "chai": "^4.1.1",
-    "mocha": "^3.5.0",
-    "ftcnext": "https://github.com/FTChinese/NEXT.git",
     "ftcwebapp": "https://github.com/FTChinese/webapp-v2.git",
     "ftcebook": "https://github.com/FTChinese/ebook-new.git"
   }
