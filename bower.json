@@ -5,7 +5,5 @@
     "jquery": "~2.1.1"
   },
   "devDependencies": {
-    "ftcwebapp": "https://github.com/FTChinese/webapp-v2.git",
-    "ftcebook": "https://github.com/FTChinese/ebook-new.git"
   }
 }

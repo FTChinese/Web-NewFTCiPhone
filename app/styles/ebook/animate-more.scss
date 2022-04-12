@@ -1,0 +1,93 @@
+@import 'mixins.scss';
+/*
+.is-current .animated, .animated.running {
+  @include vendor-prefix("animation-play-state", "running");
+  @include vendor-prefix("animation-fill-mode", "both");
+}
+
+.animated {
+  @include vendor-prefix("animation-duration", "1s");
+  @include vendor-prefix("animation-fill-mode", "both");
+  @include vendor-prefix("animation-play-state", "paused");
+}
+*/
+
+.animated.slow {
+          animation-duration: 3s;
+}
+.animated.delay-300 {
+          animation-delay: 0.3s;
+}
+.animated.delay-1 {
+          animation-delay: 1s;
+}
+.animated.delay-1-5 {
+          animation-delay: 1.5s;
+}
+.animated.delay-2 {
+          animation-delay: 2s;
+}
+.animated.delay-2-5 {
+          animation-delay: 2.5s;
+}
+.animated.delay-3 {
+          animation-delay: 3s;
+}
+.animated.delay-3-5 {
+          animation-delay: 3.5s;
+}
+.animated.delay-4 {
+          animation-delay: 4s;
+}
+.animated.delay-4-5 {
+          animation-delay: 4.5s;
+}
+.animated.delay-5 {
+          animation-delay: 5s;
+}
+.animated.delay-5-5 {
+          animation-delay: 5.5s;
+}
+.animated.delay-6 {
+          animation-delay: 6s;
+}
+.animated.delay-6-5 {
+          animation-delay: 6.5s;
+}
+.animated.delay-7 {
+          animation-delay: 7s;
+}
+.animated.slow {
+            animation-duration: 5s;
+}
+.animated.speed-medium {
+            animation-duration: 1.5s;
+}
+.animated.fadeOutGrey {
+            animation: grey 5s 1 linear 3s both;
+}
+
+
+@keyframes marquee {
+  0%    { transform: translate3d(0,450px,0); }
+  100%  { transform: translate3d(0,-100%,0); }
+}
+
+
+@keyframes anmar {
+  0%    { transform: translate3d(0,1380px,0); }
+  100%  { transform: translate3d(0,-1380px,0); }
+}
+
+
+@keyframes rotate {
+  0%    { -webkit-transform: rotate(0deg); }
+  100%  { -webkit-transform: rotate(360deg); }
+}
+
+
+
+@keyframes grey {
+  0%    { opacity:1; }
+  100%  { opacity: 0.08; }
+}

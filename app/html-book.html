@@ -482,32 +482,21 @@ if (isIE() === true) {
 
 <script>document.getElementById("startbar").style.width="5%";</script>
 <!-- build:js scripts/main-html-book.js -->
-<script src="../bower_components/ftscroller/lib/ftscroller.js"></script>
+<script src="../node_modules/ftscroller/lib/ftscroller.js"></script>
 <script src="../node_modules/jquery/dist/jquery.js"></script>
-<script src="../bower_components/fastclick/lib/fastclick.js"></script>
-<script src="../bower_components/ftcolumnflow/src/FTColumnflow.js"></script>
-<script src="../bower_components/highcharts/highcharts.js"></script>
-<script src="../bower_components/highcharts/highcharts-more.js"></script>
-<script src="/bower_components/ftcebook/app/scripts/swipebook.js"></script>
-<script src="/bower_components/ftcebook/app/scripts/main.js"></script>
+<script src="../node_modules/fastclick/lib/fastclick.js"></script>
+<script src="../node_modules/ftcolumnflow/src/FTColumnflow.js"></script>
+<script src="../node_modules/highcharts/highcharts.js"></script>
+<script src="../node_modules/highcharts/highcharts-more.js"></script>
+<script src="scripts/swipebook.js"></script>
+<script src="scripts/ebook.js"></script>
 <!-- endbuild -->
-
-
-
 
 <script language=javascript>
 $(function(){
     var firstImage = $('#allcontent .slide').eq(0).css('background-image') || '';
     var img = new Image();
     firstImage =firstImage.replace(/^url\(/g,'').replace(/\)$/g,'');
-    // if (firstImage !== '' && firstImage !== 'none') {
-    //     img.src = firstImage;
-    //     img.onload = function() { 
-    //         openbook();
-    //     };
-    // } else {
-    //     openbook();
-    // }
     openbook();
     new FastClick(document.body);
 });
