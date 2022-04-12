@@ -27,7 +27,6 @@ gulp.task('styles', () => {
       outputStyle: 'expanded',
       precision: 10,
       includePaths: ['.', 'node_modules']
-      // includePaths: ['.', 'bower_components']
     }).on('error', sass.logError))
     // MARK: - auto prefixer removed important styles such as -webkit-box-orient.
     // .pipe($.autoprefixer({browsers: ['> 1%', 'last 2 versions', 'Firefox ESR']}))
@@ -109,7 +108,6 @@ gulp.task('serve',
           baseDir: ['app', '.tmp'],
           index: 'story.html',
           routes: {
-            '/bower_components': 'bower_components',
             '/node_modules': 'node_modules'
           }
         }
@@ -162,7 +160,6 @@ gulp.task('serve:test', gulp.series('scripts', () => {
       baseDir: 'test',
       routes: {
         '/scripts': '.tmp/scripts',
-        '/bower_components': 'bower_components',
         '/node_modules': 'node_modules'
       }
     }
