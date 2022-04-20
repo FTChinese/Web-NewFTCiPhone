@@ -7,10 +7,7 @@
  <meta http-equiv="Content-Language" content="zh-CN"/>
  <meta content="<%$p.meta.description%>" name="description"/>
  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
- <link rel="apple-touch-icon-precomposed" href="https://static.ftimg.net/img/ipad_icon.png" />
  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
- <link rel="preconnect" href="http://static.ftchinese.com" />
- <link rel="preconnect" href="http://i.ftimg.net" />
  <script>
  window.errorBuffer = window.errorBuffer || [];
  function beaconCssError(e) {
@@ -73,17 +70,19 @@ x = d.getElementsByTagName(s)[0];
 j.async = true;
 j.src = u;
 x.parentNode.insertBefore(j, x)
-})(document, 'script', 'https://d28dmc8fp041dv.cloudfront.net/js/log.js?v=9&20180412');
+})(document, 'script', 'https://d2jm9zoefzwu40.cloudfront.net/js/log.js?v=9&20180412');
 }
 </script>
 <!-- End Log Analytics -->
 
 
-<script>var gPageId = 'home';</script>
-<script type="text/javascript">
-{{ad-pollyfill-js}}
+<script>
+var gPageId = 'home';
+window.adCodeLoaded = true;
 </script>
-<script async src="https://d28dmc8fp041dv.cloudfront.net/js/gpt.js"></script>
+<script>{{o-ads-js}}</script>
+<script>{{ad-pollyfill-js}}</script>
+<script>{{gpt-js}}</script>
 
 
 
