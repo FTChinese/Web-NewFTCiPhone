@@ -52,6 +52,7 @@
     "ftscroller": "^0.7.0",
     "highcharts": "^10.0.0",
     "jquery": "^3.6.0",
+    "mathsass": "^0.11.0",
     "next": "github:FTChinese/NEXT"
   }
 }
