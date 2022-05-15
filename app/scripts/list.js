@@ -341,7 +341,7 @@ function recommendTopics(myFTScores) {
 	var allListContainers = document.querySelectorAll('.block-container .list-container');
 	var listForInsertAfter;
 	for (var list of allListContainers) {
-		if (list.querySelectorAll('.item-container').length > 10) {
+		if (list.querySelectorAll('.item-container').length > 12) {
 			listForInsertAfter = list;
 			break;
 		}
