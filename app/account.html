@@ -107,6 +107,7 @@ button, a.button, input.button {
 </span>
 <div class="user-name-container">欢迎您，<span class="user_Name"></span></div>
 <input type="button" value="登出" class="comment_btn button ui-light-btn" onclick="javascript: logout();"/>
+<input type="button" value="删除账号" class="comment_btn button ui-light-btn" onclick="javascript: deleteAccount();"/>
 <input type="hidden" name="storyid"  id=cstoryid value=""/>
 <div class="logged"><div class="statusmsg"></div></div>
 </div>
@@ -148,6 +149,19 @@ function showSocialLogins(socialPlatforms) {
         showSocialLoginIn(socialPlatformsArray[i]);
     }
 }
+
+function deleteAccount() {
+    // MARK: - This is only used in iOS app, Android app has its own interface
+    if (webkit === undefined) {return;}
+    try {
+        var message = {
+            action: 'deleteaccount',
+            href: location.href
+        };
+        webkit.messageHandlers.deleteaccount.postMessage(message);
+    } catch (ignore) {}
+}
+
 showSocialLogins('{showSocialLogins}');
 </script>
 </html>

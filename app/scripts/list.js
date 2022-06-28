@@ -289,7 +289,7 @@ function highlightFollowedContent(obj) {
 		if (!listTitleEle && listItems) {
 			listTitleEle = document.createElement('h2');
 			listTitleEle.className = 'list-title';
-			listTitleEle.innerHTML = '<a class="list-link" href="#">今日焦点</a>';
+			listTitleEle.innerHTML = '<a class="list-link">今日焦点</a>';
 			listItems.parentNode.insertBefore(listTitleEle, listItems);
 		}
 		firstBlock.parentNode.insertBefore(newItem, firstBlock);

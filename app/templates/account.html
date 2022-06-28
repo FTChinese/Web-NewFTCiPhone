@@ -139,6 +139,7 @@ a.ui-light-btn {
 <a href="http://www.ftchinese.com/m/corp/preview.html?pageid=subscriptioninfoconfirm&to=all" class="button ui-light-btn">修改我的信息</a>
 <a id="wechat-ftc-binding" onclick="showWechatFTCBinding()"></a>
 <a id="phone-ftc-binding" onclick="showPhoneFTCBinding()"></a>
+<input type="button" value="删除账号" class="comment_btn button ui-light-btn" onclick="javascript: deleteAccount();"/>
 <input type="hidden" name="storyid"  id=cstoryid value=""/>
 <div class="logged"><div class="statusmsg"></div></div>
 </div>
@@ -219,6 +220,59 @@ function showWechatFTCBinding(message) {
         document.querySelector('#wechat-ftc-binding-container .user-name-container').innerHTML = message;
     }
     cleanFields();
+}
+
+function deleteAccount() {
+    // MARK: - This is only used in iOS app, Android app has its own interface
+    if (webkit === undefined) {return;}
+    try {
+        var message = {
+            action: 'deleteaccount',
+            href: location.href
+        };
+        webkit.messageHandlers.deleteaccount.postMessage(message);
+    } catch (ignore) {}
+}
+
+function runDeleteAccount() {
+    // MARK: - This is only used in iOS app, Android app has its own interface
+    if (webkit === undefined) {return;}
+
+    var statusMsg = document.querySelectorAll('.logged .statusmsg');
+    for (var i=0; i<statusMsg.length; i++) {
+        statusMsg[i].innerHTML = '正在删除账户...'; 
+    }
+    var xmlhttp = new XMLHttpRequest();
+    xmlhttp.onreadystatechange = function() {
+        if (this.readyState === 4) {
+            if (this.status === 200) {
+                var eles = document.querySelectorAll('.logincomment,.nologincomment, .logged, .notLogged');
+                for (var i=0; i<eles.length; i++) {
+                    eles[i].style.display = 'none';
+                }
+                var eles2 = document.querySelectorAll('.nologincomment,.notLogged');
+                for (var j=0; j<eles2.length; j++) {
+                    eles2[j].style.display = 'block';
+                }
+                window.username = '';
+                checkLogin();
+                try {
+                    var message = {
+                        action: 'accountdeleted',
+                        href: location.href
+                    };
+                    webkit.messageHandlers.accountdeleted.postMessage(message);
+                } catch (ignore) {}
+            }
+        }
+    };
+    xmlhttp.onerror = function() {
+        checkLogin();
+        console.log ('something went wrong. but we check login any way. ');
+    };
+    var randomNumber = parseInt(Math.random()*1000000, 10);
+    xmlhttp.open('GET', '/users/deactivate?' + randomNumber);
+    xmlhttp.send();
 }
 
 showSocialLogins('{showSocialLogins}');
