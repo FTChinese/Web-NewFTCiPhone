@@ -395,7 +395,7 @@ gulp.task('ios', gulp.series('grab', 'build', async () => {
       convert2Big5('../NewFTCApp-iOS/Page/FTChinese/service.html')
     }
   );
-
+  
   gulp.src(['app/templates/account.html'])
     .pipe(replace('{{story-css}}', storyCSS))
     .pipe(replace('{{story-js-main}}', storyMainJS))
