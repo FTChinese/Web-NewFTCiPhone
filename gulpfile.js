@@ -229,13 +229,12 @@ async function getUrltoFile (urlSource, fileName) {
   });
 }
 
-//convert2Big5('../NewFTCApp-iOS/Page/FTChinese/account.html')
 function convert2Big5(originFile) {
     var fs = require('fs');
     var chineseConv = require('chinese-conv');
     var htmlFileInString = fs.readFileSync(originFile, 'utf8');
     var data = chineseConv.tify(htmlFileInString);
-    var fileName = originFile.replace('.html','-big5.html');
+    var fileName = originFile.replace('.html','_big5.html');
     //'../NewFTCApp-iOS/Page/FTChinese/account-big5.html';
     fs.writeFile(fileName, data, function(err) {
           if(err) {
@@ -413,7 +412,8 @@ gulp.task('ios', gulp.series('grab', 'build', async () => {
     .pipe(gulp.dest('../NewFTCApp-iOS/Page/FTChinese/'))
     .pipe(gulp.dest('../ftc-android-kotlin/app/src/main/res/raw/'))
     .on('end', function() {
-      convert2Big5('../NewFTCApp-iOS/Page/FTChinese/search.html')
+      convert2Big5('../NewFTCApp-iOS/Page/FTChinese/search.html');
+      convert2Big5('../ftc-android-kotlin/app/src/main/res/raw/search.html');
     }
   );
 
@@ -430,7 +430,8 @@ gulp.task('ios', gulp.series('grab', 'build', async () => {
     .pipe(gulp.dest('../NewFTCApp-iOS/Page/FTChinese/'))
     .pipe(gulp.dest('../ftc-android-kotlin/app/src/main/res/raw/'))
     .on('end', function() {
-      convert2Big5('../NewFTCApp-iOS/Page/FTChinese/story.html')
+      convert2Big5('../NewFTCApp-iOS/Page/FTChinese/story.html');
+      convert2Big5('../ftc-android-kotlin/app/src/main/res/raw/story.html');
     }
   );
 
@@ -486,7 +487,8 @@ gulp.task('ios', gulp.series('grab', 'build', async () => {
     .pipe(gulp.dest('../NewFTCApp-iOS/Page/FTChinese/'))
     .pipe(gulp.dest('../ftc-android-kotlin/app/src/main/res/raw/'))
     .on('end', function() {
-      convert2Big5('../NewFTCApp-iOS/Page/FTChinese/list.html')
+      convert2Big5('../NewFTCApp-iOS/Page/FTChinese/list.html');
+      convert2Big5('../ftc-android-kotlin/app/src/main/res/raw/list.html');
     });
 
 
@@ -524,7 +526,8 @@ gulp.task('ios', gulp.series('grab', 'build', async () => {
     .pipe(gulp.dest('../NewFTCApp-iOS/Page/FTChinese/'))
     .pipe(gulp.dest('../ftc-android-kotlin/app/src/main/res/raw/'))
     .on('end', function() {
-      convert2Big5('../NewFTCApp-iOS/Page/FTChinese/gym.html')
+      convert2Big5('../NewFTCApp-iOS/Page/FTChinese/gym.html');
+      convert2Big5('../ftc-android-kotlin/app/src/main/res/raw/gym.html');
     });
 
   gulp.src(['app/templates/html-book.html'])

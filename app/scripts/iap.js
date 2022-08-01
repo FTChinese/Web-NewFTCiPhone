@@ -141,9 +141,9 @@ function updateHeadlineLocks() {
 	for (var m=0; m<interactives.length; m++) {
 		var keyWords = interactives[m].getAttribute('data-keywords');
 		var contentPrivilegeLevel = 0;
-		if (keyWords.indexOf('高端专享')>=0) {
+		if (/高端专享|高端專享/.test(keyWords)) {
 			contentPrivilegeLevel = 2;
-		} else if (keyWords.indexOf('会员专享')>=0) {
+		} else if (/会员专享|會員專享/.test(keyWords)) {
 			contentPrivilegeLevel = 1;
 		}
 		if (contentPrivilegeLevel>0) {
