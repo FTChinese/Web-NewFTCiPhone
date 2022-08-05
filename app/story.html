@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html class="no-js core night" data-next-app="front-page">
+<html class="no-js core night show-story-columnist-topper" data-next-app="front-page">
  <head>
  <meta charset="utf-8" />
  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -289,8 +289,6 @@ googletag.pubads().refresh(gptadslots);
  </head>
  <body>
 
-
-
     <script>var gUaOfPage = navigator.userAgent || navigator.vendor || "";</script><script>checkB();</script>
     <div class="o-ads fullscreen-ad" data-o-ads-name="fullscreen-mobile"
     data-o-ads-center="true" 
@@ -304,28 +302,35 @@ googletag.pubads().refresh(gptadslots);
     <div id="promo-box-container">
     <style>
     .noneSubscriber.subscription-promo-container {
-    background-color: #14bdcc;
+    background-color: #88233f;
+    }
+    .noneSubscriber .subscription-promo-text {
+    background-color: #282c32;
+    border-color: #282c32;
+    }
+    .noneSubscriber .subscription-promo-text {
+    color: #ffffff;
     }
     .noneSubscriber .subscription-promo-box {
-    background-image: url(https://thumbor.ftacademy.cn/unsafe/picture/8/000079338_piclink.jpg);
+    background-image: url(https://thumbor.ftacademy.cn/unsafe/picture/9/000111019_piclink.png);
     }
     @media only screen and (max-width: 490px) {
     .noneSubscriber .subscription-promo-box {
-    background-image: url(https://thumbor.ftacademy.cn/unsafe/picture/9/000079339_piclink.jpg);
+    background-image: url(https://thumbor.ftacademy.cn/unsafe/picture/3/000111023_piclink.png);
     }
     }
     </style>
     <div class="subscription-promo-container show-image-in-mobile noneSubscriber">
     <div class="subscription-promo-inner">
-    <a  href="http://www.ftacademy.cn/subscription.html?ccode=ftchomepromobox" class="subscription-promo-box n-internal-promo" data-promo-target="noneSubscriber" data-promo-id="ftchomepromobox" data-promo-name="即刻订阅付费资讯" data-promo-creative="https://thumbor.ftacademy.cn/unsafe/picture/8/000079338_piclink.jpg" data-promo-position="promoBox">
-    <div class="subscription-promo-text">即刻订阅付费资讯</div>
+    <a  href="https://www.ftacademy.cn/subscription.html?ccode=2CAcquisitionWebPBoxNon" class="subscription-promo-box n-internal-promo" data-promo-target="noneSubscriber" data-promo-id="2CAcquisitionWebPBoxNon" data-promo-name="仅0.8元/天 立即订阅" data-promo-creative="https://thumbor.ftacademy.cn/unsafe/picture/9/000111019_piclink.png" data-promo-position="promoBox">
+    <div class="subscription-promo-text">仅0.8元/天 立即订阅</div>
     </a>
     </div>
     </div>
     <script type="text/javascript">
     window.userId = GetCookie('USER_ID') || '';
     if (window.userId === '') {
-    gtag('event', 'Display', {'event_label': 'ftchomepromobox', 'event_category': 'PromoBox', 'non_interaction': true});
+    gtag('event', 'Display', {'event_label': '2CAcquisitionWebPBoxNon', 'event_category': 'PromoBox', 'non_interaction': true});
     }
     </script>
     </div>
@@ -355,14 +360,14 @@ googletag.pubads().refresh(gptadslots);
     <div class="header-side header-left expandable">
     <div class="current-edition">
     <span>简体中文</span>
-    <a href="http://big5.ftchinese.com/">繁体中文</a>
+    <a href="http://big5.ftchinese.com/story/001096817?archive">繁体中文</a>
     <a href="http://www.ft.com/">FT.com</a>
     </div>
     </div>
     <div class="header-side header-right">
     <span class="visitor-box">
     <a onclick="showOverlay('overlay-login')">登录</a>
-    <a class="more last" href="http://user.ftchinese.com/register">免费注册</a>
+    <a class="more last" href="http://user.ftchinese.com/register">注册</a>
     </span>
     <span class="member-box">
     <a href="/channel/myftlocal.html">我的FT</a>
@@ -379,26 +384,44 @@ googletag.pubads().refresh(gptadslots);
     <div class="overlay-content-inner">
     <div class="overlay-content">
     <div class="overlay-title">登录<i class="overlay-close" data-parentid="overlay-login">×</i></div>
-    <form method="post" action="/users/login">
+    <form method="post" action="/users/login" id="overlay-login-form">
+    <span id="overlay-login-container">
     <div class="input-title" id="login-reason"></div>
     <div class="input-title">电子邮件/用户名</div>
     <div class="input-container"><input type="text" class="input-oneline" name="username" id="ft-login-input-username"></div>
     <div class="input-title">密码</div>
-    <div class="input-container"><input type="password" class="input-oneline" name="password"></div>
+    <div class="input-container"><input type="password" class="input-oneline" name="password" id="ft-login-input-password"></div>
     <div><input type="checkbox" class="checkbox" value="1" checked="checked" name="saveme" id="ft-login-input-remember">记住我</div>
-    <div class="login-btn input-submit-container center">
-    <input class="" type="submit" value="登录"></div>
+    <div class="login-btn input-submit-container center"><input class="" type="submit" value="登录"></div>
     <div class="center register-find"><a href="https://user.ftchinese.com/register" class="blue-link">免费注册</a><span></span><a href="https://profile.ftchinese.com/users/findpassword" class="blue-link">找回密码</a></div>
+    <div class="phone-login-container" id="phone-login-trigger">
+    <div class="center phone-login"><a onclick="showPhoneLogin()" class="blue-link">短信登录</a></div>
+    </div>
     <div class="wx-login-container">
     <div class="center wx-login"><a href="https://www.ftacademy.cn/wxlogin" class="blue-link">微信登录</a></div>
     </div>
+    </span>
     </form>
+    <span id="phone-ftc-binding-container">
+    <div>请输入邮箱和密码进行绑定操作：</div>
+    <div><input placeholder="请输入邮箱" type="email" autocorrect="off" id="phone-binding-email" class="input-oneline"/></div>
+    <div><input placeholder="请输入密码" type="password" class="input-oneline" id="phone-binding-password"/></div>
+    <div class="topmargin statusmsg" id="phone-binding-status"></div>
+    <div><input type="button" value="绑定" class="n-button-inner" onclick="binding('phone')"/></div>
+    </span>
+    <span id="phone-login-container">
+    <div class="user-name-container">请输入手机号码，通过短信验证（目前仅支持中国大陆地区的手机号）：</div>
+    <div><input onkeyup="resetPhoneLogin()" placeholder="请输入中国大陆的手机号码" type="tel" autocorrect="off" name="phone" id="phone-number" class="input-oneline"/></div>
+    <div><input placeholder="请输入验证码"  pattern="\d*" maxlength="6" name="phonecapcha"  class="input-oneline" id="phone-captcha"/></div>
+    <div class="topmargin statusmsg" id="phone-login-status"></div>
+    <div>请您阅读我们的<a class="agreeDetail" href="/m/corp/service.html" target="_blank">用户注册协议</a>和<a class="agreeDetail" href="/m/corp/service.html#privacy" target="_blank">隐私权保护政策</a>，点击下方按钮即视为您接受。</div>
+    <div><input id="phone-login-submit-button" type="button" value="获取验证码" class="n-button-inner" onclick="phoneLogin()"/></div>
+    </span>
     </div>
     </div>
     </div>
     </div>
-    </div><!--hide nvation: -->
-    <div class="o-nav__placeholder">
+    </div><div class="o-nav__placeholder">
     <div class="o-nav">
     <div class="o-nav__outer">
     <div class="o-nav__inner">
@@ -433,37 +456,26 @@ googletag.pubads().refresh(gptadslots);
     <li class="nav-section home "
      data-section="home"
     >
-    <!-- top nav-->
     <button class="nav-section-head mobile">首页</button>
     <a class="nav-section-head desktop" href="/">首页</a>
-    <!-- end top nav-->
     </li>
-    <!-- End li-->
     <li class="nav-section china "
      data-section="china"
     >
-    <!-- top nav-->
     <button class="nav-section-head mobile">中国</button>
     <a class="nav-section-head desktop" href="/channel/china.html">中国</a>
-    <!-- end top nav-->
     </li>
-    <!-- End li-->
     <li class="nav-section world "
      data-section="world"
     >
-    <!-- top nav-->
     <button class="nav-section-head mobile">全球</button>
     <a class="nav-section-head desktop" href="/channel/world.html">全球</a>
-    <!-- end top nav-->
     </li>
-    <!-- End li-->
     <li class="nav-section economy "
      aria-selected="true" data-section="economy"
     >
-    <!-- top nav-->
     <button class="nav-section-head mobile">经济</button>
     <a class="nav-section-head desktop" href="/channel/economy.html">经济</a>
-    <!-- start subnav-->
     <ol class="nav-items">
     <li class="nav-item mobile">
     <a class="nav-link" href="/channel/economy.html">
@@ -485,103 +497,74 @@ googletag.pubads().refresh(gptadslots);
     <li class="nav-item"  data-channel="economics">
     <a class="nav-link" href="/channel/economics.html">经济评论</a>
     </li>
-    <li class="nav-item"  data-channel="chinanumbers">
-    <a class="nav-link" href="/channel/numbers-china.html">中国经济一图览</a>
-    </li>
     </ol>
-    <!-- end top nav-->
     </li>
-    <!-- End li-->
     <li class="nav-section markets "
      data-section="markets"
     >
-    <!-- top nav-->
     <button class="nav-section-head mobile">金融市场</button>
     <a class="nav-section-head desktop" href="/channel/markets.html">金融市场</a>
-    <!-- end top nav-->
     </li>
-    <!-- End li-->
     <li class="nav-section business "
      data-section="business"
     >
-    <!-- top nav-->
     <button class="nav-section-head mobile">商业</button>
     <a class="nav-section-head desktop" href="/channel/business.html">商业</a>
-    <!-- end top nav-->
     </li>
-    <!-- End li-->
     <li class="nav-section innovation "
      data-section="innovation"
     >
-    <!-- top nav-->
     <button class="nav-section-head mobile">创新经济</button>
     <a class="nav-section-head desktop" href="/channel/innovation.html">创新经济</a>
-    <!-- end top nav-->
     </li>
-    <!-- End li-->
     <li class="nav-section education "
      data-section="education"
     >
-    <!-- top nav-->
     <button class="nav-section-head mobile">教育</button>
     <a class="nav-section-head desktop" href="/channel/education.html?newnav=yes">教育</a>
-    <!-- end top nav-->
     </li>
-    <!-- End li-->
     <li class="nav-section opinion "
      data-section="opinion"
     >
-    <!-- top nav-->
     <button class="nav-section-head mobile">观点</button>
     <a class="nav-section-head desktop" href="/channel/opinion.html">观点</a>
-    <!-- end top nav-->
     </li>
-    <!-- End li-->
     <li class="nav-section management "
      data-section="management"
     >
-    <!-- top nav-->
     <button class="nav-section-head mobile">管理</button>
     <a class="nav-section-head desktop" href="/channel/management.html">管理</a>
-    <!-- end top nav-->
     </li>
-    <!-- End li-->
     <li class="nav-section lifestyle "
      data-section="lifestyle"
     >
-    <!-- top nav-->
     <button class="nav-section-head mobile">生活时尚</button>
     <a class="nav-section-head desktop" href="/channel/lifestyle.html">生活时尚</a>
-    <!-- end top nav-->
     </li>
-    <!-- End li-->
     <li class="nav-section stream "
      data-section="stream"
     >
-    <!-- top nav-->
     <button class="nav-section-head mobile">视频</button>
     <a class="nav-section-head desktop" href="/channel/stream.html">视频</a>
-    <!-- end top nav-->
     </li>
-    <!-- End li-->
     <li class="nav-section audio "
      data-section="audio"
     >
-    <!-- top nav-->
     <button class="nav-section-head mobile">音频</button>
     <a class="nav-section-head desktop" href="/channel/audio.html">音频</a>
-    <!-- end top nav-->
     </li>
-    <!-- End li-->
     <li class="nav-section english "
      data-section="english"
     >
-    <!-- top nav-->
     <button class="nav-section-head mobile">每日英语</button>
     <a class="nav-section-head desktop" href="/channel/english.html">每日英语</a>
-    <!-- end top nav-->
     </li>
-    <!-- End li-->
+    <li class="nav-section rewired "
+     data-section="rewired"
+    >
+    <button class="nav-section-head mobile">换脑ReWired</button>
+    <a class="nav-section-head desktop" href="/channel/rewired.html">换脑ReWired</a>
+    </li>
     <li class="nav-section mobile login">
     <ul>
     <li class="nav-item">
@@ -616,8 +599,6 @@ googletag.pubads().refresh(gptadslots);
     <ol class="tools-items">
     <li><a href="http://www.ftchinese.com/m/corp/follow.html" target="_blank">微信公众号</a></li>
     <li><a href="http://weibo.com/ftchinese" target="_blank">新浪微博</a></li>
-    <li><a href="http://user.qzone.qq.com/622006290" target="_blank">QQ空间</a></li>
-    <li><a href="http://www.ftchinese.com/m/corp/follow.html" target="_blank">读读日报</a></li>
     <li><a href="http://www.ftchinese.com/m/corp/follow.html" target="_blank">Flipboard</a></li>
     <li><a href="https://twitter.com/FTChinese" target="_blank">Twitter</a></li>
     <li><a href="https://www.facebook.com/financialtimeschinese" target="_blank">Facebook</a></li>
@@ -638,15 +619,14 @@ googletag.pubads().refresh(gptadslots);
     </ol>
     </li>
     <li class="tools-section">
-    <a class="tools-section-head follow__rss" href="http://www.ftchinese.com/channel/rss.html" title="RSS"><span>RSS</span></a>
+    <a class="tools-section-head follow__rss" href="/channel/rss.html" title="RSS"><span>RSS</span></a>
     </li>
     </ul>
     </div><!-- o-nav__inner -->
     </div><!-- o-nav__outer -->
     <div class="o-nav__meganav-placeholder"></div>
     </div><!-- o-nav -->
-    </div><!-- o-nav__placeholder -->
-    <div class="language-switch-placeholder" id="language-switch-placeholder"><div class="language-switch-container"><a class="language-switch-left language-switch-menu" href="/"></a><div class="language-switch-inner"><a class="language-switch on">中文</a><a class="language-switch" href="/story/001090562/en?ccode=LanguageSwitch">英文</a><a class="language-switch" href="/story/001090562/ce?ccode=LanguageSwitch">对照</a></div><a class="language-switch-right language-switch-share" onclick="showOverlay('share-legacy')"></a></div></div>
+    </div>
     <div class="o-ads" data-o-ads-name="banner1"
     data-o-ads-center="true" 
     data-o-ads-formats-default="false" 
@@ -658,89 +638,98 @@ googletag.pubads().refresh(gptadslots);
     data-cy='[{"devices":["PC"],"pattern":"Leaderboard","position":"Num1"},{"devices":["iPhoneWeb","AndroidWeb","iPhoneApp","AndroidApp"],"pattern":"Banner","position":"Num1"}]'
     >
     </div>
-    <div class="block-container has-side story-page"><div class="block-inner">
+    <style>.story-topper-container{background-color:#cce6ff;margin-top:-30px;margin-bottom:30px;padding-top:19.999998px}.story-topper-container .story-theme a{color:#0f5499}.story-topper-container .story-theme a.story-theme-channel{font-weight:400;display:inline-block;padding-right:7.5px;font-size:1.25em}.story-topper-container .story-author{padding-bottom:20px;padding-right:159px}.story-topper-container .story-author a{color:#0f5499}.story-topper-container .story-headline{padding-right:159px;font-size:2em}.story-topper-container .story-lead{color:#000;font-size:1.1em;padding-right:159px}.story-topper-container .story-container{position:relative}.story-topper-container .author-headshot{width:150px;height:150px;position:absolute;bottom:0;right:15px}.story-topper-container .author-headshot figure{width:100%;height:100%}.story-topper-container button.myft-follow{background-color:transparent;border:1px solid #0a3866;color:#0a3866}.story-topper-container button.myft-follow.plus:before{background-image:url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cstyle%3E*{fill:%230a3866!important}%3C/style%3E%3Cpath d='M5.053 0v5.053H0v1.894h5.053V12h1.894V6.947H12V5.053H6.947V0H5.053z' fill='%23333' fill-rule='evenodd'/%3E%3C/svg%3E")}.story-topper-container button.myft-follow.tick{background-color:#0a3866;border-color:transparent;color:#fff}@media only screen and (max-width:1100px){.story-topper-container.has-side .content-inner{border-right-width:0}.story-topper-container .story-container{max-width:100%}.story-topper-container .author-headshot{right:0}}@media only screen and (max-width:768px){.story-topper-container .author-headshot{width:100px;height:100px;right:15px}.story-topper-container .story-headline{padding-right:0}.story-topper-container .story-lead{font-size:.9em;padding-right:109px}.story-topper-container .story-author{padding-right:109px}}@media only screen and (max-width:320px){.story-topper-container .story-author a{font-size:.8em}}</style>
+    <div class="story-topper-container has-side"><div class="block-inner">
+    <div class="content-container"><div class="content-inner"><div class="story-container">
+    <div class="story-theme">
+    <a href="/channel/column.html" class="story-theme-channel">专栏</a>
+    <a href="/tag/中国经济">中国经济</a><button class="myft-follow plus" data-tag="中国经济" data-type="tag">关注</button>
+    </div>
+    <h1 class="story-headline">二舅：小镇做题家的集体乡愁</h1>
+    <div class="story-lead">徐瑾：借用马克思的话，“二舅”无法自己发声，只能被人表述被人评价。比起其人真假好坏，其流行背后原因更耐人寻味。什么才算真正的活着？</div>
+    <div class="story-author">
+     FT中文网财经版主编、微信公众号《重要的是经济》主理人 <a href='/author/%E5%BE%90%E7%91%BE' target=_blank>徐瑾</a> 
+    <button class="myft-follow plus" data-tag="徐瑾" data-type="author">关注</button>
+    </div>
+    <div class="author-headshot"><figure class="loading" data-url="http://creatives.ftacademy.cn/picture/6/000058716_piclink.jpg"></figure></div>
+    </div></div></div>
+    <div class="clearfloat block-bottom"></div>
+    </div></div><div class="block-container has-side story-page"><div class="block-inner">
     <div class="content-container"><div class="content-inner">
     <div class="story-container">
     <div class="story-topper">
-        <div class="story-theme"><a target="_blank" href="/tag/老龄化">老龄化</a><button class="myft-follow plus" data-tag="老龄化" data-type="tag">关注</button></div>
-        <h1 class="story-headline story-headline-large">老龄化困境：东京留给北京的教训</h1>
-        <div class="story-lead">在日本，人口老龄化问题现在只是个不算新闻的惨淡事实。该问题真正重要的受众是中国，中国应为应对与日本类似的老龄化困境做好准备。</div>
-        <div class=" story-image image"><figure data-url=https://thumbor.ftacademy.cn/unsafe/picture/5/000108225_piclink.jpg class="loading"></figure></div>
+    <div class=" story-image image none-ft-image"><figure data-url=https://thumbor.ftacademy.cn/unsafe/picture/9/000121969_piclink.jpg class="loading"></figure></div>
     </div>
     <div class="story-tools">
-        <div class="story-action-placeholder" id="story-action-placeholder">
-        <div class="story-action">
-        <div class="action-inner">
-        <a class="action-icon icon-wechat P-hide" href="/m/corp/qrshare.html?url=http%3A%2F%2Fwww.ftchinese.com%2Fstory%2F001090562%3Ffull%3Dy%26gift_id%3Da80c005f2e674c0fa8c3d8139cb199c1159726d6&title=老龄化困境：东京留给北京的教训 - FT中文网" target="_blank"></a>
-        <a class="action-icon icon-weibo P-hide" href="http://service.weibo.com/share/share.php?appkey=4221537403&url=http%3A%2F%2Fwww.ftchinese.com%2Fstory%2F001090562%3Ffull%3Dy%26gift_id%3Da80c005f2e674c0fa8c3d8139cb199c1159726d6%26ccode%3D2G169001&title=【老龄化困境：东京留给北京的教训】在日本，人口老龄化问题现在只是个不算新闻的惨淡事实。该问题真正重要的受众是中国，中国应为应对与日本类似的老龄化困境做好准备。（分享自 @FT中文网）&ralateUid=1698233740&source=&sourceUrl=&content=utf-8&pic=https://thumbor.ftacademy.cn/unsafe/picture/5/000108225_piclink.jpg&searchPic=false" target="_blank"></a>
-        <a class="action-icon icon-linkedin P-hide" href="https://www.linkedin.com/cws/share?url=http%3A%2F%2Fwww.ftchinese.com%2Fstory%2F001090562%3Ffull%3Dy%26gift_id%3Da80c005f2e674c0fa8c3d8139cb199c1159726d6%26ccode%3D2G169003&original_referer=https%3A%2F%2Fdeveloper.linkedin.com%2Fsites%2Fall%2Fthemes%2Fdlc%2Fsandbox.php%3F&token=&isFramed=true&lang=zh_CN&_ts=1422502780259.2795" target="_blank"></a>
-        <a class="action-icon icon-twitter P-hide" href="http://twitter.com/home?status=【老龄化困境：东京留给北京的教训】在日本，人口老龄化问题现在只是个不算新闻的惨淡事实。该问题真正重要的受众是中国，中国应为应对与日本类似的老龄化困境做好准备。（分享自 @FT中文网）...%20http%3A%2F%2Fwww.ftchinese.com%2Fstory%2F001090562%3Ffull%3Dy%26gift_id%3Da80c005f2e674c0fa8c3d8139cb199c1159726d6" target="_blank"></a>
-        <a class="action-icon icon-facebook P-hide" href="http://www.facebook.com/sharer.php?u=http%3A%2F%2Fwww.ftchinese.com%2Fstory%2F001090562%3Ffull%3Dy%26gift_id%3Da80c005f2e674c0fa8c3d8139cb199c1159726d6&t=【老龄化困境：东京留给北京的教训】在日本，人口老龄化问题现在只是个不算新闻的惨淡事实。该问题真正重要的受众是中国，中国应为应对与日本类似的老龄化困境做好准备。（分享自 @FT中文网）" target="_blank"></a>
-        <a class="icon-right icon-ch" href="/story/001090562/ce"><button>对照</button></a><a class="icon-right icon-ch" href="/story/001090562/en"><button>英文</button></a>
-        
-        <div class="icon-right icon-save P-hide">
-        <button id="addfavlink001090562">收藏</button>
-        </div>
-        <a class="icon-right icon-action icon-comments" href="/comments/index/001090562" target="_blank"></a>
-        <a class="icon-right icon-action icon-print P-hide" onclick="window.print()" target="_blank"></a>
-        <a class="icon-right icon-action icon-font-size" onclick="showOverlay('font-setting')"></a>
-        <a class="icon-right icon-action icon-share P-hide" onclick="showOverlay('share-legacy')"></a>
-        <div class="progress-container">
-        <svg
-        class="progress-ring"
-        height="40"
-        width="40"
-        >
-        <circle
-        class="progress-ring__circle"
-        stroke-width="2"
-        stroke="transparent"
-        r="18"
-        cx="20"
-        cy="20"
-        />
-        </svg>
-        <svg class="pregress-tick" width="24" height="24" viewBox="0 0 24 24">
-        <path fill="none" d="M0 0h24v24H0z"/><path class="progress-tick-path" fill="transparent" d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z"/>
-        </svg>
-        </div>
-        </div>
-        </div>
-        </div>
+    <div class="story-action-placeholder" id="story-action-placeholder">
+    <div class="story-action">
+    <div class="action-inner">
+    <a class="action-icon icon-wechat P-hide" href="/m/corp/qrshare.html?url=http%3A%2F%2Fwww.ftchinese.com%2Fstory%2F001096817%3Ffull%3Dy%26gift_id%3D1b621501a1becda11904b313542844d24cf7dc2a&title=" target="_blank"></a>
+    <a class="action-icon icon-weibo P-hide" href="http://service.weibo.com/share/share.php?appkey=4221537403&url=http%3A%2F%2Fwww.ftchinese.com%2Fstory%2F001096817%3Ffull%3Dy%26gift_id%3D1b621501a1becda11904b313542844d24cf7dc2a%26ccode%3D2G169001&title=【二舅：小镇做题家的集体乡愁】徐瑾：借用马克思的话，“二舅”无法自己发声，只能被人表述被人评价。比起其人真假好坏，其流行背后原因更耐人寻味。什么才算真正的活着？（分享自 @FT中文网）&ralateUid=1698233740&source=&sourceUrl=&content=utf-8&pic=https://thumbor.ftacademy.cn/unsafe/picture/9/000121969_piclink.jpg&searchPic=false" target="_blank"></a>
+    <a class="action-icon icon-linkedin P-hide" href="https://www.linkedin.com/cws/share?url=http%3A%2F%2Fwww.ftchinese.com%2Fstory%2F001096817%3Ffull%3Dy%26gift_id%3D1b621501a1becda11904b313542844d24cf7dc2a%26ccode%3D2G169003&original_referer=https%3A%2F%2Fdeveloper.linkedin.com%2Fsites%2Fall%2Fthemes%2Fdlc%2Fsandbox.php%3F&token=&isFramed=true&lang=zh_CN&_ts=1422502780259.2795" target="_blank"></a>
+    <a class="action-icon icon-twitter P-hide" href="http://twitter.com/home?status=【二舅：小镇做题家的集体乡愁】徐瑾：借用马克思的话，“二舅”无法自己发声，只能被人表述被人评价。比起其人真假好坏，其流行背后原因更耐人寻味。什么才算真正的活着？（分享自 @FT中文网）...%20http%3A%2F%2Fwww.ftchinese.com%2Fstory%2F001096817%3Ffull%3Dy%26gift_id%3D1b621501a1becda11904b313542844d24cf7dc2a" target="_blank"></a>
+    <a class="action-icon icon-facebook P-hide" href="http://www.facebook.com/sharer.php?u=http%3A%2F%2Fwww.ftchinese.com%2Fstory%2F001096817%3Ffull%3Dy%26gift_id%3D1b621501a1becda11904b313542844d24cf7dc2a&t=【二舅：小镇做题家的集体乡愁】徐瑾：借用马克思的话，“二舅”无法自己发声，只能被人表述被人评价。比起其人真假好坏，其流行背后原因更耐人寻味。什么才算真正的活着？（分享自 @FT中文网）" target="_blank"></a>
+    
+    
+    <div class="icon-right icon-save P-hide">
+    <button id="addfavlink001096817" data-item-type="story">收藏</button>
+    </div>
+    <a class="icon-right icon-action icon-comments" href="/comments/index/001096817" target="_blank"></a>
+    <a class="icon-right icon-action icon-print P-hide" onclick="window.print()" target="_blank"></a>
+    <a class="icon-right icon-action icon-font-size" onclick="showOverlay('font-setting')"></a>
+    <a class="icon-right icon-action icon-audio" href="/interactive/78741"></a>
+    <div class="progress-container">
+    <svg
+    class="progress-ring"
+    height="40"
+    width="40"
+    >
+    <circle
+    class="progress-ring__circle"
+    stroke-width="2"
+    stroke="transparent"
+    r="18"
+    cx="20"
+    cy="20"
+    />
+    </svg>
+    <svg class="pregress-tick" width="24" height="24" viewBox="0 0 24 24">
+    <path fill="none" d="M0 0h24v24H0z"/><path class="progress-tick-path" fill="transparent" d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z"/>
+    </svg>
+    </div>
+    </div>
+    </div>
+    </div>
     </div>
     <div class="story-byline">
-    <span class="story-time" data-time="1607504348">更新于2020年12月9日 16:59</span>
-    <span class="story-author"> 英国《金融时报》 <a href='/author/%E5%88%A9%E5%A5%A5%E2%80%A2%E5%88%98%E6%98%93%E6%96%AF' target=_blank>利奥•刘易斯</a> </span>
+    <span class="story-time" data-time="1658934523" pub-date="1658851200">更新于2022年7月27日 23:08</span>
+    <span class="story-author"> FT中文网财经版主编、微信公众号《重要的是经济》主理人 <a href='/author/%E5%BE%90%E7%91%BE' target=_blank>徐瑾</a> </span>
     </div>
-    
     <div class="story-body">
     
     
-    <div id="story-body-container"><p>本月晚些时候，日本将会发布首份2020年出生和死亡推算数据——这是日本厚生劳动省每年12月25日前后的年度献“礼”，就像坏了的暖气一样带来一种节日的“欢乐”氛围。</p><h2>小标题</h2><p>过去13年来，这一发布通过一系列令人沮丧的里程碑，提供了日本本土人口缩水及其人口阴影日益严重的证据。这些情况似乎变得愈发严重，因为这些问题长期以来一直难以矫正，也因为它们为外部世界提供了警示性的路线图。</p><p>到2008年——日本人口从增长变为减少的转折点之后1年——日本的死亡人口比出生人口高出略多于5万人。至2019年，这一不平衡增长至10倍，达到逾50万人。在2016年，日本的人口平均每天减少1000人。2020年，基于月度数据，日本人口有可能达到每天减少1500人，相当于每分钟减少1个人。</p><p>日本媒体传统上对此的反应是集结一些专家，表达他们的痛心疾首。但对于日本观众而言，不论老幼，这都只是个不算新闻的惨淡事实。日本民众也许不喜欢这个消息，但他们已经苦涩而平静地接受了现实——现在日本的畅销书包括《享受养老院生活》(Enjoying Nursing Care)。真正重要的受众是中国——中国的出生率在2019年降至70年来最低，高级官员常常强调生育率的“警戒线”。</p><div data-o-ads-name="mpu-middle1" class="o-ads in-article-advert" data-o-ads-formats-default="false"  data-o-ads-formats-small="FtcMobileMpu"  data-o-ads-formats-medium="FtcMpu" data-o-ads-formats-large="FtcMpu" data-o-ads-formats-extra="FtcMpu" data-o-ads-targeting="cnpos=middle1;" data-cy='[{"devices":["PC","iPhoneWeb","AndroidWeb","iPhoneApp","AndroidApp"],"pattern":"MPU","position":"Middle1","container":"mpuInStory"}]'></div><p>北京方面的问题不在于应该有多担心，而在于人口问题的重压何时显现。在老龄化和人口减少的过程中，有时会出现一些出人意料的好处：例如，尽管有新型冠状病毒肺炎（COVID-19，即2019冠状病毒病）疫情，日本今年的岗位/求职者比例仍保持在1.0以上。然而，老龄化不是什么令人期待的事情。造成两国人口现状的原因也有种种重大差异：中国1979年开始实施的独生子女政策是最主要的一个差异。即便如此，日本的经验还是具有指导意义。</p><p>日本厚生劳动省的最新数据将会证实它的老龄化现象，这个现象的影响现在已很明确，但在过去四分之一个世纪内，这个现象一直是警告的主题。从菜单上的放大字体，到推倒空旷的学校以修建养老院，日常生活里充满了平凡无奇的例子，显示出日本的人口结构正在改变。企业，家庭和公共部门必须适应一个现实：65岁以上人群的人口占比接近29%，而支撑这个人群的劳动力持续缩水。宏观结构的变化——例如养老基金的历史风险再平衡，或对外收购激增——也可能在全球产生影响。</p><p>对中国而言，65岁以上人群比例在2019年为11.9%，日本式的人口命运似乎看上去很遥远。但中国这一比例的上升速度比日本曾经的速度更快，一些预测认为，中国的这一比例将在约15年内达到25%。根据目前的预测，日本2007年经历的关键的“死亡-出生”交叉点将在10年后发生在中国。</p><p>日本的教训在于，真正的危险在于对痛苦的预期。自日本股市和地产泡沫破裂逾30年来，出现了各种各样有关泡沫破裂后经济状况的理论：一些理论认为，日本经历的是永久性的不完全复苏；另一些理论则认为，日本经历了合理管控之下的有尊严的经济衰退。</p><p>较少被质疑的是，自那以后，再也没有人真正认为，日本将可持续地重拾曾经作为其强大推进力的那种乐观和欢欣。近期有一件事提醒了人们这一点。上周，日经225指数(Nikkei 225)涨至29年来的新高，任何对此的庆祝都会被一个事实冲淡：这个新高仍比1989年的最高峰低三分之一。造成这个情况的原因有很多，但人口肯定是核心原因：一旦人口下滑不可避免的想法变得根深蒂固，人们很难再眺望经济地平线，并看见无限可能——日本曾经可以。</p><p>1990年日本泡沫破裂，1年后，日本的生育率下降至1.5；5年后，日本的劳动年龄人口开始下降。至1997年，人口学家预测，日本将在10年后出现总人口下降的交叉点——它如期而至。未来30年，中国面临一系列类似的里程碑。中国的双重挑战在于，不仅要让经济为人口减少和老龄化的实际影响做好准备，还要找到在阴影中保持乐观的方法。</p><div data-o-ads-name="mpu-middle2" class="o-ads in-article-advert" data-o-ads-formats-default="false"  data-o-ads-formats-small="FtcMobileMpu"  data-o-ads-formats-medium="false" data-o-ads-formats-large="false" data-o-ads-formats-extra="false" data-o-ads-targeting="cnpos=middle2;" data-cy='[{"devices":["iPhoneWeb","AndroidWeb","iPhoneApp","AndroidApp"],"pattern":"MPU","position":"Middle2","container":"mpuInStory"}]'></div><p>译者/何黎</p></div>
+    <div id="story-body-container" class="">
+    <div class="print-only">来自FT中文网的温馨提示：如您对FT中文网的内容感兴趣，请在苹果应用商店或华为应用市场搜索“FT中文网”，下载FT中文网的官方应用，付费订阅。祝您使用愉快！</div>    
+    <p>“二舅”火了。</p><p>这是一部2022年B站up主的创作短视频《回村三天，二舅治好了我的精神内耗》（以下简称《二舅》）。在这部11分钟的短片中，主角“二舅”年过60，早年是“天才少年”，却因为打了四针而意外成为残疾。此后，二舅弃学，自学了木匠手艺，安贫乡间，但始终乐于助人，颐养老母亲。</p><p>视频中这个看起来平凡的人，迅速走红，击中了网民的心，引发诸多议论。有人觉得，这是视频版《活着》，也有人认为二舅有些类似鲁迅的阿Q，也有人怀疑二舅的真伪；有人觉得备受鼓舞，也有人认为应该反思悲剧根源；自然，还有人要求二舅搭风口做短视频直播，还有人在复盘“二舅”的文案，估计准备推出大伯三叔四姑等流量系列。</p><p><b>“精神内耗”的年代</b></p><div  data-o-ads-name="mpu-middle1" class="o-ads in-article-advert" data-o-ads-formats-default="false"  data-o-ads-formats-small="FtcMobileMpu"  data-o-ads-formats-medium="FtcMpu" data-o-ads-formats-large="FtcMpu" data-o-ads-formats-extra="FtcMpu" data-o-ads-targeting="cnpos=middle1;" data-cy='[{"devices":["PC","iPhoneWeb","AndroidWeb","iPhoneApp","AndroidApp"],"pattern":"MPU","position":"Middle1","container":"mpuInStory"}]'></div><p>从某种意义而言，二舅本人真假好坏其实并不重要，但作为一个现象级的视频，我们不妨反思，一个普通人为主角的视频，带有过去时代气息的“二舅”，为什么这样火？</p><p>《二舅》发自年轻人为主的b站，转发的人群也主要是城市青年。这个视频中标题中容易遭人忽视 “精神内耗”四个字，道出了它爆火的秘密——“精神内耗”已经是一种时代流行症候，过度竞争的内卷之下，与“躺平”、“摆烂”等词描述了同一种困境。在大学生就业困难、阶层升迁希望渺茫的当下，“精神内耗”成为部分城市年轻人群体时而自嘲一个痛点，求而不得辗转反侧是其典型特征。额外说一句，《二舅》作者原本是一个教培机构的历史老师，长期的工作经验中，他接触都是高中生，这使得他对于年轻人心理比较了解，也容易找准共情。</p><p>对多数年轻人来说，对二舅的悲剧经历，属于他们上一辈甚至上两代的体验，他们没有切身体验过，因此可以带着审美的距离，将其升华为磨练；而二舅在悲剧中被作者强力点赞归纳的自强，则可以成为某种安慰——翻译一下，一个遭遇比你惨的人，还那么自强，你是不是应该好过一点？</p><p>有意思的是，在过去力争上游的时代，作为年轻人的后浪，自我激励口号往往是诸如此类：”比你有天分的人还比你勤奋“，言下之意，你没有达到目标，是不是更应该努力，隐含的前提是努力一定有好结果；到了今天，大家需要的，似乎不再是这样的自我鞭策，而是类似《二舅》这样的柔性安慰或者说精神按摩，“都说人生最重要的不是胡一把好牌，而是打好一把烂牌。二舅这把烂牌，打的是真好。”——就这样，放弃拿好牌的希望，彻底承认自己拿到烂牌，然后努力不要摆烂。</p><p>《二舅》作者开始叙述都是避开冲突与激情，平静叙事，到了结尾，却喊出了一串更为铿锵的口号——</p><p><i>“我四肢健全，上过大学，又生在一个充满机遇的时代，我理应度过一个比二舅更为饱满的人生。今天二舅还在走在自己的人生路，这条长长的路最终会通往何处呢？”</p><div data-o-ads-name="mpu-middle2" class="o-ads in-article-advert" data-o-ads-formats-default="false"  data-o-ads-formats-small="FtcMobileMpu"  data-o-ads-formats-medium="false" data-o-ads-formats-large="false" data-o-ads-formats-extra="false" data-o-ads-targeting="cnpos=middle2;" data-cy='[{"devices":["iPhoneWeb","AndroidWeb","iPhoneApp","AndroidApp"],"pattern":"MPU","position":"Middle2","container":"mpuInStory"}]'></div><p>“笔记本的第一页是他摘抄的一句话：下定决心，不怕牺牲，排除万难，去争取胜利。是的，这条人生路最后通向的一定是胜利。”</p><p></i></p><p>从艺术层面，作者也许在结尾继续保持克制不强行升华可能更好，但是如果失去了这个结尾，网络潮流一般的渴望被安慰被抚慰的情绪，也会失去了准头。</p><p>“我北漂九年，也曾有幸相识过几位人中龙凤，反倒是从二舅这里让我看到了我们这个民族身上所有的平凡美好与强悍。”用现在流行的话说，《二舅》不少受众，都是小镇做题家，他们是成功版本的二舅，四肢健全，上了学，考上大学，走出了乡村，漂泊在大城市。</p><p>追求成功曾经是他们的目的，如今，在成功概率变得遥远的时候，《二舅》式悲情与自强，既抚慰了他们的精神内耗的痛点来源，又激活了他们久远乡愁的爽点。无论梦想如何日渐远离，他们可以这样自我安慰：家乡的二舅，都可以这样微笑着活着，我为什么不能？自己无论如何，都比二舅的境遇好。</p><div data-o-ads-name="mpu-middle3" class="o-ads in-article-advert" data-o-ads-formats-default="false"  data-o-ads-formats-small="FtcMobileMpu"  data-o-ads-formats-medium="false" data-o-ads-formats-large="false" data-o-ads-formats-extra="false" data-o-ads-targeting="cnpos=middle3;" data-cy='[{"devices":["iPhoneWeb","AndroidWeb","iPhoneApp","AndroidApp"],"pattern":"MPU","position":"Middle3","container":"mpuInStory"}]'></div><p>以“比惨”获得安慰，可以彻底解决精神内耗么？答案显然否定的。</p><p><b>二舅式的活着</b></p><p>视频中二舅被极力称赞，但是像二舅那样活着，是不是就是一种好选择？</p><p>有意思的是，作者说自己三十年来只认识一个二舅，但是对于中国人来说，身边这样的“二舅”不少太少，而是太多，就像一个评论所言，“每个人都有一个二舅。”</p><p>我不知道二舅怎么想，毕竟他视频中也没有台词，更多是被表述，在视频发布之后，他更多是被评论。借用马克思的话，二舅无法自己发声，只能被别人表述。类似个体回忆国内还有不少，看到最后，你会发现：每个人，在过去的半个多世纪，虽然高低贵贱不同，但大大小小，几乎都活成《活着》的注释版。</p><div data-o-ads-name="mpu-middle4" class="o-ads in-article-advert" data-o-ads-formats-default="false"  data-o-ads-formats-small="FtcMobileMpu"  data-o-ads-formats-medium="false" data-o-ads-formats-large="false" data-o-ads-formats-extra="false" data-o-ads-targeting="cnpos=middle4;" data-cy='[{"devices":["iPhoneWeb","AndroidWeb","iPhoneApp","AndroidApp"],"pattern":"MPU","position":"Middle4","container":"mpuInStory"}]'></div><p>《二舅》的流行，和余华小说《活着》的成功内核不无关系，虽然二者艺术高下不同。评论家许子东曾经说，《活着》最受欢迎的关键是“很苦很善良”：首先，“很苦”是作为“记忆积累”，也符合本能的“宣泄需求”；其次，“很善良”则符合传统的“道德信念”，策略上也更安全。</p><p>这种宣泄需求、道德信念与安全策略，到现在仍旧是一样。今天年轻人，也许没有读过看过《活着》的小说或者电影，但是不妨碍他们的思维设定，天然可以接受《活着》的成功密码。尤其经历过经济下滑以及魔幻封控的今天，不确定成为最大的确定性，在这样的情况下，“活着”本来是人最基本的需求，如今却成为不少人和企业的最高追求——腿瘸了还要活着，这不是二舅一个人的人生，是不少人的心理恐惧以及现实隐喻。</p><p>也许，卑微地活着，不问对错，带着微笑，是值得同情的，但这样的活着，并不那么值得庆幸甚至向往。你的父辈可以这样，你弯弯腰，也许也可以这样，你的孩子，你也希望他或者她，这样活着么？</p><p>走出“活着”式的循环，才是真正活着的开始。<b>本文仅代表作者本人观点，更多可见作者微信公众号《重要的是经济》（ID：econhomo）</b></p>
+    
+    </div>
     <div class="clearfloat"></div>
-    </div> 
-                
-    <div 
-    data-o-ads-name="infoflow3"
-    class="o-ads infoflow"  
-    data-o-ads-formats-default="false" 
-    data-o-ads-formats-small="FtcInfoFlow" 
-    data-o-ads-formats-medium="false"
-    data-o-ads-formats-large="false"
-    data-o-ads-formats-extra="false"
-    data-o-ads-targeting="cnpos=info3;"
-    >
     </div>
     <div class="copyrightstatement-container">
     版权声明：本文版权归FT中文网所有，未经允许任何单位或个人不得转载，复制或以任何其他方式使用本文全部或部分，侵权必究。
     </div>
     <div class="clearfloat"></div>
+    <!-- story privilegeType: Archive -->
     <h2 class="list-title"><a class="list-link" href="#">读者评论</a></h2>
     <div id="allcomments" class="allcomments container"></div>
-    <div id="logincomment" class="logincomment" style="display: block;">
+    <div id="logincomment" class="logincomment">
     <form id="storyForm">
     <div class="comment-input-container">
     <div class=container>
+    <div style="margin:5px 0;">
+    用户名：<span id="comment-user-name"></span>
+    <input type="checkbox" id="anonymous-checkbox" name="anonimous-checkbox" checked=true><label for="anonymous-checkbox">匿名发表</label>
+    </div>
     <div style="margin:5px 0;">FT中文网欢迎读者发表评论，部分评论会被选进《读者有话说》栏目。我们保留编辑与出版的权利。</div>
     <textarea name="Talk" id="Talk" class="commentTextArea" width="100%" rows="3"></textarea>
     <span style="display:none">
@@ -767,12 +756,11 @@ googletag.pubads().refresh(gptadslots);
     </div>
     </div>
     <script>
-    function loadcomment(e,t,o){var n,r,a,s,i,l,c,d,m="";switch(r="/index.php/c/newcommentsbysort/",a="/index.php/common_comments/newcommentsbysort/",o){case"story":commentfolder="/index.php/c",n="/index.php/c/newcomment/"+e+"?v=1";break;case"storyall1":commentfolder="/index.php/",n=r+e+"/1?limit=0&rows=500";break;case"storyall2":commentfolder="/index.php/c",n=r+e+"/2?limit=0&rows=500";break;case"storyall3":commentfolder="/index.php/c",n=r+e+"/3?limit=0&rows=500";break;case"commonall1":commentfolder="/index.php/common_comments",n=a+e+"/1?limit=0&rows=500";break;case"commonall2":commentfolder="/index.php/common_comments",n=a+e+"/2?limit=0&rows=500";break;case"commonall3":commentfolder="/index.php/common_comments",n=a+e+"/3?limit=0&rows=500";break;default:commentfolder="/index.php/common_comments",n="/index.php/common_comments/newcomment/"+e+"?v=1"}var u=new Date,p=1e8*u.getFullYear()+1e6*(u.getMonth()+1)+1e4*u.getDate()+100*u.getHours()+u.getMinutes();n=n+"&"+p,r=null,a=null,"localhost"===window.location.hostname&&(n="/api/comments/story.json");try{document.getElementById("cstoryid").value=e,window.readingid=e}catch(e){}var y=document.getElementById(t);y.innerHTML="正在获取本文读者评论的数据...";var g=new XMLHttpRequest;g.onreadystatechange=function(){if(4===this.readyState)if(200===this.status){var n=JSON.parse(this.responseText),r="";if(n.hot)for(var a=0;a<n.hot.length;a++)m="",s="",r+='<div class="commentcontainer">'+m+'<dt><div class="ding"></div><span>'+n.hot[a].dnewdate+"</span><b>"+n.hot[a].nickname.replace(/<[Aa] .+>(.+)<\/[Aa]>/g,"$1")+s+'</b> <font class="grey">'+n.hot[a].user_area+"</font></dt><dd>"+n.hot[a].quote_content+n.hot[a].talk+'</dd><div class="replybox" id=reh'+n.hot[a].id+"></div><dt class='replycomment'><a href='javascript:cmt_reply(\""+n.hot[a].id+'","h");\'>回复</a> <a id=hst'+n.hot[a].id+" href='javascript:voteComment(\""+n.hot[a].id+'","#hst", "support");\'>支持</a>(<font id=\'hsts'+n.hot[a].id+"' color=#BA2636>"+n.hot[a].support_count+"</font>) <a id=hdt"+n.hot[a].id+" href='javascript:voteComment(\""+n.hot[a].id+'","#hdt","disagree");\'>反对</a>(<font id=\'hdtd'+n.hot[a].id+"'>"+n.hot[a].disagree_count+"</font>)</dt></div>";for(var u=0;u<n.result.length;u++)s="",m="",r+="<div class=commentcontainer>"+m+"<dt><span>"+n.result[u].dnewdate+"</span><b>"+n.result[u].nickname.replace(/<[Aa] .+>(.+)<\/[Aa]>/g,"$1")+s+"</b> <font class=grey>"+n.result[u].user_area+"</font><div class=clearfloat></div></dt><dd>"+n.result[u].quote_content+n.result[u].talk+"</dd><div class=replybox id=re"+n.result[u].id+"></div><dt class=replycomment><a href='javascript:cmt_reply(\""+n.result[u].id+'","");\'>回复</a> <a id=st'+n.result[u].id+" href='javascript:voteComment(\""+n.result[u].id+'","#st","support");\'>支持</a>(<font id=\'sts'+n.result[u].id+"'>"+n.result[u].support_count+"</font>) <a id=dt"+n.result[u].id+" href='javascript:voteComment(\""+n.result[u].id+'","#dt","disagree");\'>反对</a>(<font id=\'dtd'+n.result[u].id+"'>"+n.result[u].disagree_count+"</font>)</dt></div>",window.unusedEntryIndex=u;y.innerHTML=r,n.count&&n.count>0||"story"!==o?(init_repeat_cmt(),(n.count>20||n.result.length>20)&&(i=n.count||n.result.length,c=o.indexOf("story")>=0?"story":"common",l=o.indexOf("storyall")>=0?o.replace(/storyall/g,""):1,y.innerHTML+="<div class=fullcomments><span class=viewfullcomments id=viewfullcomments>查看全部<span class=highlight>"+i+'</span>条评论 </span><select class=commentsortby id=commentsortby value="'+l+'"><option value=1 selected>最新的在上方</option><option value=2>最早的在上方</option><option value=3>按热门程度</option></select></div>',document.getElementById("viewfullcomments").onclick=function(){d=document.getElementById("commentsortby").value,loadcomment(e,t,c+"all"+d)},document.getElementById("commentsortby").onchange=function(){d=document.getElementById("commentsortby").value,loadcomment(e,t,c+"all"+d)})):y.innerHTML=""}else y.innerHTML="<span class='error'>很抱歉。由于您与FT服务器之间的连接发生故障，加载评论内容失败。请稍后再尝试。</span>"},g.open("GET",n,!0),g.send()}function init_repeat_cmt(){for(var e,t=document.querySelectorAll(".cmt_quote"),o=0;o<t[o];o++)"DD"===t[o].parentNode.tagName.toUpperCase()?(t[o].id="cmt_quote_"+Math.round(1e6*Math.random()),"cmt_quote"===t[o].childNodes[0].className&&(t[o].childNodes[0].id="cmt_quote_child_"+Math.round(1e6*Math.random()))):"recommendcomment"!==t[o].id&&(t[o].style.display="none");for(var n=document.querySelectorAll('div[id^="cmt_quote_child_"]'),r=0;r<n.length;r++)n[r].style.display="","cmt_quote"===n[r].childNodes[0].className&&(e=document.querySelectorAll("#"+n[r].id+" .cmt_quote").length,document.getElementById(n[r].id).innerHTML="<p onclick=\"showcmt(this)\" class='showcmt'>重复 [ "+e+" ] 条引用已被隐藏,点击展开。</p>"+document.getElementById(n[r].id).innerHTML)}function showcmt(e){document.querySelector("#"+e.parentNode.id+" .cmt_quote").style.display="",e.style.display="none"}function voteComment(e,t,o){t||(t="support"===o?"#st":"#dt");var n=document.querySelector(t+o[0]+e).innerHTML;n=parseInt(n,10)||0,document.querySelector(t+o[0]+e).innerHTML=n+1,document.querySelector(t+e).removeAttribute("href"),"support"===o?document.querySelector(t+e).innerHTML="已支持":document.querySelector(t+e).innerHTML="已反对";var r="cmtid="+e+"&action="+o,a=new XMLHttpRequest;a.open("POST",commentfolder+"/addvote/"),a.setRequestHeader("Content-Type","application/x-www-form-urlencoded"),a.send(r)}function cmt_reply(e,t){var o,n;t=t||"";for(var r=document.querySelectorAll(".replybox"),a=0;a<r.length;a++)r[a].innerHTML="";username?(document.querySelector("#re"+t+e).innerHTML='<div id=reply-input-container><b>回复此评论：</b><textarea id="replycontent" class="commentTextArea" rows="3"></textarea><span style="display:none;"><input name="use_nicknamer" type="radio" id="namer" onclick="unuseitr(this);"/><label for="namer">匿名</label><input name="use_nicknamer" type="radio" id="useridr" value="0" onclick="useitr(this);" checked/><label for="useridr">昵称</label> <input type="text" class="user_id textinput" id="nick_namer" value="" /></span><input type="button" value="提交回复" class="comment_btn submitbutton button ui-light-btn" id="addnewcommentr"/></div>',document.querySelector("#nick_namer").value=document.querySelector("#nick_name").value,document.querySelector("#addnewcommentr").onclick=function(){n=0;var o=new XMLHttpRequest;o.onreadystatechange=function(){if(4===this.readyState)if(200===this.status){var o=this.responseText;if("yes"!==o)return void presentAlert("非常抱歉，现在我们的网站遇到一些技术故障。您的留言可能没有发表成功，稍后请您试着重新发表一次。","");document.querySelector("#re"+t+e).innerHTML="",presentAlert("感谢您的参与，您的评论内容已经提交。审核后会立即显示出来！","")}else document.querySelector("#re"+t+e).innerHTML="",presentAlert("很抱歉。由于您的网络的连接发生故障，发表评论失败。稍后请您试着重新发表一次。","")};var r="storyid="+window.readingid+"&topic_object_id="+window.readingid+"&talk="+document.querySelector("#replycontent").value+"&use_nickname="+n+"&NickName="+document.querySelector("#nick_namer").value+"&cmtid="+e+"&type="+t+"&title=&url=";o.open("POST",commentfolder+"/add"),o.setRequestHeader("Content-Type","application/x-www-form-urlencoded"),o.send(r),this.disabled=!0}):(o=document.querySelector("#nologincomment").innerHTML.replace(/username1/g,"username2").replace(/password1/g,"password2").replace(/login\(1\)/g,"login(2)"),document.querySelector("#re"+t+e).innerHTML=o)}function clickToSubmitComment(){document.querySelector("#addnewcomment").onclick=function(){var e=document.querySelectorAll("#name").checked?1:0;console.log("clicked comments"),this.value="正在发布中...",this.disabled=!0;var t=new XMLHttpRequest;t.onreadystatechange=function(){if(4===this.readyState){var e=this.responseText;if("yes"!==e)return void presentAlert("抱歉,现在我们的网站可能出现了一些小故障.您的留言可能没有发表成功,请您稍后再重新尝试发表一次。","");presentAlert("感谢您的参与，您的评论内容已经发表成功。审核后就会立即显示!",""),document.querySelector("#addnewcomment").value="提交评论",document.querySelector("#addnewcomment").disabled=!1,document.querySelector("#Talk").value=""}};var o;o=/^[0-9]+$/.test(window.FTStoryid)?"storyid="+window.FTStoryid+"&talk="+document.querySelector("#Talk").value+"&use_nickname="+e+"&NickName="+document.querySelector("#nick_name").value:"topic_object_id="+window.FTStoryid+"&talk="+document.querySelector("#Talk").value+"&use_nickname="+e+"&NickName="+document.querySelector("#nick_name").value+"&type=video",t.open("POST",commentfolder+"/add"),t.setRequestHeader("Content-Type","application/x-www-form-urlencoded"),t.send(o)}}function login(e){function t(e){var t={action:"login",userId:e};try{webkit?webkit.messageHandlers.login.postMessage(t):Android&&Android.onPageLoaded(JSON.stringify(t))}catch(e){}}var o,n,r;void 0!==e?(o=document.querySelector("#username"+e).value,n=document.querySelector("#password"+e).value):(o=document.querySelector("#username").value,n=document.querySelector("#password").value);var a=document.querySelectorAll(".statusmsg");for(r=0;r<a.length;r++)a[r].innerHTML="正在登录中...";var s=new XMLHttpRequest;s.onreadystatechange=function(){var e;if(4===this.readyState)if(200===this.status){var n,r=JSON.parse(this.responseText);if(r.status&&"ok"===r.status){for(e=0;e<a.length;e++)a[e].innerHTML="登录成功！";for(var s=document.querySelectorAll(".logincomment, .logincommentc, .nologincomment, .nologincommentc, .logged, .notLogged"),i=0;i<s.length;i++)s[i].style.display="none";var l=document.querySelectorAll(".nick_name,.user_id,.user_Name");for(e=0;e<l;e++)l[e].value=o,l[e].innerHTML=o;var c=document.querySelectorAll(".logincomment, .logincommentc, .logged");for(n=0;n<c.length;n++)c[n].style.display="block";for(username=o,void 0!==window.userId&&""!==window.userId||(window.userId=GetCookie("USER_ID")||""),e=0;e<a.length;e++)a[e].innerHTML="";checkLogin(),t()}else for(e=0;e<a.length;e++)a[e].innerHTML='<div class="highlight">'+r.msg+"</div>"}else for(e=0;e<a.length;e++)a[e].innerHTML='<div class="highlight">对不起，网络故障。请过一段时间再重新尝试。</div>'};var i="username="+o+"&password="+n+"&saveme=1",l=parseInt(1e6*Math.random(),10);s.open("POST","/index.php/users/login/ajax?"+l),s.setRequestHeader("Content-Type","application/x-www-form-urlencoded"),s.send(i)}function socialLogin(e,t){var o="/index.php/users/socialLogin/"+e,n=new XMLHttpRequest;n.onreadystatechange=function(){if(4===this.readyState)if(200===this.status){var e=this.responseText;if("yes"===e)return presentAlert("微信登陆成功",""),username=GetCookie("USER_NAME")||GetCookie("USER_NAME_FT")||"",void checkLogin();presentAlert("登录失败",e+"亲爱的用户，由于FT中文网的服务器未能正确响应，所以您未能成功登录。请稍后再试，或尝试其他登录方式。")}else presentAlert("登录失败","亲爱的用户，由于FT中文网的服务器未能正确响应，所以您未能成功登录。请稍后再试，或尝试其他登录方式。")};var r="socialInfo="+t,a=parseInt(1e6*Math.random(),10);n.open("POST",o+"?"+a),n.setRequestHeader("Content-Type","application/x-www-form-urlencoded"),n.send(r)}function logout(){for(var e=document.querySelectorAll(".logged .statusmsg"),t=0;t<e.length;t++)e[t].innerHTML="正在登出...";var o=new XMLHttpRequest;o.onreadystatechange=function(){if(4===this.readyState&&200===this.status){for(var e=document.querySelectorAll(".logincomment,.nologincomment, .logged, .notLogged"),t=0;t<e.length;t++)e[t].style.display="none";for(var o=document.querySelectorAll(".nologincomment,.notLogged"),n=0;n<o.length;n++)o[n].style.display="block";window.username="",checkLogin()}},o.onerror=function(){checkLogin(),console.log("something went wrong. but we check login any way. ")};var n=parseInt(1e6*Math.random(),10);o.open("GET","/index.php/users/logout?"+n),o.send();try{if(webkit){var r={action:"logout",href:location.href};webkit.messageHandlers.logout.postMessage(r)}}catch(e){}}function checkLogin(){window.username=GetCookie("USER_NAME")||GetCookie("USER_NAME_FT"),window.userId=GetCookie("USER_ID");var e,t=document.querySelectorAll(".logincomment, .nologincomment, .logged, .notLogged");for(e=0;e<t.length;e++)t[e].style.display="none";var o=document.querySelectorAll(".logged .statusmsg");for(e=0;e<o.length;e++)o[e].innerHTML="";if(username){for(var n=document.querySelectorAll(".nick_name,.user_id,.user_Name"),r=0;r<n.length;r++)n[r].value=window.username,n[r].innerHTML=window.username;for(var a=document.querySelectorAll(".logincomment,.logged"),s=0;s<a.length;s++)a[s].style.display="block"}else{document.querySelector("#nick_name").value="";for(var i=document.querySelectorAll(".nologincomment,.notLogged"),l=0;l<i.length;l++)i[l].style.display="block"}passLoginToNative()}function presentAlert(e,t){var o={title:e,message:t};try{webkit.messageHandlers.alert.postMessage(o)}catch(e){}}function passLoginToNative(){var e={},t=GetCookie("uniqueVisitorId")||guid(),o=GetCookie("USER_NAME")||GetCookie("USER_NAME_FT")||"",n=GetCookie("USER_ID")||"",r=GetCookie("paywall_source")||"",a=GetCookie("ccode")||"";e={username:o,userId:n,uniqueVisitorId:t,ccode:a,source:r,infoSource:"cookie"};var s=GetCookie("paywall")||"",i=GetCookie("paywall_expire")||"";""!==s&&(e.paywall=s),""!==i&&(e.paywallExpire=i);try{webkit.messageHandlers.user.postMessage(e)}catch(e){}if(""!==n){var l=new XMLHttpRequest;l.open("GET","/index.php/jsapi/paywall"),l.setRequestHeader("Content-Type","application/json"),l.onload=function(){if(200===l.status){var t=JSON.parse(l.responseText);window.htmlClass=document.documentElement.className,window.htmlClass=window.htmlClass.replace(/\ is\-subscriber/g,"").replace(/\ is\-premium/g,"").replace(/\ is\-standard/g,""),0===t.paywall?(1===t.premium?(e.paywall="premium",window.htmlClass+=" is-subscriber is-premium"):(e.paywall="standard",window.htmlClass+=" is-subscriber is-standard"),document.documentElement.className=window.htmlClass):e.paywall="",e.paywallExpire=t.expire||"",e.ccode=t.campaign_code||"",e.duration=t.latest_duration||"",e.source=t.source||"",e.infoSource="jsapi/paywall";try{webkit.messageHandlers.user.postMessage(e)}catch(e){}console.log("save User expire: "+t.expire),SetCookie("paywall_expire",t.expire,864e4,"/"),SetCookie("paywall",e.paywall,864e4,"/"),SetCookie("paywall_source",e.source,864e4,"/"),console.log("get User expire: "+GetCookie("paywall_expire"))}},l.send()}}var commentfolder="/index.php/comments";try{passLoginToNative()}catch(e){}</script>
+    function loadcomment(e,t,o){var n,r,a,i,s,d,l,c,m="";switch(r="/index.php/c/newcommentsbysort/",a="/index.php/common_comments/newcommentsbysort/",o){case"story":commentfolder="/index.php/c",n="/index.php/c/newcomment/"+e+"?v=1";break;case"storyall1":commentfolder="/index.php/",n=r+e+"/1?limit=0&rows=500";break;case"storyall2":commentfolder="/index.php/c",n=r+e+"/2?limit=0&rows=500";break;case"storyall3":commentfolder="/index.php/c",n=r+e+"/3?limit=0&rows=500";break;case"commonall1":commentfolder="/index.php/common_comments",n=a+e+"/1?limit=0&rows=500";break;case"commonall2":commentfolder="/index.php/common_comments",n=a+e+"/2?limit=0&rows=500";break;case"commonall3":commentfolder="/index.php/common_comments",n=a+e+"/3?limit=0&rows=500";break;default:commentfolder="/index.php/common_comments",n="/index.php/common_comments/newcomment/"+e+"?v=1"}var u=new Date;n=n+"&"+(1e8*u.getFullYear()+1e6*(u.getMonth()+1)+1e4*u.getDate()+100*u.getHours()+u.getMinutes()),r=null,a=null,"localhost"===window.location.hostname&&(n="/api/comments/story.json");try{document.getElementById("cstoryid").value=e,window.readingid=e}catch(e){}var p=document.getElementById(t);p&&(p.innerHTML="正在获取本文读者评论的数据...");var y=new XMLHttpRequest;y.onreadystatechange=function(){if(4===this.readyState)if(200===this.status){var n=JSON.parse(this.responseText),r="";if(n.hot)for(var a=0;a<n.hot.length;a++)m="",i="",r+='<div class="commentcontainer">'+m+'<dt><div class="ding"></div><span>'+n.hot[a].dnewdate+"</span><b>"+n.hot[a].nickname.replace(/<[Aa] .+>(.+)<\/[Aa]>/g,"$1")+i+'</b> <font class="grey">'+n.hot[a].user_area+"</font></dt><dd>"+(n.hot[a].quote_content||"")+n.hot[a].talk+'</dd><div class="replybox" id=reh'+n.hot[a].id+"></div><dt class='replycomment'><a href='javascript:cmt_reply(\""+n.hot[a].id+'","h");\'>回复</a> <a id=hst'+n.hot[a].id+" href='javascript:voteComment(\""+n.hot[a].id+'","#hst", "support");\'>支持</a>(<font id=\'hsts'+n.hot[a].id+"' color=#BA2636>"+n.hot[a].support_count+"</font>) <a id=hdt"+n.hot[a].id+" href='javascript:voteComment(\""+n.hot[a].id+'","#hdt","disagree");\'>反对</a>(<font id=\'hdtd'+n.hot[a].id+"'>"+n.hot[a].disagree_count+"</font>)</dt></div>";for(var u=0;u<n.result.length;u++)i="",m="",r+="<div class=commentcontainer>"+m+"<dt><span>"+n.result[u].dnewdate+"</span><b>"+n.result[u].nickname.replace(/<[Aa] .+>(.+)<\/[Aa]>/g,"$1")+i+"</b> <font class=grey>"+n.result[u].user_area+"</font><div class=clearfloat></div></dt><dd>"+(n.result[u].quote_content||"")+n.result[u].talk+"</dd><div class=replybox id=re"+n.result[u].id+"></div><dt class=replycomment><a href='javascript:cmt_reply(\""+n.result[u].id+'","");\'>回复</a> <a id=st'+n.result[u].id+" href='javascript:voteComment(\""+n.result[u].id+'","#st","support");\'>支持</a>(<font id=\'sts'+n.result[u].id+"'>"+n.result[u].support_count+"</font>) <a id=dt"+n.result[u].id+" href='javascript:voteComment(\""+n.result[u].id+'","#dt","disagree");\'>反对</a>(<font id=\'dtd'+n.result[u].id+"'>"+n.result[u].disagree_count+"</font>)</dt></div>",window.unusedEntryIndex=u;if(!p)return;p.innerHTML=r,n.count&&n.count>0||"story"!==o?(init_repeat_cmt(),(n.count>20||n.result.length>20)&&(s=n.count||n.result.length,l=o.indexOf("story")>=0?"story":"common",d=o.indexOf("storyall")>=0?o.replace(/storyall/g,""):1,p.innerHTML+="<div class=fullcomments><span class=viewfullcomments id=viewfullcomments>查看全部<span class=highlight>"+s+'</span>条评论 </span><select class=commentsortby id=commentsortby value="'+d+'"><option value=1 selected>最新的在上方</option><option value=2>最早的在上方</option><option value=3>按热门程度</option></select></div>',document.getElementById("viewfullcomments").onclick=function(){c=document.getElementById("commentsortby").value,loadcomment(e,t,l+"all"+c)},document.getElementById("commentsortby").onchange=function(){c=document.getElementById("commentsortby").value,loadcomment(e,t,l+"all"+c)})):p.innerHTML=""}else p.innerHTML="<span class='error'>很抱歉。由于您与FT服务器之间的连接发生故障，加载评论内容失败。请稍后再尝试。</span>"},y.open("GET",n,!0),y.send()}function init_repeat_cmt(){for(var e,t=document.querySelectorAll(".cmt_quote"),o=0;o<t[o];o++)"DD"===t[o].parentNode.tagName.toUpperCase()?(t[o].id="cmt_quote_"+Math.round(1e6*Math.random()),"cmt_quote"===t[o].childNodes[0].className&&(t[o].childNodes[0].id="cmt_quote_child_"+Math.round(1e6*Math.random()))):"recommendcomment"!==t[o].id&&(t[o].style.display="none");for(var n=document.querySelectorAll('div[id^="cmt_quote_child_"]'),r=0;r<n.length;r++)n[r].style.display="","cmt_quote"===n[r].childNodes[0].className&&(e=document.querySelectorAll("#"+n[r].id+" .cmt_quote").length,document.getElementById(n[r].id).innerHTML="<p onclick=\"showcmt(this)\" class='showcmt'>重复 [ "+e+" ] 条引用已被隐藏,点击展开。</p>"+document.getElementById(n[r].id).innerHTML)}function showcmt(e){document.querySelector("#"+e.parentNode.id+" .cmt_quote").style.display="",e.style.display="none"}function voteComment(e,t,o){t||(t="support"===o?"#st":"#dt");var n=document.querySelector(t+o[0]+e).innerHTML;n=parseInt(n,10)||0,document.querySelector(t+o[0]+e).innerHTML=n+1,document.querySelector(t+e).removeAttribute("href"),document.querySelector(t+e).innerHTML="support"===o?"已支持":"已反对";var r="cmtid="+e+"&action="+o,a=new XMLHttpRequest;a.open("POST",commentfolder+"/addvote/"),a.setRequestHeader("Content-Type","application/x-www-form-urlencoded"),a.send(r)}function cmt_reply(e,t){var o,n;t=t||"";for(var r=document.querySelectorAll(".replybox"),a=0;a<r.length;a++)r[a].innerHTML="";username?(document.querySelector("#re"+t+e).innerHTML='<div id=reply-input-container><b>回复此评论：</b><input type="checkbox" id="anonymous-reply-checkbox" name="anonimous-reply-checkbox" checked="true"><label for="anonymous-reply-checkbox">匿名发表</label><textarea id="replycontent" class="commentTextArea" rows="3"></textarea><span style="display:none;"><input name="use_nicknamer" type="radio" id="namer" onclick="unuseitr(this);"/><label for="namer">匿名</label><input name="use_nicknamer" type="radio" id="useridr" value="0" onclick="useitr(this);" checked/><label for="useridr">昵称</label> <input type="text" class="user_id textinput" id="nick_namer" value="" /></span><input type="button" value="提交回复" class="comment_btn submitbutton button ui-light-btn" id="addnewcommentr"/></div>',document.querySelector("#nick_namer").value=document.querySelector("#nick_name").value,document.querySelector("#addnewcommentr").onclick=function(){n=0;var o=new XMLHttpRequest;o.onreadystatechange=function(){if(4===this.readyState)if(200===this.status){var o=this.responseText;if("yes"!==o)return void presentAlert("非常抱歉，现在我们的网站遇到一些技术故障。您的留言可能没有发表成功，稍后请您试着重新发表一次。","");document.querySelector("#re"+t+e).innerHTML="",presentAlert("感谢您的参与，您的评论内容已经提交。审核后会立即显示出来！","")}else document.querySelector("#re"+t+e).innerHTML="",presentAlert("很抱歉。由于您的网络的连接发生故障，发表评论失败。稍后请您试着重新发表一次。","")};var r=document.querySelector("#anonymous-reply-checkbox")&&document.querySelector("#anonymous-reply-checkbox").checked?1:0,a=1===r?"匿名用户":document.querySelector("#nick_namer").value,i="storyid="+window.readingid+"&topic_object_id="+window.readingid+"&talk="+document.querySelector("#replycontent").value+"&use_nickname="+r+"&NickName="+a+"&cmtid="+e+"&type="+t+"&title=&url=";o.open("POST",commentfolder+"/add"),o.setRequestHeader("Content-Type","application/x-www-form-urlencoded"),o.send(i),this.disabled=!0}):(o=document.querySelector("#nologincomment").innerHTML.replace(/username1/g,"username2").replace(/password1/g,"password2").replace(/login\(1\)/g,"login(2)"),document.querySelector("#re"+t+e).innerHTML=o)}function clickToSubmitComment(){var e=document.querySelector("#addnewcomment");e&&(e.onclick=function(){var e=document.querySelector("#anonymous-checkbox")&&document.querySelector("#anonymous-checkbox").checked?1:0;this.value="正在发布中...",this.disabled=!0;var t=new XMLHttpRequest;t.onreadystatechange=function(){if(4===this.readyState){if("yes"!==this.responseText)return void presentAlert("抱歉,现在我们的网站可能出现了一些小故障.您的留言可能没有发表成功,请您稍后再重新尝试发表一次。","");presentAlert("感谢您的参与，您的评论内容已经发表成功。审核后就会立即显示!",""),document.querySelector("#addnewcomment").value="提交评论",document.querySelector("#addnewcomment").disabled=!1,document.querySelector("#Talk").value=""}};var o,n=document.querySelector("#Talk").value,r=1===e?"匿名用户":document.querySelector("#nick_name").value;o=/^[0-9]+$/.test(window.FTStoryid)?"storyid="+window.FTStoryid+"&talk="+n+"&use_nickname="+e+"&NickName="+r:"topic_object_id="+window.FTStoryid+"&talk="+n+"&use_nickname="+e+"&NickName="+r+"&type=video",t.open("POST",commentfolder+"/add"),t.setRequestHeader("Content-Type","application/x-www-form-urlencoded"),t.send(o)})}function login(e){function t(e){var t={action:"login",userId:e,method:"email"};try{"object"==typeof webkit?webkit.messageHandlers.login.postMessage(t):Android&&Android.onPageLoaded(JSON.stringify(t))}catch(e){}}var o,n,r;void 0!==e?(o=document.querySelector("#username"+e).value,n=document.querySelector("#password"+e).value):(o=document.querySelector("#username").value,n=document.querySelector("#password").value);var a=document.querySelectorAll(".statusmsg");for(r=0;r<a.length;r++)a[r].innerHTML="正在登录中...";var i=new XMLHttpRequest;i.onreadystatechange=function(){var e;if(4===this.readyState)if(200===this.status){var n,r=JSON.parse(this.responseText);if(r.status&&"ok"===r.status){for(e=0;e<a.length;e++)a[e].innerHTML="登录成功！";for(var i=document.querySelectorAll(".logincomment, .logincommentc, .nologincomment, .nologincommentc, .logged, .notLogged"),s=0;s<i.length;s++)i[s].style.display="none";var d=document.querySelectorAll(".nick_name,.user_id,.user_Name");for(e=0;e<d;e++)d[e].value=o,d[e].innerHTML=o;var l=document.querySelectorAll(".logincomment, .logincommentc, .logged");for(n=0;n<l.length;n++)l[n].style.display="block";for(username=o,void 0!==window.userId&&""!==window.userId||(window.userId=GetCookie("USER_ID")||""),e=0;e<a.length;e++)a[e].innerHTML="";checkLogin(),t()}else for(e=0;e<a.length;e++)a[e].innerHTML='<div class="highlight">'+r.msg+"</div>"}else for(e=0;e<a.length;e++)a[e].innerHTML='<div class="highlight">'+serverErrorMessage+"</div>"};var s="username="+o+"&password="+n+"&saveme=1",d=parseInt(1e6*Math.random(),10);i.open("POST","/index.php/users/login/ajax?"+d),i.setRequestHeader("Content-Type","application/x-www-form-urlencoded"),i.send(s)}function socialLogin(e,t){var o="/index.php/users/socialLogin/"+e,n=new XMLHttpRequest;n.onreadystatechange=function(){if(4===this.readyState)if(200===this.status){var e=this.responseText;if("yes"===e){username=GetCookie("USER_NAME")||GetCookie("USER_NAME_FT")||"",checkLogin();var t=document.getElementById("wechat-ftc-binding");return void(t&&"string"==typeof window.userId&&0===window.userId.indexOf("ogfvw")&&null===GetCookie("WX_UNION_ID")?showWechatFTCBinding("最后一步，请输入邮箱和密码进行绑定操作："):presentAlert("微信登陆成功",""))}presentAlert("登录失败",e+serverErrorMessage)}else presentAlert("登录失败",serverErrorMessage)};var r="socialInfo="+t,a=parseInt(1e6*Math.random(),10);n.open("POST",o+"?"+a),n.setRequestHeader("Content-Type","application/x-www-form-urlencoded"),n.send(r)}function logout(){for(var e=document.querySelectorAll(".logged .statusmsg"),t=0;t<e.length;t++)e[t].innerHTML="正在登出...";var o=new XMLHttpRequest;o.onreadystatechange=function(){if(4===this.readyState&&200===this.status){for(var e=document.querySelectorAll(".logincomment,.nologincomment, .logged, .notLogged"),t=0;t<e.length;t++)e[t].style.display="none";for(var o=document.querySelectorAll(".nologincomment,.notLogged"),n=0;n<o.length;n++)o[n].style.display="block";window.username="",checkLogin()}},o.onerror=function(){checkLogin(),console.log("something went wrong. but we check login any way. ")};var n=parseInt(1e6*Math.random(),10);o.open("GET","/index.php/users/logout?"+n),o.send();try{if("object"==typeof webkit){var r={action:"logout",href:location.href};webkit.messageHandlers.logout.postMessage(r)}}catch(e){}}function checkLogin(){window.username=GetCookie("USER_NAME")||GetCookie("USER_NAME_FT"),window.userId=GetCookie("USER_ID");var e=document.querySelectorAll(".logincomment, .nologincomment, .logged, .notLogged");if(0!==e.length){var t;for(t=0;t<e.length;t++)e[t].style.display="none";var o=document.querySelectorAll(".logged .statusmsg");for(t=0;t<o.length;t++)o[t].innerHTML="";if(username){for(var n=document.querySelectorAll(".nick_name,.user_id,.user_Name,#comment-user-name"),r=0;r<n.length;r++)n[r].value=window.username,n[r].innerHTML=window.username;for(var a=document.querySelectorAll(".logincomment,.logged"),i=0;i<a.length;i++)a[i].style.display="block"}else{document.querySelector("#nick_name").value="";for(var s=document.querySelectorAll(".nologincomment,.notLogged"),d=0;d<s.length;d++)s[d].style.display="block"}var l=document.getElementById("wechat-ftc-binding");l&&"string"==typeof window.userId&&0===window.userId.indexOf("ogfvw")&&null===GetCookie("WX_UNION_ID")&&(l.className="button ui-light-btn wechat-binding",l.innerHTML="绑定邮箱");var c=document.getElementById("phone-ftc-binding");c&&"string"==typeof window.userId&&0===window.userId.indexOf("phone")&&(c.className="button ui-light-btn phone-binding",c.innerHTML="绑定邮箱"),passLoginToNative()}}function presentAlert(e,t){var o={title:e,message:t};try{webkit.messageHandlers.alert.postMessage(o)}catch(e){}}function passLoginToNative(){var e={},t=GetCookie("uniqueVisitorId")||guid();SetCookie("uniqueVisitorId",t,864e4,"/");var o=GetCookie("USER_NAME")||GetCookie("USER_NAME_FT")||"",n=GetCookie("USER_ID")||"",r=GetCookie("paywall_source")||"",a=GetCookie("addon")||"0",i=GetCookie("addon_days")||"0",s=GetCookie("addon_type")||"",d=GetCookie("ccode")||"",l=GetCookie("WX_UNION_ID")||"";e={username:o,userId:n,uniqueVisitorId:t,ccode:d,source:r,infoSource:"cookie",addon:a,addon_days:i,addon_type:s,wxUnionId:l};var c=GetCookie("paywall")||"",m=GetCookie("paywall_expire")||"";""!==c&&(e.paywall=c),""!==m&&(e.paywallExpire=m);try{webkit.messageHandlers.user.postMessage(e)}catch(e){}if(""!==n){var u=new XMLHttpRequest;u.open("GET","/index.php/jsapi/paywall"),u.setRequestHeader("Content-Type","application/json"),u.onload=function(){if(200===u.status){var t=JSON.parse(u.responseText);window.htmlClass=document.documentElement.className,window.htmlClass=window.htmlClass.replace(/\ is\-subscriber/g,"").replace(/\ is\-premium/g,"").replace(/\ is\-standard/g,""),0===t.paywall?(1===t.premium?(e.paywall="premium",window.htmlClass+=" is-subscriber is-premium"):(e.paywall="standard",window.htmlClass+=" is-subscriber is-standard"),document.documentElement.className=window.htmlClass):e.paywall="",t.expire&&t.expire>0&&(e.paywallExpire=t.expire.toString()),e.ccode=t.campaign_code||"",e.duration=t.latest_duration||"",e.source=t.source||"",e.addon=(t.addon||0).toString(),e.addon_days=t.addon_days||"0",e.addon_type=t.addon_type||"",e.infoSource="jsapi/paywall";try{webkit.messageHandlers.user.postMessage(e)}catch(e){}SetCookie("paywall_expire",t.expire,864e4,"/"),SetCookie("paywall",e.paywall,864e4,"/"),SetCookie("paywall_source",e.source,864e4,"/"),SetCookie("addon",e.addon,864e4,"/"),SetCookie("addon_type",e.addon_type,864e4,"/"),SetCookie("addon_days",e.addon_days,864e4,"/")}},u.send()}}var commentfolder="/index.php/comments",serverErrorMessage="亲爱的用户，由于服务器没有正确响应，您未能成功登录，请稍后再次尝试。";try{passLoginToNative()}catch(e){}</script>
     <script type="text/javascript">
-    loadcomment('001090562', 'allcomments', 'story');
+    loadcomment('001096817', 'allcomments', 'story');
     checkLogin();
     clickToSubmitComment();
-    document.getElementById('logincomment').style.display = 'block';
     </script>
     </div>
     <div class="clearfloat block-bottom"></div>
@@ -789,6 +777,15 @@ googletag.pubads().refresh(gptadslots);
     >
     </div>
     <div class="side-container"><div class="side-inner">
+    <div class="story-box">
+    <h2 class="box-title"><a href="/column/007000049">徐瑾经济人</a></h2>
+    知名青年经济学者，货币三部曲作者。FT中文网财经版主编，经济人读书会创始人。
+    
+    徐瑾近年出版《货币王者》《徐瑾经济学思维课》等书，曾连续入选“最受金融人喜爱的十本财经书籍”；《白银帝国》由耶鲁大学出版社推出英文版，获《华尔街日报》《亚洲书评》等权威媒体好评推荐。
+    
+    微信公众号：econhomo                
+    联系微信：jjr19001900
+    </div>
     <div 
     data-o-ads-name="mpu-right1"
     class="o-ads"  
@@ -801,19 +798,18 @@ googletag.pubads().refresh(gptadslots);
     >
     </div>
     
-    <div class="story-box">
-    <h2 class="box-title"><a href="/channel/weekly.html">热门文章</a></h2>
+    <div class="story-box with-theme">
+    <h2 class="box-title"><a href="/tag/中国经济">中国经济</a></h2>
     <ul class="top10">
-    <li class="mp1"><span>1. </span><a target="_blank" href="/story/001090526?dailypop">TikTok在美的回旋空间还有多大？</a></li>
-    <li class="mp2"><span>2. </span><a target="_blank" href="/story/001090528?dailypop">缓和美中关系的三大优先事项</a></li>
-    <li class="mp3"><span>3. </span><a target="_blank" href="/story/001090523?dailypop">展望2021：“双循环”与经济安全</a></li>
-    <li class="mp4"><span>4. </span><a target="_blank" href="/story/001090527?dailypop">国际教育的深圳模式</a></li>
-    <li class="mp5"><span>5. </span><a target="_blank" href="/story/001090520?dailypop">新冠疫情下大牛市意味着什么？</a></li>
-    <li class="mp6"><span>6. </span><a target="_blank" href="/story/001090534?dailypop">新冠疫苗推高超低温冷冻箱需求</a></li>
-    <li class="mp7"><span>7. </span><a target="_blank" href="/story/001090530?dailypop">书评：《为什么德国人做得更好》</a></li>
-    <li class="mp8"><span>8. </span><a target="_blank" href="/story/001090532?dailypop">2021达沃斯论坛移师新加坡举行</a></li>
-    <li class="mp9"><span>9. </span><a target="_blank" href="/story/001090531?dailypop">SPAC并不那么“新”</a></li>
-    <li class="mp10"><span>10. </span><a target="_blank" href="/story/001090529?dailypop">当弗里德曼遇到新冠疫情</a></li>
+    <li class="mp1"><a target="_blank" href="/story/001096863">经济工作会议：三大关注点</a></li>
+    <li class="mp2"><a target="_blank" href="/story/001096858">中国宏观政策：仍应坚定放松</a></li>
+    <li class="mp3"><a target="_blank" href="/premium/001096857">香港陷入三年来第二次经济衰退</a></li>
+    <li class="mp4"><a target="_blank" href="/premium/001096855">“10年后印度将超越中国成为世界最大矿产买家”</a></li>
+    <li class="mp5"><a target="_blank" href="/interactive/78482">全球贸易年度小结：冲击与对策</a></li>
+    <li class="mp6"><a target="_blank" href="/premium/001096835">习近平警告拜登不要“玩火”</a></li>
+    <li class="mp7"><a target="_blank" href="/premium/001096828">每日优鲜现金告罄停发工资</a></li>
+    <li class="mp8"><a target="_blank" href="/premium/001096826">中国央行拟为房企筹措万亿纾困基金</a></li>
+    <li class="mp9"><a target="_blank" href="/interactive/78612">探访斯里兰卡债务危机中的“白象”</a></li>
     </ul>
     </div>
     <div 
@@ -831,27 +827,40 @@ googletag.pubads().refresh(gptadslots);
     <h2 class="box-title"><a>相关话题</a></h2>
     <ul class="top10">
     <li class="story-theme mp1">
-    <a target="_blank" href="/tag/老龄化">老龄化</a>
+    <a target="_blank" href="/tag/徐瑾经济人">徐瑾经济人</a>
     <div class="icon-right">
-    <button class="myft-follow plus" data-tag="老龄化" data-type="tag">关注</button>
+    <button class="myft-follow plus" data-tag="徐瑾经济人" data-type="tag">关注</button>
     </div>
     </li>
     <li class="story-theme">
-    <a target="_blank" href="/tag/日本">日本</a>
+    <a target="_blank" href="/tag/B站">B站</a>
     <div class="icon-right">
-    <button class="myft-follow plus" data-tag="日本" data-type="tag">关注</button>
+    <button class="myft-follow plus" data-tag="B站" data-type="tag">关注</button>
     </div>
     </li>
     <li class="story-theme">
-    <a target="_blank" href="/tag/人口">人口</a>
+    <a target="_blank" href="/tag/00后">00后</a>
     <div class="icon-right">
-    <button class="myft-follow plus" data-tag="人口" data-type="tag">关注</button>
+    <button class="myft-follow plus" data-tag="00后" data-type="tag">关注</button>
+    </div>
+    </li>
+    <li class="story-theme">
+    <a target="_blank" href="/tag/中国经济">中国经济</a>
+    <div class="icon-right">
+    <button class="myft-follow plus" data-tag="中国经济" data-type="tag">关注</button>
+    </div>
+    </li>
+    <li class="story-theme">
+    <a target="_blank" href="/tag/阶层">阶层</a>
+    <div class="icon-right">
+    <button class="myft-follow plus" data-tag="阶层" data-type="tag">关注</button>
     </div>
     </li>
     </ul>
     </div>
     </div></div><div class="clearfloat"></div>
-    </div></div><div class="block-container no-side story-recommend-container" id="story-recommend-container"><div class="block-inner">
+    </div></div>
+    <div class="block-container no-side story-recommend-container" id="story-recommend-container"><div class="block-inner">
     <div class="content-container"><div class="content-inner">
     <div class="list-container"><div class="list-inner">
     <h2 class="list-title"><a class="list-link" href="#">您可能感兴趣的文章</a></h2>
@@ -895,7 +904,7 @@ googletag.pubads().refresh(gptadslots);
     <div class="footer-container"><div class="footer-inner">
     <div>
     <a href="/m/corp/aboutus.html">关于我们</a>
-    <a href="https://ft.wd3.myworkdayjobs.com/FT_Chinese_External_Careers" target="_blank">加入我们</a>
+    <a href="https://boards.eu.greenhouse.io/financialtimes33/jobs/4031856101" target="_blank">加入我们</a>
     <a href="/m/corp/faq.html">问题回馈</a>
     <a href="/m/corp/contact.html">联系方式</a>
     <a href="/m/corp/partner.html">合作伙伴</a>
@@ -905,10 +914,74 @@ googletag.pubads().refresh(gptadslots);
     <a href="/m/marketing/ftc.html">最新动态</a>
     </div>
     <p>
-    <span class="copyright"><b>© The Financial Times Ltd 2020</b></span> 
+    <span class="copyright"><b>© The Financial Times Ltd 2022</b></span> 
     <span><acronym title="Financial Times">FT</acronym> and 'Financial Times' are trademarks of The Financial Times Ltd.</span>
     </p>
     </div></div>
+    <script>
+    function async(u, c) {
+    var d = document, t = 'script',
+    o = d.createElement(t),
+    s = d.getElementsByTagName(t)[0];
+    o.src = u;
+    if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+    s.parentNode.insertBefore(o, s);
+    }
+    // Your web app's Firebase configuration
+    var firebaseConfig = {
+    apiKey: "AIzaSyCB4QkzRm1oUl9-XA6kl8ob58FI3C6iDY0",
+    authDomain: "ftchineseiphone.firebaseapp.com",
+    databaseURL: "https://ftchineseiphone.firebaseio.com",
+    projectId: "ftchineseiphone",
+    storageBucket: "ftchineseiphone.appspot.com",
+    messagingSenderId: "342601113715",
+    appId: "1:342601113715:web:6d7016e26b94e3854fca06",
+    measurementId: "G-PT4E4NGVJV"
+    };
+    //MARK: - The core Firebase JS SDK is always required and must be listed first
+    async('https://www.gstatic.com/firebasejs/7.2.2/firebase-app.js', function() {
+    // MARK: - TODO: Add SDKs for Firebase products that you want to use: https://firebase.google.com/docs/web/setup#available-libraries
+    async('https://www.gstatic.com/firebasejs/7.2.2/firebase-analytics.js', function() {
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+    firebase.analytics();
+    });
+    });
+    </script>
+    <img src='https://beacon.krxd.net/event.gif?event_id=KWA6DGT9&event_type=rtg' width=0 height=0 /><div class="overlay-container" id="font-setting">
+    <div class="overlay-inner">
+    <div class="overlay-bg" data-parentid="font-setting"></div>
+    <div class="overlay-content-outer">
+    <div class="overlay-content-inner">
+    <div class="overlay-content">
+    <div class="overlay-title">设置字号<i class="overlay-close" data-parentid="font-setting">×</i></div>
+    <span class="font-options" id="font-options">
+    <div class="smallest first-child" data-font="0.8">最小</div>
+    <div class="smaller" data-font="0.9">较小</div>
+    <div class="normal" data-font="1">默认</div>
+    <div class="bigger" data-font="1.2">较大</div>
+    <div class="biggest" data-font="1.6">最大</div>
+    </span>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div><div class="overlay-container" id="share-legacy">
+    <div class="overlay-inner">
+    <div class="overlay-bg" data-parentid="share-legacy"></div>
+    <div class="overlay-content-outer">
+    <div class="overlay-content-inner">
+    <div class="overlay-content">
+    <div class="overlay-title">分享<i class="overlay-close" data-parentid="share-legacy">×</i></div>
+    <span id="sharelinks"></span>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div><script type="text/javascript">
+    window._taboola = window._taboola || [];
+    _taboola.push({flush: true});
+    </script>
 
 
 </body>
@@ -936,6 +1009,7 @@ var follows = {
 <script type="text/javascript" src="scripts/tap-on-image.js"></script>
 <script type="text/javascript" src="scripts/comments.js"></script>
 <script type="text/javascript" src="/node_modules/next/app/scripts/user-login-native.js"></script>
+<script type="text/javascript" src="/node_modules/next/app/scripts/scrolly-telling.js"></script>
 <script type="text/javascript" src="/node_modules/next/app/scripts/speedread.js"></script>
 <!-- endbuild -->
 

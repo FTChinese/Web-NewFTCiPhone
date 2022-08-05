@@ -3,8 +3,38 @@
 @import "next/app/styles/main-user-comments";
 @import "image-ios";
 @import "next/app/styles/main-speedread";
+@import "next/app/styles/main-header-hero";
+@import "next/app/styles/main-header-topper";
+@import "next/app/styles/main-scrolly-telling";
 body {
 	padding-top: $defaultPadding*0.5;
 	//font-family: Helvetica, -apple-system, "blisslight", blisslight, "blissregular", blissregular, Arial, Helvetica, sans-serif;
+	.show-story-hero-container &, .show-story-columnist-topper & {
+		padding-top: 0;
+	}
 }
+.story-hero-container, .story-topper-container {
+	display: none;
+}
+.show-story-hero-container {
+	.story-hero-container {
+		display: block;
+		margin-top: 0 !important;
+	}
+	.story-topper {
+		display: none;
+	}
+}
+.show-story-columnist-topper {
+	.story-topper-container {
+		display: block;
+		margin-top: 0 !important;
+	}
+	.story-topper {
+		.story-theme, .story-headline, .story-lead {
+			display: none;
+		}
+	}
+}
+
 @import "night";
