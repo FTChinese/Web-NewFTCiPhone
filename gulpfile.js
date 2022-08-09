@@ -181,7 +181,8 @@ gulp.task('grab', async () => {
     getUrltoFile('https://www.ft.com/__origami/service/build/v2/bundles/js?modules=o-ads@10.2.1', './app/templates/o-ads.js'),
     getUrltoFile('https://www.googletagservices.com/tag/js/gpt.js', './app/templates/gpt.js'),
     getUrltoFile('https://d1jz9j0gyf09j1.cloudfront.net/index.php/jsapi/applaunchschedule', './app/templates/schedule.json'),
-    getUrltoFile('https://d1jz9j0gyf09j1.cloudfront.net/index.php/jsapi/hotstory/1quarterwithdetail', './app/templates/hotstories.json')
+    getUrltoFile('https://d1jz9j0gyf09j1.cloudfront.net/index.php/jsapi/hotstory/1quarterwithdetail', './app/templates/hotstories.json'),
+    getUrltoFile('https://d3vx1eoikmpfkr.cloudfront.net/styles/s.css?1512187911018', './app/templates/s.css')
   ]);
   console.log('All grabs are done! ');
 });
@@ -304,6 +305,7 @@ gulp.task('ios', gulp.series('grab', 'build', async () => {
   var htmlBookCSS = fs.readFileSync('dist/styles/main-html-book.css', 'utf8');
   var htmlBookJS = fs.readFileSync('dist/scripts/main-html-book.js', 'utf8');
   const commonCSS = fs.readFileSync('dist/styles/main-common.css', 'utf8');
+  const webAppCSS = fs.readFileSync('app/templates/s.css', 'utf8');
   const oAdsJS = fs.readFileSync('app/templates/o-ads.js', 'utf8');
   const gptJS = fs.readFileSync('app/templates/gpt.js', 'utf8');
   const adPolyfillJS = fs.readFileSync('dist/scripts/ad-polyfill.js', 'utf8');
@@ -313,9 +315,6 @@ gulp.task('ios', gulp.series('grab', 'build', async () => {
   const oTableJS = fs.readFileSync('node_modules/next/app/origami/o-table.js', 'utf8');
   const oTableHTML = '<style>' + oTableCSS + '</style><script>' + oTableJS + '</script>';
   const oTablePath = '../NewFTCApp-iOS/Page/FTChinese/o-table.html';
-
-
-
 
   fs.writeFile(oTablePath, oTableHTML, function(err) {
       if(err) {
@@ -523,6 +522,7 @@ gulp.task('ios', gulp.series('grab', 'build', async () => {
     .pipe(replace('<!--{gymtools}-->', gymToolsJS))
     .pipe(replace('/*gym-listen*/', gymListenJS))
     .pipe(replace('<!--{commoncss}-->', `<style>${commonCSS}</style>`))
+    .pipe(replace('<!--{webappcss}-->', `<style>${webAppCSS}</style>`))
     .pipe(gulp.dest('../NewFTCApp-iOS/Page/FTChinese/'))
     .pipe(gulp.dest('../ftc-android-kotlin/app/src/main/res/raw/'))
     .on('end', function() {
