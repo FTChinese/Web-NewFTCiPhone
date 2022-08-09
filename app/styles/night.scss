@@ -3,7 +3,7 @@
 		background:#000!important;
 		color:#AAA!important;
 	}
-	.card-grid .item-container.no-image .item-inner, .o-member-container .o-member {
+	.card-grid .item-container.no-image .item-inner, .o-member-container .o-member, .story-hero-container {
 		background:#333333!important;
 	}
 	.story-topper-container {
@@ -32,13 +32,13 @@
 	.item-lead, .pic, .story-topper-container .story-lead {
 		color:#999!important;
 	}
-	a, .item-tag a, .item-headline a, .relative-container a, .item-time.highlight, .item-time, .block-container a, .ui-light-btn, h2 {
+	a, .item-tag a, .item-headline a, .relative-container a, .item-time.highlight, .item-time, .block-container a, .ui-light-btn, h2, .story-hero-intro, .n-content-pullquote__footer, .story-time {
 		color:#BBB!important;
 	}
 	.n-content-pullquote__content:before, .n-content-blockquote:before {
 		background-image: url('https://d28dmc8fp041dv.cloudfront.net/icons/svg/fticon-v1_speech-left-white.svg')!important;
 	}
-	.story-headline-large:after, .n-content-blockquote {
+	.story-headline-large:after, .n-content-blockquote, .story-hero-title:after {
 		border-color:#BBB!important;
 	}
 	.side-container .list-title a, button, .story-body, #allcomments .commentcontainer, .commentcontainer, .cmt_quote, .showcmt, .is-current, .story-body a  {
