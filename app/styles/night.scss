@@ -29,10 +29,10 @@
 		background: transparent!important;
 		border-top: 4px solid #BBB!important;
 	}
-	.item-lead, .pic, .story-topper-container .story-lead {
+	.item-lead, .item-lead div, .item-lead p, .pic, .story-topper-container .story-lead {
 		color:#999!important;
 	}
-	a, .item-tag a, .item-headline a, .relative-container a, .item-time.highlight, .item-time, .block-container a, .ui-light-btn, h2, .story-hero-intro, .n-content-pullquote__footer, .story-time {
+	a, .item-tag a, .item-headline a, .relative-container a, .item-time.highlight, .item-time, .block-container a, .ui-light-btn, h2, .story-hero-intro, .n-content-pullquote__footer, .story-time, .calendar .month, .calendar #prev-month-link, .calendar #next-month-link, .calendar .weekday div  {
 		color:#BBB!important;
 	}
 	.n-content-pullquote__content:before, .n-content-blockquote:before {
@@ -41,7 +41,7 @@
 	.story-headline-large:after, .n-content-blockquote, .story-hero-title:after {
 		border-color:#BBB!important;
 	}
-	.side-container .list-title a, button, .story-body, #allcomments .commentcontainer, .commentcontainer, .cmt_quote, .showcmt, .is-current, .story-body a  {
+	.side-container .list-title a, button, .story-body, #allcomments .commentcontainer, .commentcontainer, .cmt_quote, .cmt_oldcmt, .showcmt, .is-current, .story-body a  {
 		color: #AAA!important;
 	}
 	.has-side .content-inner, .list-title, .PT, .oneStory, .storyInner, .top10 li, .side-by-side .item-headline {
