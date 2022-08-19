@@ -182,7 +182,7 @@ gulp.task('grab', async () => {
     getUrltoFile('https://www.googletagservices.com/tag/js/gpt.js', './app/templates/gpt.js'),
     getUrltoFile('https://d1jz9j0gyf09j1.cloudfront.net/index.php/jsapi/applaunchschedule', './app/templates/schedule.json'),
     getUrltoFile('https://d1jz9j0gyf09j1.cloudfront.net/index.php/jsapi/hotstory/1quarterwithdetail', './app/templates/hotstories.json'),
-    getUrltoFile('https://d3vx1eoikmpfkr.cloudfront.net/styles/s.css?1512187911018', './app/templates/s.css')
+    getUrltoFile('https://d2ctehu9gm78k2.cloudfront.net/styles/s.css?1512187911018', './app/templates/s.css')
   ]);
   console.log('All grabs are done! ');
 });
