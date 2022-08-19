@@ -61,19 +61,7 @@ gtag('event', $(e).attr("href"), {'event_label': "An", 'event_category': 'AdClic
 </script>
 <!-- End link click -->
 
-<!-- Log Analytics -->
-<script>
-if (window.gAutoStart === undefined) {
-(function(d, s, u, j, x) {
-j = d.createElement(s),
-x = d.getElementsByTagName(s)[0];
-j.async = true;
-j.src = u;
-x.parentNode.insertBefore(j, x)
-})(document, 'script', 'https://d2ctehu9gm78k2.cloudfront.net/js/log.js?v=9&20180412');
-}
-</script>
-<!-- End Log Analytics -->
+<script>{{ftc-log-js}}</script>
 </head>
 <body class="{story-language-class}">
 <div class="block-container no-side story-page">

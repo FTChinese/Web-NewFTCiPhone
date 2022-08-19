@@ -1,5 +1,6 @@
 // generated on 2017-08-13 using generator-webapp 3.0.1
 const gulp = require('gulp');
+const imageToBase64 = require('image-to-base64');
 const gulpLoadPlugins = require('gulp-load-plugins');
 const browserSync = require('browser-sync').create();
 const del = require('del');
@@ -10,6 +11,8 @@ const $ = gulpLoadPlugins();
 var sass = require('gulp-dart-sass');
 const reload = browserSync.reload;
 let dev = true;
+const fs = require('fs');
+const updateImageBase64 = require('./update-image-base64-dict');
 
 function lint(files) {
   return gulp.src(files)
@@ -182,7 +185,8 @@ gulp.task('grab', async () => {
     getUrltoFile('https://www.googletagservices.com/tag/js/gpt.js', './app/templates/gpt.js'),
     getUrltoFile('https://d1jz9j0gyf09j1.cloudfront.net/index.php/jsapi/applaunchschedule', './app/templates/schedule.json'),
     getUrltoFile('https://d1jz9j0gyf09j1.cloudfront.net/index.php/jsapi/hotstory/1quarterwithdetail', './app/templates/hotstories.json'),
-    getUrltoFile('https://d2ctehu9gm78k2.cloudfront.net/styles/s.css?1512187911018', './app/templates/s.css')
+    getUrltoFile('https://d2ctehu9gm78k2.cloudfront.net/styles/s.css?1512187911018', './app/templates/s.css'),
+    getUrltoFile('https://d2ctehu9gm78k2.cloudfront.net/js/log.js?v=9&20180412', './app/templates/ftc-log.js')
   ]);
   console.log('All grabs are done! ');
 });
@@ -210,7 +214,6 @@ async function getUrltoFile (urlSource, fileName) {
         });
         //console.log (data);
         res.on('end', function () {
-          var fs = require('fs');
           fs.writeFile(fileName, data, function(err) {
               if(err) {
                   return console.log(err);
@@ -230,8 +233,14 @@ async function getUrltoFile (urlSource, fileName) {
   });
 }
 
+function handleBackgroundImages(str) {
+  const dict = {
+    'fticon-v1_hamburger.svg': 'PHN2ZyB2aWV3Qm94PSIwIDAgMTAyNCAxMDI0IiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxzdHlsZT4qe2ZpbGw6IzMzMzAyRSFpbXBvcnRhbnQ7fTwvc3R5bGU+PHRpdGxlPkFydGJvYXJkPC90aXRsZT48cGF0aCBkPSJNNzY4IDMwNi4yVjM4M0gyNTZ2LTc2LjhoNTEyek0yNTYgNTM2LjZoNTEydi03Ni44SDI1NnY3Ni44em0wIDE1My42aDUxMnYtNzYuOEgyNTZ2NzYuOHoiIGZpbGwtcnVsZT0iZXZlbm9kZCIvPjwvc3ZnPgo='
+  };
+
+}
+
 function convert2Big5(originFile) {
-    var fs = require('fs');
     var chineseConv = require('chinese-conv');
     var htmlFileInString = fs.readFileSync(originFile, 'utf8');
     var data = chineseConv.tify(htmlFileInString);
@@ -247,7 +256,6 @@ function convert2Big5(originFile) {
 
 async function getHotKeywords() {
   return new Promise((resolve, reject)=>{
-    const fs = require('fs');
     const hotStoriesString = fs.readFileSync('app/templates/hotstories.json', 'utf8');
     const hotStories = JSON.parse(hotStoriesString);
     var keyScores = {};
@@ -283,11 +291,14 @@ async function getHotKeywords() {
 
 // MARK: Create the HTML files for iOS Native App
 gulp.task('ios', gulp.series('grab', 'build', async () => {
+
+  // MARK: Update all the css files by replacing cloudfront static urls into backgrounds
+  await updateImageBase64.run();
+
   console.log('\n\n\n\n*********************\nNow Start to update iOS app...')
   var replace = require('gulp-replace');
   var rename = require("gulp-rename");
   var thedatestamp = new Date().getTime();
-  var fs = require('fs');
   var storyCSS = fs.readFileSync('dist/styles/main-story.css', 'utf8');
   var storyMainJS = fs.readFileSync('dist/scripts/main-story.js', 'utf8');
   var storyKeyJS = fs.readFileSync('dist/scripts/key.js', 'utf8');
@@ -308,6 +319,7 @@ gulp.task('ios', gulp.series('grab', 'build', async () => {
   const webAppCSS = fs.readFileSync('app/templates/s.css', 'utf8');
   const oAdsJS = fs.readFileSync('app/templates/o-ads.js', 'utf8');
   const gptJS = fs.readFileSync('app/templates/gpt.js', 'utf8');
+  const ftcLogJS = fs.readFileSync('app/templates/ftc-log.js', 'utf8');
   const adPolyfillJS = fs.readFileSync('dist/scripts/ad-polyfill.js', 'utf8');
   const gymToolsJS = fs.readFileSync('dist/scripts/gym-tools.js', 'utf8');
   const gymListenJS = fs.readFileSync('dist/scripts/gym-listen.js', 'utf8');
@@ -357,6 +369,7 @@ gulp.task('ios', gulp.series('grab', 'build', async () => {
     .pipe(replace('<!--night-style-native-app-->', nightHTML))
     .pipe(replace('{{o-ads-js}}', oAdsJS))
     .pipe(replace('{{gpt-js}}', gptJS))
+    .pipe(replace('{{ftc-log-js}}', ftcLogJS))
     .pipe(gulp.dest('../NewFTCApp-iOS/Page/FTChinese/'))
     .on('end', function() {
       convert2Big5('../NewFTCApp-iOS/Page/FTChinese/findpassword.html')
@@ -366,6 +379,7 @@ gulp.task('ios', gulp.series('grab', 'build', async () => {
   gulp.src(['app/templates/register.html'])
     .pipe(replace('<!--night-style-native-app-->', nightHTML))
     .pipe(gulp.dest('../NewFTCApp-iOS/Page/FTChinese/'))
+    .pipe(replace('{{ftc-log-js}}', ftcLogJS))
     .on('end', function() {
       convert2Big5('../NewFTCApp-iOS/Page/FTChinese/register.html')
     }
@@ -373,6 +387,7 @@ gulp.task('ios', gulp.series('grab', 'build', async () => {
 
   gulp.src(['app/templates/localbackup.html'])
     .pipe(gulp.dest('../NewFTCApp-iOS/Page/FTChinese/'))
+    .pipe(replace('{{ftc-log-js}}', ftcLogJS))
     .on('end', function() {
       convert2Big5('../NewFTCApp-iOS/Page/FTChinese/localbackup.html')
     }
@@ -380,6 +395,7 @@ gulp.task('ios', gulp.series('grab', 'build', async () => {
 
   gulp.src(['app/templates/dailyenglishbackup.html'])
     .pipe(gulp.dest('../NewFTCApp-iOS/Page/FTChinese/'))
+    .pipe(replace('{{ftc-log-js}}', ftcLogJS))
     .on('end', function() {
       convert2Big5('../NewFTCApp-iOS/Page/FTChinese/dailyenglishbackup.html')
     }
@@ -388,6 +404,7 @@ gulp.task('ios', gulp.series('grab', 'build', async () => {
   gulp.src(['app/templates/service.html'])
     .pipe(replace('{{o-ads-js}}', oAdsJS))
     .pipe(replace('{{gpt-js}}', gptJS))
+    .pipe(replace('{{ftc-log-js}}', ftcLogJS))
     .pipe(gulp.dest('../NewFTCApp-iOS/Page/FTChinese/'))
     .on('end', function() {
       convert2Big5('../NewFTCApp-iOS/Page/FTChinese/service.html')
@@ -398,6 +415,7 @@ gulp.task('ios', gulp.series('grab', 'build', async () => {
     .pipe(replace('{{story-css}}', storyCSS))
     .pipe(replace('{{story-js-main}}', storyMainJS))
     .pipe(replace('{{story-js-key}}', storyKeyJS))
+    .pipe(replace('{{ftc-log-js}}', ftcLogJS))
     .pipe(gulp.dest('../NewFTCApp-iOS/Page/FTChinese/'))
     .on('end', function() {
       convert2Big5('../NewFTCApp-iOS/Page/FTChinese/account.html')
@@ -408,6 +426,7 @@ gulp.task('ios', gulp.series('grab', 'build', async () => {
     .pipe($.if('*.html', $.htmlmin({collapseWhitespace: true})))
     .pipe(replace('{{search-css}}', searchCSS))
     .pipe(replace('{{search-js}}', searchJS))
+    .pipe(replace('{{ftc-log-js}}', ftcLogJS))
     .pipe(gulp.dest('../NewFTCApp-iOS/Page/FTChinese/'))
     .pipe(gulp.dest('../ftc-android-kotlin/app/src/main/res/raw/'))
     .on('end', function() {
@@ -425,6 +444,7 @@ gulp.task('ios', gulp.series('grab', 'build', async () => {
     .pipe(replace('{{ad-pollyfill-js}}', adPolyfillJS))
     .pipe(replace('{{o-ads-js}}', oAdsJS))
     .pipe(replace('{{gpt-js}}', gptJS))
+    .pipe(replace('{{ftc-log-js}}', ftcLogJS))
     .pipe(rename('story.html'))
     .pipe(gulp.dest('../NewFTCApp-iOS/Page/FTChinese/'))
     .pipe(gulp.dest('../ftc-android-kotlin/app/src/main/res/raw/'))
@@ -439,6 +459,7 @@ gulp.task('ios', gulp.series('grab', 'build', async () => {
     .pipe(replace('{{story-css}}', storyCSS))
     .pipe(replace('{{story-js-main}}', storyMainJS))
     .pipe(replace('{{story-js-key}}', storyKeyJS))
+    .pipe(replace('{{ftc-log-js}}', ftcLogJS))
     .pipe(rename('message.html'))
     .pipe(gulp.dest('../NewFTCApp-iOS/Page/FTChinese/'))
     .on('end', function() {
@@ -454,6 +475,7 @@ gulp.task('ios', gulp.series('grab', 'build', async () => {
     .pipe(replace('{{story-js-key}}', storyKeyJS))
     .pipe(replace('{{db-zone-helper-js}}', dbZoneHelperJS))
     .pipe(replace('{{ad-pollyfill-js}}', adPolyfillJS))
+    .pipe(replace('{{ftc-log-js}}', ftcLogJS))
     .pipe(replace('/*{audio-script-render-js}*/', audioScriptRenderJS))
     .pipe(rename('radio.html'))
     .pipe(gulp.dest('../NewFTCApp-iOS/Page/FTChinese/'))
@@ -468,6 +490,7 @@ gulp.task('ios', gulp.series('grab', 'build', async () => {
     .pipe(replace('{{story-css}}', storyCSS))
     .pipe(replace('{{story-js-main}}', storyMainJS))
     .pipe(replace('{{story-js-key}}', storyKeyJS))
+    .pipe(replace('{{ftc-log-js}}', ftcLogJS))
     .pipe(rename('help.html'))
     .pipe(gulp.dest('../NewFTCApp-iOS/Page/FTChinese/'))
     .on('end', function() {
@@ -482,6 +505,7 @@ gulp.task('ios', gulp.series('grab', 'build', async () => {
     .pipe(replace('{{list-js-key}}', listKeyJS))
     .pipe(replace('{{o-ads-js}}', oAdsJS))
     .pipe(replace('{{gpt-js}}', gptJS))
+    .pipe(replace('{{ftc-log-js}}', ftcLogJS))
     .pipe(replace('{{ad-pollyfill-js}}', adPolyfillJS))
     .pipe(gulp.dest('../NewFTCApp-iOS/Page/FTChinese/'))
     .pipe(gulp.dest('../ftc-android-kotlin/app/src/main/res/raw/'))
@@ -498,6 +522,7 @@ gulp.task('ios', gulp.series('grab', 'build', async () => {
     .pipe(replace('{{list-js-key}}', listKeyJS))
     .pipe(replace('{{o-ads-js}}', oAdsJS))
     .pipe(replace('{{gpt-js}}', gptJS))
+    .pipe(replace('{{ftc-log-js}}', ftcLogJS))
     .pipe(replace('{{ad-pollyfill-js}}', adPolyfillJS))
     .pipe(rename('myft.html'))
     .pipe(gulp.dest('../NewFTCApp-iOS/Page/FTChinese/'))
@@ -510,6 +535,7 @@ gulp.task('ios', gulp.series('grab', 'build', async () => {
     .pipe(replace('{{story-css}}', ebookCSS))
     .pipe(replace('{{story-js-main}}', ebookMainJS))
     .pipe(replace('{{story-js-key}}', ebookKeyJS))
+    .pipe(replace('{{ftc-log-js}}', ftcLogJS))
     .pipe(rename('ebook.html'))
     .pipe(gulp.dest('../NewFTCApp-iOS/Page/FTChinese/'))
     .on('end', function() {
@@ -520,6 +546,7 @@ gulp.task('ios', gulp.series('grab', 'build', async () => {
   gulp.src(['app/templates/gym.html'])
     .pipe($.if('*.html', $.htmlmin({collapseWhitespace: true})))
     .pipe(replace('<!--{gymtools}-->', gymToolsJS))
+    .pipe(replace('{{ftc-log-js}}', ftcLogJS))
     .pipe(replace('/*gym-listen*/', gymListenJS))
     .pipe(replace('<!--{commoncss}-->', `<style>${commonCSS}</style>`))
     .pipe(replace('<!--{webappcss}-->', `<style>${webAppCSS}</style>`))
@@ -534,6 +561,7 @@ gulp.task('ios', gulp.series('grab', 'build', async () => {
     .pipe($.if('*.html', $.htmlmin({collapseWhitespace: true})))
     .pipe(replace('{{html-book-css}}', htmlBookCSS))
     .pipe(replace('{{html-book-js}}', htmlBookJS))
+    .pipe(replace('{{ftc-log-js}}', ftcLogJS))
     .pipe(gulp.dest('../NewFTCApp-iOS/Page/FTChinese/'))
     .on('end', function() {
       convert2Big5('../NewFTCApp-iOS/Page/FTChinese/html-book.html')

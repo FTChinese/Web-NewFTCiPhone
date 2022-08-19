@@ -51,6 +51,7 @@
     "ftcolumnflow": "^1.0.0",
     "ftscroller": "^0.7.0",
     "highcharts": "^10.0.0",
+    "image-to-base64": "^2.2.0",
     "jquery": "^3.6.0",
     "mathsass": "^0.11.0",
     "next": "github:FTChinese/NEXT"
