@@ -33,7 +33,7 @@ async function run() {
             } else {
                 baseCode = await imageToBase64(url);
                 dict[url] = baseCode;
-                console.log(`Updating ${url} with base 64: ${baseCode}`);
+                console.log(`Updating ${url} with base 64. `);
             }
             const extension = url.replace(/^.*\.([a-z]+)$/g, '$1');
             const imageCode = extensionMap[extension];
