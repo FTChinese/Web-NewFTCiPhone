@@ -174,19 +174,20 @@ gulp.task('serve:test', gulp.series('scripts', () => {
 
 
 gulp.task('grab', async () => {
+  const dest = './app/templates/';
   await Promise.all([
-    getUrltoFile('https://d3plbs0ewhofpw.cloudfront.net/users/findpassword?i=4&webview=ftcapp&v=1', './app/templates/findpassword.html'),
-    getUrltoFile('https://d1jz9j0gyf09j1.cloudfront.net/index.php/users/register?i=4&webview=ftcapp&v=1', './app/templates/register.html'),
-    getUrltoFile('https://d1jz9j0gyf09j1.cloudfront.net/m/corp/preview.html?pageid=homelocalbackup&webview=ftcapp&bodyonly=yes&newad=yes&v=1', './app/templates/localbackup.html'),
-    getUrltoFile('https://d1jz9j0gyf09j1.cloudfront.net/m/corp/preview.html?pageid=bestofenglish&webview=ftcapp&bodyonly=yes&newad=yes&v=1', './app/templates/dailyenglishbackup.html'),
-    getUrltoFile('https://d1jz9j0gyf09j1.cloudfront.net/m/corp/preview.html?pageid=mba&webview=ftcapp&bodyonly=yes&newad=yes&v=1', './app/templates/mbabackup.html'),
-    getUrltoFile('https://d1jz9j0gyf09j1.cloudfront.net/m/corp/preview.html?pageid=service&webview=ftcapp&v=1', './app/templates/service.html'),
-    getUrltoFile('https://www.ft.com/__origami/service/build/v2/bundles/js?modules=o-ads@10.2.1', './app/templates/o-ads.js'),
-    getUrltoFile('https://www.googletagservices.com/tag/js/gpt.js', './app/templates/gpt.js'),
-    getUrltoFile('https://d1jz9j0gyf09j1.cloudfront.net/index.php/jsapi/applaunchschedule', './app/templates/schedule.json'),
-    getUrltoFile('https://d1jz9j0gyf09j1.cloudfront.net/index.php/jsapi/hotstory/1quarterwithdetail', './app/templates/hotstories.json'),
-    getUrltoFile('https://d2ctehu9gm78k2.cloudfront.net/styles/s.css?1512187911018', './app/templates/s.css'),
-    getUrltoFile('https://d2ctehu9gm78k2.cloudfront.net/js/log.js?v=9&20180412', './app/templates/ftc-log.js')
+    downloadFile('https://d3plbs0ewhofpw.cloudfront.net/users/findpassword?i=4&webview=ftcapp&v=230', 'findpassword.html', dest),
+    downloadFile('https://d1jz9j0gyf09j1.cloudfront.net/index.php/users/register?i=4&webview=ftcapp&v=230', 'register.html', dest),
+    downloadFile('https://d1jz9j0gyf09j1.cloudfront.net/m/corp/preview.html?pageid=homelocalbackup&webview=ftcapp&bodyonly=yes&newad=yes&v=230', 'localbackup.html', dest),
+    downloadFile('https://d1jz9j0gyf09j1.cloudfront.net/m/corp/preview.html?pageid=bestofenglish&webview=ftcapp&bodyonly=yes&newad=yes&v=230', 'dailyenglishbackup.html', dest),
+    downloadFile('https://d1jz9j0gyf09j1.cloudfront.net/m/corp/preview.html?pageid=mba&webview=ftcapp&bodyonly=yes&newad=yes&v=230', 'mbabackup.html', dest),
+    downloadFile('https://d1jz9j0gyf09j1.cloudfront.net/m/corp/preview.html?pageid=service&webview=ftcapp&v=230', 'service.html', dest),
+    downloadFile('https://www.ft.com/__origami/service/build/v2/bundles/js?modules=o-ads@10.2.1', 'o-ads.js', dest),
+    downloadFile('https://www.googletagservices.com/tag/js/gpt.js', 'gpt.js', dest),
+    downloadFile('https://d1jz9j0gyf09j1.cloudfront.net/index.php/jsapi/applaunchschedule', 'schedule.json', dest),
+    downloadFile('https://d1jz9j0gyf09j1.cloudfront.net/index.php/jsapi/hotstory/1quarterwithdetail', 'hotstories.json', dest),
+    downloadFile('https://d2785ji6wtdqx8.cloudfront.net/styles/s.css?1512187911018', 's.css', dest),
+    downloadFile('https://d2785ji6wtdqx8.cloudfront.net/js/log.js?v=9&20180412', 'ftc-log.js', dest)
   ]);
   console.log('All grabs are done! ');
 });
@@ -196,40 +197,24 @@ gulp.task('hotKeywords', async () => {
   await getHotKeywords();
 });
 
-
-// MARK: code created for this project specifically
-async function getUrltoFile (urlSource, fileName) {
-  return new Promise((resolve, reject)=>{
-    var http = require('http');
-    var url = require('url');
-    var options = {
-        host: url.parse(urlSource).hostname,
-        path: url.parse(urlSource).pathname + unescape(url.parse(urlSource).search || '')
+async function downloadFile(url, fileName, directory) {
+  return new Promise((resolve, reject) => {
+    const dest = `${directory}${fileName}`;
+    console.log (`DowloadFile writing to: ${dest}`);
+    if (!fs.existsSync(directory)) {
+        fs.mkdirSync(directory);
     }
-    console.log (options.path);
-    var request = http.request(options, function (res) {
-        var data = '';
-        res.on('data', function (chunk) {
-            data += chunk;
-        });
-        //console.log (data);
-        res.on('end', function () {
-          fs.writeFile(fileName, data, function(err) {
-              if(err) {
-                  return console.log(err);
-              }
-              console.log(urlSource);
-              console.log('writen to');
-              console.log(fileName);
-              resolve(fileName);
-          });
-        });
+    var file = fs.createWriteStream(dest);
+    const httpRequire = (url.indexOf('https') === 0) ? require('https') : require('http');
+    const req = httpRequire.get(url, res => {
+      res.pipe(file);
+      res.on("end", () => {
+          resolve({status: 'success', file: dest, url: url});
+      });
     });
-    request.on('error', function (e) {
-        console.log(e.message);
-        reject(false);
+    req.on('error', (err) => {
+      reject({status: 'error', message: err, url: url});
     });
-    request.end();
   });
 }
 
@@ -284,7 +269,10 @@ async function getHotKeywords() {
   });
 }
 
-
+gulp.task('service', async () => {
+  const url = 'https://d1jz9j0gyf09j1.cloudfront.net/m/corp/preview.html?pageid=service&webview=ftcapp&v=230';
+  await downloadFile(url, 'service.html', './app/templates/');
+});
 
 
 
