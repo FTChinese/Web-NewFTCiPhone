@@ -12,11 +12,11 @@ try {
             type: this.getAttribute('data-type')
         };
         if (this.className.indexOf(' plus')>0) {
-            this.innerHTML = '已关注';
+            this.innerHTML = '{{followed}}';
             this.className = this.className.replace(' plus', ' tick');
             message.action = 'follow';
         } else {
-            this.innerHTML = '关注';
+            this.innerHTML = '{{follow}}';
             this.className = this.className.replace(' tick', ' plus');
             message.action = 'unfollow';
         }
@@ -56,7 +56,7 @@ function checkFollow() {
             followButtons[i].setAttribute('data-tag', value);
         }
         if (window.follows[type].indexOf(value) >= 0) {
-            followButtons[i].innerHTML = '已关注';
+            followButtons[i].innerHTML = '{{followed}}';
             followButtons[i].className = followButtons[i].className.replace(/ plus/g, ' tick');
         }
     }
