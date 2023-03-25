@@ -1,3 +1,5 @@
+var searchResults = document.getElementById('search-results');
+
 function search (keys, page) {
     function reportSearchResultToNative(term, status) {
         var data = {action: 'search', term: term, status: status};
@@ -46,20 +48,19 @@ function search (keys, page) {
 	    if (this.readyState === 4) {
 	        if (this.status === 200) {
 	            var data = this.responseText;
-	            var searchResults = document.getElementById('search-results');
+	            
 	            
 	            if (data.indexOf('search-server-down')>=0) {
 	            	reportSearchResultToNative(keys, 'fail');
 	            } else {
 	            	reportSearchResultToNative(keys, 'success');
-		            searchResults.innerHTML = data;
-		            updateHeadlineLocks();
-		            var paginationEle = document.querySelector('.pagination');
-		            if (paginationEle !== null) {
-		            	var paginationEleHTML = '<div class="pagination-inner">' + paginationEle.innerHTML + '</div>';
-		            	paginationEle.innerHTML = paginationEleHTML;
-		            	paginationEle.className = 'pagination-container';
-		            }
+					if (typeof webkit === 'object') {
+						// MARK: - If it's an iOS native app, upload the data to native side to convert to localized language
+						webkit.messageHandlers.searchResultsData.postMessage(data);
+					} else {
+						showSearchResult(data)
+					}
+		            showSearchResult(data);
 		            var pageLinks = searchResults.querySelectorAll('.pagination-inner a');
 		            for (var i=0; i<pageLinks.length; i++) {
 		            	pageLinks[i].onclick = function() {
@@ -74,7 +75,18 @@ function search (keys, page) {
 	        }
 	    }
 	};
-	document.getElementById('search-results').innerHTML = '<div style="margin: 14px;">查找中...</div>';
+	searchResults.innerHTML = '<div style="margin: 14px;">查找中...</div>';
 	xmlhttp.open('GET', url, true);
 	xmlhttp.send();	
+}
+
+function showSearchResult(data) {
+	searchResults.innerHTML = data;
+	updateHeadlineLocks();
+	var paginationEle = document.querySelector('.pagination');
+	if (paginationEle !== null) {
+		var paginationEleHTML = '<div class="pagination-inner">' + paginationEle.innerHTML + '</div>';
+		paginationEle.innerHTML = paginationEleHTML;
+		paginationEle.className = 'pagination-container';
+	}
 }
