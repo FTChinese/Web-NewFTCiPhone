@@ -47,9 +47,9 @@ function search (keys, page) {
 	xmlhttp.onreadystatechange = function() {
 	    if (this.readyState === 4) {
 	        if (this.status === 200) {
-	            var data = this.responseText;
-	            
-	            
+				// MARK: - the format returned from server might be messy. Use JSON to make it work better. 
+	            var d = JSON.parse(this.responseText);
+	            var data = JSON.stringify(d);
 	            if (data.indexOf('search-server-down')>=0) {
 	            	reportSearchResultToNative(keys, 'fail');
 	            } else {
@@ -61,14 +61,6 @@ function search (keys, page) {
 						showSearchResult(data)
 					}
 		            showSearchResult(data);
-		            var pageLinks = searchResults.querySelectorAll('.pagination-inner a');
-		            for (var i=0; i<pageLinks.length; i++) {
-		            	pageLinks[i].onclick = function() {
-		            		var page = this.href.replace(/^.*page=([0-9]+).*$/g, '$1');
-		            		search(keys, page);
-		            		return false;
-		            	}
-		            }
 	            }
 	        } else {
 	        	reportSearchResultToNative(keys, 'fail');
@@ -88,5 +80,13 @@ function showSearchResult(data) {
 		var paginationEleHTML = '<div class="pagination-inner">' + paginationEle.innerHTML + '</div>';
 		paginationEle.innerHTML = paginationEleHTML;
 		paginationEle.className = 'pagination-container';
+	}
+	var pageLinks = searchResults.querySelectorAll('.pagination-inner a');
+	for (var i=0; i<pageLinks.length; i++) {
+		pageLinks[i].onclick = function() {
+			var page = this.href.replace(/^.*page=([0-9]+).*$/g, '$1');
+			search(keys, page);
+			return false;
+		}
 	}
 }
