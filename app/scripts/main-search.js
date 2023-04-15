@@ -40,7 +40,8 @@ function search (keys, page) {
 		url += '&page=' + page;
 	}
 	if (window.location.hostname === 'localhost') {
-		url = '/api/search.json';
+		// url = '/api/search.json';
+		url = '/api/search-result.html';
 	}
 	// MARK: Construct JSON request
 	var xmlhttp = new XMLHttpRequest();
@@ -48,19 +49,21 @@ function search (keys, page) {
 	    if (this.readyState === 4) {
 	        if (this.status === 200) {
 				// MARK: - the format returned from server might be messy. Use JSON to make it work better. 
-	            var d = JSON.parse(this.responseText);
-	            var data = JSON.stringify(d);
+	            // var d = JSON.parse(this.responseText);
+	            // var data = JSON.stringify(d);
+				var data = this.responseText;
+				console.log(data);
 	            if (data.indexOf('search-server-down')>=0) {
 	            	reportSearchResultToNative(keys, 'fail');
+					console.log(2)
 	            } else {
 	            	reportSearchResultToNative(keys, 'success');
 					if (typeof webkit === 'object') {
 						// MARK: - If it's an iOS native app, upload the data to native side to convert to localized language
 						webkit.messageHandlers.searchResultsData.postMessage(data);
-					} else {
-						showSearchResult(data)
 					}
 		            showSearchResult(data);
+					console.log(3);
 	            }
 	        } else {
 	        	reportSearchResultToNative(keys, 'fail');
