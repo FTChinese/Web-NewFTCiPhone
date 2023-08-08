@@ -231,7 +231,7 @@ gulp.task('hotKeywords', async () => {
 async function downloadFile(url, fileName, directory) {
   return new Promise((resolve, reject) => {
     const dest = `${directory}${fileName}`;
-    console.log (`DowloadFile writing to: ${dest}`);
+    console.log(`Dowloading from ${url} to ${dest}...`);
     if (!fs.existsSync(directory)) {
         fs.mkdirSync(directory);
     }
@@ -240,6 +240,7 @@ async function downloadFile(url, fileName, directory) {
     const req = httpRequire.get(url, res => {
       res.pipe(file);
       res.on("end", () => {
+          console.log(`Dowloaded from ${url} to ${dest}...`);
           resolve({status: 'success', file: dest, url: url});
       });
     });
