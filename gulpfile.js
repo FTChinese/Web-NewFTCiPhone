@@ -213,12 +213,12 @@ gulp.task('grab', async () => {
     downloadFile('https://d1jz9j0gyf09j1.cloudfront.net/m/corp/preview.html?pageid=bestofenglish&webview=ftcapp&bodyonly=yes&newad=yes&v=230', 'dailyenglishbackup.html', dest),
     downloadFile('https://d1jz9j0gyf09j1.cloudfront.net/m/corp/preview.html?pageid=mba&webview=ftcapp&bodyonly=yes&newad=yes&v=230', 'mbabackup.html', dest),
     downloadFile('https://d1jz9j0gyf09j1.cloudfront.net/m/corp/preview.html?pageid=service&webview=ftcapp&v=230', 'service.html', dest),
-    downloadFile('https://www.ft.com/__origami/service/build/v2/bundles/js?modules=o-ads@10.2.1', 'o-ads.js', dest),
-    downloadFile('https://www.googletagservices.com/tag/js/gpt.js', 'gpt.js', dest),
     downloadFile('https://d1jz9j0gyf09j1.cloudfront.net/index.php/jsapi/applaunchschedule', 'schedule.json', dest),
     downloadFile('https://d1jz9j0gyf09j1.cloudfront.net/index.php/jsapi/hotstory/1quarterwithdetail', 'hotstories.json', dest),
     downloadFile('https://d2785ji6wtdqx8.cloudfront.net/styles/s.css?1512187911018', 's.css', dest),
-    downloadFile('https://d2785ji6wtdqx8.cloudfront.net/js/log.js?v=9&20180412', 'ftc-log.js', dest)
+    downloadFile('https://d2785ji6wtdqx8.cloudfront.net/js/log.js?v=9&20180412', 'ftc-log.js', dest),
+    downloadFile('https://www.ft.com/__origami/service/build/v2/bundles/js?modules=o-ads@10.2.1', 'o-ads.js', dest),
+    downloadFile('https://www.googletagservices.com/tag/js/gpt.js', 'gpt.js', dest)
   ]);
   console.log('All grabs are done! ');
 });
