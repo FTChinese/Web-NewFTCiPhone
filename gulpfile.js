@@ -217,8 +217,11 @@ gulp.task('grab', async () => {
     downloadFile('https://d1jz9j0gyf09j1.cloudfront.net/index.php/jsapi/hotstory/1quarterwithdetail', 'hotstories.json', dest),
     downloadFile('https://d2785ji6wtdqx8.cloudfront.net/styles/s.css?1512187911018', 's.css', dest),
     downloadFile('https://d2785ji6wtdqx8.cloudfront.net/js/log.js?v=9&20180412', 'ftc-log.js', dest),
-    downloadFile('https://www.ft.com/__origami/service/build/v2/bundles/js?modules=o-ads@10.2.1', 'o-ads.js', dest),
-    downloadFile('https://www.googletagservices.com/tag/js/gpt.js', 'gpt.js', dest)
+    downloadFile('https://d2785ji6wtdqx8.cloudfront.net/js/ftscroller.js', 'ftscroller.js', dest),
+    downloadFile('https://www.googletagservices.com/tag/js/gpt.js', 'gpt.js', dest),
+    // MARK: - This can't be downloaded most of the time
+    downloadFile('https://www.ft.com/__origami/service/build/v2/bundles/js?modules=o-ads@10.2.1', 'o-ads.js', dest)
+
   ]);
   console.log('All grabs are done! ');
 });
@@ -240,7 +243,7 @@ async function downloadFile(url, fileName, directory) {
     const req = httpRequire.get(url, res => {
       res.pipe(file);
       res.on("end", () => {
-          console.log(`Dowloaded from ${url} to ${dest}...`);
+          console.log(`Dowloaded from ${url} to ${dest}! `);
           resolve({status: 'success', file: dest, url: url});
       });
     });
@@ -342,6 +345,7 @@ gulp.task('ios', gulp.series('grab', 'build', async () => {
   const ftcLogJS = fs.readFileSync('app/templates/ftc-log.js', 'utf8');
   const adPolyfillJS = fs.readFileSync('dist/scripts/ad-polyfill.js', 'utf8');
   const gymToolsJS = fs.readFileSync('dist/scripts/gym-tools.js', 'utf8');
+  const ftScrollerJS = fs.readFileSync('app/templates/ftscroller.js', 'utf8');
   const gymListenJS = fs.readFileSync('dist/scripts/gym-listen.js', 'utf8');
   const oTableCSS = fs.readFileSync('node_modules/next/app/origami/o-table.css', 'utf8');
   const oTableJS = fs.readFileSync('node_modules/next/app/origami/o-table.js', 'utf8');
@@ -566,6 +570,7 @@ gulp.task('ios', gulp.series('grab', 'build', async () => {
   gulp.src(['app/templates/gym.html'])
     .pipe($.if('*.html', $.htmlmin({collapseWhitespace: true})))
     .pipe(replace('<!--{gymtools}-->', gymToolsJS))
+    .pipe(replace('<!--{ftscroller}-->', ftScrollerJS))
     .pipe(replace('{{ftc-log-js}}', ftcLogJS))
     .pipe(replace('/*gym-listen*/', gymListenJS))
     .pipe(replace('<!--{commoncss}-->', `<style>${commonCSS}</style>`))
