@@ -141,7 +141,7 @@ function updateHeadlineLocks() {
 	for (var m=0; m<interactives.length; m++) {
 		var keyWords = interactives[m].getAttribute('data-keywords');
 		var contentPrivilegeLevel = 0;
-		if (/高端专享|高端專享/.test(keyWords)) {
+		if (/高端专享|高端專享|高階專享/.test(keyWords)) {
 			contentPrivilegeLevel = 2;
 		} else if (/会员专享|會員專享/.test(keyWords)) {
 			contentPrivilegeLevel = 1;
@@ -157,6 +157,15 @@ function updateHeadlineLocks() {
 				}
 			}
 		}
+	}
+	// MARK: - Add the vip class based on tags
+	var vipArticles = document.querySelectorAll('[data-keywords]');
+	for (var l=0; l<vipArticles.length; l++) {
+		var keyWords = vipArticles[l].getAttribute('data-keywords');
+		if (!/高端专享|高端專享|高階專享/.test(keyWords)) {continue;}
+		var currentHeadline = vipArticles[l].querySelector('.item-headline-link');
+		if (!currentHeadline) {continue;}
+		currentHeadline.classList.add('vip');
 	}
 }
 

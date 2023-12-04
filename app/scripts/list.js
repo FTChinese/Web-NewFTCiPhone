@@ -282,7 +282,7 @@ function highlightFollowedContent(obj) {
 	}
 	var newItem = document.createElement('div');
 	newItem.innerHTML = '<div class="block-container no-side"><div class="block-inner"><div class="content-inner"><div class="list-container"><div class="list-inner"><h2 class="list-title"><a href="screen://myft/follow?from=manage" class="right-link">设置</a><a class="list-link" href="screen://myft/follow">我的FT</a></h2><div class="items">'+ myFTFollowHTML +'</div></div></div><div class="clearfloat block-bottom"></div></div></div><div class="clearfloat"></div></div></div>';
-	var firstBlock = document.querySelector('.block-container');
+	var firstBlock = document.querySelector('.block-container.has-side');
 	if (firstBlock) {
 		var listTitleEle = firstBlock.querySelector('.list-title');
 		var listItems = firstBlock.querySelector('.items');
