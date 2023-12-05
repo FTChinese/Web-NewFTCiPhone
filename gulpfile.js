@@ -341,6 +341,8 @@ gulp.task('ios', gulp.series('grab', 'build', async () => {
   const commonCSS = fs.readFileSync('dist/styles/main-common.css', 'utf8');
   const webAppCSS = fs.readFileSync('app/templates/s.css', 'utf8');
   const oAdsJS = fs.readFileSync('app/templates/o-ads.js', 'utf8');
+  console.log('oAdsJS: ');
+  console.log(oAdsJS);
   const gptJS = fs.readFileSync('app/templates/gpt.js', 'utf8');
   const ftcLogJS = fs.readFileSync('app/templates/ftc-log.js', 'utf8');
   const adPolyfillJS = fs.readFileSync('dist/scripts/ad-polyfill.js', 'utf8');
