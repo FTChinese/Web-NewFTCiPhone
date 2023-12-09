@@ -338,7 +338,7 @@ function recommendTopics(myFTScores) {
 	if (myFTScores === undefined || myFTScores === '') {return;}
 	var newItem = document.createElement('div');
 	newItem.innerHTML = myFTScores;
-	var allListContainers = document.querySelectorAll('.block-container .list-container');
+	var allListContainers = document.querySelectorAll('.block-container.has-side .list-container');
 	var listForInsertAfter;
 	for (var list of allListContainers) {
 		if (list.querySelectorAll('.item-container').length > 12) {
