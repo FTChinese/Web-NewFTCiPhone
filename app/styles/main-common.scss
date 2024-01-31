@@ -4,7 +4,8 @@
     -moz-#{$name}: #{$argument};
     -o-#{$name}: #{$argument};
     #{$name}: #{$argument};
-  }
+}
+
 @import "next/app/styles/theme-default.scss";
 @import "next/app/styles/variables.scss";
 @import "next/app/styles/mixins.scss";

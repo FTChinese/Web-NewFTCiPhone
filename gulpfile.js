@@ -227,6 +227,21 @@ gulp.task('grab', async () => {
 });
 
 
+// MARK: - This is to fix the bug with npm local dependency. 
+gulp.task('copy:node', async () => {
+  const dest = './node_modules/';
+
+  await Promise.all([
+    gulp.src('../../ft/NEXT/node_modules/@financial-times/**/*')
+        .pipe(gulp.dest(dest + '@financial-times')),
+    gulp.src('../../ft/NEXT/node_modules/mathsass/**/*')
+        .pipe(gulp.dest(dest + 'mathsass'))
+  ]);
+
+  console.log('All copies are done!');
+});
+
+
 gulp.task('hotKeywords', async () => {
   await getHotKeywords();
 });
@@ -313,7 +328,7 @@ gulp.task('service', async () => {
 
 
 // MARK: Create the HTML files for iOS Native App
-gulp.task('ios', gulp.series('grab', 'build', async () => {
+gulp.task('ios', gulp.series('copy:node', 'grab', 'build', async () => {
 
   // MARK: Update all the css files by replacing cloudfront static urls into backgrounds
   await updateImageBase64.run();

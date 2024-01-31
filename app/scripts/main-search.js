@@ -1,6 +1,6 @@
 var searchResults = document.getElementById('search-results');
 
-function search (keys, page) {
+function search(keys, page) {
     function reportSearchResultToNative(term, status) {
         var data = {action: 'search', term: term, status: status};
         try {
@@ -52,18 +52,18 @@ function search (keys, page) {
 	            // var d = JSON.parse(this.responseText);
 	            // var data = JSON.stringify(d);
 				var data = this.responseText;
-				console.log(data);
+				// console.log(data);
 	            if (data.indexOf('search-server-down')>=0) {
 	            	reportSearchResultToNative(keys, 'fail');
-					console.log(2)
+					// console.log(2)
 	            } else {
 	            	reportSearchResultToNative(keys, 'success');
 					if (typeof webkit === 'object') {
 						// MARK: - If it's an iOS native app, upload the data to native side to convert to localized language
-						webkit.messageHandlers.searchResultsData.postMessage(data);
+						const info = {data: data, keys: keys};
+						webkit.messageHandlers.searchResultsData.postMessage(info);
 					}
-		            showSearchResult(data);
-					console.log(3);
+		            showSearchResult(data, keys);
 	            }
 	        } else {
 	        	reportSearchResultToNative(keys, 'fail');
@@ -75,8 +75,8 @@ function search (keys, page) {
 	xmlhttp.send();	
 }
 
-function showSearchResult(data) {
-	searchResults.innerHTML = data;
+function showSearchResult(data, keys) {
+	searchResults.innerHTML = data;//<div>${keys}</div>
 	updateHeadlineLocks();
 	var paginationEle = document.querySelector('.pagination');
 	if (paginationEle !== null) {

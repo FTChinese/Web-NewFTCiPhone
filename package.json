@@ -54,6 +54,6 @@
     "highcharts": "^10.0.0",
     "image-to-base64": "^2.2.0",
     "jquery": "^3.6.0",
-    "next": "github:FTChinese/NEXT"
+    "next": "file:../../ft/NEXT"
   }
 }
