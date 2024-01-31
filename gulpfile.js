@@ -207,7 +207,7 @@ gulp.task('serve:test', gulp.series('scripts', () => {
 gulp.task('grab', async () => {
   const dest = './app/templates/';
   await Promise.all([
-    downloadFile('https://d3plbs0ewhofpw.cloudfront.net/users/findpassword?i=4&webview=ftcapp&v=230', 'findpassword.html', dest),
+    downloadFile('https://www.chineseft.net/users/findpassword?i=4&webview=ftcapp&v=230', 'findpassword.html', dest),
     downloadFile('https://d1jz9j0gyf09j1.cloudfront.net/index.php/users/register?i=4&webview=ftcapp&v=230', 'register.html', dest),
     downloadFile('https://d1jz9j0gyf09j1.cloudfront.net/m/corp/preview.html?pageid=homelocalbackup&webview=ftcapp&bodyonly=yes&newad=yes&v=230', 'localbackup.html', dest),
     downloadFile('https://d1jz9j0gyf09j1.cloudfront.net/m/corp/preview.html?pageid=bestofenglish&webview=ftcapp&bodyonly=yes&newad=yes&v=230', 'dailyenglishbackup.html', dest),
