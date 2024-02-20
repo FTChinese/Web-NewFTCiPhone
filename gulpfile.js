@@ -220,7 +220,7 @@ gulp.task('grab', async () => {
     downloadFile('https://d2785ji6wtdqx8.cloudfront.net/js/ftscroller.js', 'ftscroller.js', dest),
     downloadFile('https://www.googletagservices.com/tag/js/gpt.js', 'gpt.js', dest),
     // MARK: - This can't be downloaded most of the time
-    downloadFile('https://www.ft.com/__origami/service/build/v2/bundles/js?modules=o-ads@10.2.1', 'o-ads.js', dest)
+    // downloadFile('https://www.ft.com/__origami/service/build/v2/bundles/js?modules=o-ads@10.2.1', 'o-ads.js', dest)
 
   ]);
   console.log('All grabs are done! ');
