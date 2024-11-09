@@ -239,6 +239,10 @@ function highlightFollowedContent(obj) {
 	    }
 	    return found;
 	}
+	const firstListTitle = document.querySelector('.list-title')?.innerText ?? '';
+	if (['FT商学院', 'FT商學院'].includes(firstListTitle)) {
+		return;
+	}
 	// MARK: Don't do anything if not on mobile
 	if (typeof obj !== 'object' || w > 450) {
 		return;
