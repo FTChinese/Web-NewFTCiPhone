@@ -82,33 +82,6 @@ gulp.task('html', gulp.series('styles', 'scripts', () => {
 }));
 
 
-// Build css and js.
-// gulp.task('html', gulp.series('styles', () => {
-//   return gulp.src('app/*.html')
-//     .pipe($.useref({searchPath: ['.tmp', 'app', '.']}))
-//     .on('finish', () => {console.log ('Finished useref')})
-//     .pipe($.if('*.js', $.babel({
-//       presets: ['@babel/preset-env']
-//     })))
-//     .pipe($.if('*.js', $.uglify()))
-//     .on('error', (err) => {
-//       if(err) {
-//         console.log(err.fileName);
-//         console.log(err.cause);
-//         console.log(err.line);
-//       }
-//     })
-//     .pipe($.if('*.css', $.cssnano({
-//       // MARK: - Always set autoprefixer to false because cssnano will remove useful css lines. Just handle prefix by yourself. 
-//       autoprefixer: false,
-//       normalizeUrl: false,
-//       discardUnused: false
-//     })))
-//     .pipe($.if('*.html', $.htmlmin({collapseWhitespace: true})))
-//     .pipe(gulp.dest('dist'));
-// }));
-
-
 gulp.task('images', () => {
   return gulp.src('app/images/**/*')
     .pipe($.cache($.imagemin()))
