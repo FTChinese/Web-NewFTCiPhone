@@ -61,116 +61,6 @@ function hideContactConfirm() {
 	}
 }
 
-// function updateHeadlineLocks() {
-// 	// MARK: If a reader opens the link in an HTML Book, No need to display locks. But if an item is marked as 'TryBook', display the lock.
-// 	if (window.location.href.indexOf('htmlbook') > 0) {
-// 		var itemContainers = document.querySelectorAll('.item-container');
-// 		for (var s=0; s<itemContainers.length; s++) {
-// 			var itemHeadline = itemContainers[s].querySelector('.item-headline-link');
-// 			if (itemHeadline) {
-// 				var itemHeadlineClass = itemHeadline.className;
-// 				var itemHeadlineNewClass = itemHeadlineClass.replace(/unlocked/g, '').replace(/locked/g, '').replace(/ +/, ' ');
-// 				var itemDataType = itemContainers[s].getAttribute('data-type');
-// 				if (itemDataType && itemDataType === 'TryBook') {
-// 					itemHeadlineNewClass += ' locked';
-// 				}
-// 				if (itemHeadlineClass !== itemHeadlineNewClass) {
-// 					itemHeadline.className = itemHeadlineNewClass;
-// 				}
-// 			}
-// 		}
-// 		return;
-// 	}
-// 	var privileges = window.gPrivileges || [];
-// 	var userPrivilegeLevel = 0;
-// 	if (privileges.indexOf('EditorChoice') >= 0) {
-// 		userPrivilegeLevel = 2;
-// 	} else if (privileges.indexOf('premium') >= 0) {
-// 		userPrivilegeLevel = 1;
-// 	}
-// 	// MARK: Remove all existing lock classes
-// 	var lockedItems = document.querySelectorAll('.item-headline-link.locked, .item-headline-link.unlocked');
-// 	for (let item of lockedItems) {
-// 		item.classList.remove('locked', 'unlocked');
-// 	}
-// 	// MARK: Story Archive
-// 	var archiveInSeconds = 24 * 60 * 60;
-// 	var storyItems = document.querySelectorAll('[data-type=story][data-date]');
-// 	for (var k=0; k<storyItems.length; k++) {
-// 		var storyPubDate = storyItems[k].getAttribute('data-date');
-// 		if (/[0-9]{4}-[0-9]{2}-[0-9]{2}/i.test(storyPubDate)){
-// 			storyPubDate = new Date(storyPubDate).getTime() / 1000
-// 		} else {
-// 			storyPubDate = parseInt(storyPubDate, 10);
-// 		}
-// 		var currentTimeStamp = Math.round(new Date().getTime()/1000);
-// 		var storyHeadline = storyItems[k].querySelector('.item-headline-link');
-// 		if (currentTimeStamp - storyPubDate >= archiveInSeconds) {
-// 			var headlineClass = storyHeadline.className.replace(/unlocked/g, '').replace(/locked/g, '').replace(/ +/, ' ');
-// 			if (privileges.indexOf('premium') >= 0) {
-// 				storyHeadline.className = headlineClass + ' unlocked';
-// 			} else {
-// 				storyHeadline.className = headlineClass + ' locked';
-// 			}
-// 		}
-// 	}
-// 	// MARK: Paid content for standard and premium subscribers
-// 	var headlines = document.querySelectorAll('[data-type=premium] .item-headline-link, [data-sub-type=radio] .item-headline-link, [data-sub-type=speedreading] .item-headline-link, [data-type=premium].item-headline-link, [data-sub-type=radio].item-headline-link, [data-sub-type=speedreading].item-headline-link');
-// 	for (let headline of headlines) {
-// 		headline.classList.remove('unlocked', 'locked');
-// 		if (privileges.indexOf('premium') >= 0) {
-// 			headline.classList.add('unlocked');
-// 		} else {
-// 			headline.classList.add('locked');
-// 		}
-// 	}
-
-// 	// MARK: Paid content for premium subscribers such as EditorChoice
-// 	if (window.location.href.indexOf('pageid=EditorChoice-')>=0 || window.location.href.indexOf('editorchoice-issue')>=0) {
-// 		var headlines2 = document.querySelectorAll('.item-headline-link');
-// 		for (var j=0; j<headlines2.length; j++) {
-// 			var headlineClass = headlines2[j].className.replace(/unlocked/g, '').replace(/locked/g, '').replace(/ +/, ' ');
-// 			if (privileges.indexOf('EditorChoice') >= 0) {
-// 				headlines2[j].className = headlineClass + ' unlocked';
-// 			} else {
-// 				headlines2[j].className = headlineClass + ' locked';
-// 			}
-// 		}
-// 	}
-// 	// MARK: Support "会员专享" and "高端专享"
-// 	var interactives = document.querySelectorAll('[data-type=interactive][data-keywords]');
-// 	for (var m=0; m<interactives.length; m++) {
-// 		var keyWords = interactives[m].getAttribute('data-keywords');
-// 		var contentPrivilegeLevel = 0;
-// 		if (/高端专享|高端專享|高階專享/.test(keyWords)) {
-// 			contentPrivilegeLevel = 2;
-// 		} else if (/会员专享|會員專享/.test(keyWords)) {
-// 			contentPrivilegeLevel = 1;
-// 		}
-// 		if (contentPrivilegeLevel>0) {
-// 			var currentHeadline = (interactives[m].className.indexOf('item-headline-link') >= 0) ? interactives[m] : interactives[m].querySelector('.item-headline-link');
-// 			if (currentHeadline) {
-// 				var headlineClass = currentHeadline.className.replace(/unlocked/g, '').replace(/locked/g, '').replace(/ +/, ' ');
-// 				if (userPrivilegeLevel >= contentPrivilegeLevel) {
-// 					currentHeadline.className = headlineClass + ' unlocked';
-// 				} else {
-// 					currentHeadline.className = headlineClass + ' locked';
-// 				}
-// 			}
-// 		}
-// 	}
-// 	// MARK: - Add the vip class based on tags
-// 	var vipArticles = document.querySelectorAll('[data-keywords]');
-// 	for (var l=0; l<vipArticles.length; l++) {
-// 		var keyWords = vipArticles[l].getAttribute('data-keywords');
-// 		if (!/高端专享|高端專享|高階專享/.test(keyWords)) {continue;}
-// 		var currentHeadline = vipArticles[l].querySelector('.item-headline-link');
-// 		if (!currentHeadline) {continue;}
-// 		currentHeadline.classList.add('vip');
-// 	}
-// }
-
-
 function updateHeadlineLocks() {
     // Handle the case for HTML Book environment
     if (window.location.href.indexOf('htmlbook') > 0) {
@@ -245,7 +135,12 @@ function updateHeadlineLocks() {
             }
         }
 
+        if (contentPrivilegeLevel <= 0) {
+            continue;
+        }
+        
         // Apply lock/unlock classes based on content privilege level
+
         if (userPrivilegeLevel >= contentPrivilegeLevel) {
             headline.classList.add('unlocked');
         } else {
