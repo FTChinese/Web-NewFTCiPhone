@@ -5075,9 +5075,9 @@ return;
                                        : speedreadFeedback.cheat;
 
                       // MARK: - for apps that supports text to speech, show the text-to-speech button
-                      if (window.isTextToSpeechEnabled === true) {
-                        speedreadComment += '<br><br>您也可以点击下方按钮听一遍文章<br><div class="standalonebutton center-button"><button class="ui-light-btn" onclick="listenToSpeedRead()">重听一遍</button></div>';
-                      }
+                      // if (window.isTextToSpeechEnabled === true) {
+                      //   speedreadComment += '<br><br>您也可以点击下方按钮听一遍文章<br><div class="standalonebutton center-button"><button class="ui-light-btn" onclick="listenToSpeedRead()">重听一遍</button></div>';
+                      // }
                       currentSlide.find(".pageintro").html("<div>"+speedreadComment+"</div><div id='comparescore'></div>");
                       $("#your").html(gCurrentScore);
                       // MARK: Send the finish speedreading event to native side. 
