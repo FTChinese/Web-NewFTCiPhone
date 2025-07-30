@@ -76,6 +76,8 @@ function search(keys, page) {
 }
 
 function showSearchResult(data, keys) {
+	// console.log('data:', data);
+	// console.log('keys:', keys);
 	searchResults.innerHTML = data;//<div>${keys}</div>
 	updateHeadlineLocks();
 	var paginationEle = document.querySelector('.pagination');
@@ -87,7 +89,8 @@ function showSearchResult(data, keys) {
 	var pageLinks = searchResults.querySelectorAll('.pagination-inner a');
 	for (var i=0; i<pageLinks.length; i++) {
 		pageLinks[i].onclick = function() {
-			var page = this.href.replace(/^.*page=([0-9]+).*$/g, '$1');
+			var page = this.href.replace(/^.*(page|p)=([0-9]+).*$/g, '$2');
+			// console.log('keys: ', keys, ', page: ', page);
 			search(keys, page);
 			return false;
 		}
