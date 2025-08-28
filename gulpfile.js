@@ -313,6 +313,7 @@ gulp.task('ios', gulp.series('copy:node', 'grab', 'build', async () => {
   var storyCSS = fs.readFileSync('dist/styles/main-story.css', 'utf8');
   var storyMainJS = fs.readFileSync('dist/scripts/main-story.js', 'utf8');
   var storyKeyJS = fs.readFileSync('dist/scripts/key.js', 'utf8');
+  var storyKeyJSLegacy = fs.readFileSync('dist/scripts/key-legacy.js', 'utf8');
   const audioScriptRenderJS = fs.readFileSync('dist/scripts/main-audio-script-render.js', 'utf8');
   var dbZoneHelperJS = fs.readFileSync('dist/scripts/main-db-zone-helper.js', 'utf8');
   var listCSS = fs.readFileSync('dist/styles/main-list.css', 'utf8');
@@ -463,6 +464,26 @@ gulp.task('ios', gulp.series('copy:node', 'grab', 'build', async () => {
     .on('end', function() {
       convert2Big5('../NewFTCApp-iOS/Page/FTChinese/story.html');
       convert2Big5('../ftc-android-kotlin/app/src/main/res/raw/story.html');
+    }
+  );
+
+
+  gulp.src(['app/templates/story-legacy.html'])
+    .pipe($.if('*.html', $.htmlmin({collapseWhitespace: true})))
+    .pipe(replace('{{story-css}}', storyCSS))
+    .pipe(replace('{{story-js-main}}', storyMainJS))
+    .pipe(replace('{{story-js-key}}', storyKeyJSLegacy))
+    .pipe(replace('{{db-zone-helper-js}}', dbZoneHelperJS))
+    .pipe(replace('{{ad-pollyfill-js}}', adPolyfillJS))
+    .pipe(replace('{{o-ads-js}}', oAdsJS))
+    .pipe(replace('{{gpt-js}}', gptJS))
+    .pipe(replace('{{ftc-log-js}}', ftcLogJS))
+    .pipe(rename('story-legacy.html'))
+    .pipe(gulp.dest('../NewFTCApp-iOS/Page/FTChinese/'))
+    .pipe(gulp.dest('../ftc-android-kotlin/app/src/main/res/raw/'))
+    .on('end', function() {
+      convert2Big5('../NewFTCApp-iOS/Page/FTChinese/story-legacy.html');
+      convert2Big5('../ftc-android-kotlin/app/src/main/res/raw/story-legacy.html');
     }
   );
 
