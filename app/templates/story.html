@@ -16,6 +16,8 @@
 <!-- AndroidUserAddress -->
 <script>var startTime = new Date().getTime();</script>
 <script>
+window.type = '{{type}}';
+window.id = '{{id}}';
 var gKeyTag = '{story-tag}';
 var gauthor="{story-author}".replace(/ and /g,",").replace(/([\s\_]+)[Bb]y /g,"$1").replace(/ in .*/g,"").replace(/,.*/g,"").replace(/\s+$/g,"").replace(/^\s+/g,"").replace(/\s+/g,"_");
 </script>
@@ -325,7 +327,20 @@ var gIsCurrentAdchFinal = false;
 </div>
 
 
-<div class="block-container no-side" id="story-recommend-container"><div class="block-inner">
+
+<div class="block-container no-side story-recommend-container"><div class="block-inner">
+
+    <div class="content-container"><div class="content-inner" id="onward-journey"><div class="list-container"><div class="list-inner">
+			<h2 class="list-title"><a class="list-link" href="/channel/mba.html">推荐阅读</a></h2>
+			<div class="card-grid list-recommendation"></div>
+	</div></div></div></div>
+
+	<div class="clearfloat"></div>
+
+</div></div>
+
+
+<!-- <div class="block-container no-side" id="story-recommend-container"><div class="block-inner">
     <div class="content-container"><div class="content-inner">
         <div class="list-container"><div class="list-inner">
             <h2 class="list-title"><a class="list-link" href="#">您可能感兴趣的文章</a></h2>
@@ -346,7 +361,7 @@ var gIsCurrentAdchFinal = false;
         </div></div>
     </div></div>
     <div class="clearfloat block-bottom"></div>
-</div></div>
+</div></div> -->
 
 
 <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start': new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-KP4V3G');</script>

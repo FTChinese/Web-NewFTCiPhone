@@ -427,7 +427,7 @@ gulp.task('ios', gulp.series('copy:node', 'grab', 'build', async () => {
   gulp.src(['app/templates/account.html'])
     .pipe(replace('{{story-css}}', storyCSS))
     .pipe(replace('{{story-js-main}}', storyMainJS))
-    .pipe(replace('{{story-js-key}}', storyKeyJS))
+    .pipe(replace('{{story-js-key}}', storyKeyJSLegacy))
     .pipe(replace('{{ftc-log-js}}', ftcLogJS))
     .pipe(gulp.dest('../NewFTCApp-iOS/Page/FTChinese/'))
     .on('end', function() {
@@ -491,7 +491,7 @@ gulp.task('ios', gulp.series('copy:node', 'grab', 'build', async () => {
     .pipe($.if('*.html', $.htmlmin({collapseWhitespace: true})))
     .pipe(replace('{{story-css}}', storyCSS))
     .pipe(replace('{{story-js-main}}', storyMainJS))
-    .pipe(replace('{{story-js-key}}', storyKeyJS))
+    .pipe(replace('{{story-js-key}}', storyKeyJSLegacy))
     .pipe(replace('{{ftc-log-js}}', ftcLogJS))
     .pipe(rename('message.html'))
     .pipe(gulp.dest('../NewFTCApp-iOS/Page/FTChinese/'))
