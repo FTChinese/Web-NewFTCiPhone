@@ -468,7 +468,7 @@ gulp.task('ios', gulp.series('copy:node', 'grab', 'build', async () => {
   );
 
 
-  gulp.src(['app/templates/story-legacy.html'])
+  gulp.src(['app/templates/storylegacy.html'])
     .pipe($.if('*.html', $.htmlmin({collapseWhitespace: true})))
     .pipe(replace('{{story-css}}', storyCSS))
     .pipe(replace('{{story-js-main}}', storyMainJS))
@@ -478,12 +478,12 @@ gulp.task('ios', gulp.series('copy:node', 'grab', 'build', async () => {
     .pipe(replace('{{o-ads-js}}', oAdsJS))
     .pipe(replace('{{gpt-js}}', gptJS))
     .pipe(replace('{{ftc-log-js}}', ftcLogJS))
-    .pipe(rename('story-legacy.html'))
+    .pipe(rename('storylegacy.html'))
     .pipe(gulp.dest('../NewFTCApp-iOS/Page/FTChinese/'))
     .pipe(gulp.dest('../ftc-android-kotlin/app/src/main/res/raw/'))
     .on('end', function() {
-      convert2Big5('../NewFTCApp-iOS/Page/FTChinese/story-legacy.html');
-      convert2Big5('../ftc-android-kotlin/app/src/main/res/raw/story-legacy.html');
+      convert2Big5('../NewFTCApp-iOS/Page/FTChinese/storylegacy.html');
+      convert2Big5('../ftc-android-kotlin/app/src/main/res/raw/storylegacy.html');
     }
   );
 
