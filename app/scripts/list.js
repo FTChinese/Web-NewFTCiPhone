@@ -355,10 +355,73 @@ function recommendTopics(myFTScores) {
 	}
 }
 
-try {
-	highlightFollowedContent(window.myFollow);
-	recommendTopics(window.myFTRecommendations);
-} catch (error) {
-	console.log (error);
+var nativeListPageInitialized = false;
+
+function runNativeListEnhancements() {
+	try {
+		highlightFollowedContent(window.myFollow);
+		recommendTopics(window.myFTRecommendations);
+	} catch (error) {
+		console.log(error);
+	}
 }
-getJSON();
+
+function isNativeHomePageForRecommendation() {
+	var search = window.location.search || '';
+	return window.gPageId === 'home' || /(?:^|[?&])pagetype=home(?:&|$)/.test(search);
+}
+
+function ensureNativeHomePageRecommendationContainer() {
+	var container = document.getElementById('home-page-recommendation-container');
+	if (container) {
+		return container;
+	}
+	if (!isNativeHomePageForRecommendation() || !document.body) {
+		return null;
+	}
+	container = document.createElement('div');
+	container.id = 'home-page-recommendation-container';
+	container.hidden = true;
+	var firstBlock = document.querySelector('.block-container');
+	if (firstBlock && firstBlock.parentNode) {
+		firstBlock.parentNode.insertBefore(container, firstBlock);
+	} else {
+		document.body.insertBefore(container, document.body.firstChild);
+	}
+	return container;
+}
+
+function renderNativeHomePageRecommendation() {
+	var container = ensureNativeHomePageRecommendationContainer();
+	if (!container || typeof renderHomePageRecommendationNow !== 'function') {
+		return Promise.resolve({status: 'missing'});
+	}
+	return renderHomePageRecommendationNow({
+		targetDom: container,
+		limit: 24,
+		source: 'all',
+		timeoutMs: 2000
+	}).catch(function(error) {
+		console.log(error);
+		return {status: 'failed'};
+	});
+}
+
+async function initNativeListPage() {
+	if (nativeListPageInitialized) {
+		return;
+	}
+	nativeListPageInitialized = true;
+	runNativeListEnhancements();
+	try {
+		var recommendationResult = await renderNativeHomePageRecommendation();
+		window.ftcNativeHomeRecommendationStatus = recommendationResult && recommendationResult.status ? recommendationResult.status : 'unknown';
+	} catch (error) {
+		console.log(error);
+		window.ftcNativeHomeRecommendationStatus = 'failed';
+	} finally {
+		getJSON();
+	}
+}
+
+window.initNativeListPage = initNativeListPage;

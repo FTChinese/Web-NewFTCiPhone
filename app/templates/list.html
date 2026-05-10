@@ -81,5 +81,18 @@ window.adCodeLoaded = true;
 <script type="text/javascript">{{list-js-main}}</script>
 <script type="text/javascript">{iap-js-code}</script>
 <!--android-scripts-->
+<script>
+try {
+	if (typeof window.initNativeListPage === 'function') {
+		window.initNativeListPage();
+	} else if (typeof getJSON === 'function') {
+		getJSON();
+	}
+} catch (error) {
+	console.log(error);
+	if (typeof getJSON === 'function') {
+		getJSON();
+	}
+}
+</script>
 </html>
-
