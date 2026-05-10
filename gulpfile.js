@@ -374,6 +374,9 @@ gulp.task('ios', gulp.series('copy:node', 'grab', 'build', async () => {
   gulp.src(['dist/scripts/main-video.js'])
     .pipe(gulp.dest('../NewFTCApp-iOS/Page/FTChinese/'));
 
+  gulp.src(['app/templates/share-screenshot-helper.js'])
+    .pipe(gulp.dest('../NewFTCApp-iOS/Page/FTChinese/'));
+
   // gulp.src(['app/templates/hotstories.json'])
   //   .pipe(gulp.dest('../NewFTCApp-iOS/Page/Ad/'));
 
