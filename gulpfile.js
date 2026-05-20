@@ -632,26 +632,6 @@ gulp.task('ios', gulp.series('copy:node', 'grab', 'build', async () => {
     }
   );
 
-
-  gulp.src(['app/templates/storylegacy.html'])
-    .pipe($.if('*.html', $.htmlmin({collapseWhitespace: true})))
-    .pipe(replace('{{story-css}}', storyCSS))
-    .pipe(replace('{{story-js-main}}', storyMainJS))
-    .pipe(replace('{{story-js-key}}', storyKeyJSLegacy))
-    .pipe(replace('{{db-zone-helper-js}}', dbZoneHelperJS))
-    .pipe(replace('{{ad-pollyfill-js}}', adPolyfillJS))
-    .pipe(replace('{{o-ads-js}}', oAdsJS))
-    .pipe(replace('{{gpt-js}}', gptJS))
-    .pipe(replace('{{ftc-log-js}}', ftcLogJS))
-    .pipe(rename('storylegacy.html'))
-    .pipe(gulp.dest('../NewFTCApp-iOS/Page/FTChinese/'))
-    .pipe(gulp.dest('../ftc-android-kotlin/app/src/main/res/raw/'))
-    .on('end', function() {
-      convert2Big5('../NewFTCApp-iOS/Page/FTChinese/storylegacy.html');
-      convert2Big5('../ftc-android-kotlin/app/src/main/res/raw/storylegacy.html');
-    }
-  );
-
   gulp.src(['app/templates/message.html'])
     .pipe($.if('*.html', $.htmlmin({collapseWhitespace: true})))
     .pipe(replace('{{story-css}}', storyCSS))
