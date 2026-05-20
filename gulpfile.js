@@ -13,6 +13,8 @@ const reload = browserSync.reload;
 let dev = true;
 const fs = require('fs');
 const updateImageBase64 = require('./update-image-base64-dict');
+const nativeTemplateDirectory = './app/native-templates/';
+const nodeSiteBaseUrl = 'https://ai.chineseft.net';
 
 function lint(files) {
   return gulp.src(files)
@@ -179,18 +181,18 @@ gulp.task('serve:test', gulp.series('scripts', () => {
 
 gulp.task('grab', async () => {
   const dest = './app/templates/';
+  copyNativeTemplate('findpassword.html', dest);
+  copyNativeTemplate('register.html', dest);
   await Promise.all([
-    downloadFile('https://www.chineseft.net/users/findpassword?i=4&webview=ftcapp&v=230', 'findpassword.html', dest),
-    downloadFile('https://d1jz9j0gyf09j1.cloudfront.net/index.php/users/register?i=4&webview=ftcapp&v=230', 'register.html', dest),
-    downloadFile('https://d1jz9j0gyf09j1.cloudfront.net/m/corp/preview.html?pageid=homelocalbackup&webview=ftcapp&bodyonly=yes&newad=yes&v=230', 'localbackup.html', dest),
-    downloadFile('https://d1jz9j0gyf09j1.cloudfront.net/m/corp/preview.html?pageid=bestofenglish&webview=ftcapp&bodyonly=yes&newad=yes&v=230', 'dailyenglishbackup.html', dest),
-    downloadFile('https://d1jz9j0gyf09j1.cloudfront.net/m/corp/preview.html?pageid=mba&webview=ftcapp&bodyonly=yes&newad=yes&v=230', 'mbabackup.html', dest),
-    downloadFile('https://d1jz9j0gyf09j1.cloudfront.net/m/corp/preview.html?pageid=service&webview=ftcapp&v=230', 'service.html', dest),
-    downloadFile('https://d1jz9j0gyf09j1.cloudfront.net/index.php/jsapi/applaunchschedule', 'schedule.json', dest),
-    downloadFile('https://d1jz9j0gyf09j1.cloudfront.net/index.php/jsapi/hotstory/1quarterwithdetail', 'hotstories.json', dest),
-    downloadFile('https://d2785ji6wtdqx8.cloudfront.net/styles/s.css?1512187911018', 's.css', dest),
-    downloadFile('https://d2785ji6wtdqx8.cloudfront.net/js/log.js?v=9&20180412', 'ftc-log.js', dest),
-    downloadFile('https://d2785ji6wtdqx8.cloudfront.net/js/ftscroller.js', 'ftscroller.js', dest),
+    downloadFile(`${nodeSiteBaseUrl}/m/corp/preview.html?pageid=homelocalbackup&webview=ftcapp&bodyonly=yes&newad=yes&v=230`, 'localbackup.html', dest),
+    downloadFile(`${nodeSiteBaseUrl}/m/corp/preview.html?pageid=bestofenglish&webview=ftcapp&bodyonly=yes&newad=yes&v=230`, 'dailyenglishbackup.html', dest),
+    downloadFile(`${nodeSiteBaseUrl}/m/corp/preview.html?pageid=mba&webview=ftcapp&bodyonly=yes&newad=yes&v=230`, 'mbabackup.html', dest),
+    downloadFile(`${nodeSiteBaseUrl}/m/corp/preview.html?pageid=service&webview=ftcapp&v=230`, 'service.html', dest),
+    downloadFile(`${nodeSiteBaseUrl}/index.php/jsapi/applaunchschedule`, 'schedule.json', dest),
+    downloadFile(`${nodeSiteBaseUrl}/index.php/jsapi/hotstory/1quarterwithdetail`, 'hotstories.json', dest, {optional: true}),
+    downloadFile(`${nodeSiteBaseUrl}/styles/s.css?1512187911018`, 's.css', dest),
+    downloadFile(`${nodeSiteBaseUrl}/js/log.js?v=9&20180412`, 'ftc-log.js', dest),
+    downloadFile(`${nodeSiteBaseUrl}/js/ftscroller.js`, 'ftscroller.js', dest),
     downloadFile('https://www.googletagservices.com/tag/js/gpt.js', 'gpt.js', dest),
     // MARK: - This can't be downloaded most of the time
     // downloadFile('https://www.ft.com/__origami/service/build/v2/bundles/js?modules=o-ads@10.2.1', 'o-ads.js', dest)
@@ -219,26 +221,155 @@ gulp.task('hotKeywords', async () => {
   await getHotKeywords();
 });
 
-async function downloadFile(url, fileName, directory) {
+function wait(ms) {
+  return new Promise(resolve => setTimeout(resolve, ms));
+}
+
+function copyNativeTemplate(fileName, directory) {
+  const source = `${nativeTemplateDirectory}${fileName}`;
+  const dest = `${directory}${fileName}`;
+  if (!fs.existsSync(source)) {
+    throw new Error(`Cannot find native template ${source}`);
+  }
+  if (!fs.existsSync(directory)) {
+    fs.mkdirSync(directory, {recursive: true});
+  }
+  fs.copyFileSync(source, dest);
+  validateDownloadedFile(dest, fileName);
+  console.log(`Copied native template ${source} to ${dest}.`);
+}
+
+function validateDownloadedFile(filePath, fileName) {
+  const stat = fs.statSync(filePath);
+  if (stat.size === 0) {
+    throw new Error(`${filePath} is empty`);
+  }
+
+  if (/\.json$/i.test(fileName)) {
+    JSON.parse(fs.readFileSync(filePath, 'utf8'));
+    return;
+  }
+
+  if (/\.html?$/i.test(fileName)) {
+    const html = fs.readFileSync(filePath, 'utf8');
+    const knownErrorPage = /<title>\s*404/i.test(html)
+      || html.indexOf('我们知道需要此页面') >= 0
+      || html.indexOf('Cannot GET') >= 0
+      || html.indexOf('NO Page!') >= 0;
+    if (knownErrorPage) {
+      throw new Error(`${filePath} looks like an error page`);
+    }
+  }
+}
+
+function downloadFileOnce(url, fileName, directory, redirectCount = 0) {
   return new Promise((resolve, reject) => {
     const dest = `${directory}${fileName}`;
+    const tmpDest = `${dest}.download`;
     console.log(`Dowloading from ${url} to ${dest}...`);
     if (!fs.existsSync(directory)) {
-        fs.mkdirSync(directory);
+        fs.mkdirSync(directory, {recursive: true});
     }
-    var file = fs.createWriteStream(dest);
     const httpRequire = (url.indexOf('https') === 0) ? require('https') : require('http');
     const req = httpRequire.get(url, res => {
+      const statusCode = res.statusCode || 0;
+      const location = res.headers.location;
+      if (statusCode >= 300 && statusCode < 400 && location) {
+        res.resume();
+        if (redirectCount >= 5) {
+          reject(new Error(`Too many redirects for ${url}`));
+          return;
+        }
+        const redirectUrl = new URL(location, url).toString();
+        resolve(downloadFileOnce(redirectUrl, fileName, directory, redirectCount + 1));
+        return;
+      }
+      if (statusCode >= 400) {
+        res.resume();
+        reject(new Error(`HTTP ${statusCode} for ${url}`));
+        return;
+      }
+
+      const file = fs.createWriteStream(tmpDest);
       res.pipe(file);
-      res.on("end", () => {
+      res.on('error', err => {
+        file.destroy();
+        reject(new Error(`Response error for ${url}: ${err.message}`));
+      });
+      file.on('error', err => {
+        reject(new Error(`File write error for ${tmpDest}: ${err.message}`));
+      });
+      file.on('finish', () => {
+        file.close(err => {
+          if (err) {
+            reject(new Error(`File close error for ${tmpDest}: ${err.message}`));
+            return;
+          }
+          try {
+            validateDownloadedFile(tmpDest, fileName);
+          } catch (validationErr) {
+            try {
+              fs.unlinkSync(tmpDest);
+            } catch (unlinkErr) {
+              console.log(`Cannot remove invalid download ${tmpDest}: ${unlinkErr.message}`);
+            }
+            reject(new Error(`Invalid download for ${url}: ${validationErr.message}`));
+            return;
+          }
+          fs.renameSync(tmpDest, dest);
+          if (statusCode >= 400) {
+            console.log(`Warning: ${url} returned HTTP ${statusCode}`);
+          }
           console.log(`Dowloaded from ${url} to ${dest}! `);
-          resolve({status: 'success', file: dest, url: url});
+          resolve({status: 'success', file: dest, url: url, statusCode});
+        });
       });
     });
-    req.on('error', (err) => {
-      reject({status: 'error', message: err, url: url});
+    req.setTimeout(30000, () => {
+      req.destroy(new Error(`Download timeout after 30000ms`));
+    });
+    req.on('error', err => {
+      try {
+        if (fs.existsSync(tmpDest)) {
+          fs.unlinkSync(tmpDest);
+        }
+      } catch (unlinkErr) {
+        console.log(`Cannot remove partial download ${tmpDest}: ${unlinkErr.message}`);
+      }
+      reject(new Error(`Cannot download ${url} to ${dest}: ${err.message}`));
     });
   });
+}
+
+async function downloadFile(url, fileName, directory, options = {}) {
+  const attempts = 3;
+  const dest = `${directory}${fileName}`;
+  let lastError;
+  for (let attempt = 1; attempt <= attempts; attempt++) {
+    try {
+      return await downloadFileOnce(url, fileName, directory);
+    } catch (err) {
+      lastError = err;
+      if (attempt < attempts) {
+        console.log(`${err.message}. Retry ${attempt + 1}/${attempts}...`);
+        await wait(1000 * attempt);
+      }
+    }
+  }
+  if (fs.existsSync(dest)) {
+    try {
+      validateDownloadedFile(dest, fileName);
+      console.log(`${lastError.message}. Use existing ${dest}.`);
+      return {status: 'cached', file: dest, url: url};
+    } catch (validationErr) {
+      console.log(`${lastError.message}. Existing ${dest} is invalid: ${validationErr.message}`);
+    }
+  }
+  if (options.optional) {
+    console.log(`${lastError.message}. Continue without optional ${dest}.`);
+    return {status: 'missing', file: dest, url: url};
+  }
+  throw lastError;
 }
 
 function handleBackgroundImages(str) {
@@ -262,10 +393,45 @@ function convert2Big5(originFile) {
     });
 }
 
+function writeIOSTemplateWithBig5(fileName, replacements = []) {
+    var chineseConv = require('chinese-conv');
+    const source = `app/templates/${fileName}`;
+    const dest = `../NewFTCApp-iOS/Page/FTChinese/${fileName}`;
+    let data = fs.readFileSync(source, 'utf8');
+    for (const replacement of replacements) {
+      data = data.split(replacement.from).join(replacement.to);
+    }
+    fs.writeFileSync(dest, data);
+    console.log('html writen to ' + dest);
+
+    const big5FileName = dest.replace('.html', '_big5.html');
+    fs.writeFileSync(big5FileName, chineseConv.tify(data));
+    console.log('big 5 file writen to ' + big5FileName);
+}
+
 async function getHotKeywords() {
   return new Promise((resolve, reject)=>{
     const hotStoriesString = fs.readFileSync('app/templates/hotstories.json', 'utf8');
-    const hotStories = JSON.parse(hotStoriesString);
+    let hotStories = [];
+    try {
+      hotStories = JSON.parse(hotStoriesString);
+    } catch (err) {
+      const fallbackPath = '../NewFTCApp-iOS/Page/FTChinese/hot-keywords.json';
+      console.log(`Cannot parse app/templates/hotstories.json: ${err.message}`);
+      if (fs.existsSync(fallbackPath)) {
+        const fallbackKeywords = fs.readFileSync(fallbackPath, 'utf8');
+        try {
+          JSON.parse(fallbackKeywords);
+          console.log(`Use existing hot keywords from ${fallbackPath}`);
+          resolve(fallbackKeywords);
+          return;
+        } catch (fallbackErr) {
+          console.log(`Cannot parse ${fallbackPath}: ${fallbackErr.message}`);
+        }
+      }
+      resolve('{}');
+      return;
+    }
     var keyScores = {};
     const weight = 1;
     for (item of hotStories) {
@@ -293,7 +459,7 @@ async function getHotKeywords() {
 }
 
 gulp.task('service', async () => {
-  const url = 'https://d1jz9j0gyf09j1.cloudfront.net/m/corp/preview.html?pageid=service&webview=ftcapp&v=230';
+  const url = `${nodeSiteBaseUrl}/m/corp/preview.html?pageid=service&webview=ftcapp&v=230`;
   await downloadFile(url, 'service.html', './app/templates/');
 });
 
@@ -381,25 +547,17 @@ gulp.task('ios', gulp.series('copy:node', 'grab', 'build', async () => {
   //   .pipe(gulp.dest('../NewFTCApp-iOS/Page/Ad/'));
 
 
-  gulp.src(['app/templates/findpassword.html'])
-    .pipe(replace('<!--night-style-native-app-->', nightHTML))
-    .pipe(replace('{{o-ads-js}}', oAdsJS))
-    .pipe(replace('{{gpt-js}}', gptJS))
-    .pipe(replace('{{ftc-log-js}}', ftcLogJS))
-    .pipe(gulp.dest('../NewFTCApp-iOS/Page/FTChinese/'))
-    .on('end', function() {
-      convert2Big5('../NewFTCApp-iOS/Page/FTChinese/findpassword.html')
-    }
-  );
+  writeIOSTemplateWithBig5('findpassword.html', [
+    {from: '<!--night-style-native-app-->', to: nightHTML},
+    {from: '{{o-ads-js}}', to: oAdsJS},
+    {from: '{{gpt-js}}', to: gptJS},
+    {from: '{{ftc-log-js}}', to: ftcLogJS}
+  ]);
 
-  gulp.src(['app/templates/register.html'])
-    .pipe(replace('<!--night-style-native-app-->', nightHTML))
-    .pipe(gulp.dest('../NewFTCApp-iOS/Page/FTChinese/'))
-    .pipe(replace('{{ftc-log-js}}', ftcLogJS))
-    .on('end', function() {
-      convert2Big5('../NewFTCApp-iOS/Page/FTChinese/register.html')
-    }
-  );
+  writeIOSTemplateWithBig5('register.html', [
+    {from: '<!--night-style-native-app-->', to: nightHTML},
+    {from: '{{ftc-log-js}}', to: ftcLogJS}
+  ]);
 
   gulp.src(['app/templates/localbackup.html'])
     .pipe(gulp.dest('../NewFTCApp-iOS/Page/FTChinese/'))
@@ -416,6 +574,10 @@ gulp.task('ios', gulp.series('copy:node', 'grab', 'build', async () => {
       convert2Big5('../NewFTCApp-iOS/Page/FTChinese/dailyenglishbackup.html')
     }
   );
+
+  writeIOSTemplateWithBig5('mbabackup.html', [
+    {from: '{{ftc-log-js}}', to: ftcLogJS}
+  ]);
 
   gulp.src(['app/templates/service.html'])
     .pipe(replace('{{o-ads-js}}', oAdsJS))

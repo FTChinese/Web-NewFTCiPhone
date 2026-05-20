@@ -3,7 +3,13 @@ function getJSON() {
 		console.log ('should keep links');
 		return;
 	}
-	var items = document.querySelectorAll('.item-container-app');
+	var allItems = document.querySelectorAll('.item-container-app');
+	var items = [];
+	for (var itemIndex=0; itemIndex<allItems.length; itemIndex++) {
+		if (shouldUseNativeItemSelection(allItems[itemIndex])) {
+			items.push(allItems[itemIndex]);
+		}
+	}
 	var adId = window.adchID || '1000';
 	var adZone = 'home';
 	try {
@@ -81,6 +87,17 @@ function getJSON() {
 
 	specialReportsData();
 	sendPageInfoToApp();
+}
+
+function shouldUseNativeItemSelection(ele) {
+	var eleParent = ele;
+	while (eleParent && eleParent !== document.body) {
+		if (eleParent.className && typeof eleParent.className === 'string' && eleParent.className.indexOf('home-page-recommendation-list') >= 0) {
+			return false;
+		}
+		eleParent = eleParent.parentNode;
+	}
+	return true;
 }
 
 function checkReadItem(ele, id) {
@@ -366,29 +383,10 @@ function runNativeListEnhancements() {
 	}
 }
 
-function isNativeHomePageForRecommendation() {
-	var search = window.location.search || '';
-	return window.gPageId === 'home' || /(?:^|[?&])pagetype=home(?:&|$)/.test(search);
-}
+var NATIVE_HOME_RECOMMENDATION_TIMEOUT_MS = 30000;
 
 function ensureNativeHomePageRecommendationContainer() {
-	var container = document.getElementById('home-page-recommendation-container');
-	if (container) {
-		return container;
-	}
-	if (!isNativeHomePageForRecommendation() || !document.body) {
-		return null;
-	}
-	container = document.createElement('div');
-	container.id = 'home-page-recommendation-container';
-	container.hidden = true;
-	var firstBlock = document.querySelector('.block-container');
-	if (firstBlock && firstBlock.parentNode) {
-		firstBlock.parentNode.insertBefore(container, firstBlock);
-	} else {
-		document.body.insertBefore(container, document.body.firstChild);
-	}
-	return container;
+	return document.getElementById('home-page-recommendation-container');
 }
 
 function renderNativeHomePageRecommendation() {
@@ -399,10 +397,17 @@ function renderNativeHomePageRecommendation() {
 	return renderHomePageRecommendationNow({
 		targetDom: container,
 		limit: 24,
-		source: 'all',
-		timeoutMs: 2000
+		timeoutMs: NATIVE_HOME_RECOMMENDATION_TIMEOUT_MS
+	}).then(function(result) {
+		var status = result && result.status ? result.status : 'unknown';
+		container.setAttribute('data-native-render-status', status);
+		if (result && typeof result.count === 'number') {
+			container.setAttribute('data-native-render-count', result.count);
+		}
+		return result;
 	}).catch(function(error) {
 		console.log(error);
+		container.setAttribute('data-native-render-status', 'failed');
 		return {status: 'failed'};
 	});
 }

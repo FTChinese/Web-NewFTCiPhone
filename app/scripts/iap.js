@@ -61,6 +61,23 @@ function hideContactConfirm() {
 	}
 }
 
+function getPrivilegeLevelFromTier(tier) {
+    if (!tier) {return 0;}
+    var normalizedTier = String(tier).toLowerCase();
+    if (normalizedTier === 'premium' || normalizedTier === 'vip') {
+        return 2;
+    }
+    if (normalizedTier === 'standard' || normalizedTier === 'subscriber') {
+        return 1;
+    }
+    return 0;
+}
+
+function getExplicitContentPrivilegeLevel(itemContainer) {
+    var tier = itemContainer.getAttribute('data-tier');
+    return getPrivilegeLevelFromTier(tier);
+}
+
 function updateHeadlineLocks() {
     // Handle the case for HTML Book environment
     if (window.location.href.indexOf('htmlbook') > 0) {
@@ -106,10 +123,13 @@ function updateHeadlineLocks() {
         var dataType = itemContainer.getAttribute('data-type');
         var dataKeywords = itemContainer.getAttribute('data-keywords') || '';
         var dataDate = itemContainer.getAttribute('data-date') || null;
+        var explicitPrivilegeLevel = getExplicitContentPrivilegeLevel(itemContainer);
 
         // Determine content privilege level
         if (dataType === 'TryBook') {
             contentPrivilegeLevel = 0; // No privilege for TryBook (locked by default)
+        } else if (explicitPrivilegeLevel > 0) {
+            contentPrivilegeLevel = explicitPrivilegeLevel;
         } else if (/高端专享|高端專享|高階專享/.test(dataKeywords)) {
             contentPrivilegeLevel = 2; // VIP content
         } else if (/会员专享|會員專享/.test(dataKeywords)) {
