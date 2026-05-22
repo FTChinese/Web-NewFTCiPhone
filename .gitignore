@@ -8,6 +8,7 @@ app/templates/hotstories.json
 app/templates/localbackup.html
 app/templates/register.html
 app/templates/service.html
+app/templates/service-*.css
 app/templates/dailyenglishbackup.html
 app/templates/schedule.json
 app/templates/gpt.js

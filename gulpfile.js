@@ -409,6 +409,104 @@ function writeIOSTemplateWithBig5(fileName, replacements = []) {
     console.log('big 5 file writen to ' + big5FileName);
 }
 
+function getHTMLAttribute(tag, name) {
+  const quotedPattern = new RegExp(`\\s${name}\\s*=\\s*(['"])(.*?)\\1`, 'i');
+  const quotedMatch = tag.match(quotedPattern);
+  if (quotedMatch) {
+    return quotedMatch[2];
+  }
+
+  const unquotedPattern = new RegExp(`\\s${name}\\s*=\\s*([^\\s>]+)`, 'i');
+  const unquotedMatch = tag.match(unquotedPattern);
+  return unquotedMatch ? unquotedMatch[1] : '';
+}
+
+function isStylesheetLink(tag) {
+  const rel = getHTMLAttribute(tag, 'rel');
+  return /\bstylesheet\b/i.test(rel);
+}
+
+function getStylesheetCacheFileName(href, index) {
+  const url = new URL(href, nodeSiteBaseUrl);
+  const baseName = (url.pathname.split('/').pop() || `stylesheet-${index}.css`)
+    .replace(/[^a-zA-Z0-9._-]/g, '-');
+  return `service-${index}-${baseName}`;
+}
+
+function escapeHTMLAttribute(value) {
+  return String(value)
+    .replace(/&/g, '&amp;')
+    .replace(/"/g, '&quot;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;');
+}
+
+function validateIOSServiceHTML(html, filePath) {
+  const stylesheetLinks = [];
+  html.replace(/<link\b[^>]*>/gi, tag => {
+    if (isStylesheetLink(tag)) {
+      stylesheetLinks.push(tag);
+    }
+    return tag;
+  });
+  if (stylesheetLinks.length > 0) {
+    throw new Error(`${filePath} still contains external stylesheet links`);
+  }
+}
+
+async function embedStylesheetLinks(html, baseUrl, cacheDirectory) {
+  const stylesheetLinks = [];
+  html.replace(/<link\b[^>]*>/gi, tag => {
+    if (isStylesheetLink(tag)) {
+      const href = getHTMLAttribute(tag, 'href');
+      if (!href) {
+        throw new Error(`Stylesheet link has no href: ${tag}`);
+      }
+      stylesheetLinks.push({tag, href});
+    }
+    return tag;
+  });
+
+  let output = html;
+  for (let i = 0; i < stylesheetLinks.length; i += 1) {
+    const link = stylesheetLinks[i];
+    const stylesheetUrl = new URL(link.href, baseUrl).toString();
+    const cssFileName = getStylesheetCacheFileName(link.href, i);
+    const cssPath = `${cacheDirectory}${cssFileName}`;
+    await downloadFile(stylesheetUrl, cssFileName, cacheDirectory);
+    const css = fs.readFileSync(cssPath, 'utf8');
+    if (/<html[\s>]/i.test(css) || !/[{}]/.test(css)) {
+      throw new Error(`Downloaded stylesheet ${cssPath} does not look like CSS`);
+    }
+    const safeCSS = css
+      .replace(/<\/style/gi, '<\\/style');
+    const styleTag = `<style data-ios-embedded-stylesheet="${escapeHTMLAttribute(link.href)}">\n${safeCSS}\n</style>`;
+    output = output.split(link.tag).join(styleTag);
+  }
+
+  return output;
+}
+
+async function writeIOSServiceTemplateWithBig5(replacements = []) {
+  var chineseConv = require('chinese-conv');
+  const source = 'app/templates/service.html';
+  const dest = '../NewFTCApp-iOS/Page/FTChinese/service.html';
+  let data = fs.readFileSync(source, 'utf8');
+  for (const replacement of replacements) {
+    data = data.split(replacement.from).join(replacement.to);
+  }
+  data = await embedStylesheetLinks(data, nodeSiteBaseUrl, './app/templates/');
+  validateIOSServiceHTML(data, dest);
+  fs.writeFileSync(dest, data);
+  console.log('service html writen to ' + dest);
+
+  const big5FileName = dest.replace('.html', '_big5.html');
+  const big5Data = chineseConv.tify(data);
+  validateIOSServiceHTML(big5Data, big5FileName);
+  fs.writeFileSync(big5FileName, big5Data);
+  console.log('service big 5 file writen to ' + big5FileName);
+}
+
 async function getHotKeywords() {
   return new Promise((resolve, reject)=>{
     const hotStoriesString = fs.readFileSync('app/templates/hotstories.json', 'utf8');
@@ -579,15 +677,11 @@ gulp.task('ios', gulp.series('copy:node', 'grab', 'build', async () => {
     {from: '{{ftc-log-js}}', to: ftcLogJS}
   ]);
 
-  gulp.src(['app/templates/service.html'])
-    .pipe(replace('{{o-ads-js}}', oAdsJS))
-    .pipe(replace('{{gpt-js}}', gptJS))
-    .pipe(replace('{{ftc-log-js}}', ftcLogJS))
-    .pipe(gulp.dest('../NewFTCApp-iOS/Page/FTChinese/'))
-    .on('end', function() {
-      convert2Big5('../NewFTCApp-iOS/Page/FTChinese/service.html')
-    }
-  );
+  await writeIOSServiceTemplateWithBig5([
+    {from: '{{o-ads-js}}', to: oAdsJS},
+    {from: '{{gpt-js}}', to: gptJS},
+    {from: '{{ftc-log-js}}', to: ftcLogJS}
+  ]);
   
   gulp.src(['app/templates/account.html'])
     .pipe(replace('{{story-css}}', storyCSS))
