@@ -193,7 +193,6 @@ gulp.task('grab', async () => {
     downloadFile(`${nodeSiteBaseUrl}/styles/s.css?1512187911018`, 's.css', dest),
     downloadFile(`${nodeSiteBaseUrl}/js/log.js?v=9&20180412`, 'ftc-log.js', dest),
     downloadFile(`${nodeSiteBaseUrl}/js/ftscroller.js`, 'ftscroller.js', dest),
-    downloadFile('https://www.googletagservices.com/tag/js/gpt.js', 'gpt.js', dest),
     // MARK: - This can't be downloaded most of the time
     // downloadFile('https://www.ft.com/__origami/service/build/v2/bundles/js?modules=o-ads@10.2.1', 'o-ads.js', dest)
 
@@ -454,6 +453,21 @@ function validateIOSServiceHTML(html, filePath) {
   }
 }
 
+function normalizeGPTLoader(html) {
+  const adRuntimePattern = /<script>window\.adCodeLoaded = true;<\/script>\s*<script async src=['"]\/powertranslate\/scripts\/o-ads\.js['"]><\/script>\s*<script async src=['"]\/powertranslate\/scripts\/ad-polyfill\.js['"]><\/script>\s*<script async src=['"]\/powertranslate\/scripts\/gpt\.js['"]><\/script>/i;
+  const adRuntimeHTML = [
+    '<script>',
+    'window.adCodeLoaded = true;',
+    'window.googletag = window.googletag || {};',
+    'window.googletag.cmd = window.googletag.cmd || [];',
+    '</script>',
+    '<script async src="/powertranslate/scripts/gpt.js"></script>',
+    '<script async src="/powertranslate/scripts/o-ads.js"></script>',
+    '<script async src="/powertranslate/scripts/ad-polyfill.js"></script>'
+  ].join('\n');
+  return html.replace(adRuntimePattern, adRuntimeHTML);
+}
+
 async function embedStylesheetLinks(html, baseUrl, cacheDirectory) {
   const stylesheetLinks = [];
   html.replace(/<link\b[^>]*>/gi, tag => {
@@ -495,6 +509,7 @@ async function writeIOSServiceTemplateWithBig5(replacements = []) {
   for (const replacement of replacements) {
     data = data.split(replacement.from).join(replacement.to);
   }
+  data = normalizeGPTLoader(data);
   data = await embedStylesheetLinks(data, nodeSiteBaseUrl, './app/templates/');
   validateIOSServiceHTML(data, dest);
   fs.writeFileSync(dest, data);
@@ -594,7 +609,6 @@ gulp.task('ios', gulp.series('copy:node', 'grab', 'build', async () => {
   const commonCSS = fs.readFileSync('dist/styles/main-common.css', 'utf8');
   const webAppCSS = fs.readFileSync('app/templates/s.css', 'utf8');
   const oAdsJS = fs.readFileSync('app/templates/o-ads.js', 'utf8');
-  const gptJS = fs.readFileSync('app/templates/gpt.js', 'utf8');
   const ftcLogJS = fs.readFileSync('app/templates/ftc-log.js', 'utf8');
   const adPolyfillJS = fs.readFileSync('dist/scripts/ad-polyfill.js', 'utf8');
   const gymToolsJS = fs.readFileSync('dist/scripts/gym-tools.js', 'utf8');
@@ -648,7 +662,6 @@ gulp.task('ios', gulp.series('copy:node', 'grab', 'build', async () => {
   writeIOSTemplateWithBig5('findpassword.html', [
     {from: '<!--night-style-native-app-->', to: nightHTML},
     {from: '{{o-ads-js}}', to: oAdsJS},
-    {from: '{{gpt-js}}', to: gptJS},
     {from: '{{ftc-log-js}}', to: ftcLogJS}
   ]);
 
@@ -679,7 +692,6 @@ gulp.task('ios', gulp.series('copy:node', 'grab', 'build', async () => {
 
   await writeIOSServiceTemplateWithBig5([
     {from: '{{o-ads-js}}', to: oAdsJS},
-    {from: '{{gpt-js}}', to: gptJS},
     {from: '{{ftc-log-js}}', to: ftcLogJS}
   ]);
   
@@ -715,7 +727,6 @@ gulp.task('ios', gulp.series('copy:node', 'grab', 'build', async () => {
     .pipe(replace('{{db-zone-helper-js}}', dbZoneHelperJS))
     .pipe(replace('{{ad-pollyfill-js}}', adPolyfillJS))
     .pipe(replace('{{o-ads-js}}', oAdsJS))
-    .pipe(replace('{{gpt-js}}', gptJS))
     .pipe(replace('{{ftc-log-js}}', ftcLogJS))
     .pipe(rename('story.html'))
     .pipe(gulp.dest('../NewFTCApp-iOS/Page/FTChinese/'))
@@ -776,7 +787,6 @@ gulp.task('ios', gulp.series('copy:node', 'grab', 'build', async () => {
     .pipe(replace('{{list-js-main}}', listMainJS))
     .pipe(replace('{{list-js-key}}', listKeyJS))
     .pipe(replace('{{o-ads-js}}', oAdsJS))
-    .pipe(replace('{{gpt-js}}', gptJS))
     .pipe(replace('{{ftc-log-js}}', ftcLogJS))
     .pipe(replace('{{ad-pollyfill-js}}', adPolyfillJS))
     .pipe(gulp.dest('../NewFTCApp-iOS/Page/FTChinese/'))
@@ -793,7 +803,6 @@ gulp.task('ios', gulp.series('copy:node', 'grab', 'build', async () => {
     .pipe(replace('{{list-js-main}}', listMainJS))
     .pipe(replace('{{list-js-key}}', listKeyJS))
     .pipe(replace('{{o-ads-js}}', oAdsJS))
-    .pipe(replace('{{gpt-js}}', gptJS))
     .pipe(replace('{{ftc-log-js}}', ftcLogJS))
     .pipe(replace('{{ad-pollyfill-js}}', adPolyfillJS))
     .pipe(rename('myft.html'))

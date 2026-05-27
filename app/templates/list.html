@@ -64,11 +64,13 @@ gtag('event', $(e).attr("href"), {'event_label': "An", 'event_category': 'AdClic
 <script>
 var gPageId = 'home';
 window.adCodeLoaded = true;
+window.googletag = window.googletag || {};
+window.googletag.cmd = window.googletag.cmd || [];
 </script>
 
-<script async src='https://d2785ji6wtdqx8.cloudfront.net/n/o-ads.js?[date_stamp_string]'></script>
-<script async src='https://d2785ji6wtdqx8.cloudfront.net/n/ad-polyfill.js?[date_stamp_string]'></script>
-<script async src='https://d2785ji6wtdqx8.cloudfront.net/js/gpt.js?[date_stamp_string]'></script>
+<script async src='/powertranslate/scripts/gpt.js?[date_stamp_string]'></script>
+<script async src='/powertranslate/scripts/o-ads.js?[date_stamp_string]'></script>
+<script async src='/powertranslate/scripts/ad-polyfill.js?[date_stamp_string]'></script>
 
 <script>{{ftc-log-js}}</script>
 <script src="/powertranslate/scripts/register.js?3" async></script>

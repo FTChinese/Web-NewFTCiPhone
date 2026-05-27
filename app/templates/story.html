@@ -70,10 +70,14 @@ var gIsCurrentAdchFinal = false;
 </script>
 <!--isCurrentAdchFinal: no-->
 
-<script>window.adCodeLoaded = true;</script>
-<script async src='https://d2785ji6wtdqx8.cloudfront.net/n/o-ads.js?[date_stamp_string]'></script>
-<script async src='https://d2785ji6wtdqx8.cloudfront.net/n/ad-polyfill.js?[date_stamp_string]'></script>
-<script async src='https://d2785ji6wtdqx8.cloudfront.net/js/gpt.js?[date_stamp_string]'></script>
+<script>
+window.adCodeLoaded = true;
+window.googletag = window.googletag || {};
+window.googletag.cmd = window.googletag.cmd || [];
+</script>
+<script async src='/powertranslate/scripts/gpt.js?[date_stamp_string]'></script>
+<script async src='/powertranslate/scripts/o-ads.js?[date_stamp_string]'></script>
+<script async src='/powertranslate/scripts/ad-polyfill.js?[date_stamp_string]'></script>
 
 <script type="text/javascript">{{db-zone-helper-js}}</script>
 <script type="text/javascript"><!--{{cntopic}}--></script>
