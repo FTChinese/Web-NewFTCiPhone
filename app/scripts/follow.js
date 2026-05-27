@@ -21,46 +21,91 @@ function getFollowButtonText(button, isFollowed) {
     return isFollowed ? '已关注' : '关注';
 }
 
+function hasClassName(element, className) {
+    if (!element) {
+        return false;
+    }
+    if (element.classList) {
+        return element.classList.contains(className);
+    }
+    return (' ' + element.className + ' ').indexOf(' ' + className + ' ') >= 0;
+}
+
+function setClassName(element, className, enabled) {
+    if (!element) {
+        return;
+    }
+    if (element.classList) {
+        if (enabled) {
+            element.classList.add(className);
+        } else {
+            element.classList.remove(className);
+        }
+        return;
+    }
+    var classes = (' ' + element.className + ' ').replace(new RegExp(' ' + className + ' ', 'g'), ' ');
+    if (enabled) {
+        classes += className + ' ';
+    }
+    element.className = classes.replace(/^\s+|\s+$/g, '').replace(/\s+/g, ' ');
+}
+
 function setFollowButtonState(button, isFollowed) {
     button.textContent = getFollowButtonText(button, isFollowed);
-    if (isFollowed) {
-        button.className = button.className.replace(' plus', ' tick');
+    setClassName(button, 'tick', isFollowed);
+    setClassName(button, 'plus', !isFollowed);
+}
+
+function postFollowMessage(message) {
+    try {
+        if (typeof webkit === 'object') {
+            webkit.messageHandlers.follow.postMessage(message);
+        }
+    } catch (ignore) {}
+    try {
+        if (typeof Android === 'object') {
+            Android.follow(JSON.stringify(message));
+        }
+    } catch (ignore) {}
+}
+
+function handleFollowButtonClick(button) {
+    var message = {
+        tag: button.getAttribute('data-tag'),
+        type: button.getAttribute('data-type')
+    };
+    if (hasClassName(button, 'plus')) {
+        setFollowButtonState(button, true);
+        message.action = 'follow';
     } else {
-        button.className = button.className.replace(' tick', ' plus');
+        setFollowButtonState(button, false);
+        message.action = 'unfollow';
     }
+    postFollowMessage(message);
+}
+
+function findFollowButton(element) {
+    if (element && element.nodeType === 3) {
+        element = element.parentNode;
+    }
+    while (element && element !== document) {
+        if (hasClassName(element, 'myft-follow')) {
+            return element;
+        }
+        element = element.parentNode;
+    }
+    return null;
 }
 
 // click events
-try {
-    if (typeof delegate === 'undefined') {
-        window.delegate = new Delegate(document.body);
-    }
-    delegate.on('click', '.myft-follow', function(){
-        console.log('clicked');
-        var message = {
-            tag: this.getAttribute('data-tag'),
-            type: this.getAttribute('data-type')
-        };
-        if (this.className.indexOf(' plus')>0) {
-            setFollowButtonState(this, true);
-            message.action = 'follow';
-        } else {
-            setFollowButtonState(this, false);
-            message.action = 'unfollow';
+if (!window.__ftcMyFtFollowClickBound) {
+    window.__ftcMyFtFollowClickBound = true;
+    document.addEventListener('click', function(event){
+        var button = findFollowButton(event.target);
+        if (button) {
+            handleFollowButtonClick(button);
         }
-        try {
-            if (typeof webkit === 'object') {
-                webkit.messageHandlers.follow.postMessage(message);
-            }
-        } catch (ignore) {}
-        try {
-            if (typeof Android === 'object') {
-                Android.follow(JSON.stringify(message));
-            }
-        } catch (ignore) {}
-    });
-} catch (ignore) {
-
+    }, false);
 }
 
 function contains(a, obj) {
