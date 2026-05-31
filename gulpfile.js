@@ -601,6 +601,9 @@ gulp.task('ios', gulp.series('copy:node', 'grab', 'build', async () => {
   var myftCSS = fs.readFileSync('dist/styles/main-myft.css', 'utf8');
   var searchCSS  = fs.readFileSync('dist/styles/main-search.css', 'utf8');
   var searchJS = fs.readFileSync('dist/scripts/search.js', 'utf8');
+  const chatCSS = fs.readFileSync('dist/styles/main-chat.css', 'utf8');
+  const chatQuizCSS = fs.readFileSync('dist/styles/main-chat-quiz.css', 'utf8');
+  const chatMainJS = fs.readFileSync('dist/scripts/main-chat.js', 'utf8');
   var ebookCSS = fs.readFileSync('dist/styles/main-ebook.css', 'utf8');
   var ebookMainJS = fs.readFileSync('dist/scripts/main-ebook.js', 'utf8');
   var ebookKeyJS = fs.readFileSync('dist/scripts/key-ebook.js', 'utf8');
@@ -718,6 +721,13 @@ gulp.task('ios', gulp.series('copy:node', 'grab', 'build', async () => {
       convert2Big5('../ftc-android-kotlin/app/src/main/res/raw/search.html');
     }
   );
+
+  gulp.src(['app/templates/chat.html'])
+    .pipe($.if('*.html', $.htmlmin({collapseWhitespace: true})))
+    .pipe(replace('{{chat-css}}', chatCSS))
+    .pipe(replace('{{chat-quiz-css}}', chatQuizCSS))
+    .pipe(replace('{{chat-js-main}}', chatMainJS))
+    .pipe(gulp.dest('../NewFTCApp-iOS/Page/FTChinese/'));
 
   gulp.src(['app/templates/story.html'])
     .pipe($.if('*.html', $.htmlmin({collapseWhitespace: true})))

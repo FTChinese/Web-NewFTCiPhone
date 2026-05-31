@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, shrink-to-fit=no, viewport-fit=cover">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+
+
+<!-- <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, shrink-to-fit=no, viewport-fit=contain"> -->
+<!-- <meta name="apple-mobile-web-app-status-bar-style" content="default"> -->
+
+<meta name="apple-touch-fullscreen" content="YES">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="theme-color" content="#FFF1E0" />
+<link rel="apple-touch-icon" sizes="180x180" href="https://d2785ji6wtdqx8.cloudfront.net/img/friend-share-icon.jpg">
+<link rel="manifest" href="./chat-metatags.json" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<title>ChatFTC</title>
+<meta http-equiv="Content-Language" content="en"/>
+<meta content="Chat with the FT" name="description"/>
+<!-- build:css styles/main-chat.css -->
+<link rel="stylesheet" href="styles/main-chat.css">
+<!-- endbuild -->
+
+
+<!-- build:css styles/main-chat-quiz.css -->
+<link rel="stylesheet" href="styles/main-chat-quiz.css">
+<!-- endbuild -->
+
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-2MCQJHGE8J"></script>
+<script>
+// Define UTM and custom parameter mappings
+const paramMapping = {
+    'utm_source': 'campaign_source',
+    'utm_medium': 'campaign_medium',
+    'utm_campaign': 'campaign_name',
+    'utm_term': 'campaign_term',
+    'utm_content': 'campaign_content',
+    'ccode': 'campaign_name'  // Custom tracking parameter
+};
+
+// Extracts campaign parameters based on paramMapping
+function getTagParameters() {
+    try {
+        const url = new URL(window.location.href);
+        const params = new URLSearchParams(url.search || url.hash.substring(1));
+        const campaignParams = {};
+
+        // Map URL params to GA4-compatible keys
+        Object.entries(paramMapping).forEach(([utmKey, campaignKey]) => {
+            if (params.has(utmKey)) {
+                campaignParams[campaignKey] = params.get(utmKey);
+            }
+        });
+
+        return campaignParams;
+    } catch (error) {
+        console.error("Error parsing URL parameters:", error);
+        return {};
+    }
+}
+
+// Cleans page_location by removing tracking parameters
+function getCleanPageLocation() {
+    try {
+        const url = new URL(window.location.href);
+
+        // Only keep parameters not in paramMapping
+        [...url.searchParams.keys()].forEach(param => {
+            if (paramMapping[param]) {
+                url.searchParams.delete(param);
+            }
+        });
+
+        return url.origin + url.pathname + url.search;
+    } catch (error) {
+        console.error("Error generating clean page_location:", error);
+        return window.location.origin + window.location.pathname;
+    }
+}
+
+window.dataLayer = window.dataLayer || [];
+function gtag() { dataLayer.push(arguments); }
+
+// Initialize GA4 with send_page_view: false to prevent duplicate page views
+gtag('js', new Date());
+
+// Get campaign parameters and cleaned page location
+const gTagParameters = getTagParameters();
+gtag('config', 'G-2MCQJHGE8J', { send_page_view: false });
+
+// Trigger page_view event with campaign parameters and cleaned page location
+const page_location = getCleanPageLocation();
+gtag('event', 'page_view', {
+    ...gTagParameters,
+    page_location
+});
+</script>
+
+
+<link rel="icon" type="image/svg+xml" href="https://images.ft.com/v3/image/raw/ftlogo-v1%3Abrand-ft-logo-square-coloured?source=update-logos&amp;format=svg"/>
+<link rel="alternate icon" type="image/png" href="https://images.ft.com/v3/image/raw/ftlogo-v1%3Abrand-ft-logo-square-coloured?source=update-logos&amp;format=png&amp;width=32&amp;height=32" sizes="32x32"/>
+<link rel="alternate icon" type="image/png" href="https://images.ft.com/v3/image/raw/ftlogo-v1%3Abrand-ft-logo-square-coloured?source=update-logos&amp;format=png&amp;width=194&amp;height=194" sizes="194x194"/>
+</head>
+
+<body>
+
+<div class="container">
+    <aside class="sidebar">
+        <div class="sidebar-inner">
+            <div class="main-chat-role" id="main-chat-role">Top Content</div>
+            <div class="current-chat-roles" id="current-chat-roles"></div>
+            
+            <div class="side-bottom">
+                <span class="visitor-box sign-in-container">
+                    <a href="/login" data-key="Sign In">Sign In</a>
+                    <a class="more last" href="/register" data-key="Sign Up">Sign Up</a>
+                </span>
+                <span class="member-box logged-in-container">
+                    <span id="side-user-settings"></span>
+                    <a id="ft-login-logout"  onclick="logout()" data-key="Sign Out">Sign Out</a>
+                </span>
+            </div>
+
+        </div>
+        <div class="sidebar-bg"></div>
+        <button class="sidebar-close-button"></button>
+    </aside>
+    <header class="header-container">
+        <div class="header-inner">
+        <a href="/" class="masthead"></a>
+        <div class="header-side header-left header-side-toggle" id="header-side-toggle">
+        </div>
+        <div class="header-side header-right">
+
+        </div>
+        </div>
+    </header>
+    <div class="main-content">
+        <div class="chat-content" id="chat-content"></div>
+        <div class="chat-input-container">
+            <div class="chat-input-inner">
+                <div class="chat-input-first-line">
+                    <button class="chat-start-over" id="clean-slate" data-purpose="start-over" data-content="start-over"></button>
+                    <div class="chat-input">
+                        <div class="chat-topic-intention"></div>
+                        <textarea id="user-input" rows="1"></textarea>
+                        <button class="chat-voice-input" id="chat-voice-input" type="button" aria-label="Voice input" title="Voice input"></button>
+                        <button class="chat-submit" id="chat-submit"></button>
+                    </div>
+                </div>
+                <div class="chat-disclaimer" id="chat-disclaimer">Chat bots can make mistakes. Consider checking important information.</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+
+<!-- build:js scripts/main-chat.js -->
+<script type="text/javascript" src="/node_modules/next/app/scripts/dom-delegate.js"></script>
+<script type="text/javascript" src="/node_modules/next/app/scripts/indexed-db.js"></script>
+<script type="text/javascript" src="/node_modules/next/app/scripts/key.js"></script>
+<script type="text/javascript" src="/node_modules/next/app/scripts/ai.js"></script>
+<script type="text/javascript" src="/node_modules/next/app/scripts/trie.js"></script>
+<script type="text/javascript" src="/node_modules/next/app/scripts/convert-chinese.js"></script>
+<script type="text/javascript" src="/node_modules/next/app/scripts/get-my-preference.js"></script>
+<script type="text/javascript" src="/node_modules/next/app/scripts/chat-my-ft.js"></script>
+<script type="text/javascript" src="/node_modules/next/app/scripts/chat-dict.js"></script>
+<script type="text/javascript" src="/node_modules/next/app/scripts/chat.js"></script>
+<script type="text/javascript" src="/node_modules/next/app/scripts/chat-voice.js"></script>
+<script type="text/javascript" src="/node_modules/next/app/scripts/chat-audio.js"></script>
+<script type="text/javascript" src="/node_modules/next/app/scripts/chat-survey.js"></script>
+<script type="text/javascript" src="/node_modules/next/app/scripts/chat-article.js"></script>
+<script type="text/javascript" src="/node_modules/next/app/scripts/chat-quiz.js"></script>
+<script type="text/javascript" src="/node_modules/next/app/scripts/track-click.js"></script>
+<!-- endbuild -->
+
+
+
+</html>
