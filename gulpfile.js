@@ -727,7 +727,8 @@ gulp.task('ios', gulp.series('copy:node', 'grab', 'build', async () => {
     .pipe(replace('{{chat-css}}', chatCSS))
     .pipe(replace('{{chat-quiz-css}}', chatQuizCSS))
     .pipe(replace('{{chat-js-main}}', chatMainJS))
-    .pipe(gulp.dest('../NewFTCApp-iOS/Page/FTChinese/'));
+    .pipe(gulp.dest('../NewFTCApp-iOS/Page/FTChinese/'))
+    .pipe(gulp.dest('../ftc-android-kotlin/app/src/main/res/raw/'));
 
   gulp.src(['app/templates/story.html'])
     .pipe($.if('*.html', $.htmlmin({collapseWhitespace: true})))
