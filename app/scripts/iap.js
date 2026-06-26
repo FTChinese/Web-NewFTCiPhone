@@ -111,8 +111,25 @@ function isAndroidMembershipActive(membership) {
     return expireDate >= new Date();
 }
 
+function getPrivilegeLevelFromAndroidMembership(membership) {
+    if (!membership) {return 0;}
+    if (membership.vip === true) {
+        return 2;
+    }
+    if (!isAndroidMembershipActive(membership)) {
+        return 0;
+    }
+    return getPrivilegeLevelFromTier(membership.webPrivilegeTier || membership.tier);
+}
+
 function getUserPrivilegeLevel() {
     var userPrivilegeLevel = getPrivilegeLevelFromPrivileges(window.gPrivileges);
+    if (userPrivilegeLevel > 0) {
+        return userPrivilegeLevel;
+    }
+
+    var membership = window.androidUserInfo && window.androidUserInfo.membership;
+    userPrivilegeLevel = getPrivilegeLevelFromAndroidMembership(membership);
     if (userPrivilegeLevel > 0) {
         return userPrivilegeLevel;
     }
@@ -127,17 +144,25 @@ function getUserPrivilegeLevel() {
         return userPrivilegeLevel;
     }
 
-    var membership = window.androidUserInfo && window.androidUserInfo.membership;
-    if (isAndroidMembershipActive(membership)) {
-        return getPrivilegeLevelFromTier(membership.webPrivilegeTier || membership.tier);
-    }
-
     return 0;
 }
 
 function getExplicitContentPrivilegeLevel(itemContainer) {
     var tier = itemContainer.getAttribute('data-tier');
     return getPrivilegeLevelFromTier(tier);
+}
+
+function isAudioContent(itemContainer, subType, keywords) {
+    if (/^(radio|speedreading)$/i.test(subType)) {
+        return true;
+    }
+    if (itemContainer.getAttribute('data-audio')) {
+        return true;
+    }
+    if (/\bis-audio\b/.test(itemContainer.className || '')) {
+        return true;
+    }
+    return /音频|音頻|英语电台|英語電台|radio|speedreading/i.test(keywords);
 }
 
 function updateHeadlineLocks() {
@@ -175,6 +200,7 @@ function updateHeadlineLocks() {
 
         // Check for specific privilege based on data attributes or keywords
         var dataType = itemContainer.getAttribute('data-type');
+        var dataSubType = itemContainer.getAttribute('data-sub-type') || '';
         var dataKeywords = itemContainer.getAttribute('data-keywords') || '';
         var dataDate = itemContainer.getAttribute('data-date') || null;
         var explicitPrivilegeLevel = getExplicitContentPrivilegeLevel(itemContainer);
@@ -188,7 +214,7 @@ function updateHeadlineLocks() {
             contentPrivilegeLevel = 2; // VIP content
         } else if (/会员专享|會員專享/.test(dataKeywords)) {
             contentPrivilegeLevel = 1; // Premium content
-        } else if (dataType === 'premium' || /radio|speedreading/.test(dataKeywords)) {
+        } else if (dataType === 'premium' || isAudioContent(itemContainer, dataSubType, dataKeywords)) {
             contentPrivilegeLevel = 1; // Premium content
         } else if (dataType === 'story' && dataDate) {
             const archiveInSeconds = 24 * 60 * 60; // 24 hours
