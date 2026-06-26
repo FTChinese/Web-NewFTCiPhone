@@ -73,6 +73,68 @@ function getPrivilegeLevelFromTier(tier) {
     return 0;
 }
 
+function getPrivilegeLevelFromUserType(userType) {
+    if (!userType) {return 0;}
+    var normalizedUserType = String(userType).toLowerCase();
+    if (normalizedUserType === 'vip') {
+        return 2;
+    }
+    if (normalizedUserType === 'subscriber') {
+        return 1;
+    }
+    return 0;
+}
+
+function getPrivilegeLevelFromPrivileges(privileges) {
+    if (!Array.isArray(privileges)) {return 0;}
+    if (privileges.indexOf('EditorChoice') >= 0) {
+        return 2;
+    }
+    if (privileges.indexOf('premium') >= 0) {
+        return 1;
+    }
+    return 0;
+}
+
+function isAndroidMembershipActive(membership) {
+    if (!membership) {return false;}
+    if (membership.vip === true) {
+        return true;
+    }
+    if (!membership.expireDate) {
+        return false;
+    }
+    var expireDate = new Date(membership.expireDate);
+    if (isNaN(expireDate.getTime())) {
+        return false;
+    }
+    return expireDate >= new Date();
+}
+
+function getUserPrivilegeLevel() {
+    var userPrivilegeLevel = getPrivilegeLevelFromPrivileges(window.gPrivileges);
+    if (userPrivilegeLevel > 0) {
+        return userPrivilegeLevel;
+    }
+
+    userPrivilegeLevel = getPrivilegeLevelFromUserType(window.gUserType);
+    if (userPrivilegeLevel > 0) {
+        return userPrivilegeLevel;
+    }
+
+    userPrivilegeLevel = getPrivilegeLevelFromTier(window.subscriptionType);
+    if (userPrivilegeLevel > 0) {
+        return userPrivilegeLevel;
+    }
+
+    var membership = window.androidUserInfo && window.androidUserInfo.membership;
+    if (isAndroidMembershipActive(membership)) {
+        return getPrivilegeLevelFromTier(membership.webPrivilegeTier || membership.tier);
+    }
+
+    return 0;
+}
+
 function getExplicitContentPrivilegeLevel(itemContainer) {
     var tier = itemContainer.getAttribute('data-tier');
     return getPrivilegeLevelFromTier(tier);
@@ -94,15 +156,7 @@ function updateHeadlineLocks() {
         return;
     }
 
-    var privileges = window.gPrivileges || [];
-    var userPrivilegeLevel = 0;
-
-    // Determine user privilege level
-    if (privileges.indexOf('EditorChoice') >= 0) {
-        userPrivilegeLevel = 2;
-    } else if (privileges.indexOf('premium') >= 0) {
-        userPrivilegeLevel = 1;
-    }
+    var userPrivilegeLevel = getUserPrivilegeLevel();
 
     // Select all item headlines
     var headlines = document.querySelectorAll('.item-headline-link');
