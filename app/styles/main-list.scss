@@ -79,3 +79,15 @@ html.image-view, html.image-view body {
 }
 
 @import "night";
+
+// The Android WebView no longer expands its viewport to the full content height.
+// Keep the legacy no-overlay promo in normal document flow instead of using a
+// negative margin that can place it on top of the following ad.
+@media only screen and (max-width: 490px) {
+	.no-overlay.show-image-in-mobile.subscription-promo-container,
+	.is-subscriber.is-premium .show-image-in-mobile.subscription-promo-container.premium,
+	.is-subscriber.is-standard .show-image-in-mobile.subscription-promo-container.standard {
+		margin-top: 15px;
+		margin-bottom: 15px;
+	}
+}
