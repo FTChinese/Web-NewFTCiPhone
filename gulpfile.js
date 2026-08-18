@@ -15,6 +15,11 @@ const fs = require('fs');
 const updateImageBase64 = require('./update-image-base64-dict');
 const nativeTemplateDirectory = './app/native-templates/';
 const nodeSiteBaseUrl = 'https://ai.chineseft.net';
+const androidWebScriptSources = [
+  '../NEXT/app/scripts/trie.js',
+  '../NEXT/app/scripts/convert-chinese.js'
+];
+const androidWebScriptDestination = '../ftc-android-kotlin/app/src/main/assets/chinese-web/';
 
 function lint(files) {
   return gulp.src(files)
@@ -213,6 +218,16 @@ gulp.task('copy:node', async () => {
   ]);
 
   console.log('All copies are done!');
+});
+
+gulp.task('copy:android-web-scripts', () => {
+  const missingSources = androidWebScriptSources.filter(source => !fs.existsSync(source));
+  if (missingSources.length > 0) {
+    throw new Error(`Cannot find Android web script source(s): ${missingSources.join(', ')}`);
+  }
+
+  return gulp.src(androidWebScriptSources)
+    .pipe(gulp.dest(androidWebScriptDestination));
 });
 
 
@@ -580,7 +595,7 @@ gulp.task('service', async () => {
 
 
 // MARK: Create the HTML files for iOS Native App
-gulp.task('ios', gulp.series('copy:node', 'grab', 'build', async () => {
+gulp.task('ios', gulp.series('copy:node', 'copy:android-web-scripts', 'grab', 'build', async () => {
 
   // MARK: Update all the css files by replacing cloudfront static urls into backgrounds
   await updateImageBase64.run();
