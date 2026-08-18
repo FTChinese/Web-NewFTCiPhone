@@ -7,6 +7,7 @@ const del = require('del');
 const wiredep = require('wiredep').stream;
 const runSequence = require('run-sequence');
 const gutil = require('gulp-util');
+const rename = require('gulp-rename');
 const $ = gulpLoadPlugins();
 var sass = require('gulp-dart-sass');
 const reload = browserSync.reload;
@@ -228,6 +229,26 @@ gulp.task('copy:android-web-scripts', () => {
 
   return gulp.src(androidWebScriptSources)
     .pipe(gulp.dest(androidWebScriptDestination));
+});
+
+gulp.task('copy:android-masthead-assets', async () => {
+  const source = 'app/native-assets/brand-masthead/';
+  const destination = '../ftc-android-kotlin/app/src/main/res/';
+  const densities = ['mdpi', 'hdpi', 'xhdpi'];
+
+  if (!fs.existsSync(source)) {
+    throw new Error(`Cannot find Android masthead asset source: ${source}`);
+  }
+
+  await Promise.all(densities.map(density => new Promise((resolve, reject) => {
+    gulp.src(`${source}*_${density}.png`)
+      .pipe(rename(file => {
+        file.basename = file.basename.replace(`_${density}`, '');
+      }))
+      .pipe(gulp.dest(`${destination}drawable-${density}/`))
+      .on('error', reject)
+      .on('end', resolve);
+  })));
 });
 
 
@@ -595,7 +616,7 @@ gulp.task('service', async () => {
 
 
 // MARK: Create the HTML files for iOS Native App
-gulp.task('ios', gulp.series('copy:node', 'copy:android-web-scripts', 'grab', 'build', async () => {
+gulp.task('ios', gulp.series('copy:node', 'copy:android-web-scripts', 'copy:android-masthead-assets', 'grab', 'build', async () => {
 
   // MARK: Update all the css files by replacing cloudfront static urls into backgrounds
   await updateImageBase64.run();
